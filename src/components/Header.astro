@@ -41,20 +41,11 @@ const categoryMenu = [...pinned, ...dynamicCats].map((label) => ({
           <li class="nav-item">
             <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a>
           </li>
-          <li class="nav-item">
-            <a href="/articles" class={`nav-link ${currentPath.startsWith('/articles') ? 'active' : ''}`}>Articles</a>
-          </li>
           {categoryMenu.map((c) => (
             <li class="nav-item">
               <a href={c.href} class={`nav-link ${c.active ? 'active' : ''}`}>{c.label}</a>
             </li>
           ))}
-          <li class="nav-item">
-            <a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>About</a>
-          </li>
-          <li class="nav-item">
-            <a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
-          </li>
         </ul>
       </div>
       
