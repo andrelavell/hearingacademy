@@ -1,0 +1,636 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout 
+  title="Home" 
+  description="Expert hearing health information, hearing aid reviews, and comprehensive guides to help you make informed decisions about your hearing wellness."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">Your Guide to Better Hearing</h1>
+            <p class="hero-description">
+              Discover expert insights, comprehensive reviews, and trusted guidance to help you navigate your hearing health journey with confidence.
+            </p>
+            <div class="hero-actions">
+              <a href="/articles" class="btn btn-primary">Explore Articles</a>
+              <a href="/hearing-aids" class="btn btn-secondary">Find Hearing Aids</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="/hero-image.jpg" alt="Happy family enjoying conversation together" width="600" height="400" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Services -->
+    <section class="services">
+      <div class="container">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+            </div>
+            <h3>Expert Reviews</h3>
+            <p>Comprehensive hearing aid reviews from certified audiologists and hearing specialists.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+            </div>
+            <h3>Latest Technology</h3>
+            <p>Stay updated with cutting-edge hearing aid technology and innovative solutions.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="m22 21-3-3m0 0a5.5 5.5 0 1 0-7.78-7.78 5.5 5.5 0 0 0 7.78 7.78Z"></path>
+              </svg>
+            </div>
+            <h3>Find Specialists</h3>
+            <p>Connect with qualified hearing healthcare professionals in your area.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured-articles">
+      <div class="container">
+        <div class="section-header">
+          <h2>Latest Articles</h2>
+          <a href="/articles" class="view-all">View All Articles</a>
+        </div>
+        
+        <div class="articles-grid">
+          <article class="article-card featured">
+            <div class="article-image">
+              <img src="/article-1.jpg" alt="Understanding hearing loss types" width="400" height="250" />
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="category">Hearing Loss</span>
+                <time datetime="2024-01-15">January 15, 2024</time>
+              </div>
+              <h3><a href="/articles/understanding-hearing-loss-types">Understanding Different Types of Hearing Loss</a></h3>
+              <p>Learn about the various types of hearing loss, their causes, and available treatment options to make informed decisions about your hearing health.</p>
+              <a href="/articles/understanding-hearing-loss-types" class="read-more">Read More</a>
+            </div>
+          </article>
+          
+          <article class="article-card">
+            <div class="article-image">
+              <img src="/article-2.jpg" alt="Best hearing aids 2024" width="400" height="250" />
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="category">Reviews</span>
+                <time datetime="2024-01-12">January 12, 2024</time>
+              </div>
+              <h3><a href="/articles/best-hearing-aids-2024">Best Hearing Aids of 2024</a></h3>
+              <p>Our comprehensive review of the top hearing aids available this year, featuring the latest technology and user experiences.</p>
+              <a href="/articles/best-hearing-aids-2024" class="read-more">Read More</a>
+            </div>
+          </article>
+          
+          <article class="article-card">
+            <div class="article-image">
+              <img src="/article-3.jpg" alt="Hearing protection tips" width="400" height="250" />
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="category">Prevention</span>
+                <time datetime="2024-01-10">January 10, 2024</time>
+              </div>
+              <h3><a href="/articles/hearing-protection-tips">Essential Hearing Protection Tips</a></h3>
+              <p>Discover practical strategies to protect your hearing in various environments and maintain optimal hearing health.</p>
+              <a href="/articles/hearing-protection-tips" class="read-more">Read More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="popular-products">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular Hearing Aids</h2>
+          <a href="/hearing-aids" class="view-all">View All Products</a>
+        </div>
+        
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/product-1.jpg" alt="Phonak Audéo Paradise" width="300" height="200" />
+            </div>
+            <div class="product-content">
+              <h3>Phonak Audéo Paradise</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★★</div>
+                <span class="rating-text">4.8/5 (124 reviews)</span>
+              </div>
+              <p class="product-price">From $2,499</p>
+              <a href="/hearing-aids/phonak-audeo-paradise" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/product-2.jpg" alt="ReSound ONE" width="300" height="200" />
+            </div>
+            <div class="product-content">
+              <h3>ReSound ONE</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★★</div>
+                <span class="rating-text">4.7/5 (98 reviews)</span>
+              </div>
+              <p class="product-price">From $2,299</p>
+              <a href="/hearing-aids/resound-one" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/product-3.jpg" alt="Oticon More" width="300" height="200" />
+            </div>
+            <div class="product-content">
+              <h3>Oticon More</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★☆</div>
+                <span class="rating-text">4.6/5 (87 reviews)</span>
+              </div>
+              <p class="product-price">From $2,199</p>
+              <a href="/hearing-aids/oticon-more" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/product-4.jpg" alt="Widex Moment" width="300" height="200" />
+            </div>
+            <div class="product-content">
+              <h3>Widex Moment</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★☆</div>
+                <span class="rating-text">4.5/5 (76 reviews)</span>
+              </div>
+              <p class="product-price">From $2,099</p>
+              <a href="/hearing-aids/widex-moment" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Improve Your Hearing?</h2>
+          <p>Get personalized recommendations and expert guidance to find the perfect hearing solution for your needs.</p>
+          <div class="cta-actions">
+            <a href="/contact" class="btn btn-primary">Get Started</a>
+            <a href="/articles" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: var(--space-8) 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: var(--fs-900);
+    font-weight: var(--fw-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+    line-height: var(--lh-tight);
+  }
+
+  .hero-description {
+    font-size: var(--fs-400);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-5);
+    line-height: var(--lh-normal);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-5);
+    border-radius: 8px;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: var(--fs-300);
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .services {
+    padding: var(--space-8) 0;
+    background: white;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .service-card {
+    text-align: center;
+    padding: var(--space-6);
+    border-radius: 12px;
+    background: var(--color-background-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-icon {
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+    display: flex;
+    justify-content: center;
+  }
+
+  .service-card h3 {
+    font-size: var(--fs-600);
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+  }
+
+  .featured-articles {
+    padding: var(--space-8) 0;
+    background: var(--color-background-light);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-7);
+  }
+
+  .section-header h2 {
+    font-size: var(--fs-700);
+    color: var(--color-text);
+  }
+
+  .view-all {
+    color: var(--color-primary);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .view-all:hover {
+    color: var(--color-primary-light);
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .article-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .article-card.featured {
+    grid-row: span 2;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .article-card.featured .article-image img {
+    height: 300px;
+  }
+
+  .article-content {
+    padding: var(--space-4);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-200);
+  }
+
+  .category {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 20px;
+    font-weight: var(--fw-medium);
+  }
+
+  .article-content h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .article-content h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .article-content h3 a:hover {
+    color: var(--color-primary);
+  }
+
+  .read-more {
+    color: var(--color-primary);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    font-size: var(--fs-200);
+  }
+
+  .popular-products {
+    padding: var(--space-8) 0;
+    background: white;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .product-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .product-content {
+    padding: var(--space-4);
+  }
+
+  .product-content h3 {
+    font-size: var(--fs-500);
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .stars {
+    color: #fbbf24;
+    font-size: var(--fs-300);
+  }
+
+  .rating-text {
+    font-size: var(--fs-200);
+    color: var(--color-text-muted);
+  }
+
+  .product-price {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-semibold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: white;
+    padding: var(--space-8) 0;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: var(--fs-700);
+    margin-bottom: var(--space-3);
+    color: white;
+  }
+
+  .cta-content p {
+    font-size: var(--fs-400);
+    margin-bottom: var(--space-5);
+    opacity: 0.9;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .cta .btn-primary {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta .btn-primary:hover {
+    background: var(--color-background-light);
+    transform: translateY(-2px);
+  }
+
+  .cta .btn-secondary {
+    background: transparent;
+    color: white;
+    border-color: white;
+  }
+
+  .cta .btn-secondary:hover {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 1024px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      text-align: center;
+    }
+
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .article-card.featured {
+      grid-row: span 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-6) 0;
+    }
+
+    .hero-title {
+      font-size: var(--fs-700);
+    }
+
+    .hero-description {
+      font-size: var(--fs-300);
+    }
+
+    .section-header {
+      flex-direction: column;
+      gap: var(--space-3);
+      text-align: center;
+    }
+
+    .section-header h2 {
+      font-size: var(--fs-600);
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .cta-content h2 {
+      font-size: var(--fs-600);
+    }
+
+    .cta-content p {
+      font-size: var(--fs-300);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

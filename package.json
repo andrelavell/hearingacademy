@@ -1,0 +1,24 @@
+{
+  "name": "hearingacademy",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "scan:articles": "node scripts/scan-articles.js",
+    "generate:article": "node scripts/generate-article.js",
+    "generate:daily": "node scripts/generate-daily.js"
+  },
+  "dependencies": {
+    "astro": "^5.12.9",
+    "dotenv": "^16.4.5",
+    "fast-glob": "^3.3.2",
+    "gray-matter": "^4.0.3",
+    "openai": "^4.56.0",
+    "pexels": "^1.4.0",
+    "reading-time": "^1.5.0",
+    "slugify": "^1.6.6"
+  }
+}

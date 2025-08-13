@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout 
+  title="Articles" 
+  description="Expert articles on hearing health, hearing aids, technology, and wellness. Stay informed with the latest insights from hearing healthcare professionals."
+>
+  <Header />
+  
+  <main>
+    <section class="articles-hero">
+      <div class="container">
+        <h1>Expert Hearing Health Articles</h1>
+        <p>Stay informed with the latest insights, research, and expert guidance on hearing health and hearing aid technology.</p>
+      </div>
+    </section>
+
+    <section class="articles-content">
+      <div class="container">
+        <div class="articles-grid">
+          <article class="article-card">
+            <div class="article-image">
+              <img src="/article-1.jpg" alt="Understanding hearing loss types" width="400" height="250" />
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="category">Hearing Loss</span>
+                <time datetime="2024-01-15">January 15, 2024</time>
+              </div>
+              <h2><a href="/articles/understanding-hearing-loss-types">Understanding Different Types of Hearing Loss</a></h2>
+              <p>Learn about the various types of hearing loss, their causes, and available treatment options to make informed decisions about your hearing health.</p>
+              <a href="/articles/understanding-hearing-loss-types" class="read-more">Read More</a>
+            </div>
+          </article>
+          
+          <article class="article-card">
+            <div class="article-image">
+              <img src="/article-2.jpg" alt="Best hearing aids 2024" width="400" height="250" />
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="category">Reviews</span>
+                <time datetime="2024-01-12">January 12, 2024</time>
+              </div>
+              <h2><a href="/articles/best-hearing-aids-2024">Best Hearing Aids of 2024</a></h2>
+              <p>Our comprehensive review of the top hearing aids available this year, featuring the latest technology and user experiences.</p>
+              <a href="/articles/best-hearing-aids-2024" class="read-more">Read More</a>
+            </div>
+          </article>
+          
+          <article class="article-card">
+            <div class="article-image">
+              <img src="/article-3.jpg" alt="Hearing protection tips" width="400" height="250" />
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="category">Prevention</span>
+                <time datetime="2024-01-10">January 10, 2024</time>
+              </div>
+              <h2><a href="/articles/hearing-protection-tips">Essential Hearing Protection Tips</a></h2>
+              <p>Discover practical strategies to protect your hearing in various environments and maintain optimal hearing health.</p>
+              <a href="/articles/hearing-protection-tips" class="read-more">Read More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .articles-hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: var(--space-8) 0;
+    text-align: center;
+  }
+
+  .articles-hero h1 {
+    font-size: var(--fs-800);
+    font-weight: var(--fw-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .articles-hero p {
+    font-size: var(--fs-400);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .articles-content {
+    padding: var(--space-8) 0;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .article-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .article-content {
+    padding: var(--space-5);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+    font-size: var(--fs-100);
+  }
+
+  .category {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 20px;
+    font-weight: var(--fw-medium);
+  }
+
+  .article-content h2 {
+    margin-bottom: var(--space-4);
+    font-size: var(--fs-500);
+  }
+
+  .article-content h2 a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .article-content h2 a:hover {
+    color: var(--color-primary);
+  }
+
+  .article-content p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-5);
+    line-height: var(--lh-normal);
+  }
+
+  .read-more {
+    color: var(--color-primary);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    font-size: var(--fs-100);
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .articles-hero h1 {
+      font-size: var(--fs-700);
+    }
+
+    .articles-hero p {
+      font-size: var(--fs-300);
+    }
+
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
