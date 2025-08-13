@@ -40,11 +40,15 @@ function escapeHtml(s) {
 }
 
 // Inline linking
-const STOP = new Set(['the','a','an','and','or','but','to','of','in','on','for','with','without','that','this','these','those','your','is','are','be','as','by','from','at','it','its','into','about','what','when','how','why','we','our']);
+const STOP = new Set([
+  'the','a','an','and','or','but','to','of','in','on','for','with','without','that','this','these','those','your','is','are','be','as','by','from','at','it','its','into','about','what','when','how','why','we','our',
+  // Generic SEO/medical filler
+  'health','research','guide','guides','tips','basics','overview','introduction','intro','article','blog','post'
+]);
 
 function escapeRegex(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
-function deriveAnchorsFromTitle(title, { maxWords = 4 } = {}) {
+function deriveAnchorsFromTitle(title, { minWords = 2, maxWords = 4 } = {}) {
   const words = String(title || '')
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, ' ')
@@ -53,12 +57,29 @@ function deriveAnchorsFromTitle(title, { maxWords = 4 } = {}) {
     .filter((w) => !STOP.has(w));
   if (!words.length) return [];
   const slice = words.slice(0, maxWords);
+  if (slice.length < minWords) return [];
   const phrase = slice.join(' ');
   return phrase ? [phrase] : [];
 }
 
 function getItemBySlug(index, slug) {
   return index.find((it) => it.slug === slug);
+}
+
+function tokensFor(s) {
+  return new Set(
+    String(s || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean)
+      .filter((w) => !STOP.has(w))
+  );
+}
+
+function tokensIntersect(aSet, bSet) {
+  for (const t of aSet) if (bSet.has(t)) return true;
+  return false;
 }
 
 export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {}) {
@@ -73,16 +94,28 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
     const candidates = [];
     for (const r of related) {
       const item = getItemBySlug(index, r.slug) || { title: r.title, tags: [] };
+      const itemTags = (item.tags || []).map((t) => String(t || '').toLowerCase().trim()).filter(Boolean);
+      const tagTokenSet = new Set(itemTags.flatMap((t) => Array.from(tokensFor(t))));
+
       const anchors = [];
-      // Prefer tags as anchors
-      for (const t of (item.tags || [])) {
-        const a = String(t || '').toLowerCase().trim();
-        if (a && a.length >= 3 && a.length <= 40) anchors.push(a);
+      // Prefer tag-based anchors (allow single word)
+      for (const t of itemTags) {
+        if (t.length >= 3 && t.length <= 60) {
+          const toks = tokensFor(t);
+          anchors.push({ text: t, type: 'tag', tokens: toks, tokenCount: toks.size });
+        }
       }
-      // Fallback: derive from title
-      anchors.push(...deriveAnchorsFromTitle(item.title));
+      // Title-derived anchors: require multi-word and overlap with tag tokens for relevance
+      for (const p of deriveAnchorsFromTitle(item.title, { minWords: 2, maxWords: 4 })) {
+        const toks = tokensFor(p);
+        if (toks.size >= 2 && (tagTokenSet.size === 0 || tokensIntersect(toks, tagTokenSet))) {
+          anchors.push({ text: p, type: 'title', tokens: toks, tokenCount: toks.size });
+        }
+      }
+      // Prefer more specific (more tokens) anchors first
+      anchors.sort((a, b) => b.tokenCount - a.tokenCount);
       const href = `/articles/${r.slug}`;
-      candidates.push({ href, anchors });
+      candidates.push({ href, anchors, tagTokenSet });
     }
 
     let placed = 0;
@@ -96,8 +129,15 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
       for (const c of candidates) {
         if (placed >= maxInline) break;
         if (usedHrefs.has(c.href)) continue;
-        for (const anchor of c.anchors) {
+        for (const a of c.anchors) {
+          const anchor = a.text;
           if (!anchor || usedAnchors.has(anchor)) continue;
+          // Only allow single-word anchors if they are tag-based
+          const isSingleWord = anchor.trim().split(/\s+/).length === 1;
+          if (isSingleWord && a.type !== 'tag') continue;
+          // For title-derived anchors, ensure overlap with target tag tokens
+          if (a.type === 'title' && c.tagTokenSet && c.tagTokenSet.size > 0 && !tokensIntersect(a.tokens, c.tagTokenSet)) continue;
+
           const re = new RegExp(escapeRegex(anchor), 'i');
           const nodes = $el.contents().toArray();
           let linked = false;
