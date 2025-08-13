@@ -2,6 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import topics from '../../data/topics_index.json';
+
+const items = (topics || []).slice().sort((a, b) => {
+  const ad = new Date(a.publishedTime || a.modifiedTime || 0).getTime();
+  const bd = new Date(b.publishedTime || b.modifiedTime || 0).getTime();
+  return bd - ad;
+});
 ---
 
 <BaseLayout 
@@ -20,52 +27,34 @@ import Footer from '../../components/Footer.astro';
 
     <section class="articles-content">
       <div class="container">
-        <div class="articles-grid">
-          <article class="article-card">
-            <div class="article-image">
-              <img src="/article-1.jpg" alt="Understanding hearing loss types" width="400" height="250" />
-            </div>
-            <div class="article-content">
-              <div class="article-meta">
-                <span class="category">Hearing Loss</span>
-                <time datetime="2024-01-15">January 15, 2024</time>
-              </div>
-              <h2><a href="/articles/understanding-hearing-loss-types">Understanding Different Types of Hearing Loss</a></h2>
-              <p>Learn about the various types of hearing loss, their causes, and available treatment options to make informed decisions about your hearing health.</p>
-              <a href="/articles/understanding-hearing-loss-types" class="read-more">Read More</a>
-            </div>
-          </article>
-          
-          <article class="article-card">
-            <div class="article-image">
-              <img src="/article-2.jpg" alt="Best hearing aids 2024" width="400" height="250" />
-            </div>
-            <div class="article-content">
-              <div class="article-meta">
-                <span class="category">Reviews</span>
-                <time datetime="2024-01-12">January 12, 2024</time>
-              </div>
-              <h2><a href="/articles/best-hearing-aids-2024">Best Hearing Aids of 2024</a></h2>
-              <p>Our comprehensive review of the top hearing aids available this year, featuring the latest technology and user experiences.</p>
-              <a href="/articles/best-hearing-aids-2024" class="read-more">Read More</a>
-            </div>
-          </article>
-          
-          <article class="article-card">
-            <div class="article-image">
-              <img src="/article-3.jpg" alt="Hearing protection tips" width="400" height="250" />
-            </div>
-            <div class="article-content">
-              <div class="article-meta">
-                <span class="category">Prevention</span>
-                <time datetime="2024-01-10">January 10, 2024</time>
-              </div>
-              <h2><a href="/articles/hearing-protection-tips">Essential Hearing Protection Tips</a></h2>
-              <p>Discover practical strategies to protect your hearing in various environments and maintain optimal hearing health.</p>
-              <a href="/articles/hearing-protection-tips" class="read-more">Read More</a>
-            </div>
-          </article>
-        </div>
+        {items.length === 0 ? (
+          <p>No articles yet. Please check back soon.</p>
+        ) : (
+          <div class="articles-grid">
+            {items.map((it) => (
+              <article class="article-card">
+                {it.image && (
+                  <div class="article-image">
+                    <img src={it.image} alt={it.title} width="400" height="250" />
+                  </div>
+                )}
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="category">{it.category}</span>
+                    {it.publishedTime && (
+                      <time datetime={it.publishedTime}>
+                        {new Date(it.publishedTime).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                      </time>
+                    )}
+                  </div>
+                  <h2><a href={`/articles/${it.slug}`}>{it.title}</a></h2>
+                  {it.description && <p>{it.description}</p>}
+                  <a href={`/articles/${it.slug}`} class="read-more">Read More</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   </main>
