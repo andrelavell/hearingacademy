@@ -64,6 +64,43 @@ export function makeSlug(title) {
   return slugify(title, { lower: true, strict: true, trim: true });
 }
 
+export function makeCompactSlug({ title, keywords = [], maxLen = 60, maxWords = 6 }) {
+  const base = String(title || '');
+  const kw = Array.isArray(keywords) ? keywords : [];
+  const terms = (base + ' ' + kw.join(' '))
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean);
+
+  const stop = new Set([
+    'the','a','an','and','or','but','to','of','in','on','for','with','without','that','this','these','those','your','youre','is','are','be','as','by','from','at','it','its','into','about','what','when','how','why','we','our'
+  ]);
+  const dedup = [];
+  for (const t of terms) {
+    if (stop.has(t)) continue;
+    if (!dedup.includes(t)) dedup.push(t);
+  }
+
+  const priority = ['hearing','hearing-aids','audiogram','tinnitus','ear','audiology','hearing-loss','hidden','noise','protection','tests','technology','treatment','prevention'];
+  const prioritized = [...dedup].sort((a,b) => {
+    const ia = priority.indexOf(a);
+    const ib = priority.indexOf(b);
+    return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+  });
+
+  const words = prioritized.slice(0, maxWords);
+  let slug = slugify(words.join(' '), { lower: true, strict: true, trim: true });
+  if (slug.length > maxLen) {
+    while (words.length > 1 && slug.length > maxLen) {
+      words.pop();
+      slug = slugify(words.join(' '), { lower: true, strict: true, trim: true });
+    }
+  }
+  if (!slug) slug = makeSlug(title);
+  return slug;
+}
+
 function escapeAttr(s) {
   return String(s || '').replace(/"/g, '\\"');
 }

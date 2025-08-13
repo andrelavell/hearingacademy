@@ -1,5 +1,30 @@
 ---
 const currentPath = Astro.url.pathname;
+import topics from '../data/topics_index.json';
+import navConf from '../data/navigation.json';
+
+const slugify = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
+
+const pinned = Array.isArray(navConf?.pinnedCategories) ? navConf.pinnedCategories : ['Hearing Aids', 'Technology'];
+const maxDynamic = Number(navConf?.maxDynamicCategories ?? 2);
+
+// Count articles per category
+const countByCat = {};
+for (const it of (Array.isArray(topics) ? topics : [])) {
+  if (it?.category) countByCat[it.category] = (countByCat[it.category] || 0) + 1;
+}
+
+// Choose dynamic categories by article count, excluding pinned
+const dynamicCats = Object.keys(countByCat)
+  .filter((c) => !pinned.includes(c))
+  .sort((a, b) => (countByCat[b] - countByCat[a]))
+  .slice(0, Math.max(0, maxDynamic));
+
+const categoryMenu = [...pinned, ...dynamicCats].map((label) => ({
+  label,
+  href: `/category/${slugify(label)}`,
+  active: currentPath.startsWith(`/category/${slugify(label)}`),
+}));
 ---
 
 <header class="header">
@@ -19,12 +44,11 @@ const currentPath = Astro.url.pathname;
           <li class="nav-item">
             <a href="/articles" class={`nav-link ${currentPath.startsWith('/articles') ? 'active' : ''}`}>Articles</a>
           </li>
-          <li class="nav-item">
-            <a href="/category/hearing-aids" class={`nav-link ${currentPath.startsWith('/category/hearing-aids') ? 'active' : ''}`}>Hearing Aids</a>
-          </li>
-          <li class="nav-item">
-            <a href="/category/technology" class={`nav-link ${currentPath.startsWith('/category/technology') ? 'active' : ''}`}>Technology</a>
-          </li>
+          {categoryMenu.map((c) => (
+            <li class="nav-item">
+              <a href={c.href} class={`nav-link ${c.active ? 'active' : ''}`}>{c.label}</a>
+            </li>
+          ))}
           <li class="nav-item">
             <a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>About</a>
           </li>

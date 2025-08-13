@@ -2,7 +2,7 @@
 import 'dotenv/config';
 import path from 'node:path';
 import { readFile, writeFile, readJSON, writeJSON, ARTICLES_DIR, DATA_DIR, ensureDir } from './utils/fs.js';
-import { parseArticleAstro, buildArticleAstro, makeSlug } from './utils/astroArticle.js';
+import { parseArticleAstro, buildArticleAstro, makeSlug, makeCompactSlug } from './utils/astroArticle.js';
 import { topicHash, jaccard, normalizeTopic } from './utils/dedupe.js';
 import { pickRelated, appendFurtherReadingToBody } from './utils/linking.js';
 import { findHeroImage } from './utils/pexels.js';
@@ -163,8 +163,15 @@ async function main() {
   if (related.length) body = appendFurtherReadingToBody(body, related);
   body += renderFaqAndRefs(data.faqs, data.references);
 
-  // Compute slug early (used for image naming)
-  const slug = makeSlug(data.title);
+  // Compute compact, keyword-focused slug early (used for image naming)
+  const baseSlug = makeCompactSlug({ title: data.title, keywords: data.keywords }) || makeSlug(data.title);
+  let slug = baseSlug;
+  // Ensure uniqueness against current index
+  if (index.some((it) => it.slug === slug)) {
+    let i = 2;
+    while (index.some((it) => it.slug === `${baseSlug}-${i}`)) i++;
+    slug = `${baseSlug}-${i}`;
+  }
 
   // Fetch hero image and optionally download locally
   const hero = await findHeroImage({
