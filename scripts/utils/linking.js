@@ -96,6 +96,7 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
       const item = getItemBySlug(index, r.slug) || { title: r.title, tags: [] };
       const itemTags = (item.tags || []).map((t) => String(t || '').toLowerCase().trim()).filter(Boolean);
       const tagTokenSet = new Set(itemTags.flatMap((t) => Array.from(tokensFor(t))));
+      const titleTokenSet = tokensFor(item.title);
 
       const anchors = [];
       // Prefer tag-based anchors (allow single word)
@@ -115,8 +116,32 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
       // Prefer more specific (more tokens) anchors first
       anchors.sort((a, b) => b.tokenCount - a.tokenCount);
       const href = `/articles/${r.slug}`;
-      candidates.push({ href, anchors, tagTokenSet });
+      candidates.push({ href, anchors, tagTokenSet, titleTokenSet, itemTags });
     }
+
+    // Build anchor -> candidate list with per-anchor relevance score
+    const anchorMap = new Map();
+    for (const c of candidates) {
+      for (const a of c.anchors) {
+        const anchor = a.text;
+        if (!anchor) continue;
+        const isSingleWord = anchor.trim().split(/\s+/).length === 1;
+        // Compute relevance score for this anchor->target pairing
+        let score = 0;
+        // Exact tag match gets highest priority
+        if (a.type === 'tag' && c.itemTags.includes(anchor)) score += 5;
+        // Overlap with target tag tokens
+        if (tokensIntersect(a.tokens, c.tagTokenSet)) score += 3;
+        // Overlap with target title tokens
+        if (tokensIntersect(a.tokens, c.titleTokenSet)) score += 2;
+        // Slight boost for multi-word anchors
+        if (!isSingleWord) score += 1;
+        if (!anchorMap.has(anchor)) anchorMap.set(anchor, []);
+        anchorMap.get(anchor).push({ href: c.href, score, type: a.type });
+      }
+    }
+    // Sort candidate lists by score desc
+    for (const [k, arr] of anchorMap) arr.sort((x, y) => y.score - x.score);
 
     let placed = 0;
     const blocks = $('p, li');
@@ -125,43 +150,39 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
       const $el = $(el);
       if ($el.find('a').length) return; // skip if already contains links (avoid clutter)
 
-      // Try to place one link per block
-      for (const c of candidates) {
+      // Try to place one link per block: evaluate anchors present in this block and pick best target
+      const anchorsByLength = Array.from(anchorMap.keys()).sort((a, b) => b.length - a.length);
+      for (const anchor of anchorsByLength) {
         if (placed >= maxInline) break;
-        if (usedHrefs.has(c.href)) continue;
-        for (const a of c.anchors) {
-          const anchor = a.text;
-          if (!anchor || usedAnchors.has(anchor)) continue;
-          // Only allow single-word anchors if they are tag-based
-          const isSingleWord = anchor.trim().split(/\s+/).length === 1;
-          if (isSingleWord && a.type !== 'tag') continue;
-          // For title-derived anchors, ensure overlap with target tag tokens
-          if (a.type === 'title' && c.tagTokenSet && c.tagTokenSet.size > 0 && !tokensIntersect(a.tokens, c.tagTokenSet)) continue;
-
-          const re = new RegExp(escapeRegex(anchor), 'i');
-          const nodes = $el.contents().toArray();
-          let linked = false;
-          for (const node of nodes) {
-            if (linked) break;
-            if (node.type === 'text') {
-              const txt = node.data || '';
-              const m = re.exec(txt);
-              if (m) {
-                const i = m.index;
-                const before = txt.slice(0, i);
-                const matchText = txt.slice(i, i + m[0].length);
-                const after = txt.slice(i + m[0].length);
-                const linkHtml = `${before}<a href="${c.href}">${matchText}</a>${after}`;
-                $(node).replaceWith(linkHtml);
-                usedAnchors.add(anchor);
-                usedHrefs.add(c.href);
-                placed++;
-                linked = true;
-              }
-            }
-          }
-          if (linked) break;
+        if (usedAnchors.has(anchor)) continue;
+        const re = new RegExp(escapeRegex(anchor), 'i');
+        const nodes = $el.contents().toArray();
+        let idxNode = -1;
+        let matchInfo = null;
+        for (let i = 0; i < nodes.length; i++) {
+          const node = nodes[i];
+          if (node.type !== 'text') continue;
+          const txt = node.data || '';
+          const m = re.exec(txt);
+          if (m) { idxNode = i; matchInfo = { m, txt }; break; }
         }
+        if (idxNode === -1) continue; // anchor not present in this block
+        // Pick best target for this anchor
+        const options = anchorMap.get(anchor) || [];
+        const target = options.find((opt) => !usedHrefs.has(opt.href));
+        if (!target) continue;
+        // Insert link
+        const node = nodes[idxNode];
+        const i = matchInfo.m.index;
+        const before = matchInfo.txt.slice(0, i);
+        const matchText = matchInfo.txt.slice(i, i + matchInfo.m[0].length);
+        const after = matchInfo.txt.slice(i + matchInfo.m[0].length);
+        const linkHtml = `${before}<a href="${target.href}">${matchText}</a>${after}`;
+        $(node).replaceWith(linkHtml);
+        usedAnchors.add(anchor);
+        usedHrefs.add(target.href);
+        placed++;
+        break; // one link per block
       }
     });
 
