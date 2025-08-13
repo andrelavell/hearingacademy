@@ -20,10 +20,10 @@ const currentPath = Astro.url.pathname;
             <a href="/articles" class={`nav-link ${currentPath.startsWith('/articles') ? 'active' : ''}`}>Articles</a>
           </li>
           <li class="nav-item">
-            <a href="/hearing-aids" class={`nav-link ${currentPath.startsWith('/hearing-aids') ? 'active' : ''}`}>Hearing Aids</a>
+            <a href="/category/hearing-aids" class={`nav-link ${currentPath.startsWith('/category/hearing-aids') ? 'active' : ''}`}>Hearing Aids</a>
           </li>
           <li class="nav-item">
-            <a href="/technology" class={`nav-link ${currentPath.startsWith('/technology') ? 'active' : ''}`}>Technology</a>
+            <a href="/category/technology" class={`nav-link ${currentPath.startsWith('/category/technology') ? 'active' : ''}`}>Technology</a>
           </li>
           <li class="nav-item">
             <a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>About</a>

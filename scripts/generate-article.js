@@ -167,7 +167,12 @@ async function main() {
   const slug = makeSlug(data.title);
 
   // Fetch hero image and optionally download locally
-  const hero = await findHeroImage(data.image_query);
+  const hero = await findHeroImage({
+    query: data.image_query,
+    category: data.category,
+    tags: data.tags,
+    keywords: data.keywords,
+  });
   const storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();
   let imageSrc = hero?.src || '/article-default.jpg';
   let imageAlt = hero?.alt || data.title;

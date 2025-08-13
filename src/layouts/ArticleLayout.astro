@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import topics from '../data/topics_index.json';
 
 export interface Props {
   title: string;
@@ -34,6 +35,22 @@ const {
   imageCreditUrl,
   readingTime = '5 min read'
 } = Astro.props;
+
+// Compute dynamic related articles
+const currentSlug = Astro.url.pathname.replace(/\/+$/, '').split('/').pop();
+const tagSet = new Set((tags || []).map(t => String(t).toLowerCase()));
+const relatedRanked = (Array.isArray(topics) ? topics : [])
+  .filter(it => it && it.slug && it.slug !== currentSlug)
+  .map(it => {
+    const itsTags = Array.isArray(it.tags) ? it.tags.map(t => String(t).toLowerCase()) : [];
+    const overlap = itsTags.filter(t => tagSet.has(t)).length;
+    const sameCategory = String(it.category || '').toLowerCase() === String(category || '').toLowerCase();
+    const score = overlap * 2 + (sameCategory ? 1 : 0);
+    return { it, score };
+  })
+  .filter(x => x.score > 0)
+  .sort((a, b) => b.score - a.score);
+const related = relatedRanked.slice(0, 3).map(x => x.it);
 ---
 
 <BaseLayout 
@@ -141,45 +158,29 @@ const {
     </article>
     
     <!-- Related Articles -->
-    <section class="related-articles">
-      <div class="container">
-        <h2>Related Articles</h2>
-        <div class="related-grid">
-          <article class="related-card">
-            <div class="related-image">
-              <img src="/related-1.jpg" alt="Related article" width="300" height="200" />
-            </div>
-            <div class="related-content">
-              <span class="related-category">Technology</span>
-              <h3><a href="/articles/latest-hearing-aid-technology">Latest Hearing Aid Technology Trends</a></h3>
-              <time datetime="2024-01-08">January 8, 2024</time>
-            </div>
-          </article>
-          
-          <article class="related-card">
-            <div class="related-image">
-              <img src="/related-2.jpg" alt="Related article" width="300" height="200" />
-            </div>
-            <div class="related-content">
-              <span class="related-category">Health</span>
-              <h3><a href="/articles/hearing-health-tips">10 Essential Hearing Health Tips</a></h3>
-              <time datetime="2024-01-05">January 5, 2024</time>
-            </div>
-          </article>
-          
-          <article class="related-card">
-            <div class="related-image">
-              <img src="/related-3.jpg" alt="Related article" width="300" height="200" />
-            </div>
-            <div class="related-content">
-              <span class="related-category">Reviews</span>
-              <h3><a href="/articles/hearing-aid-comparison">Complete Hearing Aid Comparison Guide</a></h3>
-              <time datetime="2024-01-03">January 3, 2024</time>
-            </div>
-          </article>
+    {related.length > 0 && (
+      <section class="related-articles">
+        <div class="container">
+          <h2>Related Articles</h2>
+          <div class="related-grid">
+            {related.map(r => (
+              <article class="related-card">
+                <div class="related-image">
+                  <img src={r.image || '/article-default.jpg'} alt={r.title} width="300" height="200" />
+                </div>
+                <div class="related-content">
+                  <span class="related-category">{r.category}</span>
+                  <h3><a href={`/articles/${r.slug}`}>{r.title}</a></h3>
+                  {r.publishedTime && (
+                    <time datetime={r.publishedTime}>{new Date(r.publishedTime).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
   </main>
   
   <Footer />

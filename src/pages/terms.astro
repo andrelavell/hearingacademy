@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const updated = new Date().toISOString().slice(0, 10);
+---
+
+<BaseLayout title="Terms of Service" description="HearingAcademy terms and conditions of use.">
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Terms of Service</h1>
+        <p class="meta">Last Updated: {updated}</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container content">
+        <p>By using HearingAcademy, you agree to these terms.</p>
+        <h2>Use of Content</h2>
+        <p>Our content is for informational purposes only and does not substitute professional medical advice. Do not disregard professional advice because of something you read here.</p>
+        <h2>Limitation of Liability</h2>
+        <p>We make reasonable efforts to ensure accuracy but do not guarantee completeness. We are not liable for decisions made based on our content.</p>
+        <h2>Changes</h2>
+        <p>We may update these terms from time to time. Continued use of the site constitutes acceptance of the updated terms.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero { padding: var(--space-8) 0 var(--space-4); background: var(--color-background-light); }
+  .meta { color: var(--color-text-muted); }
+  .page-content { padding: var(--space-6) 0 var(--space-8); }
+  .content { max-width: 80ch; }
+</style>

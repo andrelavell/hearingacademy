@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const updated = new Date().toISOString().slice(0, 10);
+---
+
+<BaseLayout title="Privacy Policy" description="HearingAcademy's privacy practices and data handling.">
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Privacy Policy</h1>
+        <p class="meta">Last Updated: {updated}</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container content">
+        <p>We respect your privacy. This policy explains what information we collect, how we use it, and your choices.</p>
+        <h2>Information We Collect</h2>
+        <p>We may collect non-identifying usage data (such as page views) to improve the site. If you subscribe to our newsletter, we collect your email address only for sending updates.</p>
+        <h2>How We Use Information</h2>
+        <ul>
+          <li>To provide and improve site functionality</li>
+          <li>To communicate updates you opt into</li>
+          <li>To analyze aggregate usage for quality improvements</li>
+        </ul>
+        <h2>Your Choices</h2>
+        <p>You can unsubscribe from communications at any time via the link in our emails. You may also contact us to request deletion of your data.</p>
+        <h2>Contact</h2>
+        <p>If you have questions about this policy, please contact us at support@hearingacademy.org.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero { padding: var(--space-8) 0 var(--space-4); background: var(--color-background-light); }
+  .meta { color: var(--color-text-muted); }
+  .page-content { padding: var(--space-6) 0 var(--space-8); }
+  .content { max-width: 80ch; }
+</style>

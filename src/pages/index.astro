@@ -2,6 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import topics from '../data/topics_index.json';
+// Prepare latest articles
+const items = (Array.isArray(topics) ? topics : []).slice().sort((a, b) => {
+  const ad = Date.parse(a.publishedTime || a.modifiedTime || 0) || 0;
+  const bd = Date.parse(b.publishedTime || b.modifiedTime || 0) || 0;
+  return bd - ad;
+});
+const featured = items[0];
+const more = items.slice(1, 3);
 ---
 
 <BaseLayout 
@@ -22,7 +31,7 @@ import Footer from '../components/Footer.astro';
             </p>
             <div class="hero-actions">
               <a href="/articles" class="btn btn-primary">Explore Articles</a>
-              <a href="/hearing-aids" class="btn btn-secondary">Find Hearing Aids</a>
+              <a href="/about" class="btn btn-secondary">About Us</a>
             </div>
           </div>
           <div class="hero-image">
@@ -72,7 +81,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Featured Articles -->
+    <!-- Featured Articles (dynamic) -->
     <section class="featured-articles">
       <div class="container">
         <div class="section-header">
@@ -81,125 +90,47 @@ import Footer from '../components/Footer.astro';
         </div>
         
         <div class="articles-grid">
-          <article class="article-card featured">
-            <div class="article-image">
-              <img src="/article-1.jpg" alt="Understanding hearing loss types" width="400" height="250" />
-            </div>
-            <div class="article-content">
-              <div class="article-meta">
-                <span class="category">Hearing Loss</span>
-                <time datetime="2024-01-15">January 15, 2024</time>
+          {featured && (
+            <article class="article-card featured">
+              <div class="article-image">
+                <img src={featured.image || '/article-default.jpg'} alt={featured.title} width="400" height="250" />
               </div>
-              <h3><a href="/articles/understanding-hearing-loss-types">Understanding Different Types of Hearing Loss</a></h3>
-              <p>Learn about the various types of hearing loss, their causes, and available treatment options to make informed decisions about your hearing health.</p>
-              <a href="/articles/understanding-hearing-loss-types" class="read-more">Read More</a>
-            </div>
-          </article>
-          
-          <article class="article-card">
-            <div class="article-image">
-              <img src="/article-2.jpg" alt="Best hearing aids 2024" width="400" height="250" />
-            </div>
-            <div class="article-content">
-              <div class="article-meta">
-                <span class="category">Reviews</span>
-                <time datetime="2024-01-12">January 12, 2024</time>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="category">{featured.category}</span>
+                  {featured.publishedTime && (
+                    <time datetime={featured.publishedTime}>{new Date(featured.publishedTime).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                  )}
+                </div>
+                <h3><a href={`/articles/${featured.slug}`}>{featured.title}</a></h3>
+                {featured.description && <p>{featured.description}</p>}
+                <a href={`/articles/${featured.slug}`} class="read-more">Read More</a>
               </div>
-              <h3><a href="/articles/best-hearing-aids-2024">Best Hearing Aids of 2024</a></h3>
-              <p>Our comprehensive review of the top hearing aids available this year, featuring the latest technology and user experiences.</p>
-              <a href="/articles/best-hearing-aids-2024" class="read-more">Read More</a>
-            </div>
-          </article>
-          
-          <article class="article-card">
-            <div class="article-image">
-              <img src="/article-3.jpg" alt="Hearing protection tips" width="400" height="250" />
-            </div>
-            <div class="article-content">
-              <div class="article-meta">
-                <span class="category">Prevention</span>
-                <time datetime="2024-01-10">January 10, 2024</time>
+            </article>
+          )}
+          {more.map(item => (
+            <article class="article-card">
+              <div class="article-image">
+                <img src={item.image || '/article-default.jpg'} alt={item.title} width="400" height="250" />
               </div>
-              <h3><a href="/articles/hearing-protection-tips">Essential Hearing Protection Tips</a></h3>
-              <p>Discover practical strategies to protect your hearing in various environments and maintain optimal hearing health.</p>
-              <a href="/articles/hearing-protection-tips" class="read-more">Read More</a>
-            </div>
-          </article>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="category">{item.category}</span>
+                  {item.publishedTime && (
+                    <time datetime={item.publishedTime}>{new Date(item.publishedTime).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                  )}
+                </div>
+                <h3><a href={`/articles/${item.slug}`}>{item.title}</a></h3>
+                {item.description && <p>{item.description}</p>}
+                <a href={`/articles/${item.slug}`} class="read-more">Read More</a>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- Popular Products -->
-    <section class="popular-products">
-      <div class="container">
-        <div class="section-header">
-          <h2>Popular Hearing Aids</h2>
-          <a href="/hearing-aids" class="view-all">View All Products</a>
-        </div>
-        
-        <div class="products-grid">
-          <div class="product-card">
-            <div class="product-image">
-              <img src="/product-1.jpg" alt="Phonak Audéo Paradise" width="300" height="200" />
-            </div>
-            <div class="product-content">
-              <h3>Phonak Audéo Paradise</h3>
-              <div class="product-rating">
-                <div class="stars">★★★★★</div>
-                <span class="rating-text">4.8/5 (124 reviews)</span>
-              </div>
-              <p class="product-price">From $2,499</p>
-              <a href="/hearing-aids/phonak-audeo-paradise" class="btn btn-outline">Learn More</a>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="/product-2.jpg" alt="ReSound ONE" width="300" height="200" />
-            </div>
-            <div class="product-content">
-              <h3>ReSound ONE</h3>
-              <div class="product-rating">
-                <div class="stars">★★★★★</div>
-                <span class="rating-text">4.7/5 (98 reviews)</span>
-              </div>
-              <p class="product-price">From $2,299</p>
-              <a href="/hearing-aids/resound-one" class="btn btn-outline">Learn More</a>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="/product-3.jpg" alt="Oticon More" width="300" height="200" />
-            </div>
-            <div class="product-content">
-              <h3>Oticon More</h3>
-              <div class="product-rating">
-                <div class="stars">★★★★☆</div>
-                <span class="rating-text">4.6/5 (87 reviews)</span>
-              </div>
-              <p class="product-price">From $2,199</p>
-              <a href="/hearing-aids/oticon-more" class="btn btn-outline">Learn More</a>
-            </div>
-          </div>
-          
-          <div class="product-card">
-            <div class="product-image">
-              <img src="/product-4.jpg" alt="Widex Moment" width="300" height="200" />
-            </div>
-            <div class="product-content">
-              <h3>Widex Moment</h3>
-              <div class="product-rating">
-                <div class="stars">★★★★☆</div>
-                <span class="rating-text">4.5/5 (76 reviews)</span>
-              </div>
-              <p class="product-price">From $2,099</p>
-              <a href="/hearing-aids/widex-moment" class="btn btn-outline">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- CTA Section -->
     <section class="cta">

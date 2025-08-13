@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="About HearingAcademy" description="Learn about HearingAcademy's mission to provide trustworthy, expert hearing health information.">
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>About HearingAcademy</h1>
+        <p class="lede">We help you navigate hearing health with clarity, empathy, and evidence-based insights.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container content">
+        <h2>Our Mission</h2>
+        <p>HearingAcademy exists to make expert hearing health guidance accessible to everyone. We publish practical articles, product insights, and step-by-step guides that empower you to make informed decisions about prevention, treatment, and technology.</p>
+
+        <h2>Editorial Principles</h2>
+        <ul>
+          <li>Evidence-based, approachable explanations</li>
+          <li>Clear structure and actionable takeaways</li>
+          <li>Respect for reader time and attention</li>
+          <li>Transparency about sources and limitations</li>
+        </ul>
+
+        <h2>Who We Are</h2>
+        <p>Our editorial team includes audiology professionals and seasoned health writers. Articles are reviewed for accuracy and clarity. Always consult a licensed professional for personal medical advice.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero { padding: var(--space-8) 0 var(--space-6); background: var(--color-background-light); }
+  .lede { color: var(--color-text-muted); max-width: 60ch; }
+  .page-content { padding: var(--space-6) 0 var(--space-8); }
+  .content { max-width: 80ch; }
+  ul { padding-left: 1.2rem; }
+</style>
