@@ -1,5 +1,44 @@
 [
   {
+    "slug": "eustachian-tube-clogged-hearing",
+    "title": "That Clogged, Echoey Ear: Adult Eustachian Tube Dysfunction and Your Hearing",
+    "description": "Why your ear feels full and sounds muffled, what’s really going on with your Eustachian tube, and practical, evidence‑based steps to protect your hearing—at home, in the clinic, and when you fly.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "conductive hearing loss",
+      "ear health",
+      "hearing tests",
+      "ENT specialist",
+      "ear care",
+      "hearing loss symptoms"
+    ],
+    "image": "/images/articles/2025-08/eustachian-tube-clogged-hearing-pexels-27542917.jpg",
+    "publishedTime": "2025-08-13T21:00:10.694Z",
+    "modifiedTime": "2025-08-13T21:00:10.694Z",
+    "readingTime": "9 min read",
+    "hash": "595b192ef56f33c51f939d3fc1c89878f0e034d094b24d5bf88edfae2f58c79f"
+  },
+  {
+    "slug": "protect-hearing-ototoxic-drugs",
+    "title": "Ototoxic Medications: Protect Your Hearing Without Compromising Treatment",
+    "description": "Some lifesaving medications can harm hearing. Here’s how to lower your risk—before, during, and after treatment—without skipping the care you need.",
+    "category": "Prevention",
+    "tags": [
+      "ototoxic drugs",
+      "ear health",
+      "hearing loss prevention",
+      "audiology",
+      "hearing tests",
+      "hearing loss causes"
+    ],
+    "image": "/images/articles/2025-08/protect-hearing-ototoxic-drugs-pexels-14682242.jpg",
+    "publishedTime": "2025-08-13T20:53:32.825Z",
+    "modifiedTime": "2025-08-13T20:53:32.825Z",
+    "readingTime": "9 min read",
+    "hash": "f15eebc86d63472ecfecf31ac8fdf23b2cc03bc9df35d4cce0f0f2826ef7eea2"
+  },
+  {
     "slug": "heart-hearing-connection",
     "title": "Your Heart, Your Hearing: The Cardiometabolic Link You Can’t Afford to Ignore",
     "description": "Emerging research shows your cardiovascular health and your hearing are deeply connected. Here’s what science says, why it matters, and how to protect both.",
