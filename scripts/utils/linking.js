@@ -53,6 +53,11 @@ const SINGLE_WORD_BLOCKLIST = new Set([
   'treatment','treatments','therapy','management','diagnosis','prevention','types','tests','testing','care','options','causes','cause','symptoms','risk','risks','signs'
 ]);
 
+// Tokens that are very common in this domain; require at least one non-generic match
+const GENERIC_DOMAIN_TOKENS = new Set([
+  'hearing','loss','ear','ears','aid','aids','tinnitus','noise','sound','speech','score','scores','test','tests','clinic','clinical','audiology','audiologist','health','care','research'
+]);
+
 function escapeRegex(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
 function deriveAnchorsFromTitle(title, { minWords = 2, maxWords = 4 } = {}) {
@@ -89,6 +94,12 @@ function tokensIntersect(aSet, bSet) {
   return false;
 }
 
+function countIntersect(aSet, bSet) {
+  let c = 0;
+  for (const t of aSet) if (bSet.has(t)) c++;
+  return c;
+}
+
 export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {}) {
   try {
     const $ = load(String(bodyHtml || ''), { decodeEntities: false });
@@ -99,7 +110,7 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
     const related = pickRelated(
       index,
       { category: target.category, tags: target.tags },
-      { limit: Math.max(6, maxInline * 2), excludeSlug: target.slug }
+      { limit: Math.max(20, maxInline * 5), excludeSlug: target.slug }
     );
 
     // Token sets for the current article to improve topical relevance
@@ -107,11 +118,13 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
     const targetTitleTokenSet = tokensFor(target.title || '');
 
     const candidates = [];
+    const anchorTexts = new Set();
     for (const r of related) {
       const item = getItemBySlug(index, r.slug) || { title: r.title, tags: [] };
       const itemTags = (item.tags || []).map((t) => String(t || '').toLowerCase().trim()).filter(Boolean);
       const tagTokenSet = new Set(itemTags.flatMap((t) => Array.from(tokensFor(t))));
       const titleTokenSet = tokensFor(item.title);
+      const candidateTokenSet = new Set([...tagTokenSet, ...titleTokenSet]);
 
       const anchors = [];
       // Prefer tag-based anchors (allow single word)
@@ -122,6 +135,7 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
           if (toks.size === 0) continue; // skip generic-only tags (e.g., 'treatment')
           if (isSingle && SINGLE_WORD_BLOCKLIST.has(t)) continue; // skip low-value single-word anchors
           anchors.push({ text: t, type: 'tag', tokens: toks, tokenCount: toks.size });
+          anchorTexts.add(t);
         }
       }
       // Title-derived anchors: require multi-word and overlap with tag tokens for relevance
@@ -129,12 +143,13 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         const toks = tokensFor(p);
         if (toks.size >= 2 && (tagTokenSet.size === 0 || tokensIntersect(toks, tagTokenSet))) {
           anchors.push({ text: p, type: 'title', tokens: toks, tokenCount: toks.size });
+          anchorTexts.add(p);
         }
       }
       // Prefer more specific (more tokens) anchors first
       anchors.sort((a, b) => b.tokenCount - a.tokenCount);
       const href = `/articles/${r.slug}`;
-      candidates.push({ href, anchors, tagTokenSet, titleTokenSet, itemTags });
+      candidates.push({ href, anchors, tagTokenSet, titleTokenSet, candidateTokenSet, itemTags, titleLower: String(item.title || '').toLowerCase() });
     }
 
     // Build anchor -> candidate list with per-anchor relevance score
@@ -149,26 +164,79 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         // Compute relevance score for this anchor->target pairing
         let score = 0;
         // Exact tag match gets highest priority
-        if (a.type === 'tag' && c.itemTags.includes(anchor)) score += 5;
-        // Overlap with target tag tokens
-        if (tokensIntersect(a.tokens, c.tagTokenSet)) score += 3;
-        // Overlap with target title tokens
-        if (tokensIntersect(a.tokens, c.titleTokenSet)) score += 2;
-        // Boost if anchor is relevant to the current article (topical fit)
-        if (tokensIntersect(a.tokens, targetTagTokenSet)) score += 3;
+        if (a.type === 'tag' && c.itemTags.includes(anchor)) score += 6;
+        // Strongly weight direct anchor-token overlap with candidate tokens
+        const overlapCount = countIntersect(a.tokens, c.candidateTokenSet);
+        score += overlapCount * 4;
+        const coverage = a.tokens.size ? overlapCount / a.tokens.size : 0;
+        if (coverage >= 0.67) score += 3; else if (coverage >= 0.5) score += 2; else if (coverage < 0.34) score -= 3;
+        // Exact phrase present in candidate title
+        if (c.titleLower && c.titleLower.includes(String(anchor).toLowerCase())) score += 3;
+        // Light boost if anchor is also topically relevant to the CURRENT article
+        if (tokensIntersect(a.tokens, targetTagTokenSet)) score += 2;
         if (tokensIntersect(a.tokens, targetTitleTokenSet)) score += 1;
         // Slight boost for multi-word anchors
         if (!isSingleWord) score += 1;
+        // Require at least one non-generic token match to avoid very broad links
+        const nonGenericAnchorTokens = new Set(Array.from(a.tokens).filter((t) => !GENERIC_DOMAIN_TOKENS.has(t)));
+        const nonGenericOverlap = countIntersect(nonGenericAnchorTokens, c.candidateTokenSet);
+        if (nonGenericAnchorTokens.size > 0 && nonGenericOverlap === 0) continue; // skip weakly matched, generic anchors
         if (!anchorMap.has(anchor)) anchorMap.set(anchor, []);
         anchorMap.get(anchor).push({ href: c.href, score, type: a.type });
       }
+    }
+    // Global candidate set (entire index, excluding current) to ensure anchors pick the best target across the site
+    const allCandidates = index
+      .filter((it) => it.slug !== target.slug)
+      .map((it) => {
+        const itemTags = (it.tags || []).map((t) => String(t || '').toLowerCase().trim()).filter(Boolean);
+        const tagTokenSet = new Set(itemTags.flatMap((t) => Array.from(tokensFor(t))));
+        const titleLower = String(it.title || '').toLowerCase();
+        const titleTokenSet = tokensFor(it.title);
+        const candidateTokenSet = new Set([...tagTokenSet, ...titleTokenSet]);
+        return { href: `/articles/${it.slug}`, itemTags, tagTokenSet, titleTokenSet, candidateTokenSet, titleLower };
+      });
+
+    for (const anchor of anchorTexts) {
+      const aTokens = tokensFor(anchor);
+      if (aTokens.size === 0) continue;
+      const isSingle = anchor.trim().split(/\s+/).length === 1;
+      if (isSingle && SINGLE_WORD_BLOCKLIST.has(anchor)) continue;
+      // Require at least one non-generic token if any exist in the anchor
+      const nonGenericAnchorTokens = new Set(Array.from(aTokens).filter((t) => !GENERIC_DOMAIN_TOKENS.has(t)));
+      for (const c of allCandidates) {
+        const overlapCount = countIntersect(aTokens, c.candidateTokenSet);
+        if (overlapCount === 0) continue;
+        if (nonGenericAnchorTokens.size > 0 && countIntersect(nonGenericAnchorTokens, c.candidateTokenSet) === 0) continue;
+        let score = 0;
+        // exact tag match
+        if (c.itemTags.includes(anchor)) score += 6;
+        score += overlapCount * 4;
+        const coverage = aTokens.size ? overlapCount / aTokens.size : 0;
+        if (coverage >= 0.67) score += 3; else if (coverage >= 0.5) score += 2; else if (coverage < 0.34) score -= 3;
+        if (c.titleLower.includes(anchor.toLowerCase())) score += 3;
+        if (tokensIntersect(aTokens, targetTagTokenSet)) score += 2;
+        if (tokensIntersect(aTokens, targetTitleTokenSet)) score += 1;
+        if (!isSingle) score += 1;
+        if (!anchorMap.has(anchor)) anchorMap.set(anchor, []);
+        anchorMap.get(anchor).push({ href: c.href, score, type: 'global' });
+      }
+    }
+    // Deduplicate options by href and keep highest score, then sort
+    for (const [anchor, arr] of anchorMap) {
+      const bestByHref = new Map();
+      for (const opt of arr) {
+        const prev = bestByHref.get(opt.href);
+        if (!prev || opt.score > prev.score) bestByHref.set(opt.href, opt);
+      }
+      anchorMap.set(anchor, Array.from(bestByHref.values()).sort((x, y) => y.score - x.score));
     }
     // Sort candidate lists by score desc
     for (const [k, arr] of anchorMap) arr.sort((x, y) => y.score - x.score);
 
     let placed = 0;
     const blocks = $('p, li');
-    const MIN_ANCHOR_SCORE = 5; // require strong topical fit
+    const MIN_ANCHOR_SCORE = 8; // require stronger topical fit
     blocks.each((_, el) => {
       if (placed >= maxInline) return false; // break
       const $el = $(el);
