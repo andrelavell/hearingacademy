@@ -1,23 +1,62 @@
 [
   {
-    "slug": "when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue",
-    "title": "When the Audiogram Says “Normal” But You’re Still Struggling: A Guide to Hidden Hearing Loss and Listening Fatigue",
-    "description": "If conversations in noise feel exhausting even though your hearing test looks “normal,” you’re not imagining it. Learn what hidden hearing loss is, why it happens, the signs to watch, practical fixes that work today, and how an audiologist can help you hear—and feel—better.",
-    "category": "Hearing Loss",
+    "slug": "your-daily-sound-diet-noise-hygiene-habits-that-protect-your-hearing-without-becoming-a-hermit",
+    "title": "Your Daily Sound Diet: Noise Hygiene Habits That Protect Your Hearing (Without Becoming a Hermit)",
+    "description": "A practical, fun guide to building ‘noise hygiene’ into everyday life—so you can enjoy concerts, workouts, and family time while keeping your ears healthy for decades.",
+    "category": "Lifestyle",
+    "tags": [
+      "hearing loss prevention",
+      "ear protection",
+      "hearing protection",
+      "ear health",
+      "audiology",
+      "hearing health tips",
+      "hearing tests"
+    ],
+    "image": "/images/articles/2025-08/your-daily-sound-diet-noise-hygiene-habits-that-protect-your-hearing-without-becoming-a-hermit-pexels-4049425.jpg",
+    "publishedTime": "2025-08-13T18:58:37.392Z",
+    "modifiedTime": "2025-08-13T18:58:37.392Z",
+    "readingTime": "8 min read",
+    "hash": "7f49254f1b532109450a704e8516017f39150beed969b3df3737d11dd29c0c25"
+  },
+  {
+    "slug": "tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right",
+    "title": "Tinnitus Relief With Hearing Aids: What Actually Helps (And How to Set Yours Up Right)",
+    "description": "A practical, evidence-informed guide to using hearing aids for tinnitus relief: how and why they help, features to look for, a 4-week plan to get comfortable, and when to see an audiologist.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "tinnitus",
+      "audiology",
+      "hearing aid technology",
+      "hearing rehabilitation",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right-pexels-7793694.jpg",
+    "publishedTime": "2025-08-13T18:56:46.977Z",
+    "modifiedTime": "2025-08-13T18:56:46.977Z",
+    "readingTime": "8 min read",
+    "hash": "01c0a3b42da21b9445ff4ce7404133fd705067847c6f28588944d7ac1aba0008"
+  },
+  {
+    "slug": "sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now",
+    "title": "Sudden Hearing Loss: The 72-Hour Treatment Playbook (What to Do Now)",
+    "description": "A practical, time-sensitive guide to recognizing sudden hearing loss and getting the right treatment fast—what to expect at the clinic, which therapies help, and how to protect your hearing going forward.",
+    "category": "Treatment",
     "tags": [
       "hearing loss",
-      "hidden hearing loss",
-      "hearing in noisy environments",
-      "hearing protection",
+      "sensorineural hearing loss",
+      "tinnitus",
+      "ENT specialist",
       "audiology",
-      "hearing tests",
-      "ear health"
+      "hearing clinics",
+      "hearing loss treatment"
     ],
-    "image": "/images/articles/2025-08/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue-pexels-5128763.jpg",
-    "publishedTime": "2025-08-13T18:20:51.183Z",
-    "modifiedTime": "2025-08-13T18:20:51.183Z",
-    "readingTime": "9 min read",
-    "hash": "b7974a1f358d4cb972788b705a6beb1eea1c8cc0b0a650dabc110d7df85c8f69"
+    "image": "/images/articles/2025-08/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now-pexels-5737831.jpg",
+    "publishedTime": "2025-08-13T18:55:17.562Z",
+    "modifiedTime": "2025-08-13T18:55:17.562Z",
+    "readingTime": "8 min read",
+    "hash": "f8c21e4089b5b032956418644524efdb0ed4746ec8a5a6f53b01596761a721cb"
   },
   {
     "slug": "understanding-hearing-loss-types",
@@ -36,5 +75,26 @@
     "readingTime": "4 min read",
     "words": 637,
     "hash": "f45b9ce8d8a8b0bcbd5db030f3a7ef39fb5977ec6082c2246773c0f5669d99f2"
+  },
+  {
+    "slug": "when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue",
+    "title": "When the Audiogram Says “Normal” But You’re Still Struggling: A Guide to Hidden Hearing Loss and Listening Fatigue",
+    "description": "If conversations in noise feel exhausting even though your hearing test looks “normal,” you’re not imagining it. Learn what hidden hearing loss is, why it happens, the signs to watch, practical fixes that work today, and how an audiologist can help you hear—and feel—better.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "hidden hearing loss",
+      "hearing in noisy environments",
+      "hearing protection",
+      "audiology",
+      "hearing tests",
+      "ear health"
+    ],
+    "image": "/images/articles/2025-08/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue-pexels-5128763.jpg",
+    "publishedTime": "2025-08-13T18:20:51.183Z",
+    "modifiedTime": "2025-08-13T18:20:51.183Z",
+    "readingTime": "9 min read",
+    "words": 1697,
+    "hash": "cf7f31f3191e030153f144bceacfc6ee394cc52f08354827ea438cc7d07a2644"
   }
 ]
