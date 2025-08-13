@@ -61,6 +61,7 @@ function draftUserPrompt({ category, existingTitles, tagPool }) {
     type: 'object',
     properties: {
       title: { type: 'string' },
+      slug: { type: 'string' },
       description: { type: 'string' },
       category: { type: 'string' },
       tags: { type: 'array', items: { type: 'string' } },
@@ -75,7 +76,8 @@ function draftUserPrompt({ category, existingTitles, tagPool }) {
 
   const instructions = [
     'Propose a unique angle within the category (no duplicates with existing titles/themes).',
-    'Return JSON with fields: title, description, category, tags, keywords, image_query, body_html, faqs, references.'
+    'Also provide a short, human-readable URL slug summarizing the main topic: 3-6 words, natural language, lowercase, hyphen-separated, ASCII only, avoid filler (like guide, tips, best) unless essential, no stopwords if possible, keep under ~60 characters. Example: "hidden-hearing-loss-fatigue".',
+    'Return JSON with fields: title, slug, description, category, tags, keywords, image_query, body_html, faqs, references.'
   ].join(' ');
 
   return `${hints}\n\n${instructions}\n\nJSON schema (for reference, do not include): ${JSON.stringify(schema)}`;
@@ -164,7 +166,15 @@ async function main() {
   body += renderFaqAndRefs(data.faqs, data.references);
 
   // Compute compact, keyword-focused slug early (used for image naming)
-  const baseSlug = makeCompactSlug({ title: data.title, keywords: data.keywords }) || makeSlug(data.title);
+  const modelSlugRaw = (result.slug || '').trim();
+  let preferred = modelSlugRaw ? makeSlug(modelSlugRaw) : '';
+  if (preferred && preferred.length > 60) {
+    const parts = preferred.split('-');
+    while (parts.length > 1 && parts.join('-').length > 60) parts.pop();
+    preferred = parts.join('-');
+  }
+  const fallback = makeCompactSlug({ title: data.title, keywords: data.keywords }) || makeSlug(data.title);
+  const baseSlug = preferred || fallback;
   let slug = baseSlug;
   // Ensure uniqueness against current index
   if (index.some((it) => it.slug === slug)) {
