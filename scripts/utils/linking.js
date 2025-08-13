@@ -43,7 +43,14 @@ function escapeHtml(s) {
 const STOP = new Set([
   'the','a','an','and','or','but','to','of','in','on','for','with','without','that','this','these','those','your','is','are','be','as','by','from','at','it','its','into','about','what','when','how','why','we','our',
   // Generic SEO/medical filler
-  'health','research','guide','guides','tips','basics','overview','introduction','intro','article','blog','post'
+  'health','research','guide','guides','tips','basics','overview','introduction','intro','article','blog','post',
+  // Generic medical terms (avoid as anchor tokens)
+  'treatment','treatments','therapy','therapies','management','symptom','symptoms','cause','causes','diagnosis','diagnose','prevention','options','care','types','type','test','tests','testing','risk','risks','signs','factors','procedure','procedures','medical'
+]);
+
+// Avoid using these as single-word anchor texts entirely
+const SINGLE_WORD_BLOCKLIST = new Set([
+  'treatment','treatments','therapy','management','diagnosis','prevention','types','tests','testing','care','options','causes','cause','symptoms','risk','risks','signs'
 ]);
 
 function escapeRegex(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -88,8 +95,16 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
     const usedAnchors = new Set();
     const usedHrefs = new Set();
 
-    // Pick candidate targets using existing heuristic
-    const related = pickRelated(index, { category: target.category, tags: target.tags }, { limit: Math.max(6, maxInline * 2) });
+    // Pick candidate targets using existing heuristic, exclude current article if slug provided
+    const related = pickRelated(
+      index,
+      { category: target.category, tags: target.tags },
+      { limit: Math.max(6, maxInline * 2), excludeSlug: target.slug }
+    );
+
+    // Token sets for the current article to improve topical relevance
+    const targetTagTokenSet = new Set((target.tags || []).flatMap((t) => Array.from(tokensFor(t))));
+    const targetTitleTokenSet = tokensFor(target.title || '');
 
     const candidates = [];
     for (const r of related) {
@@ -103,6 +118,9 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
       for (const t of itemTags) {
         if (t.length >= 3 && t.length <= 60) {
           const toks = tokensFor(t);
+          const isSingle = t.trim().split(/\s+/).length === 1;
+          if (toks.size === 0) continue; // skip generic-only tags (e.g., 'treatment')
+          if (isSingle && SINGLE_WORD_BLOCKLIST.has(t)) continue; // skip low-value single-word anchors
           anchors.push({ text: t, type: 'tag', tokens: toks, tokenCount: toks.size });
         }
       }
@@ -126,6 +144,8 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         const anchor = a.text;
         if (!anchor) continue;
         const isSingleWord = anchor.trim().split(/\s+/).length === 1;
+        if (a.tokens.size === 0) continue; // skip anchors with no meaningful tokens
+        if (isSingleWord && SINGLE_WORD_BLOCKLIST.has(anchor)) continue; // skip blocked single words
         // Compute relevance score for this anchor->target pairing
         let score = 0;
         // Exact tag match gets highest priority
@@ -134,6 +154,9 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         if (tokensIntersect(a.tokens, c.tagTokenSet)) score += 3;
         // Overlap with target title tokens
         if (tokensIntersect(a.tokens, c.titleTokenSet)) score += 2;
+        // Boost if anchor is relevant to the current article (topical fit)
+        if (tokensIntersect(a.tokens, targetTagTokenSet)) score += 3;
+        if (tokensIntersect(a.tokens, targetTitleTokenSet)) score += 1;
         // Slight boost for multi-word anchors
         if (!isSingleWord) score += 1;
         if (!anchorMap.has(anchor)) anchorMap.set(anchor, []);
@@ -145,6 +168,7 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
 
     let placed = 0;
     const blocks = $('p, li');
+    const MIN_ANCHOR_SCORE = 5; // require strong topical fit
     blocks.each((_, el) => {
       if (placed >= maxInline) return false; // break
       const $el = $(el);
@@ -155,7 +179,8 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
       for (const anchor of anchorsByLength) {
         if (placed >= maxInline) break;
         if (usedAnchors.has(anchor)) continue;
-        const re = new RegExp(escapeRegex(anchor), 'i');
+        const isSingleWordAnchor = anchor.trim().split(/\s+/).length === 1;
+        const re = isSingleWordAnchor ? new RegExp(`\\b${escapeRegex(anchor)}\\b`, 'i') : new RegExp(escapeRegex(anchor), 'i');
         const nodes = $el.contents().toArray();
         let idxNode = -1;
         let matchInfo = null;
@@ -169,7 +194,7 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         if (idxNode === -1) continue; // anchor not present in this block
         // Pick best target for this anchor
         const options = anchorMap.get(anchor) || [];
-        const target = options.find((opt) => !usedHrefs.has(opt.href));
+        const target = options.find((opt) => !usedHrefs.has(opt.href) && opt.score >= MIN_ANCHOR_SCORE);
         if (!target) continue;
         // Insert link
         const node = nodes[idxNode];

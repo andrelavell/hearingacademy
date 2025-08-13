@@ -163,7 +163,7 @@ async function main() {
   const related = pickRelated(index, { category: data.category, tags: data.tags }, { limit: 4 });
   let body = data.body_html;
   // Inject a few contextual inline links inside the body
-  body = injectInlineLinks(body, index, { category: data.category, tags: data.tags }, { maxInline: 4 });
+  body = injectInlineLinks(body, index, { category: data.category, tags: data.tags, title: data.title }, { maxInline: 4 });
   if (related.length) body = appendFurtherReadingToBody(body, related);
   body += renderFaqAndRefs(data.faqs, data.references);
 
