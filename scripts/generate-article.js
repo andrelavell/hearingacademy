@@ -6,6 +6,8 @@ import { parseArticleAstro, buildArticleAstro, makeSlug, makeCompactSlug } from 
 import { topicHash, jaccard, normalizeTopic } from './utils/dedupe.js';
 import { pickRelated, appendFurtherReadingToBody, injectInlineLinks } from './utils/linking.js';
 import { findHeroImage } from './utils/pexels.js';
+import { verifyReferences } from './utils/verify.js';
+import { braveSearchWeb, extractTopResults } from './utils/brave.js';
 import { openai, OPENAI_MODEL, generateJSON } from './utils/openai.js';
 import { loadCategories, loadTags, envInt, loadAuthors } from './utils/config.js';
 import { downloadToPublic } from './utils/images.js';
@@ -165,7 +167,36 @@ async function main() {
   // Inject a few contextual inline links inside the body
   body = injectInlineLinks(body, index, { category: data.category, tags: data.tags, title: data.title }, { maxInline: 4 });
   if (related.length) body = appendFurtherReadingToBody(body, related);
-  body += renderFaqAndRefs(data.faqs, data.references);
+  // Phase 1: verify references (show only if verified)
+  let verifiedRefs = [];
+  try {
+    verifiedRefs = await verifyReferences(data.references, { timeoutMs: 6000, max: 10 });
+  } catch (e) {
+    console.warn('[generate] reference verification failed:', e?.message || e);
+  }
+  // Phase 2 (optional): If none verified and Brave API key present, try to fetch authoritative references
+  if (verifiedRefs.length === 0 && process.env.BRAVE_API_KEY) {
+    try {
+      const allowed = new Set(['cdc.gov','nih.gov','nidcd.nih.gov','who.int','mayoclinic.org','asha.org']);
+      const tagHint = (data.tags || []).slice(0, 2).join(' ');
+      const siteFilter = 'site:cdc.gov OR site:nih.gov OR site:nidcd.nih.gov OR site:who.int OR site:mayoclinic.org OR site:asha.org';
+      const q = `${data.title} ${tagHint} ${siteFilter}`.trim();
+      const res = await braveSearchWeb(q, { count: 10, freshness: 'year', country: 'us', safesearch: 'strict' });
+      const top = extractTopResults(res, { max: 10 })
+        .filter((r) => {
+          try {
+            const h = new URL(r.url).hostname.replace(/^www\./,'');
+            return Array.from(allowed).some((d) => h === d || h.endsWith('.' + d));
+          } catch { return false; }
+        })
+        .map((r) => ({ label: r.title || r.url, url: r.url }));
+      const verifiedFallback = await verifyReferences(top, { timeoutMs: 6000, max: 6 });
+      if (verifiedFallback.length) verifiedRefs = verifiedFallback;
+    } catch (e) {
+      console.warn('[generate] Brave fallback failed:', e?.message || e);
+    }
+  }
+  body += renderFaqAndRefs(data.faqs, verifiedRefs);
 
   // Compute compact, keyword-focused slug early (used for image naming)
   const modelSlugRaw = (result.slug || '').trim();
