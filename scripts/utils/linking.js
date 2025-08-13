@@ -1,3 +1,5 @@
+import { load } from 'cheerio';
+
 export function scoreRelated(a, b) {
   // a: {category, tags[]}, b: same
   const tagSetA = new Set((a.tags || []).map((t) => t.toLowerCase()));
@@ -35,4 +37,97 @@ function escapeHtml(s) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+// Inline linking
+const STOP = new Set(['the','a','an','and','or','but','to','of','in','on','for','with','without','that','this','these','those','your','is','are','be','as','by','from','at','it','its','into','about','what','when','how','why','we','our']);
+
+function escapeRegex(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function deriveAnchorsFromTitle(title, { maxWords = 4 } = {}) {
+  const words = String(title || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((w) => !STOP.has(w));
+  if (!words.length) return [];
+  const slice = words.slice(0, maxWords);
+  const phrase = slice.join(' ');
+  return phrase ? [phrase] : [];
+}
+
+function getItemBySlug(index, slug) {
+  return index.find((it) => it.slug === slug);
+}
+
+export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {}) {
+  try {
+    const $ = load(String(bodyHtml || ''), { decodeEntities: false });
+    const usedAnchors = new Set();
+    const usedHrefs = new Set();
+
+    // Pick candidate targets using existing heuristic
+    const related = pickRelated(index, { category: target.category, tags: target.tags }, { limit: Math.max(6, maxInline * 2) });
+
+    const candidates = [];
+    for (const r of related) {
+      const item = getItemBySlug(index, r.slug) || { title: r.title, tags: [] };
+      const anchors = [];
+      // Prefer tags as anchors
+      for (const t of (item.tags || [])) {
+        const a = String(t || '').toLowerCase().trim();
+        if (a && a.length >= 3 && a.length <= 40) anchors.push(a);
+      }
+      // Fallback: derive from title
+      anchors.push(...deriveAnchorsFromTitle(item.title));
+      const href = `/articles/${r.slug}`;
+      candidates.push({ href, anchors });
+    }
+
+    let placed = 0;
+    const blocks = $('p, li');
+    blocks.each((_, el) => {
+      if (placed >= maxInline) return false; // break
+      const $el = $(el);
+      if ($el.find('a').length) return; // skip if already contains links (avoid clutter)
+
+      // Try to place one link per block
+      for (const c of candidates) {
+        if (placed >= maxInline) break;
+        if (usedHrefs.has(c.href)) continue;
+        for (const anchor of c.anchors) {
+          if (!anchor || usedAnchors.has(anchor)) continue;
+          const re = new RegExp(escapeRegex(anchor), 'i');
+          const nodes = $el.contents().toArray();
+          let linked = false;
+          for (const node of nodes) {
+            if (linked) break;
+            if (node.type === 'text') {
+              const txt = node.data || '';
+              const m = re.exec(txt);
+              if (m) {
+                const i = m.index;
+                const before = txt.slice(0, i);
+                const matchText = txt.slice(i, i + m[0].length);
+                const after = txt.slice(i + m[0].length);
+                const linkHtml = `${before}<a href="${c.href}">${matchText}</a>${after}`;
+                $(node).replaceWith(linkHtml);
+                usedAnchors.add(anchor);
+                usedHrefs.add(c.href);
+                placed++;
+                linked = true;
+              }
+            }
+          }
+          if (linked) break;
+        }
+      }
+    });
+
+    return $.html();
+  } catch (e) {
+    // If anything fails, return original body
+    return String(bodyHtml || '');
+  }
 }

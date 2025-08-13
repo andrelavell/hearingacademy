@@ -4,7 +4,7 @@ import path from 'node:path';
 import { readFile, writeFile, readJSON, writeJSON, ARTICLES_DIR, DATA_DIR, ensureDir } from './utils/fs.js';
 import { parseArticleAstro, buildArticleAstro, makeSlug, makeCompactSlug } from './utils/astroArticle.js';
 import { topicHash, jaccard, normalizeTopic } from './utils/dedupe.js';
-import { pickRelated, appendFurtherReadingToBody } from './utils/linking.js';
+import { pickRelated, appendFurtherReadingToBody, injectInlineLinks } from './utils/linking.js';
 import { findHeroImage } from './utils/pexels.js';
 import { openai, OPENAI_MODEL, generateJSON } from './utils/openai.js';
 import { loadCategories, loadTags, envInt, loadAuthors } from './utils/config.js';
@@ -162,6 +162,8 @@ async function main() {
   // Find related existing articles
   const related = pickRelated(index, { category: data.category, tags: data.tags }, { limit: 4 });
   let body = data.body_html;
+  // Inject a few contextual inline links inside the body
+  body = injectInlineLinks(body, index, { category: data.category, tags: data.tags }, { maxInline: 4 });
   if (related.length) body = appendFurtherReadingToBody(body, related);
   body += renderFaqAndRefs(data.faqs, data.references);
 

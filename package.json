@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "astro": "^5.12.9",
+    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.4.5",
     "fast-glob": "^3.3.2",
     "gray-matter": "^4.0.3",
