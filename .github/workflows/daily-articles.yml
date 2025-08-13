@@ -12,6 +12,17 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5' }}
+      ARTICLES_PER_DAY: ${{ vars.ARTICLES_PER_DAY || '3' }}
+      AUTHOR_NAME: ${{ vars.AUTHOR_NAME || 'HearingAcademy Editorial' }}
+      TONE: ${{ vars.TONE || 'human, empathetic, fun, highly-educational' }}
+      MIN_WORDS: ${{ vars.MIN_WORDS || '1000' }}
+      MAX_WORDS: ${{ vars.MAX_WORDS || '1500' }}
+      SITE_BASE_URL: ${{ vars.SITE_BASE_URL || 'https://hearingacademy.org' }}
+      IMAGE_STORAGE: ${{ vars.IMAGE_STORAGE || 'local' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,18 +40,20 @@ jobs:
       - name: Scan existing articles
         run: npm run scan:articles
 
+      - name: Validate env
+        run: |
+          missing=0
+          for v in OPENAI_API_KEY PEXELS_API_KEY OPENAI_MODEL ARTICLES_PER_DAY SITE_BASE_URL IMAGE_STORAGE; do
+            if [ -z "${!v}" ]; then
+              echo "::error title=Missing env::${v} is not set"
+              missing=1
+            else
+              echo "${v} is set"
+            fi
+          done
+          exit $missing
+
       - name: Generate daily articles
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          ARTICLES_PER_DAY: ${{ vars.ARTICLES_PER_DAY || '3' }}
-          AUTHOR_NAME: ${{ vars.AUTHOR_NAME || 'HearingAcademy Editorial' }}
-          TONE: ${{ vars.TONE || 'human, empathetic, fun, highly-educational' }}
-          MIN_WORDS: ${{ vars.MIN_WORDS || '1000' }}
-          MAX_WORDS: ${{ vars.MAX_WORDS || '1500' }}
-          SITE_BASE_URL: ${{ vars.SITE_BASE_URL || 'https://hearingacademy.org' }}
-          IMAGE_STORAGE: ${{ vars.IMAGE_STORAGE || 'local' }}
         run: npm run generate:daily
 
       - name: Commit and push changes
