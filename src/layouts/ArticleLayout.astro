@@ -235,50 +235,60 @@ const breadcrumbLd = {
   <Footer />
 
   {tocItems.length > 0 && (
-    <script is:inline>
-      (function initToc(){
-        const run = () => {
-          const container = document.querySelector('.article-body');
-          const list = document.querySelector('.toc-nav ul');
-          const toc = document.querySelector('.toc');
-          const items = Array.isArray(tocItems) ? tocItems : [];
-          if (!container || !list || !Array.isArray(items) || !items.length) {
-            toc?.classList?.add('hidden');
-            return;
-          }
-          const normalize = (s) => (s || '')
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s&-]/g, '')
-            .replace(/\s+/g, ' ');
-          list.innerHTML = '';
-          const headings = Array.from(container.querySelectorAll('h2, h3'));
-          items.forEach((it) => {
-            const wantId = String(it.id || '').trim();
-            const wantText = String(it.text || '').trim();
-            let target = headings.find(h => normalize(h.textContent) === normalize(wantText));
-            if (!target) {
-              const slugFromText = wantText.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
-              target = headings.find(h => (h.id && h.id === wantId) || ((!h.id || h.id === slugFromText) && slugFromText === wantId));
+    <>
+      <script id="article-toc-data" type="application/json" is:inline>{JSON.stringify(tocItems)}</script>
+      <script is:inline>
+        (function initToc(){
+          const run = () => {
+            const container = document.querySelector('.article-body');
+            const list = document.querySelector('.toc-nav ul');
+            const toc = document.querySelector('.toc');
+            let items = [];
+            try {
+              const dataEl = document.getElementById('article-toc-data');
+              items = JSON.parse(dataEl?.textContent || '[]');
+            } catch (e) {
+              console.warn('toc parse failed', e);
             }
-            if (target && !target.id && wantId) target.id = wantId;
-            const li = document.createElement('li');
-            li.className = target && target.tagName.toLowerCase() === 'h3' ? 'h3' : 'h2';
-            const a = document.createElement('a');
-            a.href = `#${wantId}`;
-            a.textContent = wantText;
-            li.appendChild(a);
-            list.appendChild(li);
-          });
-          if (!list.children.length) toc?.classList?.add('hidden');
-        };
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', run, { once: true });
-        } else {
-          run();
-        }
-      })();
-    </script>
+            items = Array.isArray(items) ? items : [];
+            if (!container || !list || !items.length) {
+              toc?.classList?.add('hidden');
+              return;
+            }
+            const normalize = (s) => (s || '')
+              .toLowerCase()
+              .trim()
+              .replace(/[^a-z0-9\s&-]/g, '')
+              .replace(/\s+/g, ' ');
+            list.innerHTML = '';
+            const headings = Array.from(container.querySelectorAll('h2, h3'));
+            items.forEach((it) => {
+              const wantId = String(it.id || '').trim();
+              const wantText = String(it.text || '').trim();
+              let target = headings.find(h => normalize(h.textContent) === normalize(wantText));
+              if (!target) {
+                const slugFromText = wantText.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+                target = headings.find(h => (h.id && h.id === wantId) || ((!h.id || h.id === slugFromText) && slugFromText === wantId));
+              }
+              if (target && !target.id && wantId) target.id = wantId;
+              const li = document.createElement('li');
+              li.className = target && target.tagName.toLowerCase() === 'h3' ? 'h3' : 'h2';
+              const a = document.createElement('a');
+              a.href = `#${wantId}`;
+              a.textContent = wantText;
+              li.appendChild(a);
+              list.appendChild(li);
+            });
+            if (!list.children.length) toc?.classList?.add('hidden');
+          };
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', run, { once: true });
+          } else {
+            run();
+          }
+        })();
+      </script>
+    </>
   )}
 
 </BaseLayout>
