@@ -56,11 +56,13 @@ export function buildArticleAstro({
   imageCredit,
   imageCreditUrl,
   readingTime,
-  body
+  body,
+  tocItems
 }) {
   const tagsArray = Array.isArray(tags) ? tags : [];
   const tagsAstro = `{${JSON.stringify(tagsArray)}}`;
-  return `---\nimport ArticleLayout from '../../layouts/ArticleLayout.astro';\n---\n\n<ArticleLayout\n  title="${escapeAttr(title)}"\n  description="${escapeAttr(description)}"\n  publishedTime="${escapeAttr(publishedTime)}"\n  modifiedTime="${escapeAttr(modifiedTime || publishedTime)}"\n  author="${escapeAttr(author)}"\n  authorTitle="${escapeAttr(authorTitle)}"\n  category="${escapeAttr(category)}"\n  tags=${tagsAstro}\n  image="${escapeAttr(image)}"\n  imageAlt="${escapeAttr(imageAlt || title)}"\n  imageCredit="${escapeAttr(imageCredit || '')}"\n  imageCreditUrl="${escapeAttr(imageCreditUrl || '')}"\n  readingTime="${escapeAttr(readingTime)}"\n>\n${body.trim()}\n</ArticleLayout>\n`;
+  const tocAttr = Array.isArray(tocItems) && tocItems.length ? `\n  tocItems={${JSON.stringify(tocItems)}}` : '';
+  return `---\nimport ArticleLayout from '../../layouts/ArticleLayout.astro';\n---\n\n<ArticleLayout\n  title="${escapeAttr(title)}"\n  description="${escapeAttr(description)}"\n  publishedTime="${escapeAttr(publishedTime)}"\n  modifiedTime="${escapeAttr(modifiedTime || publishedTime)}"\n  author="${escapeAttr(author)}"\n  authorTitle="${escapeAttr(authorTitle)}"\n  category="${escapeAttr(category)}"\n  tags=${tagsAstro}\n  image="${escapeAttr(image)}"\n  imageAlt="${escapeAttr(imageAlt || title)}"\n  imageCredit="${escapeAttr(imageCredit || '')}"\n  imageCreditUrl="${escapeAttr(imageCreditUrl || '')}"\n  readingTime="${escapeAttr(readingTime)}"${tocAttr}\n>\n${body.trim()}\n</ArticleLayout>\n`;
 }
 
 export function makeSlug(title) {

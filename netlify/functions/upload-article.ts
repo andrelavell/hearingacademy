@@ -271,6 +271,35 @@ function summarizeDescriptionFromHtml(html: string, maxLen = 160): string {
   return (lastSpace > 50 ? cut.slice(0, lastSpace) : cut).trim() + '…';
 }
 
+// Extract a Markdown "Table of Contents" block that looks like:
+// ## Table of Contents\n
+// 1. [Section](#section)
+// 2. [Another](#another)
+// Returns the markdown with the TOC removed and an array of items { text, id }
+function extractTocFromMarkdown(md: string): { mdWithoutToc: string; tocItems: Array<{ text: string; id: string }> } {
+  const src = String(md || '');
+  const headingRe = /^##\s+(?:table\s+of\s+contents|contents)\s*$/im;
+  const startMatch = src.match(headingRe);
+  if (!startMatch || startMatch.index === undefined) return { mdWithoutToc: src, tocItems: [] };
+  const startIdx = startMatch.index;
+  // From end of heading line to before the next H2 or end of file
+  const afterHeadingIdx = src.indexOf('\n', startIdx) + 1;
+  const rest = src.slice(afterHeadingIdx);
+  const nextH2Rel = rest.search(/^##\s+/m);
+  const blockEndIdx = nextH2Rel === -1 ? src.length : afterHeadingIdx + nextH2Rel;
+  const tocBlock = src.slice(afterHeadingIdx, blockEndIdx);
+  const itemRe = /^\s*(?:[-*]|\d+\.)\s*\[(.+?)\]\(#([^)]+)\)\s*$/gm;
+  const items: Array<{ text: string; id: string }> = [];
+  let m: RegExpExecArray | null;
+  while ((m = itemRe.exec(tocBlock)) !== null) {
+    const text = String(m[1] || '').trim();
+    const id = String(m[2] || '').trim();
+    if (text && id) items.push({ text, id });
+  }
+  const mdWithoutToc = src.slice(0, startIdx) + src.slice(blockEndIdx);
+  return { mdWithoutToc, tocItems: items };
+}
+
 async function ensureUniqueSlug(baseSlug: string, index: any[]): Promise<string> {
   let slug = baseSlug;
   if (!index.some((it) => it.slug === slug)) return slug;
@@ -374,8 +403,9 @@ export const handler = async (event: any) => {
     }
 
     const fm = matter(mdText);
+    const { mdWithoutToc, tocItems } = extractTocFromMarkdown(fm.content);
     const title = (providedTitle || String(fm.data.title || '').trim() || (fm.content.match(/^#\s+(.+?)\s*$/m)?.[1] || 'Untitled')).trim();
-    const rawHtml = marked.parse(fm.content);
+    const rawHtml = marked.parse(mdWithoutToc);
     const bodyHtml = stripLeadingH1(String(rawHtml));
     const description = providedDesc || String(fm.data.description || summarizeDescriptionFromHtml(bodyHtml));
 
@@ -518,6 +548,7 @@ export const handler = async (event: any) => {
       imageCreditUrl,
       readingTime: reading,
       body: bodyHtml,
+      tocItems,
     });
 
     const newRec: any = { slug, title, description, category, tags, image: imageSrc, publishedTime: nowIso, modifiedTime: nowIso, readingTime: reading };

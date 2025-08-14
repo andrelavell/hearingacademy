@@ -18,6 +18,7 @@ export interface Props {
   imageCredit?: string;
   imageCreditUrl?: string;
   readingTime?: string;
+  tocItems?: Array<{ text: string; id: string }>;
 }
 
 const {
@@ -33,7 +34,8 @@ const {
   imageAlt,
   imageCredit,
   imageCreditUrl,
-  readingTime = '5 min read'
+  readingTime = '5 min read',
+  tocItems = []
 } = Astro.props;
 
 const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';
@@ -159,7 +161,15 @@ const breadcrumbLd = {
       </div>
       
       <div class="article-content">
-        <div class="content-container">
+        <div class={`content-container ${tocItems.length > 0 ? 'with-toc' : ''}`}>
+          {tocItems.length > 0 && (
+            <aside class="toc" id="toc">
+              <div class="toc-inner">
+                <div class="toc-title">On this page</div>
+                <nav class="toc-nav"><ul></ul></nav>
+              </div>
+            </aside>
+          )}
           <div class="article-body">
             <slot />
           </div>
@@ -223,6 +233,54 @@ const breadcrumbLd = {
   </main>
   
   <Footer />
+
+  {tocItems.length > 0 && (
+    <script is:inline>
+      (function initToc(){
+        const run = () => {
+          const container = document.querySelector('.article-body');
+          const list = document.querySelector('.toc-nav ul');
+          const toc = document.querySelector('.toc');
+          const items = {JSON.stringify(tocItems)};
+          if (!container || !list || !Array.isArray(items) || !items.length) {
+            toc?.classList?.add('hidden');
+            return;
+          }
+          const normalize = (s) => (s || '')
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s&-]/g, '')
+            .replace(/\s+/g, ' ');
+          list.innerHTML = '';
+          const headings = Array.from(container.querySelectorAll('h2, h3'));
+          items.forEach((it) => {
+            const wantId = String(it.id || '').trim();
+            const wantText = String(it.text || '').trim();
+            let target = headings.find(h => normalize(h.textContent) === normalize(wantText));
+            if (!target) {
+              const slugFromText = wantText.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+              target = headings.find(h => (h.id && h.id === wantId) || ((!h.id || h.id === slugFromText) && slugFromText === wantId));
+            }
+            if (target && !target.id && wantId) target.id = wantId;
+            const li = document.createElement('li');
+            li.className = target && target.tagName.toLowerCase() === 'h3' ? 'h3' : 'h2';
+            const a = document.createElement('a');
+            a.href = `#${wantId}`;
+            a.textContent = wantText;
+            li.appendChild(a);
+            list.appendChild(li);
+          });
+          if (!list.children.length) toc?.classList?.add('hidden');
+        };
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', run, { once: true });
+        } else {
+          run();
+        }
+      })();
+    </script>
+  )}
+
 </BaseLayout>
 
 <style>
@@ -334,6 +392,35 @@ const breadcrumbLd = {
     color: var(--color-text);
     margin-bottom: var(--space-7);
   }
+
+  /* Two-column content area with sticky ToC */
+  .article-content .content-container.with-toc {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .toc {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+  }
+  .toc.hidden { display: none; }
+  .toc .toc-inner {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-4);
+  }
+  .toc-title {
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--space-3);
+  }
+  .toc-nav ul { list-style: none; margin: 0; padding: 0; }
+  .toc-nav li { margin: 0 0 var(--space-2); }
+  .toc-nav li.h3 { margin-left: var(--space-3); font-size: var(--fs-100); }
+  .toc-nav a { text-decoration: none; color: var(--color-text); font-size: var(--fs-200); }
+  .toc-nav a:hover { color: var(--color-primary); }
 
   .article-body h2 {
     font-size: var(--fs-700);
@@ -511,6 +598,9 @@ const breadcrumbLd = {
   }
 
   @media (max-width: 768px) {
+    .article-content .content-container.with-toc {
+      grid-template-columns: 1fr;
+    }
     .article-title {
       font-size: var(--fs-700);
     }
