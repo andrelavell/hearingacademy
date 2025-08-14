@@ -1,0 +1,52 @@
+=== Inline Link Relevance Audit ===
+Articles audited: 20
+Overall % Top-1: 42.3
+Overall % Top-3: 64.8
+Overall % Score>=8: 98.6
+
+- AI in Hearing Aids: Myth, Reality, and How to Get Better Speech-in-Noise [ai-hearing-aids-noise] -> links=1, top1%=0, top3%=0, scoreOK%=100, flagged=1
+    • anchor="hearing aids" -> chosen={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:24, rank:7} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+- Auracast Is Coming: How Bluetooth LE Audio Will Transform Hearing in Public Places [auracast-le-audio-hearing] -> links=2, top1%=50, top3%=50, scoreOK%=100, flagged=1
+    • anchor="hearing aids" -> chosen={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:24, rank:8} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+- Listening Fatigue Is Real: Use Your Hearing Aids to Spend Less Energy on Every Conversation [hearing-aid-listening-fatigue] -> links=4, top1%=25, top3%=50, scoreOK%=100, flagged=2
+    • anchor="hearing aids" -> chosen={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:24, rank:7} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+    • anchor="tinnitus" -> chosen={href:/articles/sleep-apnea-hearing-tinnitus, score:15, rank:9} best={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:18}
+- Hearing Supplements: Hype vs. Help (What Science Says) [hearing-supplements-truth] -> links=4, top1%=50, top3%=100, scoreOK%=100, flagged=0
+- Hyperacusis Treatment: Rebuild Your Sound Tolerance Without Hiding [hyperacusis-sound-tolerance-therapy] -> links=4, top1%=50, top3%=75, scoreOK%=100, flagged=1
+    • anchor="hearing loss" -> chosen={href:/articles/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue, score:23, rank:6} best={href:/articles/sudden-hearing-loss-treatment-window, score:23}
+- Long COVID and Your Hearing: What We Know (and What to Do Next) [long-covid-hearing-tinnitus] -> links=4, top1%=50, top3%=50, scoreOK%=100, flagged=2
+    • anchor="hearing tests" -> chosen={href:/articles/sleep-apnea-hearing-tinnitus, score:17, rank:6} best={href:/articles/self-fit-otc-hearing-aids, score:17}
+    • anchor="hearing loss" -> chosen={href:/articles/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now, score:24, rank:4} best={href:/articles/sudden-hearing-loss-treatment-window, score:24}
+- Menopause and Your Ears: How Hormone Shifts Change Hearing (and What Helps) [menopause-hearing-changes] -> links=4, top1%=75, top3%=75, scoreOK%=100, flagged=1
+    • anchor="hearing loss" -> chosen={href:/articles/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue, score:24, rank:6} best={href:/articles/sudden-hearing-loss-treatment-window, score:24}
+- Music, Not Mush: Tuning Hearing Aids So Songs and Instruments Sound Right [music-with-hearing-aids] -> links=2, top1%=0, top3%=100, scoreOK%=100, flagged=0
+- Make Your Voice Sound Natural in Hearing Aids: Beat the Occlusion Effect [natural-voice-hearing-aids] -> links=3, top1%=0, top3%=33.3, scoreOK%=100, flagged=2
+    • anchor="hearing aids" -> chosen={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:24, rank:7} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+    • anchor="tinnitus" -> chosen={href:/articles/menopause-hearing-changes, score:13, rank:9} best={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:16}
+- Otosclerosis Treatment: Stapedotomy or Hearing Aids—How to Choose [otosclerosis-surgery-hearing-aids] -> links=4, top1%=25, top3%=50, scoreOK%=100, flagged=2
+    • anchor="hearing aids" -> chosen={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:24, rank:7} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+    • anchor="tinnitus" -> chosen={href:/articles/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now, score:13, rank:13} best={href:/articles/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right, score:16}
+- Pregnancy and Your Hearing: The Surprising Ear Changes (and How to Handle Them) [pregnancy-hearing-changes] -> links=4, top1%=50, top3%=75, scoreOK%=100, flagged=1
+    • anchor="hearing loss" -> chosen={href:/articles/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue, score:24, rank:6} best={href:/articles/sudden-hearing-loss-treatment-window, score:24}
+- Pressure-Proof Your Ears: Prevent Barotrauma When You Fly, Drive High, or Dive [prevent-ear-barotrauma] -> links=4, top1%=50, top3%=50, scoreOK%=100, flagged=2
+    • anchor="hearing loss" -> chosen={href:/articles/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now, score:23, rank:4} best={href:/articles/sudden-hearing-loss-treatment-window, score:23}
+    • anchor="Hearing aids" -> chosen={href:/articles/ai-hearing-aids-noise, score:17, rank:6} best={href:/articles/self-fit-otc-hearing-aids, score:17}
+- Your Hearing Aids, Verified: Real-Ear Measurements That Make Voices Clear [real-ear-hearing-aids] -> links=4, top1%=50, top3%=75, scoreOK%=100, flagged=1
+    • anchor="hearing aids" -> chosen={href:/articles/ai-hearing-aids-noise, score:24, rank:5} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+- Earwax, Safely Solved: At‑Home Softeners, When to Flush, and When to See a Pro [safe-earwax-removal] -> links=4, top1%=50, top3%=50, scoreOK%=75, flagged=3
+    • anchor="hearing aids" -> chosen={href:/articles/natural-voice-hearing-aids, score:23, rank:5} best={href:/articles/self-fit-otc-hearing-aids, score:23}
+    • anchor="Vertigo" -> chosen={href:/articles/pregnancy-hearing-changes, score:7, rank:1} best={href:/articles/pregnancy-hearing-changes, score:7}
+    • anchor="audiology" -> chosen={href:/articles/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now, score:15, rank:25} best={href:/articles/self-fit-otc-hearing-aids, score:15}
+- OTC Hearing Aids, Done Right: Self‑Fit, Save, and Know When to Get Help [self-fit-otc-hearing-aids] -> links=4, top1%=75, top3%=100, scoreOK%=100, flagged=0
+- Sudden Hearing Loss Needs Speed: Treatments and the Critical Window [sudden-hearing-loss-treatment-window] -> links=4, top1%=50, top3%=75, scoreOK%=100, flagged=1
+    • anchor="hearing loss" -> chosen={href:/articles/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue, score:24, rank:5} best={href:/articles/surfers-ear-exostosis-hearing, score:24}
+- Surfer’s Ear and Cold-Water Hearing Loss: Stop Bony Growths Before They Block Your Sound [surfers-ear-exostosis-hearing] -> links=4, top1%=50, top3%=75, scoreOK%=100, flagged=1
+    • anchor="hearing aids" -> chosen={href:/articles/otosclerosis-surgery-hearing-aids, score:24, rank:7} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+- Is Your Jaw Messing With Your Ears? TMJ, Ear Fullness, and That “Muffled” Feeling [tmj-ear-fullness-muffled-hearing] -> links=3, top1%=33.3, top3%=33.3, scoreOK%=100, flagged=2
+    • anchor="hearing loss" -> chosen={href:/articles/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now, score:23, rank:4} best={href:/articles/sudden-hearing-loss-treatment-window, score:23}
+    • anchor="hearing aids" -> chosen={href:/articles/natural-voice-hearing-aids, score:23, rank:5} best={href:/articles/self-fit-otc-hearing-aids, score:23}
+- Vaccines That Protect Your Hearing: The Shots Worth Getting [vaccines-protect-hearing] -> links=4, top1%=25, top3%=75, scoreOK%=100, flagged=1
+    • anchor="hearing loss" -> chosen={href:/articles/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue, score:24, rank:6} best={href:/articles/sudden-hearing-loss-treatment-window, score:24}
+- Hearing at Work: Accommodations, Tech, and Tactics That Make Your Job Easier [workplace-hearing-accommodations] -> links=4, top1%=25, top3%=50, scoreOK%=100, flagged=2
+    • anchor="hearing aids" -> chosen={href:/articles/ai-hearing-aids-noise, score:24, rank:6} best={href:/articles/self-fit-otc-hearing-aids, score:24}
+    • anchor="ENT specialist" -> chosen={href:/articles/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now, score:12, rank:7} best={href:/articles/sudden-hearing-loss-treatment-window, score:12}

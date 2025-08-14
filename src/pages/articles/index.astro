@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import topics from '../../data/topics_index.json';
 
 const items = (topics || []).slice().sort((a, b) => {
@@ -11,12 +9,7 @@ const items = (topics || []).slice().sort((a, b) => {
 });
 ---
 
-<BaseLayout 
-  title="Articles" 
-  description="Expert articles on hearing health, hearing aids, technology, and wellness. Stay informed with the latest insights from hearing healthcare professionals."
->
-  <Header />
-  
+<BaseLayout title="Articles" description="Expert articles on hearing health, hearing aids, technology, and wellness. Stay informed with the latest insights from hearing healthcare professionals.">
   <main>
     <section class="articles-hero">
       <div class="container">
@@ -58,22 +51,14 @@ const items = (topics || []).slice().sort((a, b) => {
       </div>
     </section>
   </main>
-  
-  <Footer />
-</BaseLayout>
 
-<style>
-  .articles-hero {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    padding: var(--space-8) 0;
-    text-align: center;
-  }
+  <style>
+    .articles-hero {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: var(--space-8) 0;
+      text-align: center;
+    }
 
-  .articles-hero h1 {
-    font-size: var(--fs-800);
-    font-weight: var(--fw-bold);
-    color: var(--color-text);
-    margin-bottom: var(--space-4);
   }
 
   .articles-hero p {
@@ -176,4 +161,5 @@ const items = (topics || []).slice().sort((a, b) => {
       grid-template-columns: 1fr;
     }
   }
-</style>
+  </style>
+</BaseLayout>

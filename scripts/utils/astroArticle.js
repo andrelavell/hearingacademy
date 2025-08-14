@@ -6,7 +6,8 @@ import slugify from 'slugify';
 // We provide helpers to parse props from the layout tag and to build article files.
 
 const ATTR_RE = /<ArticleLayout([\s\S]*?)>/m;
-const ATTR_PAIR_RE = /(\w+)={(\[[\s\S]*?\])}|(\w+)="([\s\S]*?)"/g;
+// Matches either array/object syntax key={[...]} OR string key="..." allowing escaped quotes inside
+const ATTR_PAIR_RE = /(\w+)={(\[[\s\S]*?\])}|(\w+)="((?:\\.|[^"])*)"/g;
 
 export function parseArticleAstro(content) {
   const m = content.match(ATTR_RE);
@@ -26,7 +27,9 @@ export function parseArticleAstro(content) {
       }
     } else if (match[3] && match[4]) {
       const key = match[3];
-      props[key] = match[4];
+      // Unescape common backslash-escaped sequences (e.g., \" -> ", \\ -> \)
+      const raw = match[4];
+      props[key] = raw.replace(/\\"/g, '"').replace(/\\\\/g, '\\');
     }
   }
   // Body inside the slot
@@ -102,7 +105,12 @@ export function makeCompactSlug({ title, keywords = [], maxLen = 60, maxWords = 
 }
 
 function escapeAttr(s) {
-  return String(s || '').replace(/"/g, '\\"');
+  const str = String(s || '');
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 function stripHtml(html) {

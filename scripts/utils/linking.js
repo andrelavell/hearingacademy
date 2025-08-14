@@ -100,11 +100,21 @@ function countIntersect(aSet, bSet) {
   return c;
 }
 
+// Consider an anchor "generic-only" if all its tokens are from very common domain terms
+function isGenericOnly(tokenSet) {
+  if (!tokenSet || tokenSet.size === 0) return false;
+  for (const t of tokenSet) {
+    if (!GENERIC_DOMAIN_TOKENS.has(t)) return false;
+  }
+  return true;
+}
+
 export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {}) {
   try {
     const $ = load(String(bodyHtml || ''), { decodeEntities: false });
     const usedAnchors = new Set();
     const usedHrefs = new Set();
+    let placedGeneric = 0; // limit generic-only anchors to keep variety
 
     // Pick candidate targets using existing heuristic, exclude current article if slug provided
     const related = pickRelated(
@@ -133,6 +143,8 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
           const toks = tokensFor(t);
           const isSingle = t.trim().split(/\s+/).length === 1;
           if (toks.size === 0) continue; // skip generic-only tags (e.g., 'treatment')
+          // Skip generic-only short phrases (e.g., 'hearing aids', 'hearing loss') to favor long-tail
+          if (isGenericOnly(toks) && toks.size < 3) continue;
           if (isSingle && SINGLE_WORD_BLOCKLIST.has(t)) continue; // skip low-value single-word anchors
           anchors.push({ text: t, type: 'tag', tokens: toks, tokenCount: toks.size });
           anchorTexts.add(t);
@@ -141,7 +153,8 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
       // Title-derived anchors: require multi-word and overlap with tag tokens for relevance
       for (const p of deriveAnchorsFromTitle(item.title, { minWords: 2, maxWords: 4 })) {
         const toks = tokensFor(p);
-        if (toks.size >= 2 && (tagTokenSet.size === 0 || tokensIntersect(toks, tagTokenSet))) {
+        // Require multi-word and overlap with tag tokens for relevance, and avoid generic-only
+        if (toks.size >= 2 && !isGenericOnly(toks) && (tagTokenSet.size === 0 || tokensIntersect(toks, tagTokenSet))) {
           anchors.push({ text: p, type: 'title', tokens: toks, tokenCount: toks.size });
           anchorTexts.add(p);
         }
@@ -181,6 +194,8 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         const nonGenericAnchorTokens = new Set(Array.from(a.tokens).filter((t) => !GENERIC_DOMAIN_TOKENS.has(t)));
         const nonGenericOverlap = countIntersect(nonGenericAnchorTokens, c.candidateTokenSet);
         if (nonGenericAnchorTokens.size > 0 && nonGenericOverlap === 0) continue; // skip weakly matched, generic anchors
+        // Penalize anchors that are entirely generic (still allowed if they strongly fit)
+        if (isGenericOnly(a.tokens)) score -= 3;
         if (!anchorMap.has(anchor)) anchorMap.set(anchor, []);
         anchorMap.get(anchor).push({ href: c.href, score, type: a.type });
       }
@@ -218,6 +233,7 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         if (tokensIntersect(aTokens, targetTagTokenSet)) score += 2;
         if (tokensIntersect(aTokens, targetTitleTokenSet)) score += 1;
         if (!isSingle) score += 1;
+        if (nonGenericAnchorTokens.size === 0) score -= 3; // penalize generic-only anchors globally, lightly
         if (!anchorMap.has(anchor)) anchorMap.set(anchor, []);
         anchorMap.get(anchor).push({ href: c.href, score, type: 'global' });
       }
@@ -264,6 +280,9 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         const options = anchorMap.get(anchor) || [];
         const target = options.find((opt) => !usedHrefs.has(opt.href) && opt.score >= MIN_ANCHOR_SCORE);
         if (!target) continue;
+        // Enforce per-article limit on generic-only anchors to encourage long-tail diversity
+        const aTokens = tokensFor(anchor);
+        if (isGenericOnly(aTokens) && placedGeneric >= 1) continue;
         // Insert link
         const node = nodes[idxNode];
         const i = matchInfo.m.index;
@@ -275,6 +294,7 @@ export function injectInlineLinks(bodyHtml, index, target, { maxInline = 4 } = {
         usedAnchors.add(anchor);
         usedHrefs.add(target.href);
         placed++;
+        if (isGenericOnly(aTokens)) placedGeneric++;
         break; // one link per block
       }
     });
