@@ -256,6 +256,51 @@ const fullTitle = title === 'Home' ? 'HearingAcademy - Expert Hearing Health Inf
     border-radius: 0 8px 8px 0;
   }
 
+  /* Tables */
+  .article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--color-border);
+    margin: var(--space-6) 0;
+    font-size: var(--fs-200);
+    border-radius: 8px;
+    display: block;             /* enable horizontal scroll on small screens */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;        /* prevent cramped columns */
+  }
+
+  .article-body caption {
+    caption-side: bottom;
+    color: var(--color-text-muted);
+    padding-top: var(--space-2);
+    font-size: var(--fs-100);
+    text-align: left;
+  }
+
+  .article-body thead th {
+    background: var(--color-background-light);
+    color: var(--color-text);
+    text-align: left;
+    font-weight: var(--fw-semibold);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .article-body th,
+  .article-body td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  .article-body tbody tr:nth-child(odd) td {
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .article-body tbody tr:hover td {
+    background: rgba(30, 64, 175, 0.06); /* subtle primary-tinted hover */
+  }
+
   /* Containers */
   .container {
     max-width: var(--max-width);
