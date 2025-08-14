@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import topics from '../../data/topics_index.json';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
 const items = (topics || []).slice().sort((a, b) => {
   const ad = new Date(a.publishedTime || a.modifiedTime || 0).getTime();
@@ -10,6 +12,7 @@ const items = (topics || []).slice().sort((a, b) => {
 ---
 
 <BaseLayout title="Articles" description="Expert articles on hearing health, hearing aids, technology, and wellness. Stay informed with the latest insights from hearing healthcare professionals.">
+  <Header />
   <main>
     <section class="articles-hero">
       <div class="container">
@@ -51,6 +54,7 @@ const items = (topics || []).slice().sort((a, b) => {
       </div>
     </section>
   </main>
+  <Footer />
 
   <style>
     .articles-hero {
@@ -59,7 +63,9 @@ const items = (topics || []).slice().sort((a, b) => {
       text-align: center;
     }
 
-  }
+    .articles-hero h1 {
+      margin-bottom: var(--space-3);
+    }
 
   .articles-hero p {
     font-size: var(--fs-400);
