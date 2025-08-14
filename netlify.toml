@@ -1,0 +1,20 @@
+# Netlify configuration for HearingAcademy (Astro + Netlify Functions)
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Force edge-handled functions off for compatibility unless needed
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = [
+    "sharp"
+  ]
+
+# Redirect pretty API path to the function when needed (Astro should handle routes, but keep as safety)
+# [[redirects]]
+#   from = "/api/*"
+#   to = "/.netlify/functions/astro"
+#   status = 200
