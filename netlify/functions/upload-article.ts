@@ -266,6 +266,7 @@ export const handler = async (event: any) => {
     let imageQuery = '';
     let imageUrl = '';
     let providedSlugRaw = '';
+    let providedAuthorName = '';
     let imageUpload: { data: Buffer; filename?: string; mimeType?: string } | null = null;
 
     if (isMultipart) {
@@ -279,6 +280,7 @@ export const handler = async (event: any) => {
       imageQuery = String(fields['imageQuery'] || '');
       imageUrl = String(fields['imageUrl'] || '');
       providedSlugRaw = String(fields['slug'] || '');
+      providedAuthorName = String(fields['authorName'] || '');
 
       const md = files['mdfile'];
       if (!md || !md.data?.length) {
@@ -298,6 +300,7 @@ export const handler = async (event: any) => {
       imageQuery = String(json.imageQuery || '');
       imageUrl = String(json.imageUrl || '');
       providedSlugRaw = String(json.slug || '');
+      providedAuthorName = String(json.authorName || '');
       // imageUpload not supported in JSON mode
     }
 
@@ -352,11 +355,17 @@ export const handler = async (event: any) => {
 
     const authors = await loadAuthors();
     const authorInfo = (() => {
+      const fallback = { name: 'HearingAcademy Editorial', title: 'Audiologist & Hearing Specialist' };
+      if (providedAuthorName) {
+        const match = Array.isArray(authors) ? authors.find((a: any) => String(a.name).trim() === providedAuthorName.trim()) : null;
+        if (match) return { name: match.name || fallback.name, title: match.title || fallback.title };
+        return { name: providedAuthorName, title: fallback.title };
+      }
       if (Array.isArray(authors) && authors.length) {
         const a = authors[Math.floor(Math.random() * authors.length)];
-        return { name: a.name || 'HearingAcademy Editorial', title: a.title || 'Audiologist & Hearing Specialist' };
+        return { name: a.name || fallback.name, title: a.title || fallback.title };
       }
-      return { name: 'HearingAcademy Editorial', title: 'Audiologist & Hearing Specialist' };
+      return fallback;
     })();
 
     let storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();

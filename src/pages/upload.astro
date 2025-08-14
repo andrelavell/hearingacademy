@@ -1,5 +1,6 @@
 ---
 import categories from '../data/categories.json';
+import authors from '../data/authors.json';
 const title = 'Upload Article';
 const description = 'Drag-and-drop a Markdown file to auto-format and publish an article.';
 ---
@@ -122,6 +123,18 @@ const description = 'Drag-and-drop a Markdown file to auto-format and publish an
                 <div>
                   <label for="tags">Tags (comma-separated)</label>
                   <input id="tags" type="text" name="tags" placeholder="e.g. hearing aids, tinnitus" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label for="authorName">Author</label>
+                  <select id="authorName" name="authorName">
+                    <option value="">Auto (random/editorial)</option>
+                    {Array.isArray(authors) && authors.map((a) => (
+                      <option value={a.name}>{a.name}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
