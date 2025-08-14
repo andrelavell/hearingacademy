@@ -32,18 +32,6 @@
     "hash": "aed7be604afe9bcbfb2334ae9167aff7aa56671b51f77cfa38a5f51d88765e86"
   },
   {
-    "slug": "index",
-    "title": "Articles",
-    "description": "Expert articles on hearing health, hearing aids, technology, and wellness. Stay informed with the latest insights from hearing healthcare professionals.",
-    "category": "Hearing Health",
-    "tags": [],
-    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
-    "publishedTime": "2025-08-14T15:40:09.359Z",
-    "modifiedTime": "2025-08-14T15:40:09.359Z",
-    "readingTime": "8 min read",
-    "hash": "8403309afaae9426ace647c8e748102f8bd5cf28e00097a131643c946280b99e"
-  },
-  {
     "slug": "ai-hearing-aids-noise",
     "title": "AI in Hearing Aids: Myth, Reality, and How to Get Better Speech-in-Noise",
     "description": "Lede: Hearing aid ads promise “AI that understands speech like your brain” and “effortless conversation in noise.” The truth is encouraging—but not magical.…",
