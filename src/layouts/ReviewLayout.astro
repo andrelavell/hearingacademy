@@ -219,8 +219,8 @@ const breadcrumbLd = {
 
   <Footer />
 
-  <script type="application/ld+json">{JSON.stringify(productLd)}</script>
-  <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+  <script type="application/ld+json" is:inline>{JSON.stringify(productLd)}</script>
+  <script type="application/ld+json" is:inline>{JSON.stringify(breadcrumbLd)}</script>
 
   {import.meta.env?.DEV && (
     <script>
@@ -234,7 +234,7 @@ const breadcrumbLd = {
     </script>
   )}
 
-  <script>
+  <script is:inline>
     // Build ToC from h2/h3 in the review body once DOM is ready
     (function initToc(){
       const run = () => {
