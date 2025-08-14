@@ -161,7 +161,7 @@ const breadcrumbLd = {
       </div>
       
       <div class="article-content">
-        <div class={`content-container ${tocItems.length > 0 ? 'with-toc' : ''}`}>
+        <div class={tocItems.length > 0 ? 'container with-toc' : 'content-container'}>
           {tocItems.length > 0 && (
             <aside class="toc" id="toc">
               <div class="toc-inner">
@@ -417,7 +417,7 @@ const breadcrumbLd = {
   }
 
   /* Two-column content area with sticky ToC */
-  .article-content .content-container.with-toc {
+  .article-content .with-toc {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: var(--space-6);
@@ -621,7 +621,7 @@ const breadcrumbLd = {
   }
 
   @media (max-width: 768px) {
-    .article-content .content-container.with-toc {
+    .article-content .with-toc {
       grid-template-columns: 1fr;
     }
     .article-title {
