@@ -375,28 +375,7 @@ export const handler = async (event: any) => {
 
     const fm = matter(mdText);
     const title = (providedTitle || String(fm.data.title || '').trim() || (fm.content.match(/^#\s+(.+?)\s*$/m)?.[1] || 'Untitled')).trim();
-
-    // Detect and strip a Markdown Table of Contents section (e.g., starting with "## Table of Contents")
-    // We remove it from the markdown before converting to HTML so the layout can render a standardized TOC.
-    let mdBody = String(fm.content || '');
-    {
-      const tocHeadingRe = /^\s{0,3}#{2,3}\s+table of contents\s*$/im; // matches "## Table of Contents" or "### Table of Contents"
-      const m = mdBody.match(tocHeadingRe);
-      if (m) {
-        const start = m.index ?? -1;
-        if (start >= 0) {
-          // Find end as the next H2/H3 heading after TOC or end of string
-          const after = mdBody.slice(start + m[0].length);
-          const nextHeadingRel = after.search(/\n\s*#{2,3}\s+[^\n]+/m);
-          const end = nextHeadingRel === -1 ? mdBody.length : start + m[0].length + nextHeadingRel;
-          const before = mdBody.slice(0, start);
-          const afterToc = mdBody.slice(end);
-          mdBody = (before + '\n\n' + afterToc).replace(/\n{3,}/g, '\n\n');
-        }
-      }
-    }
-
-    const rawHtml = marked.parse(mdBody);
+    const rawHtml = marked.parse(fm.content);
     const bodyHtml = stripLeadingH1(String(rawHtml));
     const description = providedDesc || String(fm.data.description || summarizeDescriptionFromHtml(bodyHtml));
 

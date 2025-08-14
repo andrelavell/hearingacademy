@@ -159,20 +159,11 @@ const breadcrumbLd = {
       </div>
       
       <div class="article-content">
-        <div class="content-container content-grid">
-          <aside class="toc" id="toc">
-            <div class="toc-inner">
-              <div class="toc-title">On this page</div>
-              <nav class="toc-nav"><ul></ul></nav>
-            </div>
-          </aside>
-
+        <div class="content-container">
           <div class="article-body">
             <slot />
           </div>
-        </div>
-
-        <div class="content-container">
+          
           <div class="article-footer">
             <div class="tags">
               <h4>Tags:</h4>
@@ -233,46 +224,6 @@ const breadcrumbLd = {
   
   <Footer />
 </BaseLayout>
-
-<script is:inline>
-  // Build ToC from h2 headings within the article body, similar to ReviewLayout
-  (function initArticleToc(){
-    const run = () => {
-      const container = document.querySelector('.article-body');
-      const list = document.querySelector('.toc-nav ul');
-      const toc = document.querySelector('.toc');
-      if (!container || !list) return;
-      const headings = Array.from(container.querySelectorAll('h2'));
-      if (!headings.length) {
-        toc?.classList.add('hidden');
-        return;
-      }
-      list.innerHTML = '';
-      headings.forEach(h => {
-        if (!h.id) {
-          const slug = (h.textContent || '')
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '')
-            .replace(/\s+/g, '-');
-          if (slug) h.id = slug;
-        }
-        const li = document.createElement('li');
-        li.className = 'h2';
-        const a = document.createElement('a');
-        a.href = `#${h.id}`;
-        a.textContent = h.textContent || '';
-        li.appendChild(a);
-        list.appendChild(li);
-      });
-    };
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', run, { once: true });
-    } else {
-      run();
-    }
-  })();
-</script>
 
 <style>
   .article-header {
