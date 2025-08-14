@@ -11,6 +11,7 @@ const items = (Array.isArray(topics) ? topics : []).slice().sort((a, b) => {
 });
 const featured = items[0];
 const more = items.slice(1, 3);
+const moreArticles = items.slice(3, 9);
 const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';
 ---
 
@@ -37,46 +38,6 @@ const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-1468
           </div>
           <div class="hero-image">
             <img src={FALLBACK_IMG} alt="Happy family enjoying conversation together" width="600" height="400" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Services -->
-    <section class="services">
-      <div class="container">
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 12l2 2 4-4"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-              </svg>
-            </div>
-            <h3>Expert Reviews</h3>
-            <p>Comprehensive hearing aid reviews from certified audiologists and hearing specialists.</p>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
-            </div>
-            <h3>Latest Technology</h3>
-            <p>Stay updated with cutting-edge hearing aid technology and innovative solutions.</p>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="m22 21-3-3m0 0a5.5 5.5 0 1 0-7.78-7.78 5.5 5.5 0 0 0 7.78 7.78Z"></path>
-              </svg>
-            </div>
-            <h3>Find Specialists</h3>
-            <p>Connect with qualified hearing healthcare professionals in your area.</p>
           </div>
         </div>
       </div>
@@ -131,7 +92,37 @@ const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-1468
       </div>
     </section>
 
-    
+    <!-- More Articles -->
+    {moreArticles.length > 0 && (
+      <section class="more-articles">
+        <div class="container">
+          <div class="section-header">
+            <h2>More to Explore</h2>
+            <a href="/articles" class="view-all">Browse Articles</a>
+          </div>
+          <div class="more-grid">
+            {moreArticles.map(it => (
+              <article class="article-card">
+                <div class="article-image">
+                  <img src={(it.image && it.image !== '/article-default.jpg') ? it.image : FALLBACK_IMG} alt={it.title} width="400" height="250" />
+                </div>
+                <div class="article-content">
+                  <div class="article-meta">
+                    <span class="category">{it.category}</span>
+                    {it.publishedTime && (
+                      <time datetime={it.publishedTime}>{new Date(it.publishedTime).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                    )}
+                  </div>
+                  <h3><a href={`/articles/${it.slug}`}>{it.title}</a></h3>
+                  {it.description && <p>{it.description}</p>}
+                  <a href={`/articles/${it.slug}`} class="read-more">Read More</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <!-- CTA Section -->
     <section class="cta">
@@ -381,6 +372,12 @@ const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-1468
     text-decoration: none;
     font-size: var(--fs-200);
   }
+
+  /* Removed Featured Reviews section styles */
+
+  /* More Articles */
+  .more-articles { padding: var(--space-8) 0; background: var(--color-background-light); }
+  .more-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
 
   .popular-products {
     padding: var(--space-8) 0;

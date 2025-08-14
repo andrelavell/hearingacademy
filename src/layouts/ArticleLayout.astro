@@ -241,7 +241,7 @@ const breadcrumbLd = {
           const container = document.querySelector('.article-body');
           const list = document.querySelector('.toc-nav ul');
           const toc = document.querySelector('.toc');
-          const items = {JSON.stringify(tocItems)};
+          const items = Array.isArray(tocItems) ? tocItems : [];
           if (!container || !list || !Array.isArray(items) || !items.length) {
             toc?.classList?.add('hidden');
             return;
