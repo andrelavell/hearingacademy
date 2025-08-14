@@ -195,6 +195,7 @@ const description = 'Drag-and-drop a Markdown file to auto-format and publish an
         const imgFilename = $('#imgFilename');
         const form = $('#uploadForm');
         const status = $('#status');
+        let submitting = false;
 
         const autoFields = $('#autoFields');
         const urlFields = $('#urlFields');
@@ -251,6 +252,10 @@ const description = 'Drag-and-drop a Markdown file to auto-format and publish an
           e.preventDefault();
           hide(status);
           try {
+            if (submitting) return; // prevent double submit
+            submitting = true;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Publishing…'; }
             const fd = new FormData(form);
             if (!mdInput.files || !mdInput.files[0]) {
               setStatus('err', 'Please select a Markdown file (.md)');
@@ -268,6 +273,10 @@ const description = 'Drag-and-drop a Markdown file to auto-format and publish an
             setStatus('ok', 'Article published successfully! ' + link, data.pushed === false ? 'Note: GitHub push failed, changes may not be committed.' : '');
           } catch (err) {
             setStatus('err', 'Upload failed', err && err.message ? err.message : String(err));
+          } finally {
+            submitting = false;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Publish Article'; }
           }
         });
       })();

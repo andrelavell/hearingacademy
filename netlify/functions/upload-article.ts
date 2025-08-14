@@ -42,7 +42,6 @@ async function githubCommitFiles(filePaths: string[], message: string): Promise<
           const j: any = await getRes.json();
           if (j && j.sha) sha = j.sha;
         }
-
 // Optional: compress an image buffer and return a new buffer (keeps same format where possible)
 async function compressImageBuffer(input: Buffer, extHint: string): Promise<Buffer> {
   try {
@@ -124,6 +123,76 @@ async function githubPutFileFromContent(relPath: string, content: Buffer | strin
       const txt = await res.text();
       return { ok: false, details: `GitHub PUT failed for ${relPath}: ${res.status} ${txt}` };
     }
+    return { ok: true };
+  } catch (e: any) {
+    return { ok: false, details: e?.message || String(e) };
+  }
+}
+
+// Commit multiple files in a single commit using Git Data API (trees/commits)
+async function githubCommitFilesFromContents(files: Array<{ path: string; content: Buffer | string }>, message: string): Promise<{ ok: boolean; details?: any }> {
+  try {
+    const token = String(process.env.GITHUB_TOKEN || '').trim();
+    const repo = String(process.env.GITHUB_REPO || '').trim(); // owner/name
+    const branch = String(process.env.GITHUB_BRANCH || 'main').trim();
+    if (!token || !repo) return { ok: false, details: 'Missing GITHUB_TOKEN or GITHUB_REPO' };
+    const [owner, name] = repo.split('/');
+    if (!owner || !name) return { ok: false, details: 'GITHUB_REPO must be owner/name' };
+
+    const gh = async (url: string, init?: any) => {
+      const res = await fetch(url, {
+        ...init,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'User-Agent': 'HearingAcademy-Uploader',
+          ...(init && init.headers || {}),
+        },
+      });
+      if (!res.ok) throw new Error(`${init?.method || 'GET'} ${url} => ${res.status} ${await res.text()}`);
+      return res.json();
+    };
+
+    // 1) Get latest commit on branch
+    const ref = await gh(`https://api.github.com/repos/${owner}/${name}/git/ref/heads/${encodeURIComponent(branch)}`);
+    const latestSha = ref.object?.sha;
+    if (!latestSha) throw new Error('Could not resolve latest commit sha');
+    const latestCommit = await gh(`https://api.github.com/repos/${owner}/${name}/git/commits/${latestSha}`);
+    const baseTree = latestCommit.tree?.sha;
+    if (!baseTree) throw new Error('Could not resolve base tree sha');
+
+    // 2) Create blobs for each file
+    const blobs: Array<{ path: string; sha: string }> = [];
+    for (const f of files) {
+      const buf = typeof f.content === 'string' ? Buffer.from(f.content, 'utf8') : f.content;
+      const blob = await gh(`https://api.github.com/repos/${owner}/${name}/git/blobs`, {
+        method: 'POST',
+        body: JSON.stringify({ content: buf.toString('base64'), encoding: 'base64' }),
+      });
+      blobs.push({ path: f.path, sha: blob.sha });
+    }
+
+    // 3) Create a new tree
+    const tree = await gh(`https://api.github.com/repos/${owner}/${name}/git/trees`, {
+      method: 'POST',
+      body: JSON.stringify({
+        base_tree: baseTree,
+        tree: blobs.map(b => ({ path: b.path, mode: '100644', type: 'blob', sha: b.sha })),
+      }),
+    });
+
+    // 4) Create a commit
+    const commit = await gh(`https://api.github.com/repos/${owner}/${name}/git/commits`, {
+      method: 'POST',
+      body: JSON.stringify({ message, tree: tree.sha, parents: [latestSha] }),
+    });
+
+    // 5) Update the ref to point to new commit
+    await gh(`https://api.github.com/repos/${owner}/${name}/git/refs/heads/${encodeURIComponent(branch)}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ sha: commit.sha, force: false }),
+    });
+
     return { ok: true };
   } catch (e: any) {
     return { ok: false, details: e?.message || String(e) };
@@ -458,13 +527,12 @@ export const handler = async (event: any) => {
     let gh: { ok: boolean; details?: any } = { ok: true };
     const commitMsg = `content: add ${slug} via upload`;
     if (READ_ONLY) {
-      // Commit directly to GitHub (no local FS writes)
-      const relArticle = `src/pages/articles/${slug}.astro`;
-      const relIndex = 'src/data/topics_index.json';
-      const p1 = await githubPutFileFromContent(relArticle, astro, commitMsg);
-      const p2 = await githubPutFileFromContent(relIndex, Buffer.from(JSON.stringify(index, null, 2) + '\n', 'utf8'), commitMsg);
-      // Note: images are kept remote in READ_ONLY mode per storage override
-      gh = (p1.ok && p2.ok) ? { ok: true } : { ok: false, details: [p1.details, p2.details].filter(Boolean).join(' | ') };
+      // Single commit for both files in Netlify runtime
+      const files = [
+        { path: `src/pages/articles/${slug}.astro`, content: astro },
+        { path: 'src/data/topics_index.json', content: Buffer.from(JSON.stringify(index, null, 2) + '\n', 'utf8') },
+      ];
+      gh = await githubCommitFilesFromContents(files, commitMsg);
     } else {
       // Local write + commit paths for non-Netlify environments
       await ensureDir(ARTICLES_DIR);
