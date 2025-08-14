@@ -226,7 +226,8 @@ async function parseMultipart(body: Buffer, contentType: string): Promise<{ fiel
 
 export const handler = async (event: any) => {
   try {
-    const READ_ONLY = !!process.env.NETLIFY; // Netlify Functions runtime FS is read-only
+    const READ_ONLY = (process.env.NETLIFY === 'true') || !!process.env.AWS_REGION || !!process.env.AWS_EXECUTION_ENV || !!process.env.LAMBDA_TASK_ROOT;
+    // console.log('[upload-fn] runtime:', READ_ONLY ? 'read-only (lambda)' : 'writable (local)');
     const ct = String(event.headers?.['content-type'] || event.headers?.['Content-Type'] || '');
     const isMultipart = ct.includes('multipart/form-data');
 
