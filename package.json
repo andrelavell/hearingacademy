@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@fastify/busboy": "^2.1.1",
-    "@netlify/functions": "^4.6.0",
     "astro": "^5.12.9",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.4.5",

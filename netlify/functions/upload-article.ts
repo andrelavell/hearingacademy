@@ -1,4 +1,3 @@
-import type { Handler } from '@netlify/functions';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import matter from 'gray-matter';
@@ -163,7 +162,7 @@ async function parseMultipart(body: Buffer, contentType: string): Promise<{ fiel
   });
 }
 
-export const handler: Handler = async (event) => {
+export const handler = async (event: any) => {
   try {
     const ct = String(event.headers?.['content-type'] || event.headers?.['Content-Type'] || '');
     const isMultipart = ct.includes('multipart/form-data');
