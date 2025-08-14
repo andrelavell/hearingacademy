@@ -1,0 +1,263 @@
+---
+import categories from '../data/categories.json';
+const title = 'Upload Article';
+const description = 'Drag-and-drop a Markdown file to auto-format and publish an article.';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title} • HearingAcademy</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: #111833;
+        --accent: #4f8cff;
+        --accent2: #8aa8ff;
+        --text: #e8eeff;
+        --muted: #a8b3d1;
+        --danger: #ff6b6b;
+        --ok: #1dd1a1;
+        --border: #223055;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: linear-gradient(180deg, #0b1020 0%, #0f1731 100%);
+        color: var(--text);
+      }
+      header {
+        padding: 28px 20px; text-align: center;
+      }
+      header h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: 0.3px; }
+      header p { margin: 0; color: var(--muted); }
+      main { max-width: 980px; margin: 0 auto; padding: 16px 20px 60px; }
+      .card {
+        background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
+      }
+      .two-col { display: grid; grid-template-columns: 1fr; gap: 18px; }
+      @media (min-width: 900px) { .two-col { grid-template-columns: 1.5fr 1fr; } }
+
+      label { display: block; font-weight: 600; margin: 6px 0 8px; }
+      input[type="text"], textarea, select {
+        width: 100%; background: #0c142d; color: var(--text);
+        border: 1px solid var(--border); border-radius: 10px; padding: 12px 12px;
+        outline: none; transition: border-color .15s ease, box-shadow .15s ease;
+      }
+      input[type="text"]:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,140,255,0.15); }
+      textarea { min-height: 90px; resize: vertical; }
+
+      .help { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+      .dropzone {
+        border: 2px dashed var(--border); border-radius: 12px; padding: 26px; text-align: center; cursor: pointer;
+        display: flex; align-items: center; justify-content: center; min-height: 130px; background: #0c142d;
+        transition: border-color .15s ease, background .15s ease;
+      }
+      .dropzone.dragover { border-color: var(--accent); background: rgba(79,140,255,0.08); }
+      .filename { color: var(--accent2); margin-top: 8px; font-size: 14px; }
+
+      .row { display: grid; grid-template-columns: 1fr; gap: 12px; }
+      @media (min-width: 720px) { .row { grid-template-columns: 1fr 1fr; } }
+
+      .radios { display: flex; gap: 14px; flex-wrap: wrap; }
+      .section-title { margin: 16px 0 10px; font-size: 16px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+      .actions { display: flex; gap: 12px; align-items: center; }
+      button {
+        appearance: none; border: 1px solid var(--accent); background: linear-gradient(180deg, var(--accent), #3669df);
+        color: white; padding: 12px 18px; font-weight: 700; border-radius: 12px; cursor: pointer; box-shadow: 0 8px 18px rgba(79,140,255,0.25);
+      }
+      button.secondary { background: transparent; color: var(--text); border-color: var(--border); box-shadow: none; }
+
+      .status { margin-top: 18px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: #0c142d; font-size: 14px; }
+      .status.ok { border-color: rgba(29,209,161,0.4); box-shadow: inset 0 0 0 1px rgba(29,209,161,0.2); }
+      .status.err { border-color: rgba(255,107,107,0.4); box-shadow: inset 0 0 0 1px rgba(255,107,107,0.2); }
+
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>{title}</h1>
+      <p>Upload a Markdown (.md) file, auto-generate the article, and publish.</p>
+    </header>
+    <main>
+      <section class="card">
+        <form id="uploadForm" action="/api/upload-article" method="post" enctype="multipart/form-data">
+          <div class="two-col">
+            <div>
+              <div class="section-title">Markdown</div>
+              <div id="mdDrop" class="dropzone">
+                <div>
+                  <div><strong>Drag & drop</strong> your .md file here, or click to choose</div>
+                  <div class="help">Required. The first H1 (#) will be used as the article title if not provided.</div>
+                  <div id="mdFilename" class="filename hidden"></div>
+                </div>
+                <input id="mdInput" type="file" name="mdfile" accept=".md,text/markdown" class="hidden" />
+              </div>
+
+              <div class="section-title">Details</div>
+              <label for="title">Title (optional)</label>
+              <input id="title" type="text" name="title" placeholder="If empty, taken from first # heading" />
+
+              <label for="description">Description (optional)</label>
+              <textarea id="description" name="description" placeholder="Short meta description if you want to override the auto summary"></textarea>
+
+              <div class="row">
+                <div>
+                  <label for="category">Category</label>
+                  <select id="category" name="category" required>
+                    {categories.map((c) => (<option value={c}>{c}</option>))}
+                  </select>
+                </div>
+                <div>
+                  <label for="tags">Tags (comma-separated)</label>
+                  <input id="tags" type="text" name="tags" placeholder="e.g. hearing aids, tinnitus" />
+                </div>
+              </div>
+
+              <label for="slug">Custom slug (optional)</label>
+              <input id="slug" type="text" name="slug" placeholder="leave blank to auto-generate" />
+            </div>
+
+            <div>
+              <div class="section-title">Hero Image</div>
+              <div class="radios">
+                <label><input type="radio" name="imageMode" value="auto" checked /> Auto (Unsplash)</label>
+                <label><input type="radio" name="imageMode" value="url" /> Use Image URL</label>
+                <label><input type="radio" name="imageMode" value="upload" /> Upload Image</label>
+              </div>
+
+              <div id="autoFields">
+                <label for="imageQuery">Image search query (optional)</label>
+                <input id="imageQuery" type="text" name="imageQuery" placeholder="defaults to the title" />
+              </div>
+
+              <div id="urlFields" class="hidden">
+                <label for="imageUrl">Image URL</label>
+                <input id="imageUrl" type="text" name="imageUrl" placeholder="https://..." />
+              </div>
+
+              <div id="uploadFields" class="hidden">
+                <label>Upload image file</label>
+                <div id="imgDrop" class="dropzone">
+                  <div>
+                    <div><strong>Drag & drop</strong> hero image, or click to choose</div>
+                    <div class="help">JPG/PNG/WEBP/AVIF. Will be optimized automatically.</div>
+                    <div id="imgFilename" class="filename hidden"></div>
+                  </div>
+                  <input id="imgInput" type="file" name="imageUpload" accept="image/*" class="hidden" />
+                </div>
+              </div>
+
+              <div class="actions">
+                <button type="submit">Publish Article</button>
+                <button type="button" id="resetBtn" class="secondary">Reset</button>
+              </div>
+
+              <div id="status" class="status hidden"></div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      (function() {
+        const $ = (sel) => document.querySelector(sel);
+        const mdDrop = $('#mdDrop');
+        const mdInput = $('#mdInput');
+        const mdFilename = $('#mdFilename');
+        const imgDrop = $('#imgDrop');
+        const imgInput = $('#imgInput');
+        const imgFilename = $('#imgFilename');
+        const form = $('#uploadForm');
+        const status = $('#status');
+
+        const autoFields = $('#autoFields');
+        const urlFields = $('#urlFields');
+        const uploadFields = $('#uploadFields');
+
+        function show(el) { el.classList.remove('hidden'); }
+        function hide(el) { el.classList.add('hidden'); }
+        function setFilename(el, name) {
+          if (!name) { hide(el); el.textContent=''; return; }
+          el.textContent = name; show(el);
+        }
+        function wireDropzone(zone, input, filenameEl) {
+          zone.addEventListener('click', () => input.click());
+          zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('dragover'); });
+          zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+          zone.addEventListener('drop', (e) => {
+            e.preventDefault(); zone.classList.remove('dragover');
+            if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+              input.files = e.dataTransfer.files;
+              setFilename(filenameEl, input.files[0].name);
+            }
+          });
+          input.addEventListener('change', () => setFilename(filenameEl, input.files && input.files[0] ? input.files[0].name : ''));
+        }
+
+        wireDropzone(mdDrop, mdInput, mdFilename);
+        wireDropzone(imgDrop, imgInput, imgFilename);
+
+        // Image mode toggle
+        function onModeChange() {
+          const mode = new FormData(form).get('imageMode') || 'auto';
+          if (mode === 'auto') { show(autoFields); hide(urlFields); hide(uploadFields); }
+          else if (mode === 'url') { hide(autoFields); show(urlFields); hide(uploadFields); }
+          else { hide(autoFields); hide(urlFields); show(uploadFields); }
+        }
+        form.querySelectorAll('input[name="imageMode"]').forEach(r => r.addEventListener('change', onModeChange));
+        onModeChange();
+
+        function setStatus(kind, msg, details) {
+          status.className = 'status ' + (kind || '');
+          status.innerHTML = msg + (details ? `<div class="help">${details}</div>` : '');
+          show(status);
+        }
+
+        $('#resetBtn').addEventListener('click', () => {
+          form.reset();
+          setFilename(mdFilename, '');
+          setFilename(imgFilename, '');
+          hide(status);
+          onModeChange();
+        });
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          hide(status);
+          try {
+            const fd = new FormData(form);
+            if (!mdInput.files || !mdInput.files[0]) {
+              setStatus('err', 'Please select a Markdown file (.md)');
+              return;
+            }
+            const res = await fetch(form.action, { method: 'POST', body: fd });
+            const isJson = (res.headers.get('content-type')||'').includes('application/json');
+            const data = isJson ? await res.json() : { ok: res.ok };
+            if (!res.ok || data.error) {
+              setStatus('err', 'Upload failed', (data && (data.error || data.message)) || res.status + ' ' + res.statusText);
+              return;
+            }
+            const slug = data.slug || '';
+            const link = slug ? `<a href="/articles/${slug}/" target="_blank" rel="noopener">View article</a>` : '';
+            setStatus('ok', 'Article published successfully! ' + link, data.pushed === false ? 'Note: GitHub push failed, changes may not be committed.' : '');
+          } catch (err) {
+            setStatus('err', 'Upload failed', err && err.message ? err.message : String(err));
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
