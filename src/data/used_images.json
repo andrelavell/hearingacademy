@@ -1,6 +1,396 @@
 [
   {
     "provider": "pexels",
+    "id": "4239007",
+    "slug": "your-daily-sound-diet-noise-hygiene-habits-that-protect-your-hearing-without-becoming-a-hermit",
+    "src": "/images/articles/2025-08/your-daily-sound-diet-noise-hygiene-habits-that-protect-your-hearing-without-becoming-a-hermit-pexels-4239007.jpeg",
+    "credit": "Photo By: Kaboompics.com",
+    "credit_url": "https://www.pexels.com/@karolina-grabowska",
+    "original_url": "https://images.pexels.com/photos/4239007/pexels-photo-4239007.jpeg",
+    "date": "2025-08-14T04:36:03.655Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "XZ2rL0rg7D8",
+    "slug": "workplace-hearing-accommodations",
+    "src": "/images/articles/2025-08/workplace-hearing-accommodations-unsplash-XZ2rL0rg7D8.jpg",
+    "credit": "Caleb Minear",
+    "credit_url": "https://unsplash.com/@calebminear",
+    "original_url": "https://api.unsplash.com/photos/XZ2rL0rg7D8/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxMHx8SGVhcmluZyUyMGF0JTIwV29yayUzQSUyMEFjY29tbW9kYXRpb25zJTJDJTIwVGVjaCUyQyUyMGFuZCUyMFRhY3RpY3MlMjBUaGF0JTIwTWFrZSUyMFlvdXIlMjBKb2IlMjBFYXNpZXJ8ZW58MXwwfHx8MTc1NTE0MjQxMXww",
+    "date": "2025-08-14T04:36:02.902Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "11211054",
+    "slug": "word-recognition-hearing-clarity",
+    "src": "/images/articles/2025-08/word-recognition-hearing-clarity-pexels-11211054.jpeg",
+    "credit": "Towfiqu barbhuiya",
+    "credit_url": "https://www.pexels.com/@towfiqu-barbhuiya-3440682",
+    "original_url": "https://images.pexels.com/photos/11211054/pexels-photo-11211054.jpeg",
+    "date": "2025-08-14T04:36:02.033Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "7926688",
+    "slug": "when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue",
+    "src": "/images/articles/2025-08/when-the-audiogram-says-normal-but-youre-still-struggling-a-guide-to-hidden-hearing-loss-and-listening-fatigue-pexels-7926688.jpeg",
+    "credit": "Nicola Barts",
+    "credit_url": "https://www.pexels.com/@nicola-barts",
+    "original_url": "https://images.pexels.com/photos/7926688/pexels-photo-7926688.jpeg",
+    "date": "2025-08-14T04:36:01.579Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "HMQtSQZHPZU",
+    "slug": "vaccines-protect-hearing",
+    "src": "/images/articles/2025-08/vaccines-protect-hearing-unsplash-HMQtSQZHPZU.jpg",
+    "credit": "National Cancer Institute",
+    "credit_url": "https://unsplash.com/@nci",
+    "original_url": "https://api.unsplash.com/photos/HMQtSQZHPZU/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyNnx8VmFjY2luZXMlMjBUaGF0JTIwUHJvdGVjdCUyMFlvdXIlMjBIZWFyaW5nJTNBJTIwVGhlJTIwU2hvdHMlMjBXb3J0aCUyMEdldHRpbmd8ZW58MXwwfHx8MTc1NTE0MjQwOHww",
+    "date": "2025-08-14T04:36:01.039Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "8057336",
+    "slug": "understanding-hearing-loss-types",
+    "src": "/images/articles/2025-08/understanding-hearing-loss-types-pexels-8057336.jpeg",
+    "credit": "Pavel Danilyuk",
+    "credit_url": "https://www.pexels.com/@pavel-danilyuk",
+    "original_url": "https://images.pexels.com/photos/8057336/pexels-photo-8057336.jpeg",
+    "date": "2025-08-14T04:36:00.973Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "T5lmpSYxnSU",
+    "slug": "tmj-ear-fullness-muffled-hearing",
+    "src": "/images/articles/2025-08/tmj-ear-fullness-muffled-hearing-unsplash-T5lmpSYxnSU.jpg",
+    "credit": "Tom Pumford",
+    "credit_url": "https://unsplash.com/@tompumford",
+    "original_url": "https://api.unsplash.com/photos/T5lmpSYxnSU/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyNHx8SXMlMjBZb3VyJTIwSmF3JTIwTWVzc2luZyUyMFdpdGglMjBZb3VyJTIwRWFycyUzRiUyMFRNSiUyQyUyMEVhciUyMEZ1bGxuZXNzJTJDJTIwYW5kJTIwVGhhdCUyMCVFMiU4MCU5Q011ZmZsZWQlRTIlODAlOUQlMjBGZWVsaW5nfGVufDF8MHx8fDE3NTUxNDI0MDV8MA",
+    "date": "2025-08-14T04:36:00.497Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "7653131",
+    "slug": "tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right",
+    "src": "/images/articles/2025-08/tinnitus-relief-with-hearing-aids-what-actually-helps-and-how-to-set-yours-up-right-pexels-7653131.jpeg",
+    "credit": "Pavel Danilyuk",
+    "credit_url": "https://www.pexels.com/@pavel-danilyuk",
+    "original_url": "https://images.pexels.com/photos/7653131/pexels-photo-7653131.jpeg",
+    "date": "2025-08-14T04:36:00.444Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "TM2IIUes2zk",
+    "slug": "surfers-ear-exostosis-hearing",
+    "src": "/images/articles/2025-08/surfers-ear-exostosis-hearing-unsplash-TM2IIUes2zk.jpg",
+    "credit": "Nick Duell",
+    "credit_url": "https://unsplash.com/@nduell",
+    "original_url": "https://api.unsplash.com/photos/TM2IIUes2zk/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxfHxTdXJmZXIlRTIlODAlOTlzJTIwRWFyJTIwYW5kJTIwQ29sZC1XYXRlciUyMEhlYXJpbmclMjBMb3NzJTNBJTIwU3RvcCUyMEJvbnklMjBHcm93dGhzJTIwQmVmb3JlJTIwVGhleSUyMEJsb2NrJTIwWW91ciUyMFNvdW5kfGVufDF8MHx8fDE3NTUxNDI0MDJ8MA",
+    "date": "2025-08-14T04:35:59.997Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "5922051",
+    "slug": "sudden-hearing-loss-treatment-window",
+    "src": "/images/articles/2025-08/sudden-hearing-loss-treatment-window-pexels-5922051.jpeg",
+    "credit": "Thirdman",
+    "credit_url": "https://www.pexels.com/@thirdman",
+    "original_url": "https://images.pexels.com/photos/5922051/pexels-photo-5922051.jpeg",
+    "date": "2025-08-14T04:35:59.936Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "5793694",
+    "slug": "sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now",
+    "src": "/images/articles/2025-08/sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now-pexels-5793694.jpeg",
+    "credit": "Yan Krukau",
+    "credit_url": "https://www.pexels.com/@yankrukov",
+    "original_url": "https://images.pexels.com/photos/5793694/pexels-photo-5793694.jpeg",
+    "date": "2025-08-14T04:35:59.515Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "9787618",
+    "slug": "sleep-apnea-hearing-tinnitus",
+    "src": "/images/articles/2025-08/sleep-apnea-hearing-tinnitus-pexels-9787618.jpeg",
+    "credit": "Marcus Aurelius",
+    "credit_url": "https://www.pexels.com/@marcus-aurelius",
+    "original_url": "https://images.pexels.com/photos/9787618/pexels-photo-9787618.jpeg",
+    "date": "2025-08-14T04:35:59.080Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "10029308",
+    "slug": "single-sided-deafness-treatment",
+    "src": "/images/articles/2025-08/single-sided-deafness-treatment-pexels-10029308.jpeg",
+    "credit": "RDNE Stock project",
+    "credit_url": "https://www.pexels.com/@rdne",
+    "original_url": "https://images.pexels.com/photos/10029308/pexels-photo-10029308.jpeg",
+    "date": "2025-08-14T04:35:58.580Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "4021796",
+    "slug": "self-fit-otc-hearing-aids",
+    "src": "/images/articles/2025-08/self-fit-otc-hearing-aids-pexels-4021796.jpeg",
+    "credit": "Photo By: Kaboompics.com",
+    "credit_url": "https://www.pexels.com/@karolina-grabowska",
+    "original_url": "https://images.pexels.com/photos/4021796/pexels-photo-4021796.jpeg",
+    "date": "2025-08-14T04:35:56.812Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "OfwiURcZwYw",
+    "slug": "safe-earwax-removal",
+    "src": "/images/articles/2025-08/safe-earwax-removal-unsplash-OfwiURcZwYw.jpg",
+    "credit": "Pawel Czerwinski",
+    "credit_url": "https://unsplash.com/@pawel_czerwinski",
+    "original_url": "https://api.unsplash.com/photos/OfwiURcZwYw/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw2fHxFYXJ3YXglMkMlMjBTYWZlbHklMjBTb2x2ZWQlM0ElMjBBdCVFMiU4MCU5MUhvbWUlMjBTb2Z0ZW5lcnMlMkMlMjBXaGVuJTIwdG8lMjBGbHVzaCUyQyUyMGFuZCUyMFdoZW4lMjB0byUyMFNlZSUyMGElMjBQcm98ZW58MXwwfHx8MTc1NTE0MjM5Nnww",
+    "date": "2025-08-14T04:35:56.125Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "5514785",
+    "slug": "real-ear-hearing-aids",
+    "src": "/images/articles/2025-08/real-ear-hearing-aids-pexels-5514785.jpeg",
+    "credit": "Chris Flaten",
+    "credit_url": "https://www.pexels.com/@cflaten",
+    "original_url": "https://images.pexels.com/photos/5514785/pexels-photo-5514785.jpeg",
+    "date": "2025-08-14T04:35:56.060Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "4033152",
+    "slug": "protect-hearing-ototoxic-drugs",
+    "src": "/images/articles/2025-08/protect-hearing-ototoxic-drugs-pexels-4033152.jpeg",
+    "credit": "Edward Jenner",
+    "credit_url": "https://www.pexels.com/@edward-jenner",
+    "original_url": "https://images.pexels.com/photos/4033152/pexels-photo-4033152.jpeg",
+    "date": "2025-08-14T04:35:55.543Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "jYnkAkQokY4",
+    "slug": "prevent-ear-barotrauma",
+    "src": "/images/articles/2025-08/prevent-ear-barotrauma-unsplash-jYnkAkQokY4.jpg",
+    "credit": "Oscar Sutton",
+    "credit_url": "https://unsplash.com/@o5ky",
+    "original_url": "https://api.unsplash.com/photos/jYnkAkQokY4/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxOHx8UHJlc3N1cmUtUHJvb2YlMjBZb3VyJTIwRWFycyUzQSUyMFByZXZlbnQlMjBCYXJvdHJhdW1hJTIwV2hlbiUyMFlvdSUyMEZseSUyQyUyMERyaXZlJTIwSGlnaCUyQyUyMG9yJTIwRGl2ZXxlbnwxfDB8fHwxNzU1MTQyMzkxfDA",
+    "date": "2025-08-14T04:35:54.980Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "6091856",
+    "slug": "pregnancy-hearing-changes",
+    "src": "/images/articles/2025-08/pregnancy-hearing-changes-pexels-6091856.jpeg",
+    "credit": "Tima Miroshnichenko",
+    "credit_url": "https://www.pexels.com/@tima-miroshnichenko",
+    "original_url": "https://images.pexels.com/photos/6091856/pexels-photo-6091856.jpeg",
+    "date": "2025-08-14T04:35:54.915Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "SMxzEaidR20",
+    "slug": "otosclerosis-surgery-hearing-aids",
+    "src": "/images/articles/2025-08/otosclerosis-surgery-hearing-aids-unsplash-SMxzEaidR20.jpg",
+    "credit": "National Cancer Institute",
+    "credit_url": "https://unsplash.com/@nci",
+    "original_url": "https://api.unsplash.com/photos/SMxzEaidR20/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxM3x8T3Rvc2NsZXJvc2lzJTIwVHJlYXRtZW50JTNBJTIwU3RhcGVkb3RvbXklMjBvciUyMEhlYXJpbmclMjBBaWRzJUUyJTgwJTk0SG93JTIwdG8lMjBDaG9vc2V8ZW58MXwwfHx8MTc1NTE0MjM4OHww",
+    "date": "2025-08-14T04:35:54.436Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "7268222",
+    "slug": "natural-voice-hearing-aids",
+    "src": "/images/articles/2025-08/natural-voice-hearing-aids-pexels-7268222.jpeg",
+    "credit": "Thirdman",
+    "credit_url": "https://www.pexels.com/@thirdman",
+    "original_url": "https://images.pexels.com/photos/7268222/pexels-photo-7268222.jpeg",
+    "date": "2025-08-14T04:35:54.376Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "QpOxts03rps",
+    "slug": "music-with-hearing-aids",
+    "src": "/images/articles/2025-08/music-with-hearing-aids-unsplash-QpOxts03rps.jpg",
+    "credit": "Mark Paton",
+    "credit_url": "https://unsplash.com/@mark0polo",
+    "original_url": "https://api.unsplash.com/photos/QpOxts03rps/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxN3x8SGVhcmluZyUyMEFpZHMlMjBoZWFyaW5nJTIwYWlkfGVufDF8MHx8fDE3NTUxNDIzNzR8MA",
+    "date": "2025-08-14T04:35:53.729Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "g_qEnN8thSo",
+    "slug": "menopause-hearing-changes",
+    "src": "/images/articles/2025-08/menopause-hearing-changes-unsplash-g_qEnN8thSo.jpg",
+    "credit": "𝓴𝓘𝓡𝓚 𝕝𝔸𝕀",
+    "credit_url": "https://unsplash.com/@kirklai",
+    "original_url": "https://api.unsplash.com/photos/g_qEnN8thSo/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMXx8TWVub3BhdXNlJTIwYW5kJTIwWW91ciUyMEVhcnMlM0ElMjBIb3clMjBIb3Jtb25lJTIwU2hpZnRzJTIwQ2hhbmdlJTIwSGVhcmluZyUyMCUyOGFuZCUyMFdoYXQlMjBIZWxwcyUyOXxlbnwxfDB8fHwxNzU1MTQyMzgzfDA",
+    "date": "2025-08-14T04:35:53.669Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "wTYMbdQqyIk",
+    "slug": "long-covid-hearing-tinnitus",
+    "src": "/images/articles/2025-08/long-covid-hearing-tinnitus-unsplash-wTYMbdQqyIk.jpg",
+    "credit": "Willian Justen de Vasconcellos",
+    "credit_url": "https://unsplash.com/@willianjusten",
+    "original_url": "https://api.unsplash.com/photos/wTYMbdQqyIk/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxMnx8TG9uZyUyMENPVklEJTIwYW5kJTIwWW91ciUyMEhlYXJpbmclM0ElMjBXaGF0JTIwV2UlMjBLbm93JTIwJTI4YW5kJTIwV2hhdCUyMHRvJTIwRG8lMjBOZXh0JTI5fGVufDF8MHx8fDE3NTUxNDIzODJ8MA",
+    "date": "2025-08-14T04:35:53.600Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "6629540",
+    "slug": "hyperacusis-sound-tolerance-therapy",
+    "src": "/images/articles/2025-08/hyperacusis-sound-tolerance-therapy-pexels-6629540.jpeg",
+    "credit": "Photo By: Kaboompics.com",
+    "credit_url": "https://www.pexels.com/@karolina-grabowska",
+    "original_url": "https://images.pexels.com/photos/6629540/pexels-photo-6629540.jpeg",
+    "date": "2025-08-14T04:35:52.843Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "7278841",
+    "slug": "hidden-hearing-loss-noise",
+    "src": "/images/articles/2025-08/hidden-hearing-loss-noise-pexels-7278841.jpeg",
+    "credit": "MART  PRODUCTION",
+    "credit_url": "https://www.pexels.com/@mart-production",
+    "original_url": "https://images.pexels.com/photos/7278841/pexels-photo-7278841.jpeg",
+    "date": "2025-08-14T04:35:52.407Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "JxLf4KYVT-A",
+    "slug": "heart-hearing-connection",
+    "src": "/images/articles/2025-08/heart-hearing-connection-unsplash-JxLf4KYVT-A.jpg",
+    "credit": "Jessica Ruscello",
+    "credit_url": "https://unsplash.com/@jruscello",
+    "original_url": "https://api.unsplash.com/photos/JxLf4KYVT-A/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw5fHxZb3VyJTIwSGVhcnQlMkMlMjBZb3VyJTIwSGVhcmluZyUzQSUyMFRoZSUyMENhcmRpb21ldGFib2xpYyUyMExpbmslMjBZb3UlMjBDYW4lRTIlODAlOTl0JTIwQWZmb3JkJTIwdG8lMjBJZ25vcmV8ZW58MXwwfHx8MTc1NTE0MjM4MHww",
+    "date": "2025-08-14T04:35:51.510Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "5905567",
+    "slug": "hearing-supplements-truth",
+    "src": "/images/articles/2025-08/hearing-supplements-truth-pexels-5905567.jpeg",
+    "credit": "Katerina Holmes",
+    "credit_url": "https://www.pexels.com/@katerina-holmes",
+    "original_url": "https://images.pexels.com/photos/5905567/pexels-photo-5905567.jpeg",
+    "date": "2025-08-14T04:35:49.267Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "15399395",
+    "slug": "hearing-ears-brain-cognitive-upside-treating",
+    "src": "/images/articles/2025-08/hearing-ears-brain-cognitive-upside-treating-pexels-15399395.jpeg",
+    "credit": "Sanket  Mishra",
+    "credit_url": "https://www.pexels.com/@sanketgraphy",
+    "original_url": "https://images.pexels.com/photos/15399395/pexels-photo-15399395.jpeg",
+    "date": "2025-08-14T04:35:48.747Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "RNue9Vxx2sc",
+    "slug": "hearing-aid-listening-fatigue",
+    "src": "/images/articles/2025-08/hearing-aid-listening-fatigue-unsplash-RNue9Vxx2sc.jpg",
+    "credit": "Mark Paton",
+    "credit_url": "https://unsplash.com/@mark0polo",
+    "original_url": "https://api.unsplash.com/photos/RNue9Vxx2sc/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw4fHxIZWFyaW5nJTIwQWlkcyUyMGhlYXJpbmclMjBhaWR8ZW58MXwwfHx8MTc1NTE0MjM3NHww",
+    "date": "2025-08-14T04:35:48.077Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "eCmSe8-KHOw",
+    "slug": "eustachian-tube-clogged-hearing",
+    "src": "/images/articles/2025-08/eustachian-tube-clogged-hearing-unsplash-eCmSe8-KHOw.jpg",
+    "credit": "Birgith Roosipuu",
+    "credit_url": "https://unsplash.com/@msbirgith",
+    "original_url": "https://api.unsplash.com/photos/eCmSe8-KHOw/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyOXx8VGhhdCUyMENsb2dnZWQlMkMlMjBFY2hvZXklMjBFYXIlM0ElMjBBZHVsdCUyMEV1c3RhY2hpYW4lMjBUdWJlJTIwRHlzZnVuY3Rpb24lMjBhbmQlMjBZb3VyJTIwSGVhcmluZ3xlbnwxfDB8fHwxNzU1MTQyMzY5fDA",
+    "date": "2025-08-14T04:35:48.011Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "ywm9wrdLBX4",
+    "slug": "eat-move-hear",
+    "src": "/images/articles/2025-08/eat-move-hear-unsplash-ywm9wrdLBX4.jpg",
+    "credit": "Juja Han",
+    "credit_url": "https://unsplash.com/@juja_han",
+    "original_url": "https://api.unsplash.com/photos/ywm9wrdLBX4/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyOXx8RWF0JTJDJTIwTW92ZSUyQyUyMEhlYXIlM0ElMjBUaGUlMjBMaWZlc3R5bGUlMjBCbHVlcHJpbnQlMjB0byUyMFByb3RlY3QlMjBZb3VyJTIwRWFyc3xlbnwxfDB8fHwxNzU1MTQ2MTQ3fDA",
+    "date": "2025-08-14T04:35:47.941Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "7991291",
+    "slug": "concussion-hearing-tbi",
+    "src": "/images/articles/2025-08/concussion-hearing-tbi-pexels-7991291.jpeg",
+    "credit": "Tima Miroshnichenko",
+    "credit_url": "https://www.pexels.com/@tima-miroshnichenko",
+    "original_url": "https://images.pexels.com/photos/7991291/pexels-photo-7991291.jpeg",
+    "date": "2025-08-14T04:35:47.428Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "JPlNYSc8L5c",
+    "slug": "auracast-le-audio-hearing",
+    "src": "/images/articles/2025-08/auracast-le-audio-hearing-unsplash-JPlNYSc8L5c.jpg",
+    "credit": "Jonathan Borba",
+    "credit_url": "https://unsplash.com/@jonathanborba",
+    "original_url": "https://api.unsplash.com/photos/JPlNYSc8L5c/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxOXx8QXVyYWNhc3QlMjBJcyUyMENvbWluZyUzQSUyMEhvdyUyMEJsdWV0b290aCUyMExFJTIwQXVkaW8lMjBXaWxsJTIwVHJhbnNmb3JtJTIwSGVhcmluZyUyMGluJTIwUHVibGljJTIwUGxhY2VzfGVufDF8MHx8fDE3NTUxNDIzNjd8MA",
+    "date": "2025-08-14T04:35:46.794Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "qDY9ahp0Mto",
+    "slug": "auditory-training-adults-conversation",
+    "src": "/images/articles/2025-08/auditory-training-adults-conversation-unsplash-qDY9ahp0Mto.jpg",
+    "credit": "Ben White",
+    "credit_url": "https://unsplash.com/@benwhitephotography",
+    "original_url": "https://api.unsplash.com/photos/qDY9ahp0Mto/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNXx8TWFrZSUyMFdvcmRzJTIwQ2xpY2slMjBBZ2FpbiUzQSUyMEF1ZGl0b3J5JTIwVHJhaW5pbmclMjBmb3IlMjBBZHVsdHMlMjBUaGF0JTIwSW1wcm92ZXMlMjBDb252ZXJzYXRpb258ZW58MXwwfHx8MTc1NTE0NjE0Nnww",
+    "date": "2025-08-14T04:35:46.719Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "IdHQ0qZwFb0",
+    "slug": "ai-hearing-aids-noise",
+    "src": "/images/articles/2025-08/ai-hearing-aids-noise-unsplash-IdHQ0qZwFb0.jpg",
+    "credit": "wu yi",
+    "credit_url": "https://unsplash.com/@takeshi2",
+    "original_url": "https://api.unsplash.com/photos/IdHQ0qZwFb0/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNnx8VGVjaG5vbG9neSUyMGhlYXJpbmclMjBhaWR8ZW58MXwwfHx8MTc1NTE0MjM2Nnww",
+    "date": "2025-08-14T04:35:46.229Z"
+  },
+  {
+    "provider": "pexels",
+    "id": "4144035",
+    "slug": "auditory-training-adults-conversation",
+    "src": "/images/articles/2025-08/auditory-training-adults-conversation-pexels-4144035.jpeg",
+    "credit": "Julia M Cameron",
+    "credit_url": "https://www.pexels.com/@julia-m-cameron",
+    "original_url": "https://images.pexels.com/photos/4144035/pexels-photo-4144035.jpeg",
+    "date": "2025-08-14T04:35:44.784Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "3UvVZaiqgEM",
+    "slug": "eat-move-hear",
+    "src": "/images/articles/2025-08/eat-move-hear-unsplash-3UvVZaiqgEM.jpg",
+    "credit": "Markus Winkler",
+    "credit_url": "https://unsplash.com/@markuswinkler",
+    "original_url": "https://api.unsplash.com/photos/3UvVZaiqgEM/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw2fHxtZWRpdGVycmFuZWFuJTIwZGlldCUyMGZvb2RzJTIwc2FsbW9uJTIwbGVhZnklMjBncmVlbnMlMjBudXRzJTIwYmVycmllcyUyMGFuZCUyMGElMjBydW5uZXIlMjB3ZWFyaW5nJTIwZWFycGx1Z3MlMjBpbiUyMGNpdHl8ZW58MXwwfHx8MTc1NTE0NjA1NXww",
+    "date": "2025-08-14T04:34:16.581Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "WkDk5Dt3tk0",
+    "slug": "hidden-hearing-loss-noise",
+    "src": "/images/articles/2025-08/hidden-hearing-loss-noise-unsplash-WkDk5Dt3tk0.jpg",
+    "credit": "Bioscience Image Library by Fayette Reynolds",
+    "credit_url": "https://unsplash.com/@berkshirecommunitycollege",
+    "original_url": "https://api.unsplash.com/photos/WkDk5Dt3tk0/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNXx8Y29jaGxlYXIlMjBzeW5hcHNlJTIwbG9zcyUyMHJpYmJvbiUyMHN5bmFwc2UlMjBpbGx1c3RyYXRpb24lMjBhZHVsdHMlMjBub2lzeSUyMHJlc3RhdXJhbnQlMjBoZWFyaW5nJTIwZGlmZmljdWx0eXxlbnwxfDB8fHwxNzU1MTQ1OTYxfDA",
+    "date": "2025-08-14T04:32:41.577Z"
+  },
+  {
+    "provider": "pexels",
     "id": "8092983",
     "slug": "your-daily-sound-diet-noise-hygiene-habits-that-protect-your-hearing-without-becoming-a-hermit",
     "src": "/images/articles/2025-08/your-daily-sound-diet-noise-hygiene-habits-that-protect-your-hearing-without-becoming-a-hermit-pexels-8092983.jpeg",
