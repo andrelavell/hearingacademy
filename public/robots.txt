@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hearingacademy.com/sitemap.xml
+Sitemap: https://hearingacademy.org/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
