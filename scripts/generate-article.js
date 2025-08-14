@@ -5,7 +5,6 @@ import { readFile, writeFile, readJSON, writeJSON, ARTICLES_DIR, DATA_DIR, ensur
 import { parseArticleAstro, buildArticleAstro, makeSlug, makeCompactSlug } from './utils/astroArticle.js';
 import { topicHash, jaccard, normalizeTopic } from './utils/dedupe.js';
 import { pickRelated, appendFurtherReadingToBody, injectInlineLinks } from './utils/linking.js';
-import { findHeroImage as findPexelsHero } from './utils/pexels.js';
 import { findHeroImage as findUnsplashHero } from './utils/unsplash.js';
 import { verifyReferences } from './utils/verify.js';
 import { braveSearchWeb, extractTopResults } from './utils/brave.js';
@@ -240,7 +239,6 @@ async function main() {
 
   // Fetch hero image with provider fallback and de-duplication across site
   const used = await loadUsedImages();
-  const usedPexelsIds = used.filter((r) => String(r.provider).toLowerCase() === 'pexels').map((r) => String(r.id));
   const usedUnsplashIds = used.filter((r) => String(r.provider).toLowerCase() === 'unsplash').map((r) => String(r.id));
 
   // Prefer Unsplash (larger gallery), then Pexels
@@ -251,15 +249,6 @@ async function main() {
     keywords: data.keywords,
     excludeIds: usedUnsplashIds,
   });
-  if (!hero) {
-    hero = await findPexelsHero({
-      query: data.image_query,
-      category: data.category,
-      tags: data.tags,
-      keywords: data.keywords,
-      excludeIds: usedPexelsIds,
-    });
-  }
   const storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();
   let imageSrc = hero?.src || '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';
   let imageAlt = hero?.alt || data.title;
@@ -267,7 +256,7 @@ async function main() {
   let imageCreditUrl = hero?.credit_url || '';
   if (hero && storage === 'local') {
     try {
-      const dl = await downloadToPublic(imageSrc, slug, hero.id || 'img', hero.provider || 'pexels');
+      const dl = await downloadToPublic(imageSrc, slug, hero.id || 'img', hero.provider || 'unsplash');
       imageSrc = dl.publicPath;
     } catch (e) {
       console.warn('[image] download failed, using remote URL:', e.message);

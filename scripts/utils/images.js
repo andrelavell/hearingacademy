@@ -37,7 +37,7 @@ export async function registerUsedImage({ provider, id, slug, src, credit, credi
   await saveUsedImages(capped);
 }
 
-export async function downloadToPublic(url, slug, id, provider = 'pexels') {
+export async function downloadToPublic(url, slug, id, provider = 'unsplash') {
   const now = new Date();
   const ym = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   const dir = path.join(process.cwd(), 'public', 'images', 'articles', ym);

@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
       OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5' }}
@@ -46,7 +45,7 @@ jobs:
       - name: Validate env
         run: |
           missing=0
-          for v in OPENAI_API_KEY PEXELS_API_KEY OPENAI_MODEL ARTICLES_PER_DAY SITE_BASE_URL IMAGE_STORAGE; do
+          for v in OPENAI_API_KEY UNSPLASH_ACCESS_KEY OPENAI_MODEL ARTICLES_PER_DAY SITE_BASE_URL IMAGE_STORAGE IMAGE_STRICT_RELEVANCE; do
             if [ -z "${!v}" ]; then
               echo "::error title=Missing env::${v} is not set"
               missing=1
