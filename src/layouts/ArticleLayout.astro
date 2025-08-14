@@ -236,7 +236,7 @@ const breadcrumbLd = {
 
   {tocItems.length > 0 && (
     <>
-      <script id="article-toc-data" type="application/json" is:inline>{JSON.stringify(tocItems)}</script>
+      <script id="article-toc-data" type="application/json" is:inline set:html={JSON.stringify(tocItems)}></script>
       <script is:inline>
         (function initToc(){
           const run = () => {
@@ -244,11 +244,24 @@ const breadcrumbLd = {
             const list = document.querySelector('.toc-nav ul');
             const toc = document.querySelector('.toc');
             let items = [];
+            const dataEl = document.getElementById('article-toc-data');
+            const readRaw = () => (dataEl?.textContent || '[]');
+            const decodeEntities = (s) => s
+              .replace(/&quot;/g, '"')
+              .replace(/&#34;/g, '"')
+              .replace(/&apos;/g, "'")
+              .replace(/&#39;/g, "'")
+              .replace(/&amp;/g, '&')
+              .replace(/&lt;/g, '<')
+              .replace(/&gt;/g, '>');
             try {
-              const dataEl = document.getElementById('article-toc-data');
-              items = JSON.parse(dataEl?.textContent || '[]');
-            } catch (e) {
-              console.warn('toc parse failed', e);
+              items = JSON.parse(readRaw());
+            } catch (e1) {
+              try {
+                items = JSON.parse(decodeEntities(readRaw()));
+              } catch (e2) {
+                console.warn('toc parse failed', e2);
+              }
             }
             items = Array.isArray(items) ? items : [];
             if (!container || !list || !items.length) {
