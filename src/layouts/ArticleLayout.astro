@@ -416,6 +416,61 @@ const breadcrumbLd = {
     margin-bottom: var(--space-7);
   }
 
+  /* Tables: clean, modern, responsive */
+  .article-body table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .article-body caption {
+    caption-side: bottom;
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--fs-200);
+    text-align: left;
+  }
+  .article-body thead th {
+    background: var(--color-background-light);
+    color: var(--color-text);
+    text-align: left;
+    font-weight: var(--fw-semibold);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .article-body th,
+  .article-body td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+  .article-body tbody tr:nth-child(even) {
+    background: #fafafa;
+  }
+  .article-body tbody tr:hover {
+    background: #f5f7ff;
+  }
+  .article-body tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  /* Make wide tables scrollable on small screens */
+  @media (max-width: 768px) {
+    .article-body table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    .article-body thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+  }
+
   /* Two-column content area with sticky ToC */
   .article-content .with-toc {
     display: grid;
