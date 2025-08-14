@@ -42,6 +42,26 @@ async function githubCommitFiles(filePaths: string[], message: string): Promise<
           const j: any = await getRes.json();
           if (j && j.sha) sha = j.sha;
         }
+
+// Optional: compress an image buffer and return a new buffer (keeps same format where possible)
+async function compressImageBuffer(input: Buffer, extHint: string): Promise<Buffer> {
+  try {
+    const ext = (extHint || '').toLowerCase();
+    const img = sharp(input, { failOn: 'none' });
+    if (ext === 'jpg' || ext === 'jpeg' || !['png','webp','avif'].includes(ext)) {
+      return await img.jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+    } else if (ext === 'png') {
+      return await img.png({ compressionLevel: 9, adaptiveFiltering: true, palette: true }).toBuffer();
+    } else if (ext === 'webp') {
+      return await img.webp({ quality: 82, effort: 4 }).toBuffer();
+    } else if (ext === 'avif') {
+      return await img.avif({ quality: 50, effort: 4 }).toBuffer();
+    }
+    return await img.jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+  } catch {
+    return input; // fallback to original buffer on error
+  }
+}
       } catch {}
 
       const putUrl = `https://api.github.com/repos/${owner}/${name}/contents/${encodeURIComponent(rel)}`;
@@ -62,6 +82,48 @@ async function githubCommitFiles(filePaths: string[], message: string): Promise<
     };
 
     for (const fp of filePaths) await putFile(fp);
+    return { ok: true };
+  } catch (e: any) {
+    return { ok: false, details: e?.message || String(e) };
+  }
+}
+
+// Put a file to GitHub using in-memory content (Buffer or string), avoiding local FS
+async function githubPutFileFromContent(relPath: string, content: Buffer | string, message: string): Promise<{ ok: boolean; details?: any }> {
+  try {
+    const token = String(process.env.GITHUB_TOKEN || '').trim();
+    const repo = String(process.env.GITHUB_REPO || '').trim(); // owner/name
+    const branch = String(process.env.GITHUB_BRANCH || 'main').trim();
+    if (!token || !repo) return { ok: false, details: 'Missing GITHUB_TOKEN or GITHUB_REPO' };
+    const [owner, name] = repo.split('/');
+    if (!owner || !name) return { ok: false, details: 'GITHUB_REPO must be owner/name' };
+
+    const getUrl = `https://api.github.com/repos/${owner}/${name}/contents/${encodeURIComponent(relPath)}?ref=${encodeURIComponent(branch)}`;
+    let sha: string | undefined;
+    try {
+      const getRes = await fetch(getUrl, { headers: { Authorization: `Bearer ${token}`, 'User-Agent': 'HearingAcademy-Uploader' } });
+      if (getRes.ok) {
+        const j: any = await getRes.json();
+        if (j && j.sha) sha = j.sha;
+      }
+    } catch {}
+
+    const putUrl = `https://api.github.com/repos/${owner}/${name}/contents/${encodeURIComponent(relPath)}`;
+    const buf = typeof content === 'string' ? Buffer.from(content, 'utf8') : content;
+    const body: any = { message, content: buf.toString('base64'), branch, sha };
+    const res = await fetch(putUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'HearingAcademy-Uploader',
+      },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) {
+      const txt = await res.text();
+      return { ok: false, details: `GitHub PUT failed for ${relPath}: ${res.status} ${txt}` };
+    }
     return { ok: true };
   } catch (e: any) {
     return { ok: false, details: e?.message || String(e) };
@@ -164,6 +226,7 @@ async function parseMultipart(body: Buffer, contentType: string): Promise<{ fiel
 
 export const handler = async (event: any) => {
   try {
+    const READ_ONLY = !!process.env.NETLIFY; // Netlify Functions runtime FS is read-only
     const ct = String(event.headers?.['content-type'] || event.headers?.['Content-Type'] || '');
     const isMultipart = ct.includes('multipart/form-data');
 
@@ -252,27 +315,35 @@ export const handler = async (event: any) => {
       return { name: 'HearingAcademy Editorial', title: 'Audiologist & Hearing Specialist' };
     })();
 
-    const storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();
+    let storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();
+    if (READ_ONLY && storage === 'local') storage = 'remote';
     let imageSrc = FALLBACK_IMG;
     let imageAlt = title;
     let imageCredit = '';
     let imageCreditUrl = '';
 
     if (imageMode === 'upload' && imageUpload) {
-      const saved = await saveUploadedBuffer(imageUpload, slug);
-      imageSrc = saved.publicPath;
-      await registerUsedImage({ provider: 'upload', id: path.basename(saved.filePath), slug, src: imageSrc, credit: '', credit_url: '', original_url: '' });
-      if (!imageAlt) imageAlt = suggestAlt({ title, category, tags, filename: saved.filename });
+      if (READ_ONLY) {
+        // In Netlify runtime, skip local writes; fallback to default image
+        console.warn('[upload-fn] upload image disabled on read-only FS, using fallback image');
+        imageSrc = FALLBACK_IMG;
+      } else {
+        const saved = await saveUploadedBuffer(imageUpload, slug);
+        imageSrc = saved.publicPath;
+        await registerUsedImage({ provider: 'upload', id: path.basename(saved.filePath), slug, src: imageSrc, credit: '', credit_url: '', original_url: '' });
+        if (!imageAlt) imageAlt = suggestAlt({ title, category, tags, filename: saved.filename });
+      }
     } else if (imageMode === 'url' && imageUrl) {
       try {
         if (storage === 'local') {
+          // In READ_ONLY we forced storage to 'remote', so this branch only executes locally
           const dl = await downloadToPublic(imageUrl, slug, 'url', 'remote');
           imageSrc = dl.publicPath;
           if (dl.filePath) await compressImage(dl.filePath);
+          await registerUsedImage({ provider: 'remote', id: imageUrl, slug, src: imageSrc, credit: '', credit_url: '', original_url: imageUrl });
         } else {
           imageSrc = imageUrl;
         }
-        await registerUsedImage({ provider: 'remote', id: imageUrl, slug, src: imageSrc, credit: '', credit_url: '', original_url: imageUrl });
         if (!imageAlt) imageAlt = suggestAlt({ title, category, tags, filename: path.basename(imageUrl) });
       } catch (e: any) {
         console.warn('[upload-fn] image url failed, using fallback:', e?.message || e);
@@ -280,15 +351,15 @@ export const handler = async (event: any) => {
       }
     } else {
       try {
-        const used = await loadUsedImages();
-        const usedUnsplashIds = used.filter((r: any) => String(r.provider).toLowerCase() === 'unsplash').map((r: any) => String(r.id));
+        const used = READ_ONLY ? [] : await loadUsedImages();
+        const usedUnsplashIds = Array.isArray(used) ? used.filter((r: any) => String(r.provider).toLowerCase() === 'unsplash').map((r: any) => String(r.id)) : [];
         const hero = await findHeroImage({ query: imageQuery || title, category, tags, keywords: [], excludeIds: usedUnsplashIds });
         if (hero) {
           imageSrc = hero.src || FALLBACK_IMG;
           imageAlt = hero.alt || title;
           imageCredit = hero.credit || '';
           imageCreditUrl = hero.credit_url || '';
-          if (storage === 'local' && hero.src) {
+          if (!READ_ONLY && storage === 'local' && hero.src) {
             try {
               const dl = await downloadToPublic(hero.src, slug, hero.id || 'img', hero.provider || 'unsplash');
               imageSrc = dl.publicPath;
@@ -297,7 +368,9 @@ export const handler = async (event: any) => {
               console.warn('[upload-fn] auto image download failed, keeping remote URL:', e?.message || e);
             }
           }
-          await registerUsedImage({ provider: hero.provider || 'unsplash', id: hero.id || '', slug, src: imageSrc, credit: imageCredit, credit_url: imageCreditUrl, original_url: hero.original_url || hero.src || '' });
+          if (!READ_ONLY) {
+            await registerUsedImage({ provider: hero.provider || 'unsplash', id: hero.id || '', slug, src: imageSrc, credit: imageCredit, credit_url: imageCreditUrl, original_url: hero.original_url || hero.src || '' });
+          }
           if (!imageAlt) imageAlt = suggestAlt({ title, category, tags });
         }
       } catch (e: any) {
@@ -324,25 +397,36 @@ export const handler = async (event: any) => {
       body: bodyHtml,
     });
 
-    await ensureDir(ARTICLES_DIR);
-    const outPath = path.join(ARTICLES_DIR, `${slug}.astro`);
-    await writeFile(outPath, astro);
-
     const newRec: any = { slug, title, description, category, tags, image: imageSrc, publishedTime: nowIso, modifiedTime: nowIso, readingTime: reading };
     newRec.hash = topicHash({ title: newRec.title, category: newRec.category, tags: newRec.tags, keywords: [] });
     index.unshift(newRec);
-    await writeJSON(indexPath, index);
 
-    const toCommit: string[] = [outPath, indexPath];
-    const usedImagesPath = path.join(DATA_DIR, 'used_images.json');
-    try { await fs.access(usedImagesPath); toCommit.push(usedImagesPath); } catch {}
-    if (String(process.env.IMAGE_STORAGE || 'local').toLowerCase() === 'local' && imageSrc && imageSrc.startsWith('/images/')) {
-      const absImg = path.join(process.cwd(), 'public', imageSrc.replace(/^\//, ''));
-      try { await fs.access(absImg); toCommit.push(absImg); } catch {}
-    }
-
+    let gh: { ok: boolean; details?: any } = { ok: true };
     const commitMsg = `content: add ${slug} via upload`;
-    const gh = await githubCommitFiles(toCommit, commitMsg);
+    if (READ_ONLY) {
+      // Commit directly to GitHub (no local FS writes)
+      const relArticle = `src/pages/articles/${slug}.astro`;
+      const relIndex = 'src/data/topics_index.json';
+      const p1 = await githubPutFileFromContent(relArticle, astro, commitMsg);
+      const p2 = await githubPutFileFromContent(relIndex, Buffer.from(JSON.stringify(index, null, 2) + '\n', 'utf8'), commitMsg);
+      // Note: images are kept remote in READ_ONLY mode per storage override
+      gh = (p1.ok && p2.ok) ? { ok: true } : { ok: false, details: [p1.details, p2.details].filter(Boolean).join(' | ') };
+    } else {
+      // Local write + commit paths for non-Netlify environments
+      await ensureDir(ARTICLES_DIR);
+      const outPath = path.join(ARTICLES_DIR, `${slug}.astro`);
+      await writeFile(outPath, astro);
+      await writeJSON(indexPath, index);
+
+      const toCommit: string[] = [outPath, indexPath];
+      const usedImagesPath = path.join(DATA_DIR, 'used_images.json');
+      try { await fs.access(usedImagesPath); toCommit.push(usedImagesPath); } catch {}
+      if (String(process.env.IMAGE_STORAGE || 'local').toLowerCase() === 'local' && imageSrc && imageSrc.startsWith('/images/')) {
+        const absImg = path.join(process.cwd(), 'public', imageSrc.replace(/^\//, ''));
+        try { await fs.access(absImg); toCommit.push(absImg); } catch {}
+      }
+      gh = await githubCommitFiles(toCommit, commitMsg);
+    }
 
     return {
       statusCode: 200,
