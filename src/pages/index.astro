@@ -302,7 +302,7 @@ const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-1468
 
   .articles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr 1fr;
     gap: var(--space-6);
   }
 
@@ -320,7 +320,7 @@ const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-1468
   }
 
   .article-card.featured {
-    grid-row: auto;
+    grid-row: span 2;
   }
 
   .article-image img {
@@ -330,7 +330,7 @@ const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-1468
   }
 
   .article-card.featured .article-image img {
-    height: 200px;
+    height: 300px;
   }
 
   .article-content {
