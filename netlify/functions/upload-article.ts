@@ -130,6 +130,32 @@ async function githubPutFileFromContent(relPath: string, content: Buffer | strin
   }
 }
 
+// Get and parse a JSON file from GitHub repo (returns null on any error)
+async function githubGetJson(relPath: string): Promise<any | null> {
+  try {
+    const token = String(process.env.GITHUB_TOKEN || '').trim();
+    const repo = String(process.env.GITHUB_REPO || '').trim(); // owner/name
+    const branch = String(process.env.GITHUB_BRANCH || 'main').trim();
+    if (!token || !repo) return null;
+    const [owner, name] = repo.split('/');
+    if (!owner || !name) return null;
+
+    const getUrl = `https://api.github.com/repos/${owner}/${name}/contents/${encodeURIComponent(relPath)}?ref=${encodeURIComponent(branch)}`;
+    const res = await fetch(getUrl, { headers: { Authorization: `Bearer ${token}`, 'User-Agent': 'HearingAcademy-Uploader' } });
+    if (!res.ok) return null;
+    const j: any = await res.json();
+    if (!j || !j.content) return null;
+    const buf = Buffer.from(String(j.content), 'base64');
+    try {
+      return JSON.parse(buf.toString('utf8'));
+    } catch {
+      return null;
+    }
+  } catch {
+    return null;
+  }
+}
+
 function stripHtml(html: string): string {
   return String(html || '').replace(/<[^>]+>/g, ' ');
 }
@@ -227,7 +253,7 @@ async function parseMultipart(body: Buffer, contentType: string): Promise<{ fiel
 export const handler = async (event: any) => {
   try {
     const READ_ONLY = (process.env.NETLIFY === 'true') || !!process.env.AWS_REGION || !!process.env.AWS_EXECUTION_ENV || !!process.env.LAMBDA_TASK_ROOT;
-    // console.log('[upload-fn] runtime:', READ_ONLY ? 'read-only (lambda)' : 'writable (local)');
+    console.warn('[upload-fn] runtime:', READ_ONLY ? 'read-only (lambda)' : 'writable (local)');
     const ct = String(event.headers?.['content-type'] || event.headers?.['Content-Type'] || '');
     const isMultipart = ct.includes('multipart/form-data');
 
@@ -294,7 +320,24 @@ export const handler = async (event: any) => {
     })();
 
     const indexPath = path.join(DATA_DIR, 'topics_index.json');
-    const index = (await readJSON(indexPath, null)) || [];
+    let index: any[] = [];
+    if (READ_ONLY) {
+      const remoteIndex = await githubGetJson('src/data/topics_index.json');
+      if (Array.isArray(remoteIndex)) {
+        index = remoteIndex;
+      } else {
+        // Fallback to local bundled file read (read-only is fine for reading)
+        const localIndex = await readJSON(indexPath, null);
+        if (Array.isArray(localIndex)) {
+          index = localIndex;
+        } else {
+          console.error('[upload-fn] unable to load topics_index.json from GitHub and local; aborting to prevent data loss');
+          return { statusCode: 503, body: JSON.stringify({ error: 'Failed to load existing topics index; aborting to prevent data loss.' }) };
+        }
+      }
+    } else {
+      index = (await readJSON(indexPath, null)) || [];
+    }
 
     let baseSlug: string;
     if (providedSlugRaw) baseSlug = makeSlug(providedSlugRaw);
@@ -318,6 +361,7 @@ export const handler = async (event: any) => {
 
     let storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();
     if (READ_ONLY && storage === 'local') storage = 'remote';
+    console.warn('[upload-fn] storage mode:', storage);
     let imageSrc = FALLBACK_IMG;
     let imageAlt = title;
     let imageCredit = '';
