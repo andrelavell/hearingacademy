@@ -81,6 +81,46 @@
     "hash": "531a702236f5d8a6ebb5b97269fc0f836827f3cc16f81efb09aa2b6261b2fcdb"
   },
   {
+    "slug": "daily-db-noise-budget",
+    "title": "Your Daily dB Budget: Measure, Track, and Cut Noise Before It Cuts Your Hearing",
+    "description": "Turn hearing protection into a daily habit. Learn how to measure your sound exposure with your phone/watch, build a personal “dB budget,” and make small changes that dramatically reduce noise damage—without living in silence.",
+    "category": "Prevention",
+    "tags": [
+      "hearing loss prevention",
+      "noise-induced hearing loss",
+      "ear protection",
+      "hearing in noisy environments",
+      "ear health",
+      "audiology"
+    ],
+    "image": "/images/articles/2025-08/daily-db-noise-budget-unsplash-NDb5dF7rGMc.jpg",
+    "publishedTime": "2025-08-14T13:35:20.376Z",
+    "modifiedTime": "2025-08-14T13:35:20.376Z",
+    "readingTime": "8 min read",
+    "words": 1506,
+    "hash": "1cd5569ce161101cc3144a1bcf38700d75caec368a22d7c03239fedd9be5916d"
+  },
+  {
+    "slug": "domes-vs-earmolds-fit",
+    "title": "Seal the Deal: Domes vs. Earmolds and How They Change Your Hearing Aid Sound",
+    "description": "The tiny piece on the end of your hearing aid decides comfort, clarity, feedback, and your own voice. Learn the real-life differences between open/closed domes and custom earmolds—and how to choose the right seal for your ears and hearing.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "hearing aid fitting",
+      "audiology",
+      "hearing aid accessories",
+      "hearing in noisy environments",
+      "ear health"
+    ],
+    "image": "/images/articles/2025-08/domes-vs-earmolds-fit-unsplash-cYafiPay4q4.jpg",
+    "publishedTime": "2025-08-14T13:19:33.936Z",
+    "modifiedTime": "2025-08-14T13:44:09.003Z",
+    "readingTime": "9 min read",
+    "words": 1776,
+    "hash": "be9458f065eb34684853f2cac93fbf27e5495092b42aad8982230374ee9c8ad4"
+  },
+  {
     "slug": "ear-biomarkers-hearing-damage",
     "title": "Hearing Damage, Measured in a Drop: The Emerging Science of Ear Biomarkers",
     "description": "A friendly, evidence-based tour of blood and noninvasive biomarkers that could one day flag inner-ear stress and hearing damage—what scientists are finding now, and what you can do today.",
@@ -184,6 +224,47 @@
     "hash": "ff0cef56854c128f2c5d16b484ac7febe65d30c22a439345a76f20d92b1615a4"
   },
   {
+    "slug": "hearing-friendly-home-design",
+    "title": "Rooms That Listen: Design Your Home for Easier Conversation and Calmer Ears",
+    "description": "A practical, evidence-based home makeover for your ears. Learn how lighting, layout, fabrics, and simple fixes cut echo and background noise so conversations feel easy—and tinnitus feels calmer.",
+    "category": "Lifestyle",
+    "tags": [
+      "hearing in noisy environments",
+      "hearing health tips",
+      "living with hearing loss",
+      "audiology",
+      "ear health",
+      "hearing aids"
+    ],
+    "image": "/images/articles/2025-08/hearing-friendly-home-design-unsplash-Cz_Xbm3Jyyw.jpg",
+    "publishedTime": "2025-08-14T13:37:17.139Z",
+    "modifiedTime": "2025-08-14T13:44:09.996Z",
+    "readingTime": "10 min read",
+    "words": 1833,
+    "hash": "d696a4555a8716c99752af9769e4af610fcc8b433d0ac24d4ed13e0492f3e1d0"
+  },
+  {
+    "slug": "hearing-regeneration-hair-cells",
+    "title": "Can We Regrow Hearing? Inside Hair-Cell, Synapse, and Gene Therapies Now",
+    "description": "A clear, hope-with-guardrails tour of the science racing to restore hearing—hair-cell regeneration, synapse repair, and gene therapy—what’s promising, what’s paused, and what you can do now.",
+    "category": "Research",
+    "tags": [
+      "hearing loss",
+      "sensorineural hearing loss",
+      "audiology",
+      "hearing research",
+      "hearing loss treatment",
+      "otology",
+      "hearing loss prevention"
+    ],
+    "image": "/images/articles/2025-08/hearing-regeneration-hair-cells-unsplash-wDH7c3pXkpY.jpg",
+    "publishedTime": "2025-08-14T13:38:50.860Z",
+    "modifiedTime": "2025-08-14T13:44:10.720Z",
+    "readingTime": "9 min read",
+    "words": 1715,
+    "hash": "ce9208b9f8675934715d5c13984e4c11843cbb94574cdd95cf8dd2bedac6c030"
+  },
+  {
     "slug": "hearing-supplements-truth",
     "title": "Hearing Supplements: Hype vs. Help (What Science Says)",
     "description": "If you’ve ever been tempted by a late-night ad promising to “restore perfect hearing” with a secret herb, you’re not alone. When your ears ring or…",
@@ -218,9 +299,9 @@
       "tinnitus",
       "age-related hearing loss"
     ],
-    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-ic0NsJbsBQg.jpg",
+    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-iG3PgPB7568.jpg",
     "publishedTime": "2025-08-13T20:39:54.303Z",
-    "modifiedTime": "2025-08-14T05:55:54.164Z",
+    "modifiedTime": "2025-08-14T13:44:10.760Z",
     "readingTime": "9 min read",
     "words": 1777,
     "hash": "f62c62582e7a462936027dd0a73cd71f4520bb04cb519aac3a83672d13d25412"
@@ -280,9 +361,9 @@
       "hearing loss",
       "hearing aid technology"
     ],
-    "image": "/images/articles/2025-08/live-captions-hearing-unsplash-TeOH1b-t3Nc.jpg",
+    "image": "/images/articles/2025-08/live-captions-hearing-unsplash-sNhlLoW5pAY.jpg",
     "publishedTime": "2025-08-14T05:54:19.609Z",
-    "modifiedTime": "2025-08-14T05:55:55.129Z",
+    "modifiedTime": "2025-08-14T13:44:11.606Z",
     "readingTime": "8 min read",
     "words": 1584,
     "hash": "e6c32d1282e563cfb3f26459cbc9b1b9e55af15ad3801d09ba6d2cd575b303b3"
@@ -328,6 +409,27 @@
     "readingTime": "10 min read",
     "words": 1823,
     "hash": "f48d16afb01d73f7058fec5eb594a028009a3cd3677c53b0095ca6731cb0f3ac"
+  },
+  {
+    "slug": "moisture-proof-hearing-life",
+    "title": "Moisture-Proof Your Hearing Life: Sweat, Showers, Saunas, and Swimming",
+    "description": "Water is great for you—just not for your ears and hearing tech. Learn smart, evidence-based ways to manage sweat, showers, saunas, and swimming so your ears stay healthy and your hearing aids keep performing.",
+    "category": "Lifestyle",
+    "tags": [
+      "ear health",
+      "hearing aids",
+      "ear care",
+      "ear infections",
+      "hearing health tips",
+      "hearing protection",
+      "audiology"
+    ],
+    "image": "/images/articles/2025-08/moisture-proof-hearing-life-unsplash-AAWH8V4rgKY.jpg",
+    "publishedTime": "2025-08-14T13:41:04.187Z",
+    "modifiedTime": "2025-08-14T13:44:12.619Z",
+    "readingTime": "8 min read",
+    "words": 1539,
+    "hash": "8e1b542b4659bc65ad6daea5aedd8970d89fc46f21924127747e820d8af42f3e"
   },
   {
     "slug": "music-with-hearing-aids",
@@ -383,9 +485,9 @@
       "ENT specialist",
       "hearing clinics"
     ],
-    "image": "/images/articles/2025-08/neck-jaw-tinnitus-relief-unsplash-S88sB2BIx5I.jpg",
+    "image": "/images/articles/2025-08/neck-jaw-tinnitus-relief-unsplash-2U7pQdwb8tQ.jpg",
     "publishedTime": "2025-08-14T05:26:16.110Z",
-    "modifiedTime": "2025-08-14T05:55:55.798Z",
+    "modifiedTime": "2025-08-14T13:44:12.780Z",
     "readingTime": "9 min read",
     "words": 1776,
     "hash": "da06a2b865f7acab1af5ab45549fa53dfbc92b36c3db9c89400c68be33b7d91f"
@@ -409,6 +511,27 @@
     "readingTime": "10 min read",
     "words": 1839,
     "hash": "dc27d959110c970ad75dbe4ba19bc0abc4bfab8d4497418b9d7d99669e81d6ea"
+  },
+  {
+    "slug": "ototoxic-meds-hearing",
+    "title": "Your Medicine, Your Ears: Preventing Drug‑Induced Hearing Loss",
+    "description": "Some medicines can quietly harm hearing. Learn which drugs raise risk, early warning signs, and a practical plan to protect your ears—without compromising your care.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "tinnitus",
+      "ototoxic drugs",
+      "audiology",
+      "hearing tests",
+      "hearing loss prevention",
+      "ear health"
+    ],
+    "image": "/images/articles/2025-08/ototoxic-meds-hearing-unsplash-NiHQQ0dUXvo.jpg",
+    "publishedTime": "2025-08-14T13:42:25.212Z",
+    "modifiedTime": "2025-08-14T13:44:14.710Z",
+    "readingTime": "9 min read",
+    "words": 1650,
+    "hash": "7106f8ceef578bb751a5cdb5d5f26d585a3efcfc10aeb1bce6fc01a2caf567b7"
   },
   {
     "slug": "phone-remote-microphone",
@@ -511,6 +634,27 @@
     "readingTime": "10 min read",
     "words": 1816,
     "hash": "6065e89fac27d8ec29770b4db103191539e4a2a21cbc30f9449f7388eecaa887"
+  },
+  {
+    "slug": "real-ear-measurements-hearing-aids",
+    "title": "Stop Guessing the Fit: Real‑Ear Measurements Make Hearing Aids Work",
+    "description": "Your hearing aids can sound amazing—or meh—depending on one thing: real-ear measurements. Learn what REM is, why it matters, and how to ask for it so speech clicks and listening gets easier.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "audiology",
+      "hearing aid fitting",
+      "hearing tests",
+      "hearing aid technology",
+      "speech recognition",
+      "hearing clinics"
+    ],
+    "image": "/images/articles/2025-08/real-ear-measurements-hearing-aids-unsplash--2NvJeWf8Hw.jpg",
+    "publishedTime": "2025-08-14T13:17:44.615Z",
+    "modifiedTime": "2025-08-14T13:44:17.067Z",
+    "readingTime": "9 min read",
+    "words": 1642,
+    "hash": "50271fd62f077f076976ff04213d019ec58ee5c650598f74650b2dfe1298a332"
   },
   {
     "slug": "regrow-hearing-hair-cells",
@@ -637,6 +781,27 @@
     "hash": "4511e26571ad0e62f65034bc81eef4a791fecacd02cd8290be81be018cfef06f"
   },
   {
+    "slug": "single-sided-deafness-solutions",
+    "title": "One Good Ear: Thriving with Single‑Sided Deafness and Asymmetric Hearing Loss",
+    "description": "Losing hearing in one ear doesn’t mean losing your life in stereo. Here’s how to reclaim clarity, confidence, and connection with CROS/BiCROS, bone-anchored options, cochlear implants, smart strategies, and brain training.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "hearing aids",
+      "deafness",
+      "audiology",
+      "assistive listening devices",
+      "hearing in noisy environments",
+      "tinnitus"
+    ],
+    "image": "/images/articles/2025-08/single-sided-deafness-solutions-unsplash-uyT0lsfimjI.jpg",
+    "publishedTime": "2025-08-14T13:15:59.131Z",
+    "modifiedTime": "2025-08-14T13:44:18.153Z",
+    "readingTime": "9 min read",
+    "words": 1684,
+    "hash": "25c953ab926fb738c8e79f3e555410581c08d5281cd187e034d91ccd16c07f91"
+  },
+  {
     "slug": "single-sided-deafness-treatment",
     "title": "Single-Sided Deafness in Adults: CROS, Bone-Anchored, or Cochlear Implant?",
     "description": "When one ear can’t hear, everyday life gets lopsided. Conversations sound muffled from your &amp;amp;amp;amp;quot;bad&amp;amp;amp;amp;quot; side. Turning your head becomes a survival skill.…",
@@ -679,6 +844,26 @@
     "hash": "77cb3460693ec9ff28697c0fb3859ed7f78cf24071f03c0260541ad5be1f1559"
   },
   {
+    "slug": "sleep-hearing-tinnitus-2",
+    "title": "Sleep for Your Ears: Better Nights, Calmer Tinnitus, Sharper Hearing",
+    "description": "Sleep quality quietly shapes how well you hear—and how loud your tinnitus feels. Learn the science, simple bedroom tweaks, and when to talk with an audiologist or sleep specialist.",
+    "category": "Lifestyle",
+    "tags": [
+      "ear health",
+      "tinnitus",
+      "hearing loss",
+      "hearing loss prevention",
+      "audiology",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/sleep-hearing-tinnitus-2-unsplash-nb04de6m0rM.jpg",
+    "publishedTime": "2025-08-14T13:14:22.005Z",
+    "modifiedTime": "2025-08-14T13:14:22.005Z",
+    "readingTime": "8 min read",
+    "words": 1497,
+    "hash": "6fd02e02e79d714c77b865e6efea67962cf17150ff36757eac05164c1f5a9fed"
+  },
+  {
     "slug": "sleep-hearing-tinnitus",
     "title": "Sleep On It: How Nightly Rest Tunes Your Hearing and Calms Tinnitus",
     "description": "New research connects sleep quality, tinnitus, and hearing health. Learn how your brain and inner ear use the night to reset—and practical, science-backed ways to sleep better and hear better.",
@@ -701,7 +886,7 @@
   {
     "slug": "sudden-hearing-loss-act-fast",
     "title": "Sudden Hearing Loss? Don’t Wait—The 72‑Hour Window That Can Save Your Hearing",
-    "description": "Woke up with one ear muffled or &amp;quot;dead&amp;quot;? Sudden hearing loss can be an emergency. Here’s how to spot red flags, what to do in the first 72 hours, and how an audiologist and ENT can help you recover.",
+    "description": "Woke up with one ear muffled or &amp;amp;quot;dead&amp;amp;quot;? Sudden hearing loss can be an emergency. Here’s how to spot red flags, what to do in the first 72 hours, and how an audiologist and ENT can help you recover.",
     "category": "Hearing Loss",
     "tags": [
       "hearing loss",
@@ -712,9 +897,9 @@
       "hearing loss symptoms",
       "hearing loss treatment"
     ],
-    "image": "/images/articles/2025-08/sudden-hearing-loss-act-fast-unsplash-Rf3llhpXhIE.jpg",
+    "image": "/images/articles/2025-08/sudden-hearing-loss-act-fast-unsplash-kEsWTLI8SPg.jpg",
     "publishedTime": "2025-08-14T05:24:19.365Z",
-    "modifiedTime": "2025-08-14T05:55:59.778Z",
+    "modifiedTime": "2025-08-14T13:44:19.506Z",
     "readingTime": "9 min read",
     "words": 1657,
     "hash": "d6032b22bc2856fdf013593415328702a873b27c30bb16134f6e4a5b0b08fa10"
@@ -823,6 +1008,27 @@
     "hash": "e3d151f61c520d8ff6a4a0a439057470fe20164788f20214a691db58bbd0c577"
   },
   {
+    "slug": "travel-hearing-aids-smart",
+    "title": "Jet-Set Ears: Travel Smarter with Hearing Aids, Tinnitus, and All the Noise Between",
+    "description": "A practical, upbeat playbook for traveling with hearing aids or hearing loss: packing, TSA, flights, moisture, power, hotel hacks, outdoor noise, and finding help abroad—without missing the fun.",
+    "category": "Lifestyle",
+    "tags": [
+      "hearing aids",
+      "ear protection",
+      "hearing health tips",
+      "assistive listening devices",
+      "living with hearing loss",
+      "ear care",
+      "audiology"
+    ],
+    "image": "/images/articles/2025-08/travel-hearing-aids-smart-unsplash-jiE539UMxVE.jpg",
+    "publishedTime": "2025-08-14T13:32:59.973Z",
+    "modifiedTime": "2025-08-14T13:44:21.093Z",
+    "readingTime": "9 min read",
+    "words": 1609,
+    "hash": "f599cc7a774bc6095c83b5fda46dfb0b933c7e46b4bbb909c1e76f47bd03ed65"
+  },
+  {
     "slug": "understanding-hearing-loss-types",
     "title": "Understanding Different Types of Hearing Loss",
     "description": "Hearing loss affects millions of people worldwide, but understanding the different types can help you make informed decisions about your hearing health. In…",
@@ -854,9 +1060,9 @@
       "hearing health tips",
       "hearing loss awareness"
     ],
-    "image": "/images/articles/2025-08/vaccines-protect-hearing-unsplash-Hnm9WiNBfQI.jpg",
+    "image": "/images/articles/2025-08/vaccines-protect-hearing-unsplash-zcDkupAH4wc.jpg",
     "publishedTime": "2025-08-13T22:42:27.746Z",
-    "modifiedTime": "2025-08-14T05:55:59.939Z",
+    "modifiedTime": "2025-08-14T13:44:21.125Z",
     "readingTime": "9 min read",
     "words": 1687,
     "hash": "c2797d61b81df30774a723d197f9b2612f5f8bdc9f5cdbbc6d232a47be0e008c"
