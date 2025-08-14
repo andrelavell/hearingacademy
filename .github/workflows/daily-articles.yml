@@ -18,7 +18,7 @@ jobs:
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
       OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5' }}
-      ARTICLES_PER_DAY: ${{ vars.ARTICLES_PER_DAY || '3' }}
+      ARTICLES_PER_DAY: ${{ vars.ARTICLES_PER_DAY || 10' }}
       AUTHOR_NAME: ${{ vars.AUTHOR_NAME || 'HearingAcademy Editorial' }}
       TONE: ${{ vars.TONE || 'human, empathetic, fun, highly-educational' }}
       MIN_WORDS: ${{ vars.MIN_WORDS || '1000' }}
