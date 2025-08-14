@@ -15,6 +15,8 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+      BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
       OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5' }}
       ARTICLES_PER_DAY: ${{ vars.ARTICLES_PER_DAY || '3' }}
       AUTHOR_NAME: ${{ vars.AUTHOR_NAME || 'HearingAcademy Editorial' }}
@@ -23,6 +25,7 @@ jobs:
       MAX_WORDS: ${{ vars.MAX_WORDS || '1500' }}
       SITE_BASE_URL: ${{ vars.SITE_BASE_URL || 'https://hearingacademy.org' }}
       IMAGE_STORAGE: ${{ vars.IMAGE_STORAGE || 'local' }}
+      IMAGE_STRICT_RELEVANCE: ${{ vars.IMAGE_STRICT_RELEVANCE || 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -55,6 +58,12 @@ jobs:
 
       - name: Generate daily articles
         run: npm run generate:daily
+
+      - name: Refresh article images (dedup + relevance)
+        run: node scripts/refresh-article-images.js
+
+      - name: Rescan articles for topics index (update images in listings)
+        run: npm run scan:articles
 
       - name: Commit and push changes
         run: |

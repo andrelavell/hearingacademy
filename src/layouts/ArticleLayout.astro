@@ -29,12 +29,15 @@ const {
   authorTitle,
   category,
   tags,
-  image = '/article-default.jpg',
+  image = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg',
   imageAlt,
   imageCredit,
   imageCreditUrl,
   readingTime = '5 min read'
 } = Astro.props;
+
+const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';
+const safeImage = (image && image !== '/article-default.jpg') ? image : FALLBACK_IMG;
 
 // Compute dynamic related articles
 const currentSlug = Astro.url.pathname.replace(/\/+$/, '').split('/').pop();
@@ -56,7 +59,7 @@ const related = relatedRanked.slice(0, 3).map(x => x.it);
 <BaseLayout 
   title={title}
   description={description}
-  image={image}
+  image={safeImage}
   article={true}
   publishedTime={publishedTime}
   modifiedTime={modifiedTime}
@@ -87,8 +90,13 @@ const related = relatedRanked.slice(0, 3).map(x => x.it);
           <p class="article-description">{description}</p>
           
           <div class="author-info">
-            <div class="author-avatar">
-              <img src="/author-avatar.jpg" alt={author} width="48" height="48" />
+            <div class="author-avatar" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img">
+                <title>Author</title>
+                <circle cx="24" cy="24" r="24" fill="#e5e7eb" />
+                <circle cx="24" cy="18" r="8" fill="#9ca3af" />
+                <path d="M8 40c3.5-7 11-10 16-10s12.5 3 16 10" fill="#9ca3af" />
+              </svg>
             </div>
             <div class="author-details">
               <span class="author-name">By {author}</span>
@@ -100,7 +108,7 @@ const related = relatedRanked.slice(0, 3).map(x => x.it);
       
       <div class="article-image">
         <div class="container">
-          <img src={image} alt={imageAlt || title} width="800" height="400" />
+          <img src={safeImage} alt={imageAlt || title} width="800" height="400" />
           {imageCredit && (
             <div class="image-credit">
               Photo: {imageCreditUrl ? (
@@ -166,7 +174,7 @@ const related = relatedRanked.slice(0, 3).map(x => x.it);
             {related.map(r => (
               <article class="related-card">
                 <div class="related-image">
-                  <img src={r.image || '/article-default.jpg'} alt={r.title} width="300" height="200" />
+                  <img src={(r.image && r.image !== '/article-default.jpg') ? r.image : FALLBACK_IMG} alt={r.title} width="300" height="200" />
                 </div>
                 <div class="related-content">
                   <span class="related-category">{r.category}</span>

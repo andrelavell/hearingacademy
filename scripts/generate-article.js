@@ -5,12 +5,13 @@ import { readFile, writeFile, readJSON, writeJSON, ARTICLES_DIR, DATA_DIR, ensur
 import { parseArticleAstro, buildArticleAstro, makeSlug, makeCompactSlug } from './utils/astroArticle.js';
 import { topicHash, jaccard, normalizeTopic } from './utils/dedupe.js';
 import { pickRelated, appendFurtherReadingToBody, injectInlineLinks } from './utils/linking.js';
-import { findHeroImage } from './utils/pexels.js';
+import { findHeroImage as findPexelsHero } from './utils/pexels.js';
+import { findHeroImage as findUnsplashHero } from './utils/unsplash.js';
 import { verifyReferences } from './utils/verify.js';
 import { braveSearchWeb, extractTopResults } from './utils/brave.js';
 import { openai, OPENAI_MODEL, generateJSON } from './utils/openai.js';
 import { loadCategories, loadTags, envInt, loadAuthors } from './utils/config.js';
-import { downloadToPublic } from './utils/images.js';
+import { downloadToPublic, loadUsedImages, registerUsedImage } from './utils/images.js';
 import readingTime from 'reading-time';
 
 const TODAY_ISO = new Date().toISOString();
@@ -161,9 +162,30 @@ async function main() {
     process.exit(2);
   }
 
+  // Remove leading H1 from body to avoid duplicate title (header already renders title)
+  const stripLeadingHeading = (html, title) => {
+    let s = String(html || '').trim();
+    // Unwrap full-document wrappers if present
+    s = s.replace(/<!DOCTYPE[^>]*>/gi, '');
+    s = s.replace(/<head[\s\S]*?<\/head>/gi, '');
+    s = s.replace(/<html[^>]*>/gi, '');
+    s = s.replace(/<\/html>/gi, '');
+    s = s.replace(/<body[^>]*>/gi, '');
+    s = s.replace(/<\/body>/gi, '');
+    // Remove leading <h1>...</h1> (with optional attrs) if present
+    s = s.replace(/^\s*<h1[^>]*>\s*[\s\S]*?<\/h1>\s*/i, '');
+    // Remove leading Markdown H1 lines like '# Title' or 'Title\n===='
+    s = s.replace(/^\s*#\s+.*\n+/i, '');
+    s = s.replace(/^\s*[^\n]+\n=+\n+/i, '');
+    // Remove a duplicate first paragraph if it exactly matches the title
+    const titleNorm = String(title||'').trim().toLowerCase();
+    s = s.replace(/^\s*<p>\s*([^<]+)\s*<\/p>\s*/i, (m, p1) => (String(p1||'').trim().toLowerCase() === titleNorm ? '' : m));
+    return s.trim();
+  };
+
   // Find related existing articles
   const related = pickRelated(index, { category: data.category, tags: data.tags }, { limit: 4 });
-  let body = data.body_html;
+  let body = stripLeadingHeading(data.body_html, data.title);
   // Inject a few contextual inline links inside the body
   body = injectInlineLinks(body, index, { category: data.category, tags: data.tags, title: data.title }, { maxInline: 4 });
   if (related.length) body = appendFurtherReadingToBody(body, related);
@@ -216,24 +238,54 @@ async function main() {
     slug = `${baseSlug}-${i}`;
   }
 
-  // Fetch hero image and optionally download locally
-  const hero = await findHeroImage({
+  // Fetch hero image with provider fallback and de-duplication across site
+  const used = await loadUsedImages();
+  const usedPexelsIds = used.filter((r) => String(r.provider).toLowerCase() === 'pexels').map((r) => String(r.id));
+  const usedUnsplashIds = used.filter((r) => String(r.provider).toLowerCase() === 'unsplash').map((r) => String(r.id));
+
+  // Prefer Unsplash (larger gallery), then Pexels
+  let hero = await findUnsplashHero({
     query: data.image_query,
     category: data.category,
     tags: data.tags,
     keywords: data.keywords,
+    excludeIds: usedUnsplashIds,
   });
+  if (!hero) {
+    hero = await findPexelsHero({
+      query: data.image_query,
+      category: data.category,
+      tags: data.tags,
+      keywords: data.keywords,
+      excludeIds: usedPexelsIds,
+    });
+  }
   const storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();
-  let imageSrc = hero?.src || '/article-default.jpg';
+  let imageSrc = hero?.src || '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';
   let imageAlt = hero?.alt || data.title;
   let imageCredit = hero?.credit || '';
   let imageCreditUrl = hero?.credit_url || '';
   if (hero && storage === 'local') {
     try {
-      const dl = await downloadToPublic(imageSrc, slug, hero.id || 'img');
+      const dl = await downloadToPublic(imageSrc, slug, hero.id || 'img', hero.provider || 'pexels');
       imageSrc = dl.publicPath;
     } catch (e) {
       console.warn('[image] download failed, using remote URL:', e.message);
+    }
+  }
+  if (hero) {
+    try {
+      await registerUsedImage({
+        provider: hero.provider || 'unknown',
+        id: hero.id || '',
+        slug,
+        src: imageSrc,
+        credit: imageCredit,
+        credit_url: imageCreditUrl,
+        original_url: hero.original_url || hero.src || '',
+      });
+    } catch (e) {
+      console.warn('[image] failed to register used image:', e?.message || e);
     }
   }
   const reading = computeReadingTime(body);

@@ -1,0 +1,385 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  publishedTime: string;
+  modifiedTime?: string;
+  author: string;
+  authorTitle?: string;
+  tags?: string[];
+  image?: string;
+  imageAlt?: string;
+
+  // Product / Review specifics
+  productName: string;
+  brandName: string;
+  productImage?: string;
+  price: string | number;
+  currency?: string;
+  ratingValue?: number;
+  ratingCount?: number;
+  priceNote?: string; // e.g. "Free delivery · 100-day returns"
+}
+
+// Normalize props source: when used as a Markdown layout, values are under `frontmatter` or `content`
+const raw = Astro.props as any;
+const fm: Partial<Props> & Record<string, any> = raw.frontmatter ?? raw.content ?? raw;
+
+const {
+  title = '',
+  description = '',
+  publishedTime = '',
+  modifiedTime,
+  author = 'HearingAcademy Editorial Team',
+  authorTitle = 'Hearing Specialist',
+  tags = [],
+  image = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg',
+  productName,
+  imageAlt = (fm as any).imageAlt || (title || productName || 'Product image'),
+  brandName,
+  productImage = image,
+  price,
+  currency = 'USD',
+  ratingValue = 4.5,
+  ratingCount = 1,
+  priceNote = 'Free delivery · 100-day returns'
+} = fm as Partial<Props>;
+
+// Debug: log incoming props during dev to verify frontmatter values
+if (import.meta.env?.DEV) {
+  // Avoid noisy logs in production
+  console.log('[ReviewLayout] props:', JSON.stringify(Astro.props));
+}
+
+const canonical = Astro.url.toString();
+const breadcrumb = [
+  { href: '/', label: 'Home' },
+  { href: '/reviews', label: 'Reviews' },
+  { href: Astro.url.pathname, label: title }
+];
+
+const starsOutOf5 = Math.max(0, Math.min(5, Number(ratingValue || 0)));
+const fullStars = Math.floor(starsOutOf5);
+const halfStar = starsOutOf5 - fullStars >= 0.5;
+const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+const numericPrice = Number(price);
+
+// Ensure we never render a missing placeholder image path
+const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';
+const safeImage = image && image !== '/article-default.jpg' ? image : FALLBACK_IMG;
+const heroImage = productImage && productImage !== '/article-default.jpg' ? productImage : safeImage;
+
+// Safe date parsing
+const pubDate = publishedTime ? new Date(publishedTime as any) : null;
+const publishedDisplay = pubDate && !Number.isNaN(pubDate.getTime())
+  ? pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  : '';
+
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': `${canonical}#product`,
+  url: canonical,
+  name: productName,
+  image: new URL(heroImage, Astro.url).toString(),
+  brand: {
+    '@type': 'Brand',
+    name: brandName
+  },
+  review: {
+    '@type': 'Review',
+    reviewBody: description,
+    author: { '@type': 'Person', name: author },
+    datePublished: publishedTime,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: String(ratingValue ?? ''),
+      bestRating: '5',
+      worstRating: '1'
+    }
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: String(ratingValue ?? ''),
+    reviewCount: String(ratingCount ?? '1')
+  },
+  offers: {
+    '@type': 'Offer',
+    url: canonical,
+    priceCurrency: currency,
+    price: String(Number.isFinite(numericPrice) ? numericPrice : ''),
+    description: priceNote,
+    availability: 'https://schema.org/InStock'
+  }
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumb.map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.label,
+    item: new URL(b.href, Astro.url).toString()
+  }))
+};
+---
+
+<BaseLayout 
+  title={title ?? productName ?? 'Review'}
+  description={description}
+  image={safeImage}
+  article={true}
+  publishedTime={publishedTime}
+  modifiedTime={modifiedTime}
+  author={author}
+  tags={tags}
+>
+  <Header />
+
+  <main>
+    <article class="review">
+      <div class="review-header">
+        <div class="container">
+          <div class="breadcrumb">
+            {breadcrumb.map((b, i) => (
+              <>
+                {i > 0 && <span class="separator">/</span>}
+                {i < breadcrumb.length - 1 ? (
+                  <a href={b.href}>{b.label}</a>
+                ) : (
+                  <span class="current">{b.label}</span>
+                )}
+              </>
+            ))}
+          </div>
+
+          <div class="review-meta">
+            <span class="category">Reviews</span>
+            {publishedDisplay && (
+              <time datetime={publishedTime}>{publishedDisplay}</time>
+            )}
+          </div>
+
+          <h1 class="review-title">{title ?? productName ?? 'Review'}</h1>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="container summary-grid">
+          <div class="product-media">
+            <img src={heroImage} alt={imageAlt} width="480" height="320" loading="lazy" />
+          </div>
+          <div class="product-meta">
+            <h2 class="product-name">{brandName ? `${brandName}'s ${productName || ''}` : (productName || '')}</h2>
+
+            <div class="rating-line" aria-label={`Rating ${ratingValue} out of 5`}>
+              <div class="stars">
+                {Array.from({ length: fullStars }).map(() => (
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.786 1.402 8.168L12 18.896l-7.336 3.869 1.402-8.168L.132 9.211l8.2-1.193z" /></svg>
+                ))}
+                {halfStar && (
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="half"><defs><linearGradient id="halfGrad"><stop offset="50%" stop-color="currentColor"/><stop offset="50%" stop-color="transparent"/></linearGradient></defs><path fill="url(#halfGrad)" d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.786 1.402 8.168L12 18.896l-7.336 3.869 1.402-8.168L.132 9.211l8.2-1.193z"/><path class="outline" d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.786 1.402 8.168L12 18.896l-7.336 3.869 1.402-8.168L.132 9.211l8.2-1.193z"/></svg>
+                )}
+                {Array.from({ length: emptyStars }).map(() => (
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="empty"><path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.786 1.402 8.168L12 18.896l-7.336 3.869 1.402-8.168L.132 9.211l8.2-1.193z" /></svg>
+                ))}
+              </div>
+              <span class="rating-value">{ratingValue?.toFixed(1)} / 5</span>
+            </div>
+
+            {description && (
+              <p class="summary-description">{description}</p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div class="review-content">
+        <div class="container content-grid">
+          <aside class="toc" id="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <nav class="toc-nav"><ul></ul></nav>
+            </div>
+          </aside>
+
+          <div class="review-body">
+            <slot />
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+
+  <script type="application/ld+json">{JSON.stringify(productLd)}</script>
+  <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+
+  {import.meta.env?.DEV && (
+    <script>
+      console.log('ReviewLayout props (client):', {
+        title: {title},
+        productName: {productName},
+        brandName: {brandName},
+        price: {price},
+        publishedTime: {publishedTime}
+      });
+    </script>
+  )}
+
+  <script>
+    // Build ToC from h2/h3 in the review body once DOM is ready
+    (function initToc(){
+      const run = () => {
+        const container = document.querySelector('.review-body');
+        const list = document.querySelector('.toc-nav ul');
+        const toc = document.querySelector('.toc');
+        if (!container || !list) return;
+        const normalize = (s) => (s || '')
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9\s-&]/g, '')
+          .replace(/\s+/g, ' ');
+        const allowedTitles = [
+          'overview',
+          'key features',
+          'design & comfort',
+          'sound quality & performance',
+          'battery life & charging',
+          'ease of use',
+          'price & value',
+          'pros & cons',
+          'who should buy the nova?',
+          'comparison with competitors',
+          'final verdict'
+        ];
+        const allowed = new Set(allowedTitles.map(normalize));
+        // Only H2 headings, preserve page order, filter to whitelist
+        const headings = Array.from(container.querySelectorAll('h2'))
+          .filter(h => allowed.has(normalize(h.textContent)));
+        if (!headings.length) {
+          toc?.classList.add('hidden');
+          return;
+        }
+        // Clear any existing items
+        list.innerHTML = '';
+        headings.forEach(h => {
+          if (!h.id) {
+            const slug = (h.textContent || '')
+              .toLowerCase()
+              .trim()
+              .replace(/[^a-z0-9\s-]/g, '')
+              .replace(/\s+/g, '-');
+            if (slug) h.id = slug;
+          }
+          const li = document.createElement('li');
+          li.className = 'h2';
+          const a = document.createElement('a');
+          a.href = `#${h.id}`;
+          a.textContent = h.textContent || '';
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run, { once: true });
+      } else {
+        run();
+      }
+    })();
+  </script>
+
+  <style>
+    .breadcrumb {
+      display: flex;
+      gap: var(--space-2);
+      font-size: var(--fs-200);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .breadcrumb a { text-decoration: none; color: var(--color-text-muted); }
+    .breadcrumb a:hover { color: var(--color-primary); }
+
+    .review-header { padding: var(--space-6) 0 var(--space-5); background: white; }
+    .review-meta { display:flex; gap: var(--space-3); align-items:center; color: var(--color-text-muted); margin-bottom: var(--space-3); }
+    .category { background: var(--color-secondary); color: white; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: var(--fs-100); font-weight: var(--fw-medium); }
+    .review-title { font-size: var(--fs-800); margin: 0 0 var(--space-3); }
+    .review-description { font-size: var(--fs-400); color: var(--color-text-muted); }
+
+    .summary { background: var(--color-background-light); padding: var(--space-6) 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+    .summary-grid { display: grid; grid-template-columns: 360px 1fr; gap: var(--space-6); align-items: center; }
+    .product-media img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); background: #fff; }
+
+    .brand-line { margin-bottom: var(--space-2); color: var(--color-text-muted); font-size: var(--fs-200); }
+    .product-name { margin: 0 0 var(--space-3); font-size: var(--fs-700); }
+
+    .rating-line { display:flex; align-items:center; gap: var(--space-3); margin-bottom: var(--space-3); }
+    .stars { display:flex; gap: 4px; color: #f59e0b; }
+    .stars svg { width: 22px; height: 22px; fill: currentColor; }
+    .stars svg.empty { color: #e5e7eb; }
+    .stars svg.half .outline { fill: none; stroke: #f59e0b; }
+    .rating-value { color: var(--color-text-muted); font-weight: var(--fw-medium); }
+
+    .price-line { display:flex; flex-wrap: wrap; align-items:center; gap: var(--space-3); }
+    .price { font-size: var(--fs-700); font-weight: var(--fw-bold); }
+    .price::before { content: '$'; font-weight: var(--fw-bold); }
+    .price-note { color: var(--color-text-muted); }
+
+    .review-content { padding: var(--space-7) 0; }
+    .content-grid { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: var(--space-7); align-items: start; }
+
+    .toc { position: sticky; top: 80px; align-self: start; }
+    .toc-inner { background: white; border: 1px solid var(--color-border); border-radius: 12px; padding: var(--space-4); box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+    .toc-title { font-size: var(--fs-300); margin-bottom: var(--space-3); }
+    .toc-nav ul { list-style: none; padding: 0; margin: 0; display:flex; flex-direction: column; gap: 8px; }
+    .toc-nav li h2, .toc-nav li.h2 { font-weight: var(--fw-semibold); }
+    .toc-nav li.h3 { margin-left: 12px; font-size: var(--fs-200); }
+    .toc-nav a { text-decoration: none; color: var(--color-text); }
+    .toc-nav a:hover { color: var(--color-primary); }
+
+    .review-body { max-width: var(--content-width); }
+    .review-body p { margin-bottom: var(--space-4); }
+    .review-body ul, .review-body ol { margin-bottom: var(--space-4); padding-left: 1.25rem; }
+    .review-body blockquote { border-left: 4px solid var(--color-primary); padding: var(--space-4) var(--space-6); margin: var(--space-6) 0; background: var(--color-background-light); font-style: italic; border-radius: 0 8px 8px 0; }
+
+    /* Full-bleed responsive figure inside markdown */
+    .fullbleed-figure {
+      margin: var(--space-7) 0;
+      /* Break out of content max-width to full viewport width on all screens */
+      position: relative;
+      left: 50%;
+      right: 50%;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+    .fullbleed-figure img { display: block; width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+    .fullbleed-figure figcaption {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 13px;
+      padding: 9px;
+      background: #f5f5f5;
+      margin-top: var(--space-2);
+    }
+    .fullbleed-figure a { color: inherit; text-decoration: none; }
+    .fullbleed-figure a:hover { text-decoration: underline; }
+    /* Explicitly override UA margins on figure */
+    figure.fullbleed-figure { margin-inline-start: 0 !important; margin-inline-end: 0 !important; }
+
+    @media (max-width: 1024px) {
+      .summary-grid { grid-template-columns: 1fr; }
+      .content-grid { grid-template-columns: 1fr; }
+      .toc { position: relative; top: auto; }
+      .toc-inner { margin-bottom: var(--space-5); }
+    }
+  </style>
+</BaseLayout>

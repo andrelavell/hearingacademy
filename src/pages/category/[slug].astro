@@ -20,6 +20,7 @@ const items = (Array.isArray(topics) ? topics : [])
   .slice()
   .sort((a,b) => (parseDate(b.publishedTime || b.modifiedTime) - parseDate(a.publishedTime || a.modifiedTime)));
 const pageTitle = category ? `Category: ${category}` : 'Category';
+const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';
 ---
 
 <BaseLayout title={pageTitle} description={category ? `Articles in ${category}` : 'Category articles'}>
@@ -42,7 +43,7 @@ const pageTitle = category ? `Category: ${category}` : 'Category';
               {items.map(item => (
                 <article class="article-card">
                   <div class="article-image">
-                    <img src={item.image || '/article-default.jpg'} alt={item.title} width="400" height="250" />
+                    <img src={(item.image && item.image !== '/article-default.jpg') ? item.image : FALLBACK_IMG} alt={item.title} width="400" height="250" />
                   </div>
                   <div class="article-content">
                     <div class="article-meta">
