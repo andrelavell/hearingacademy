@@ -14,7 +14,7 @@
   ]
 
 # Redirect pretty API path to the function when needed (Astro should handle routes, but keep as safety)
-# [[redirects]]
-#   from = "/api/*"
-#   to = "/.netlify/functions/astro"
-#   status = 200
+[[redirects]]
+  from = "/api/upload-article"
+  to = "/.netlify/functions/upload-article"
+  status = 200

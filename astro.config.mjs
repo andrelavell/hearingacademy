@@ -7,7 +7,7 @@ export default defineConfig({
   site: 'https://hearingacademy.org',
   compressHTML: true,
   adapter: netlify(),
-  output: 'server',
+  output: 'static',
   build: {
     inlineStylesheets: 'auto'
   }
