@@ -18,3 +18,13 @@
   from = "/api/upload-article"
   to = "/.netlify/functions/upload-article"
   status = 200
+
+[[redirects]]
+  from = "/reviews/nova-hearing-aid-review"
+  to = "/reviews/hear-direct-club-nova-hearing-aid"
+  status = 301
+
+[[redirects]]
+  from = "/reviews/nova-hearing-aid-review/"
+  to = "/reviews/hear-direct-club-nova-hearing-aid/"
+  status = 301
