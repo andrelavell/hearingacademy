@@ -11,7 +11,7 @@ productName: Nova Hearing Aid
 brandName: Hear Direct Club
 price: 249
 priceNote: Free delivery · 100-day returns
-ratingValue: 4.5
+ratingValue: 4.0
 image: /images/brands/hear-direct-club/heardirectclub-main-600.png
 productImage: /images/brands/hear-direct-club/heardirectclub-main-600.png
 imageAlt: Hear Direct Club's Nova Hearing Aid
@@ -222,7 +222,7 @@ Common complaints include:
 
 ## Final Verdict
 
-The [Hear Direct Club's Nova](https://heardirectclub.com/products/nova?utm_source=hearingacademy&utm_medium=referral&utm_campaign=review&utm_term=hearingacademy) earns our strong recommendation with a 4.5-star rating. It's a remarkable achievement in the OTC hearing aid category – a device that genuinely democratizes better hearing by offering premium-level sound quality at a working-class price point.
+The [Hear Direct Club's Nova](https://heardirectclub.com/products/nova?utm_source=hearingacademy&utm_medium=referral&utm_campaign=review&utm_term=hearingacademy) earns our strong recommendation with a 4-star rating. It's a remarkable achievement in the OTC hearing aid category – a device that genuinely democratizes better hearing by offering premium-level sound quality at a working-class price point.
 
 While audiophiles and tech enthusiasts may miss the advanced features found in prescription models, the Nova's core mission is clear: deliver better hearing without the complexity or cost barriers. It succeeds brilliantly at this goal.
 
@@ -231,7 +231,7 @@ The Nova won't replace high-end prescription hearing aids for those with complex
 ### Bottom Line:
 If you're looking for the best hearing aid under $750 and don't need smartphone connectivity or professional customization, the Nova is virtually unbeatable. Its combination of sound quality, comfort, simplicity, and value makes it our top pick for budget-conscious buyers and first-time users. The 100-day trial period means you have nothing to lose – except the frustration of asking "What did you say?" for the hundredth time.
 
-**Rating: 4.5/5 Stars** – An exceptional value that crushes competitors in its price range, held back only by the lack of modern connectivity features that some users may desire.
+**Rating: 4.0/5 Stars** – An exceptional value that crushes competitors in its price range, held back only by the lack of modern connectivity features that some users may desire.
 
 ---
 
