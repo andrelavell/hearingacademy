@@ -1,6 +1,126 @@
 [
   {
     "provider": "unsplash",
+    "id": "r_3m4swm47Q",
+    "slug": "heart-hearing-connection",
+    "src": "/images/articles/2025-08/heart-hearing-connection-unsplash-r_3m4swm47Q.jpg",
+    "credit": "Tim Mossholder",
+    "credit_url": "https://unsplash.com/@timmossholder",
+    "original_url": "https://api.unsplash.com/photos/r_3m4swm47Q/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNXx8WW91ciUyMEhlYXJ0JTJDJTIwWW91ciUyMEhlYXJpbmclM0ElMjBUaGUlMjBDYXJkaW9tZXRhYm9saWMlMjBMaW5rJTIwWW91JTIwQ2FuJUUyJTgwJTk5dCUyMEFmZm9yZCUyMHRvJTIwSWdub3JlfGVufDF8MHx8fDE3NTU1MjU4NjN8MA",
+    "date": "2025-08-18T14:04:27.811Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "OKrV1pt45ms",
+    "slug": "hearing-friendly-travel",
+    "src": "/images/articles/2025-08/hearing-friendly-travel-unsplash-OKrV1pt45ms.jpg",
+    "credit": "Fausto Sandoval",
+    "credit_url": "https://unsplash.com/@uusaez",
+    "original_url": "https://api.unsplash.com/photos/OKrV1pt45ms/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw3fHxUcmF2ZWwlMjBTbWFydCUyQyUyMEhlYXIlMjBIYXBweSUzQSUyMFRoZSUyMEhlYXJpbmctRnJpZW5kbHklMjBUcmF2ZWxlciVFMiU4MCU5OXMlMjBQbGF5Ym9va3xlbnwxfDB8fHwxNzU1NTI1ODYwfDA",
+    "date": "2025-08-18T14:04:22.024Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "7450hH--84M",
+    "slug": "hearing-friendly-home-design",
+    "src": "/images/articles/2025-08/hearing-friendly-home-design-unsplash-7450hH--84M.jpg",
+    "credit": "Andrea Davis",
+    "credit_url": "https://unsplash.com/@andreaedavis",
+    "original_url": "https://api.unsplash.com/photos/7450hH--84M/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMnx8Um9vbXMlMjBUaGF0JTIwTGlzdGVuJTNBJTIwRGVzaWduJTIwWW91ciUyMEhvbWUlMjBmb3IlMjBFYXNpZXIlMjBDb252ZXJzYXRpb24lMjBhbmQlMjBDYWxtZXIlMjBFYXJzfGVufDF8MHx8fDE3NTU1MjU4NTl8MA",
+    "date": "2025-08-18T14:04:19.735Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "waqNeiB0-xs",
+    "slug": "hearing-aid-battery-care",
+    "src": "/images/articles/2025-08/hearing-aid-battery-care-unsplash-waqNeiB0-xs.jpg",
+    "credit": "Andrey Matveev",
+    "credit_url": "https://unsplash.com/@zelebb",
+    "original_url": "https://api.unsplash.com/photos/waqNeiB0-xs/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMXx8Q2hhcmdlJTIwU21hcnQlMkMlMjBIZWFyJTIwTG9uZ2VyJTNBJTIwVGhlJTIwUmVhbC1MaWZlJTIwU2NpZW5jZSUyMG9mJTIwSGVhcmluZyUyMEFpZCUyMEJhdHRlcmllc3xlbnwxfDB8fHwxNzU1NTI1ODU1fDA",
+    "date": "2025-08-18T14:04:16.601Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "SoCzpUKWNUg",
+    "slug": "cochlea-circadian-clock",
+    "src": "/images/articles/2025-08/cochlea-circadian-clock-unsplash-SoCzpUKWNUg.jpg",
+    "credit": "Samuel Rodriguez",
+    "credit_url": "https://unsplash.com/@samueljrodriguez",
+    "original_url": "https://api.unsplash.com/photos/SoCzpUKWNUg/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw3fHxZb3VyJTIwRWFycyUyMFJ1biUyMG9uJTIwYSUyMENsb2NrJTNBJTIwSG93JTIwVGltZSUyMG9mJTIwRGF5JTIwTWF5JTIwQ2hhbmdlJTIwTm9pc2UlMjBSaXNrJTJDJTIwVGlubml0dXMlMkMlMjBhbmQlMjBSZWNvdmVyeXxlbnwxfDB8fHwxNzU1NTI1ODQ4fDA",
+    "date": "2025-08-18T14:04:09.525Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "Ls0q-xXwNi8",
+    "slug": "auracast-le-audio-hearing",
+    "src": "/images/articles/2025-08/auracast-le-audio-hearing-unsplash-Ls0q-xXwNi8.jpg",
+    "credit": "Sanket Mishra",
+    "credit_url": "https://unsplash.com/@sanketgraphy",
+    "original_url": "https://api.unsplash.com/photos/Ls0q-xXwNi8/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw1fHxBdXJhY2FzdCUyMElzJTIwQ29taW5nJTNBJTIwSG93JTIwQmx1ZXRvb3RoJTIwTEUlMjBBdWRpbyUyMFdpbGwlMjBUcmFuc2Zvcm0lMjBIZWFyaW5nJTIwaW4lMjBQdWJsaWMlMjBQbGFjZXN8ZW58MXwwfHx8MTc1NTUyNTg0NHww",
+    "date": "2025-08-18T14:04:06.570Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "3tGnwVC7Cjk",
+    "slug": "ai-hearing-aids-noise",
+    "src": "/images/articles/2025-08/ai-hearing-aids-noise-unsplash-3tGnwVC7Cjk.jpg",
+    "credit": "Yurii Stupen",
+    "credit_url": "https://unsplash.com/@yurii_stupen",
+    "original_url": "https://api.unsplash.com/photos/3tGnwVC7Cjk/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyN3x8VGVjaG5vbG9neSUyMGhlYXJpbmclMjBhaWR8ZW58MXwwfHx8MTc1NTUyMjk3N3ww",
+    "date": "2025-08-18T14:04:03.255Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "tNA6vv8hTjg",
+    "slug": "sleep-hearing-tinnitus-3",
+    "src": "/images/articles/2025-08/sleep-hearing-tinnitus-3-unsplash-tNA6vv8hTjg.jpg",
+    "credit": "Andrea Davis",
+    "credit_url": "https://unsplash.com/@andreaedavis",
+    "original_url": "https://api.unsplash.com/photos/tNA6vv8hTjg/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw2fHxwZWFjZWZ1bCUyMGFkdWx0JTIwc2xlZXBpbmclMjBiZWRzaWRlJTIwc291bmQlMjBtYWNoaW5lJTIwd2l0aCUyMGhlYXJpbmclMjBhaWRzJTIwY2FzZSUyMG9uJTIwbmlnaHRzdGFuZCUyMHNvZnQlMjB3YXJtJTIwbGlnaHR8ZW58MXwwfHx8MTc1NTUyNDA2Nnww",
+    "date": "2025-08-18T13:34:26.579Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "MXhE0WEmznY",
+    "slug": "cochlea-circadian-clock",
+    "src": "/images/articles/2025-08/cochlea-circadian-clock-unsplash-MXhE0WEmznY.jpg",
+    "credit": "Danilo Batista",
+    "credit_url": "https://unsplash.com/@hiddenwindows",
+    "original_url": "https://api.unsplash.com/photos/MXhE0WEmznY/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw5fHxpbm5lciUyMGVhciUyMGNvY2hsZWElMjBjaXJjYWRpYW4lMjBjbG9jayUyMGlsbHVzdHJhdGlvbiUyMG1lbGF0b25pbiUyMG5pZ2h0JTIwZGF5fGVufDF8MHx8fDE3NTU1MjMzMTV8MA",
+    "date": "2025-08-18T13:21:55.920Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "sMcFczL05fk",
+    "slug": "vaccines-protect-hearing-2",
+    "src": "/images/articles/2025-08/vaccines-protect-hearing-2-unsplash-sMcFczL05fk.jpg",
+    "credit": "CDC",
+    "credit_url": "https://unsplash.com/@cdc",
+    "original_url": "https://api.unsplash.com/photos/sMcFczL05fk/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxN3x8YWR1bHQlMjBnZXR0aW5nJTIwdmFjY2luYXRpb24lMjB0byUyMHByb3RlY3QlMjBoZWFyaW5nJTIwZWFycyUyMGNsaW5pY3xlbnwxfDB8fHwxNzU1NTIzMTk2fDA",
+    "date": "2025-08-18T13:19:58.541Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "f7nWFLbG1Ow",
+    "slug": "chemicals-noise-hearing-loss",
+    "src": "/images/articles/2025-08/chemicals-noise-hearing-loss-unsplash-f7nWFLbG1Ow.jpg",
+    "credit": "charlesdeluvio",
+    "credit_url": "https://unsplash.com/@charlesdeluvio",
+    "original_url": "https://api.unsplash.com/photos/f7nWFLbG1Ow/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw2fHx3b3JrZXIlMjB3aXRoJTIwcmVzcGlyYXRvciUyMGFuZCUyMGVhcm11ZmZzJTIwaW4lMjBhdXRvJTIwYm9keSUyMHNob3AlMjB1c2luZyUyMHNvbHZlbnQlMjBzcHJheWVyfGVufDF8MHx8fDE3NTU1MjMwODR8MA",
+    "date": "2025-08-18T13:18:06.534Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "53-nzxc_QJI",
+    "slug": "hearing-aid-battery-care",
+    "src": "/images/articles/2025-08/hearing-aid-battery-care-unsplash-53-nzxc_QJI.jpg",
+    "credit": "Ashwin Alaparthi",
+    "credit_url": "https://unsplash.com/@ash110",
+    "original_url": "https://api.unsplash.com/photos/53-nzxc_QJI/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMHx8cmVjaGFyZ2VhYmxlJTIwaGVhcmluZyUyMGFpZHMlMjBvbiUyMGNoYXJnaW5nJTIwZG9jayUyMG5pZ2h0c3RhbmQlMjB3YXJtJTIwbGlnaHQlMjBjbG9zZS11cHxlbnwxfDB8fHwxNzU1NTIyOTc3fDA",
+    "date": "2025-08-18T13:16:17.506Z"
+  },
+  {
+    "provider": "unsplash",
     "id": "fNeKRax3900",
     "slug": "sudden-hearing-loss-act-fast",
     "src": "/images/articles/2025-08/sudden-hearing-loss-act-fast-unsplash-fNeKRax3900.jpg",

@@ -12,12 +12,33 @@
       "hearing aid fitting",
       "hearing rehabilitation"
     ],
-    "image": "/images/articles/2025-08/ai-hearing-aids-noise-unsplash-yEOlTp2IRzY.jpg",
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-unsplash-3tGnwVC7Cjk.jpg",
     "publishedTime": "2025-08-13T22:48:12.597Z",
-    "modifiedTime": "2025-08-16T13:28:05.124Z",
+    "modifiedTime": "2025-08-18T14:04:03.256Z",
     "readingTime": "10 min read",
     "words": 1972,
     "hash": "661b00acacde7c49594bc19c2f2a055dd05dfe798b3bc1357a7e9815be57a563"
+  },
+  {
+    "slug": "asymmetric-hearing-loss",
+    "title": "When One Ear Falls Behind: Why Asymmetric Hearing Loss Matters (and What to Do)",
+    "description": "Notice one ear pulling more weight than the other? Here’s how to recognize asymmetric hearing loss, why it happens, what’s urgent, and the tools—from targeted hearing aids to CROS and cochlear implants—that can bring your world back into balance.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "sensorineural hearing loss",
+      "conductive hearing loss",
+      "hearing tests",
+      "audiology",
+      "hearing aids",
+      "tinnitus"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-18T13:34:27.893Z",
+    "modifiedTime": "2025-08-18T13:34:27.893Z",
+    "readingTime": "8 min read",
+    "words": 1551,
+    "hash": "c9bdf3e5ae8e6348fafd342eea451319dcebe0f12850cbfcd5d21072977acbe1"
   },
   {
     "slug": "auditory-training-adults-conversation",
@@ -52,9 +73,9 @@
       "audiology",
       "hearing solutions"
     ],
-    "image": "/images/articles/2025-08/auracast-le-audio-hearing-unsplash-VS1f0TBEQxs.jpg",
+    "image": "/images/articles/2025-08/auracast-le-audio-hearing-unsplash-Ls0q-xXwNi8.jpg",
     "publishedTime": "2025-08-13T22:43:53.772Z",
-    "modifiedTime": "2025-08-16T13:28:06.023Z",
+    "modifiedTime": "2025-08-18T14:04:06.571Z",
     "readingTime": "11 min read",
     "words": 2076,
     "hash": "be8196a9c67dcf8145563a879582d7a3829eb6b1a11f9427a1700eb8a22a9d4c"
@@ -75,6 +96,48 @@
     "readingTime": "13 min read",
     "words": 2449,
     "hash": "fe9a58e24c9b048087cdcb3ee97514dd667d3eec6cf549d24f1db33bebef418f"
+  },
+  {
+    "slug": "chemicals-noise-hearing-loss",
+    "title": "When Noise Isn’t the Only Villain: How Solvents and Metals Turbo‑Charge Hearing Loss",
+    "description": "New research shows that certain chemicals—like solvents, heavy metals, and carbon monoxide—can damage the ear and make noise more harmful than you think. Learn where co‑exposures happen, the signs to watch, and smart, practical ways to protect your hearing for the long haul.",
+    "category": "Research",
+    "tags": [
+      "hearing loss prevention",
+      "noise-induced hearing loss",
+      "ear protection",
+      "audiology",
+      "ear health",
+      "hearing tests",
+      "ototoxic drugs"
+    ],
+    "image": "/images/articles/2025-08/chemicals-noise-hearing-loss-unsplash-f7nWFLbG1Ow.jpg",
+    "publishedTime": "2025-08-18T13:16:18.829Z",
+    "modifiedTime": "2025-08-18T13:16:18.829Z",
+    "readingTime": "9 min read",
+    "words": 1677,
+    "hash": "0ec6cb155b05638590b6518624776240f96c61615db795748176e4224c569c15"
+  },
+  {
+    "slug": "cochlea-circadian-clock",
+    "title": "Your Ears Run on a Clock: How Time of Day May Change Noise Risk, Tinnitus, and Recovery",
+    "description": "Surprising research suggests your inner ear keeps time—and that noise, meds, and sleep may affect your hearing differently depending on the hour. Here’s what the science says and how to use it in everyday life.",
+    "category": "Research",
+    "tags": [
+      "hearing research",
+      "noise-induced hearing loss",
+      "ear health",
+      "audiology",
+      "ototoxic drugs",
+      "hearing protection",
+      "tinnitus"
+    ],
+    "image": "/images/articles/2025-08/cochlea-circadian-clock-unsplash-SoCzpUKWNUg.jpg",
+    "publishedTime": "2025-08-18T13:19:59.872Z",
+    "modifiedTime": "2025-08-18T14:04:09.527Z",
+    "readingTime": "8 min read",
+    "words": 1578,
+    "hash": "37fca5f22a1a6b4dbdaebcccbed26d044360307216af219c6b389754f6d1049b"
   },
   {
     "slug": "concussion-hearing-tbi",
@@ -220,6 +283,27 @@
     "hash": "799152e0a139a18150923d32344672d28b3f3a9b8156799e6d5a8b676203a34d"
   },
   {
+    "slug": "fix-hearing-aid-occlusion",
+    "title": "Your Voice Shouldn’t Sound Like a Cave: Fixing the Hearing Aid Occlusion Effect",
+    "description": "Is your own voice boomy, echoey, or “barrel-like” with hearing aids? Learn why occlusion happens, how to tell it apart from other issues, and the exact tweaks—at home and with your audiologist—that can make your voice sound natural again.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "audiology",
+      "hearing aid fitting",
+      "ear health",
+      "living with hearing loss",
+      "hearing tests",
+      "hearing solutions"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-18T13:47:38.374Z",
+    "modifiedTime": "2025-08-18T13:47:38.374Z",
+    "readingTime": "8 min read",
+    "words": 1556,
+    "hash": "f3bfe9b5a0ccb65d80082496115b0cc4d7bfecb3dc6f6451f13b2ac3ceaf8e23"
+  },
+  {
     "slug": "gut-microbiome-hearing",
     "title": "From Gut to Cochlea: The Microbiome–Hearing Connection (What the Science Actually Says)",
     "description": "Emerging research suggests your gut microbiome may shape how your ears handle noise, inflammation, and even tinnitus. Here’s a clear, evidence‑based tour of the gut–ear axis, what’s hype, what’s promising, and smart, low‑risk habits to support both your microbes and your hearing.",
@@ -238,6 +322,47 @@
     "readingTime": "9 min read",
     "words": 1739,
     "hash": "db4184627963ace39e91df16366d6375f42f7baed3c99e42782b315159e93c7c"
+  },
+  {
+    "slug": "hearing-aid-battery-care",
+    "title": "Charge Smart, Hear Longer: The Real-Life Science of Hearing Aid Batteries",
+    "description": "Your hearing aids are tiny computers powered by even tinier batteries. Learn how lithium‑ion and zinc‑air batteries really behave, the charging habits that extend lifespan, the travel rules for flights, and the simple moisture and heat routines that keep your devices dependable every day.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid batteries",
+      "hearing aid technology",
+      "hearing aid accessories",
+      "ear health",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/hearing-aid-battery-care-unsplash-waqNeiB0-xs.jpg",
+    "publishedTime": "2025-08-18T13:14:21.933Z",
+    "modifiedTime": "2025-08-18T14:04:16.602Z",
+    "readingTime": "8 min read",
+    "words": 1523,
+    "hash": "5a283008699aee6051769388a84b6bc40fd0def75db0114f3a237b90eb348c28"
+  },
+  {
+    "slug": "hearing-aid-latency",
+    "title": "Milliseconds Matter: Hearing Aid Latency, Echoey Voices, and Faster Fixes",
+    "description": "Why tiny delays in hearing aids can make your own voice sound odd, TV look out of sync, and music feel off—and practical ways to make everything feel faster and more natural.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "hearing in noisy environments",
+      "audiology",
+      "assistive listening devices",
+      "hearing aid accessories",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-18T13:48:46.592Z",
+    "modifiedTime": "2025-08-18T13:48:46.592Z",
+    "readingTime": "10 min read",
+    "words": 1932,
+    "hash": "a7295b9e4869c42cd28730b58db82aa4b3f26a355031baef19e52a74b40a8fce"
   },
   {
     "slug": "hearing-aid-listening-fatigue",
@@ -315,9 +440,9 @@
       "ear health",
       "hearing aids"
     ],
-    "image": "/images/articles/2025-08/hearing-friendly-home-design-unsplash-qRlAJKATXJI.jpg",
+    "image": "/images/articles/2025-08/hearing-friendly-home-design-unsplash-7450hH--84M.jpg",
     "publishedTime": "2025-08-14T13:37:17.139Z",
-    "modifiedTime": "2025-08-16T13:28:18.039Z",
+    "modifiedTime": "2025-08-18T14:04:19.736Z",
     "readingTime": "10 min read",
     "words": 1833,
     "hash": "d696a4555a8716c99752af9769e4af610fcc8b433d0ac24d4ed13e0492f3e1d0"
@@ -336,9 +461,9 @@
       "hearing clinics",
       "hearing health tips"
     ],
-    "image": "/images/articles/2025-08/hearing-friendly-travel-unsplash-1xzsNXpUAZE.jpg",
+    "image": "/images/articles/2025-08/hearing-friendly-travel-unsplash-OKrV1pt45ms.jpg",
     "publishedTime": "2025-08-15T13:29:32.833Z",
-    "modifiedTime": "2025-08-16T13:28:20.567Z",
+    "modifiedTime": "2025-08-18T14:04:22.030Z",
     "readingTime": "8 min read",
     "words": 1507,
     "hash": "83d5e53c67bbb4efab5ccf22772818e8a1c510fbe28f0fd190d93450ceded598"
@@ -399,9 +524,9 @@
       "tinnitus",
       "age-related hearing loss"
     ],
-    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-uY2o4OH1YhA.jpg",
+    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-r_3m4swm47Q.jpg",
     "publishedTime": "2025-08-13T20:39:54.303Z",
-    "modifiedTime": "2025-08-16T13:28:22.391Z",
+    "modifiedTime": "2025-08-18T14:04:27.812Z",
     "readingTime": "9 min read",
     "words": 1777,
     "hash": "f62c62582e7a462936027dd0a73cd71f4520bb04cb519aac3a83672d13d25412"
@@ -840,6 +965,27 @@
     "hash": "0db4bea8df0b042dce9a38cc000aa86d4fa44b6347810b570659775aabbca6d5"
   },
   {
+    "slug": "quieter-parenting-hearing-protection",
+    "title": "Parenting at 100 Decibels: Protect Your Hearing Without Missing a Moment",
+    "description": "Babies, blenders, birthday parties—parenting can be loud. Here’s how to save your hearing (and your sanity) without feeling detached from the moments that matter.",
+    "category": "Lifestyle",
+    "tags": [
+      "hearing loss prevention",
+      "ear protection",
+      "ear health",
+      "noise-induced hearing loss",
+      "hearing health tips",
+      "tinnitus",
+      "audiology"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-18T13:21:57.209Z",
+    "modifiedTime": "2025-08-18T13:21:57.209Z",
+    "readingTime": "8 min read",
+    "words": 1521,
+    "hash": "bb05dccf3ddc8e99679d510925660737cbd8c81c0919f03bd65773d43fe455e2"
+  },
+  {
     "slug": "real-ear-hearing-aids",
     "title": "Your Hearing Aids, Verified: Real-Ear Measurements That Make Voices Clear",
     "description": "Short version: Even the best hearing aids can miss the mark if they aren’t tuned to your unique ear acoustics. Real-ear measurements (REM)—also called…",
@@ -900,6 +1046,27 @@
     "readingTime": "9 min read",
     "words": 1642,
     "hash": "50271fd62f077f076976ff04213d019ec58ee5c650598f74650b2dfe1298a332"
+  },
+  {
+    "slug": "regrow-hearing-hair-cells-2",
+    "title": "Can We Rebuild Hearing? The Real State of Hair Cell Regrowth and Gene Therapy",
+    "description": "A clear, research-backed tour of where inner-ear hair cell regeneration, synapse repair, and gene therapy actually stand today—and what that could mean for children and adults with sensorineural hearing loss.",
+    "category": "Research",
+    "tags": [
+      "hearing loss",
+      "sensorineural hearing loss",
+      "hearing research",
+      "audiology",
+      "cochlear implants",
+      "hearing loss treatment",
+      "hearing protection"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-18T13:50:38.573Z",
+    "modifiedTime": "2025-08-18T13:50:38.573Z",
+    "readingTime": "10 min read",
+    "words": 1896,
+    "hash": "f749373e220f8086fc3d1fa3e8e20e66135108bbefb8cf0db7f92f5f95f5559b"
   },
   {
     "slug": "regrow-hearing-hair-cells",
@@ -1192,6 +1359,27 @@
     "hash": "6fd02e02e79d714c77b865e6efea67962cf17150ff36757eac05164c1f5a9fed"
   },
   {
+    "slug": "sleep-hearing-tinnitus-3",
+    "title": "Sleep on It: How Better Nights Boost Hearing, Tame Tinnitus, and Sharpen Conversation",
+    "description": "A practical, science-backed look at how sleep quality shapes your hearing, tinnitus, and communication—and simple routines to make nights quieter and days clearer.",
+    "category": "Lifestyle",
+    "tags": [
+      "ear health",
+      "tinnitus",
+      "hearing health tips",
+      "audiology",
+      "hearing in noisy environments",
+      "hearing aids",
+      "living with hearing loss"
+    ],
+    "image": "/images/articles/2025-08/sleep-hearing-tinnitus-3-unsplash-tNA6vv8hTjg.jpg",
+    "publishedTime": "2025-08-18T13:32:36.943Z",
+    "modifiedTime": "2025-08-18T13:32:36.943Z",
+    "readingTime": "8 min read",
+    "words": 1597,
+    "hash": "7d47cf1c93d27e7af62347ad5a049e46214d906bc8fee03b30cc57c976eb284f"
+  },
+  {
     "slug": "sleep-hearing-tinnitus",
     "title": "Sleep On It: How Nightly Rest Tunes Your Hearing and Calms Tinnitus",
     "description": "New research connects sleep quality, tinnitus, and hearing health. Learn how your brain and inner ear use the night to reset—and practical, science-backed ways to sleep better and hear better.",
@@ -1477,6 +1665,26 @@
     "readingTime": "4 min read",
     "words": 758,
     "hash": "f45b9ce8d8a8b0bcbd5db030f3a7ef39fb5977ec6082c2246773c0f5669d99f2"
+  },
+  {
+    "slug": "vaccines-protect-hearing-2",
+    "title": "Shots That Shield Your Ears: Vaccines That Quietly Protect Hearing",
+    "description": "Some infections can steal hearing for good. The right vaccines lower that risk—quietly and powerfully. Here’s the evidence, the shortlist of shots with ear-protective impact, and how to build a practical plan with your doctor or pharmacist.",
+    "category": "Prevention",
+    "tags": [
+      "hearing loss prevention",
+      "ear health",
+      "ear infections",
+      "audiology",
+      "sensorineural hearing loss",
+      "ENT specialist"
+    ],
+    "image": "/images/articles/2025-08/vaccines-protect-hearing-2-unsplash-sMcFczL05fk.jpg",
+    "publishedTime": "2025-08-18T13:18:07.854Z",
+    "modifiedTime": "2025-08-18T13:18:07.854Z",
+    "readingTime": "9 min read",
+    "words": 1787,
+    "hash": "ef3b1f21654f6166a149a31938b9e1c0f91fe9d44b1f0818a3f96b4397c2faaa"
   },
   {
     "slug": "vaccines-protect-hearing",
