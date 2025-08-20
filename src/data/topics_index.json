@@ -12,9 +12,9 @@
       "ear care",
       "hearing aid fitting"
     ],
-    "image": "/images/articles/2025-08/3d-printed-earmolds-earplugs-unsplash-UGhoBQSy9SQ.jpg",
+    "image": "/images/articles/2025-08/3d-printed-earmolds-earplugs-unsplash-d-eNsMyuK8E.jpg",
     "publishedTime": "2025-08-19T13:42:08.796Z",
-    "modifiedTime": "2025-08-19T14:01:44.358Z",
+    "modifiedTime": "2025-08-20T13:59:17.616Z",
     "readingTime": "10 min read",
     "words": 1829,
     "hash": "1081994914a88913b96edac39d6f1a735a5b0bd823ae8c99d5e7a5fb351c7ea7"
@@ -130,12 +130,33 @@
       "ear health",
       "audiology"
     ],
-    "image": "/images/articles/2025-08/blood-pressure-hearing-loss-unsplash-nzOUBUZ8GtE.jpg",
+    "image": "/images/articles/2025-08/blood-pressure-hearing-loss-unsplash-7e82FBFmMnY.jpg",
     "publishedTime": "2025-08-19T13:29:35.105Z",
-    "modifiedTime": "2025-08-19T14:01:51.658Z",
+    "modifiedTime": "2025-08-20T13:59:19.428Z",
     "readingTime": "9 min read",
     "words": 1704,
     "hash": "be5fd72f16595ec98c1f5c496e31227215b1118877f3786b555b070e5244ae37"
+  },
+  {
+    "slug": "calm-hyperacusis-safely",
+    "title": "When Everyday Sounds Hurt: Calm Hyperacusis Safely with Sound Therapy, CBT, and Smarter Protection",
+    "description": "A practical, evidence-informed plan to reduce sound sensitivity (hyperacusis): safe sound therapy, cognitive-behavioral tools, and smart hearing protection without over-isolating. Know what helps, what to avoid, and when to see an audiologist or ENT.",
+    "category": "Treatment",
+    "tags": [
+      "tinnitus",
+      "audiology",
+      "ear protection",
+      "hearing therapy",
+      "ear health",
+      "hearing loss treatment",
+      "hearing clinics"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-20T13:14:23.213Z",
+    "modifiedTime": "2025-08-20T13:14:23.213Z",
+    "readingTime": "9 min read",
+    "words": 1723,
+    "hash": "952e2eab58f5060bea74d4b22323fe73b327db0d8607e4a8c43cd60916cb2c82"
   },
   {
     "slug": "chemicals-noise-hearing-loss",
@@ -172,9 +193,9 @@
       "hearing protection",
       "tinnitus"
     ],
-    "image": "/images/articles/2025-08/cochlea-circadian-clock-unsplash-zBxcIZdoO00.jpg",
+    "image": "/images/articles/2025-08/cochlea-circadian-clock-unsplash-PcyYtUt8E4E.jpg",
     "publishedTime": "2025-08-18T13:19:59.872Z",
-    "modifiedTime": "2025-08-19T14:01:53.482Z",
+    "modifiedTime": "2025-08-20T13:59:22.931Z",
     "readingTime": "8 min read",
     "words": 1578,
     "hash": "37fca5f22a1a6b4dbdaebcccbed26d044360307216af219c6b389754f6d1049b"
@@ -219,6 +240,27 @@
     "readingTime": "8 min read",
     "words": 1506,
     "hash": "1cd5569ce161101cc3144a1bcf38700d75caec368a22d7c03239fedd9be5916d"
+  },
+  {
+    "slug": "diabetes-hearing-loss-protection",
+    "title": "Diabetes and Your Hearing: What High Blood Sugar Does to Your Ears (and How to Protect Them)",
+    "description": "High blood sugar can stress the tiny blood vessels and nerves that power your inner ear—raising the risk of hearing loss and tinnitus. Learn the science, early signs, and practical, daily steps to protect your hearing when you have diabetes or prediabetes.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "sensorineural hearing loss",
+      "tinnitus",
+      "ear health",
+      "audiology",
+      "hearing loss prevention",
+      "hearing tests"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-20T13:41:08.878Z",
+    "modifiedTime": "2025-08-20T13:41:08.878Z",
+    "readingTime": "8 min read",
+    "words": 1497,
+    "hash": "9e619bffd26f118cbc92d757521e9273e20307d2b9214242423869fd9a18ad51"
   },
   {
     "slug": "domes-vs-earmolds-fit",
@@ -294,9 +336,9 @@
       "audiology",
       "ear protection"
     ],
-    "image": "/images/articles/2025-08/eat-move-hear-unsplash-ozDnkgUmA7w.jpg",
+    "image": "/images/articles/2025-08/eat-move-hear-unsplash-HRv-rqy9gIo.jpg",
     "publishedTime": "2025-08-14T04:32:42.907Z",
-    "modifiedTime": "2025-08-16T13:28:10.126Z",
+    "modifiedTime": "2025-08-20T13:59:28.769Z",
     "readingTime": "9 min read",
     "words": 1604,
     "hash": "a36873745e5048ca0865f2b74df8d861ffbaf04065c5769bab718020a67011cd"
@@ -344,6 +386,27 @@
     "hash": "f3bfe9b5a0ccb65d80082496115b0cc4d7bfecb3dc6f6451f13b2ac3ceaf8e23"
   },
   {
+    "slug": "great-sound-safe-volume",
+    "title": "Listen Lower, Love It More: Make Headphones Sound Great at Safe Volumes",
+    "description": "A practical, science-backed playbook for turning down your headphones without losing the magic. Learn how to use ANC, isolation, EQ, and smart settings so music and podcasts sound rich, clear, and safe.",
+    "category": "Lifestyle",
+    "tags": [
+      "noise-induced hearing loss",
+      "hearing loss prevention",
+      "ear protection",
+      "ear health",
+      "hearing health tips",
+      "listening devices",
+      "hearing in noisy environments"
+    ],
+    "image": "/images/articles/2025-08/great-sound-safe-volume-unsplash-4OraS504Bvw.jpg",
+    "publishedTime": "2025-08-20T13:31:10.252Z",
+    "modifiedTime": "2025-08-20T13:59:31.554Z",
+    "readingTime": "9 min read",
+    "words": 1729,
+    "hash": "2d2d774de47ea37e13bd8b7820b38ca8053f9306c2a4186ac2875c0952bb261c"
+  },
+  {
     "slug": "gut-microbiome-hearing",
     "title": "From Gut to Cochlea: The Microbiome–Hearing Connection (What the Science Actually Says)",
     "description": "Emerging research suggests your gut microbiome may shape how your ears handle noise, inflammation, and even tinnitus. Here’s a clear, evidence‑based tour of the gut–ear axis, what’s hype, what’s promising, and smart, low‑risk habits to support both your microbes and your hearing.",
@@ -362,6 +425,26 @@
     "readingTime": "9 min read",
     "words": 1739,
     "hash": "db4184627963ace39e91df16366d6375f42f7baed3c99e42782b315159e93c7c"
+  },
+  {
+    "slug": "hearing-aid-30-day-plan",
+    "title": "Make It Stick: Your First 30 Days with New Hearing Aids",
+    "description": "A friendly, science-backed 30‑day plan to help your brain adapt to new hearing aids. Expectation-setting, daily routines, features to enable, troubleshooting, and how to make follow‑ups count.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "hearing aid fitting",
+      "audiology",
+      "hearing rehabilitation",
+      "living with hearing loss",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/hearing-aid-30-day-plan-unsplash-dA2SSJbmJOg.jpg",
+    "publishedTime": "2025-08-20T13:54:22.373Z",
+    "modifiedTime": "2025-08-20T13:59:33.527Z",
+    "readingTime": "9 min read",
+    "words": 1652,
+    "hash": "67cdc6bb296b7d989d34d3c937d4eb63534ffdd552cd76ac19b6c20a38f47af5"
   },
   {
     "slug": "hearing-aid-battery-care",
@@ -488,6 +571,27 @@
     "hash": "ff0cef56854c128f2c5d16b484ac7febe65d30c22a439345a76f20d92b1615a4"
   },
   {
+    "slug": "hearing-friendly-home-design-2",
+    "title": "Quiet House, Clear Conversation: Design a Hearing‑Friendly Home That Feels Amazing",
+    "description": "Turn down stress, turn up connection. A room‑by‑room guide to reduce home noise, boost speech clarity, and build a space your ears—and brain—love.",
+    "category": "Lifestyle",
+    "tags": [
+      "ear health",
+      "hearing health tips",
+      "hearing protection",
+      "living with hearing loss",
+      "assistive listening devices",
+      "hearing in noisy environments",
+      "hearing loss prevention"
+    ],
+    "image": "/images/articles/2025-08/hearing-friendly-home-design-2-unsplash-m-7auAgLWV8.jpg",
+    "publishedTime": "2025-08-20T13:27:40.628Z",
+    "modifiedTime": "2025-08-20T13:59:38.039Z",
+    "readingTime": "9 min read",
+    "words": 1661,
+    "hash": "8fc598df093f41e0d716e909d13449757ba77ebfdbc606d60e73ecb1c4036d8e"
+  },
+  {
     "slug": "hearing-friendly-home-design",
     "title": "Rooms That Listen: Design Your Home for Easier Conversation and Calmer Ears",
     "description": "A practical, evidence-based home makeover for your ears. Learn how lighting, layout, fabrics, and simple fixes cut echo and background noise so conversations feel easy—and tinnitus feels calmer.",
@@ -563,9 +667,9 @@
       "ototoxic drugs",
       "hearing research"
     ],
-    "image": "/images/articles/2025-08/hearing-supplements-truth-unsplash-WBq4vwxxh5Q.jpg",
+    "image": "/images/articles/2025-08/hearing-supplements-truth-unsplash-F44YUut_Ito.jpg",
     "publishedTime": "2025-08-13T23:04:12.887Z",
-    "modifiedTime": "2025-08-16T13:28:22.289Z",
+    "modifiedTime": "2025-08-20T13:59:41.935Z",
     "readingTime": "9 min read",
     "words": 1756,
     "hash": "9e29f59b78659bf628b3e5199ab98afb2926f125a44c1106f07b697e58c1ab55"
@@ -584,9 +688,9 @@
       "tinnitus",
       "age-related hearing loss"
     ],
-    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-VIRzqxcrWvc.jpg",
+    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-H0fBJtsaz-o.jpg",
     "publishedTime": "2025-08-13T20:39:54.303Z",
-    "modifiedTime": "2025-08-19T14:01:59.087Z",
+    "modifiedTime": "2025-08-20T13:59:42.608Z",
     "readingTime": "9 min read",
     "words": 1777,
     "hash": "f62c62582e7a462936027dd0a73cd71f4520bb04cb519aac3a83672d13d25412"
@@ -625,9 +729,9 @@
       "age-related hearing loss",
       "hearing loss causes"
     ],
-    "image": "/images/articles/2025-08/hormones-hearing-menopause-thyroid-stress-unsplash-pddxc_K7UfU.jpg",
+    "image": "/images/articles/2025-08/hormones-hearing-menopause-thyroid-stress-unsplash-Czwx5OdlGHI.jpg",
     "publishedTime": "2025-08-19T13:40:43.050Z",
-    "modifiedTime": "2025-08-19T14:02:01.411Z",
+    "modifiedTime": "2025-08-20T13:59:45.187Z",
     "readingTime": "9 min read",
     "words": 1680,
     "hash": "cf774003323b92336edb2d80c759c2e890661fb03e0e9210f12a5a939d50f505"
@@ -735,6 +839,27 @@
     "hash": "7ab9cbf14c583c495917c5a3758693000ab6e269d0443d4ef7e38550640b8103"
   },
   {
+    "slug": "menopause-hearing-changes-2",
+    "title": "When Hormones Shift, Ears Listen: Menopause and Your Hearing",
+    "description": "Perimenopause and menopause can change how you hear—think clarity, tinnitus, and sound tolerance. Here’s the science, what’s normal vs not, and practical steps to protect and improve hearing in midlife.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "tinnitus",
+      "age-related hearing loss",
+      "presbycusis",
+      "audiology",
+      "ear health",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/menopause-hearing-changes-2-unsplash-a75d58O5azY.jpg",
+    "publishedTime": "2025-08-20T13:29:06.111Z",
+    "modifiedTime": "2025-08-20T13:29:06.111Z",
+    "readingTime": "10 min read",
+    "words": 1859,
+    "hash": "bf6d81afa89c4ef78a6930cdfcaad61b418514e7fcffc3a23b86a42ea5afc3c7"
+  },
+  {
     "slug": "menopause-hearing-changes",
     "title": "Menopause and Your Ears: How Hormone Shifts Change Hearing (and What Helps)",
     "description": "Lede: If you’ve noticed new sound sensitivity, a little more trouble following conversation, or tinnitus growing louder as you enter your 40s and 50s, you’re…",
@@ -769,9 +894,9 @@
       "hearing protection",
       "audiology"
     ],
-    "image": "/images/articles/2025-08/moisture-proof-hearing-life-unsplash-oVBe7a92FI4.jpg",
+    "image": "/images/articles/2025-08/moisture-proof-hearing-life-unsplash-Xn5x6EG7RP8.jpg",
     "publishedTime": "2025-08-14T13:41:04.187Z",
-    "modifiedTime": "2025-08-16T13:28:24.633Z",
+    "modifiedTime": "2025-08-20T13:59:53.638Z",
     "readingTime": "8 min read",
     "words": 1539,
     "hash": "8e1b542b4659bc65ad6daea5aedd8970d89fc46f21924127747e820d8af42f3e"
@@ -1024,6 +1149,26 @@
     "hash": "70408c0fb7c1d44202a7e37c06f2d9826e1f246ed150355419ac3597b8e663b7"
   },
   {
+    "slug": "prevent-ototoxic-hearing-loss",
+    "title": "Before You Swallow or Infuse: Outsmart Drug‑Induced Hearing Loss",
+    "description": "Some medications can quietly harm hearing. Learn the high‑risk drugs, what to ask your care team, and the simple steps to monitor and protect your ears—without stopping treatment you need.",
+    "category": "Prevention",
+    "tags": [
+      "hearing loss prevention",
+      "ototoxic drugs",
+      "audiology",
+      "ear health",
+      "hearing tests",
+      "tinnitus"
+    ],
+    "image": "/images/articles/2025-08/prevent-ototoxic-hearing-loss-unsplash-POwT5nUEfdM.jpg",
+    "publishedTime": "2025-08-20T13:55:45.736Z",
+    "modifiedTime": "2025-08-20T13:55:45.736Z",
+    "readingTime": "8 min read",
+    "words": 1523,
+    "hash": "c14fae20fdbd8ab0b67eb774018f56b3f2aa60aceb69d682619e678dd0182eb9"
+  },
+  {
     "slug": "protect-ears-medications",
     "title": "Medicines Can Be Noisy: Preventing Drug‑Induced Hearing Loss and Tinnitus",
     "description": "Some medicines can stress your inner ear. Learn which drugs carry hearing risks, early warning signs, and how to build a prevention plan with your care team.",
@@ -1229,6 +1374,26 @@
     "readingTime": "10 min read",
     "words": 1894,
     "hash": "797ea0021e0bc02423517c4225b31fe550cb8dda729a0f7113babd45f16825e6"
+  },
+  {
+    "slug": "remote-mics-beat-noise-2",
+    "title": "Put the Mic on the Talker: Remote Microphones That Beat Noise When Hearing Aids Can’t",
+    "description": "Noisy restaurants, busy meetings, echoey classrooms—here’s how small remote microphones supercharge speech clarity by moving the mic to the talker. Learn types, setup, etiquette, compatibility, and smart ways to use them with hearing aids, cochlear implants, and even earbuds.",
+    "category": "Technology",
+    "tags": [
+      "assistive listening devices",
+      "hearing in noisy environments",
+      "hearing aids",
+      "audiology",
+      "hearing solutions",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/remote-mics-beat-noise-2-unsplash-Ksrmm0EHdgw.jpg",
+    "publishedTime": "2025-08-20T13:57:36.059Z",
+    "modifiedTime": "2025-08-20T13:57:36.059Z",
+    "readingTime": "10 min read",
+    "words": 1849,
+    "hash": "d3b9cc99d047215a82be02af8121ad45ea78384c327ab8500e5acd7188b5e988"
   },
   {
     "slug": "remote-mics-beat-noise",
@@ -1555,9 +1720,9 @@
       "hearing aids",
       "living with hearing loss"
     ],
-    "image": "/images/articles/2025-08/sleep-hearing-tinnitus-3-unsplash-cL0-62GavO0.jpg",
+    "image": "/images/articles/2025-08/sleep-hearing-tinnitus-3-unsplash-RyBQFgKLx2s.jpg",
     "publishedTime": "2025-08-18T13:32:36.943Z",
-    "modifiedTime": "2025-08-19T14:02:28.949Z",
+    "modifiedTime": "2025-08-20T13:59:57.023Z",
     "readingTime": "8 min read",
     "words": 1597,
     "hash": "7d47cf1c93d27e7af62347ad5a049e46214d906bc8fee03b30cc57c976eb284f"
@@ -1581,6 +1746,27 @@
     "readingTime": "9 min read",
     "words": 1745,
     "hash": "ee43e62c36b50ef782f67af42a354b1f356fd5574bff5fde141c404d2ea750bf"
+  },
+  {
+    "slug": "stop-hearing-aid-feedback",
+    "title": "Silence the Squeal: How Modern Hearing Aids Kill Feedback (and What You Can Do)",
+    "description": "That whistling isn’t your imagination—it’s feedback. Learn how today’s hearing aids cancel it, why it still happens, and the practical tweaks that get you more gain without the squeal.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "hearing aid fitting",
+      "audiology",
+      "ear care",
+      "hearing health tips",
+      "hearing solutions"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-20T13:13:01.811Z",
+    "modifiedTime": "2025-08-20T13:13:01.811Z",
+    "readingTime": "8 min read",
+    "words": 1593,
+    "hash": "679b7b3e9904d3a20a48b517cc49ff5b2ad21241be124c1ec3b4797e7a3e1056"
   },
   {
     "slug": "stress-jaw-tinnitus",
@@ -1645,6 +1831,27 @@
     "hash": "7e349ab71498f3f4826426d990dae7b75dc42f8fa5a41c8b85604f75d8ba052c"
   },
   {
+    "slug": "sudden-hearing-loss-72-hours",
+    "title": "72 Hours Matters: Treating Sudden Hearing Loss Without Losing Time",
+    "description": "If one ear suddenly went muffled, echoey, or silent, the clock is ticking. Here’s the calm, clear, evidence-based game plan for urgent evaluation and treatment—what to expect, which therapies help, and how to protect your future hearing.",
+    "category": "Treatment",
+    "tags": [
+      "hearing loss",
+      "sensorineural hearing loss",
+      "audiology",
+      "ENT specialist",
+      "hearing loss treatment",
+      "tinnitus",
+      "hearing tests"
+    ],
+    "image": "/images/articles/2025-08/sudden-hearing-loss-72-hours-unsplash-34abBuDp7LU.jpg",
+    "publishedTime": "2025-08-20T13:11:46.997Z",
+    "modifiedTime": "2025-08-20T13:11:46.997Z",
+    "readingTime": "9 min read",
+    "words": 1606,
+    "hash": "ff6044c600c0fdeca5456b87d556e42a5f0928b89377486e0e40392aef4a1d21"
+  },
+  {
     "slug": "sudden-hearing-loss-act-fast",
     "title": "Sudden Hearing Loss? Don’t Wait—The 72‑Hour Window That Can Save Your Hearing",
     "description": "Woke up with one ear muffled or &amp;amp;amp;amp;quot;dead&amp;amp;amp;amp;quot;? Sudden hearing loss can be an emergency. Here’s how to spot red flags, what to do in the first 72 hours, and how an audiologist and ENT can help you recover.",
@@ -1700,9 +1907,9 @@
       "hearing loss symptoms",
       "hearing loss treatment"
     ],
-    "image": "/images/articles/2025-08/sudden-hearing-loss-emergency-unsplash-PWHmBRuV0NE.jpg",
+    "image": "/images/articles/2025-08/sudden-hearing-loss-emergency-unsplash-SkIYKdOd3-o.jpg",
     "publishedTime": "2025-08-15T13:25:38.866Z",
-    "modifiedTime": "2025-08-19T14:02:36.105Z",
+    "modifiedTime": "2025-08-20T13:59:58.788Z",
     "readingTime": "9 min read",
     "words": 1640,
     "hash": "187c62e8ac0255fa8e123051a14e30c21e8348433f2cb0f77a46edc3c5484eab"
@@ -1824,9 +2031,9 @@
       "tinnitus",
       "ENT specialist"
     ],
-    "image": "/images/articles/2025-08/tmj-ear-fullness-muffled-hearing-unsplash-fWExx5VbDCs.jpg",
+    "image": "/images/articles/2025-08/tmj-ear-fullness-muffled-hearing-unsplash-8dvyPDYa35Q.jpg",
     "publishedTime": "2025-08-13T23:02:24.851Z",
-    "modifiedTime": "2025-08-19T14:02:43.344Z",
+    "modifiedTime": "2025-08-20T13:59:59.080Z",
     "readingTime": "9 min read",
     "words": 1760,
     "hash": "e3d151f61c520d8ff6a4a0a439057470fe20164788f20214a691db58bbd0c577"
