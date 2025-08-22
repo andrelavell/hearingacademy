@@ -1,6 +1,146 @@
 [
   {
     "provider": "unsplash",
+    "id": "qIK_fc-4fmw",
+    "slug": "heart-hearing-connection",
+    "src": "/images/articles/2025-08/heart-hearing-connection-unsplash-qIK_fc-4fmw.jpg",
+    "credit": "Robina Weermeijer",
+    "credit_url": "https://unsplash.com/@averey",
+    "original_url": "https://api.unsplash.com/photos/qIK_fc-4fmw/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwzfHxZb3VyJTIwSGVhcnQlMkMlMjBZb3VyJTIwSGVhcmluZyUzQSUyMFRoZSUyMENhcmRpb21ldGFib2xpYyUyMExpbmslMjBZb3UlMjBDYW4lRTIlODAlOTl0JTIwQWZmb3JkJTIwdG8lMjBJZ25vcmV8ZW58MXwwfHx8MTc1NTc4NjY0Nnww",
+    "date": "2025-08-22T13:47:05.548Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "SVkDM3wQ7J4",
+    "slug": "hearing-smart-travel",
+    "src": "/images/articles/2025-08/hearing-smart-travel-unsplash-SVkDM3wQ7J4.jpg",
+    "credit": "Matthew Pablico",
+    "credit_url": "https://unsplash.com/@matthewpablico",
+    "original_url": "https://api.unsplash.com/photos/SVkDM3wQ7J4/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw0fHxIZWFyaW5nJUUyJTgwJTkxU21hcnQlMjBUcmF2ZWwlM0ElMjBGbHklMkMlMjBTbGVlcCUyQyUyMGFuZCUyMEV4cGxvcmUlMjBXaXRob3V0JTIwTWlzc2luZyUyMGElMjBXb3JkfGVufDF8MHx8fDE3NTU4NzA0MjJ8MA",
+    "date": "2025-08-22T13:47:03.899Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "qb5KRlQ6unE",
+    "slug": "hearing-smart-home",
+    "src": "/images/articles/2025-08/hearing-smart-home-unsplash-qb5KRlQ6unE.jpg",
+    "credit": "Dylan Vo",
+    "credit_url": "https://unsplash.com/@vohoangchuong82",
+    "original_url": "https://api.unsplash.com/photos/qb5KRlQ6unE/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxOXx8UXVpZXQlMjBSb29tcyUyQyUyMENsZWFyJTIwV29yZHMlM0ElMjBZb3VyJTIwSGVhcmluZyVFMiU4MCU5MVNtYXJ0JTIwSG9tZSUyME1ha2VvdmVyfGVufDF8MHx8fDE3NTU4NzA0MjF8MA",
+    "date": "2025-08-22T13:47:02.263Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "pcp3O6yCYGY",
+    "slug": "hearing-loss-fall-risk-balance",
+    "src": "/images/articles/2025-08/hearing-loss-fall-risk-balance-unsplash-pcp3O6yCYGY.jpg",
+    "credit": "Michael Austin",
+    "credit_url": "https://unsplash.com/@mikeaustin",
+    "original_url": "https://api.unsplash.com/photos/pcp3O6yCYGY/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMnx8V2hlbiUyMEhlYXJpbmclMjBMb3NzJTIwVHJpcHMlMjBZb3UlMjBVcCUzQSUyMEJhbGFuY2UlMkMlMjBGYWxscyUyQyUyMGFuZCUyMEhvdyUyMHRvJTIwU3RlYWR5JTIwWW91cnNlbGZ8ZW58MXwwfHx8MTc1NTg3MDQxOHww",
+    "date": "2025-08-22T13:47:00.097Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "ScqByYLEKE0",
+    "slug": "hearing-aid-firmware-updates",
+    "src": "/images/articles/2025-08/hearing-aid-firmware-updates-unsplash-ScqByYLEKE0.jpg",
+    "credit": "Andrey Matveev",
+    "credit_url": "https://unsplash.com/@zelebb",
+    "original_url": "https://api.unsplash.com/photos/ScqByYLEKE0/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwzMHx8SGVhcmluZyUyMEFpZCUyMEZpcm13YXJlJTNBJTIwU21hbGwlMjBVcGRhdGVzJTJDJTIwQmlnJTIwTGlzdGVuaW5nJTIwR2FpbnN8ZW58MXwwfHx8MTc1NTg3MDQxMnww",
+    "date": "2025-08-22T13:46:52.916Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "MjJnaqR-XxM",
+    "slug": "hearing-aid-battery-care",
+    "src": "/images/articles/2025-08/hearing-aid-battery-care-unsplash-MjJnaqR-XxM.jpg",
+    "credit": "Miguel Angel  Avila",
+    "credit_url": "https://unsplash.com/@miketopus",
+    "original_url": "https://api.unsplash.com/photos/MjJnaqR-XxM/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyN3x8Q2hhcmdlJTIwU21hcnQlMkMlMjBIZWFyJTIwTG9uZ2VyJTNBJTIwVGhlJTIwUmVhbC1MaWZlJTIwU2NpZW5jZSUyMG9mJTIwSGVhcmluZyUyMEFpZCUyMEJhdHRlcmllc3xlbnwxfDB8fHwxNzU1ODcwNDEwfDA",
+    "date": "2025-08-22T13:46:51.515Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "F72dm8PmNB4",
+    "slug": "blood-pressure-hearing-loss",
+    "src": "/images/articles/2025-08/blood-pressure-hearing-loss-unsplash-F72dm8PmNB4.jpg",
+    "credit": "יניב גרינברג",
+    "credit_url": "https://unsplash.com/@gryaniv",
+    "original_url": "https://api.unsplash.com/photos/F72dm8PmNB4/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxOHx8WW91ciUyMEJsb29kJTIwUHJlc3N1cmUlMjBUYWxrcyUyMHRvJTIwWW91ciUyMEVhcnMlM0ElMjBUaGUlMjBIZWFydCVFMiU4MCU5M0hlYXJpbmclMjBDb25uZWN0aW9uJTIwWW91JTIwQ2FuJTIwSW1wcm92ZSUyMFRvZGF5fGVufDF8MHx8fDE3NTU3ODY2Mzl8MA",
+    "date": "2025-08-22T13:46:39.703Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "APFyIrmgbAE",
+    "slug": "hearing-smart-home",
+    "src": "/images/articles/2025-08/hearing-smart-home-unsplash-APFyIrmgbAE.jpg",
+    "credit": "Joonas Sild",
+    "credit_url": "https://unsplash.com/@joonas1233",
+    "original_url": "https://api.unsplash.com/photos/APFyIrmgbAE/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxMHx8Y296eSUyMGxpdmluZyUyMHJvb20lMjB3aXRoJTIwcnVnJTIwY3VydGFpbnMlMjBib29rc2hlbHZlcyUyMHNvZnQlMjBmdXJuaXNoaW5ncyUyMHF1aWV0JTIwY29udmVyc2F0aW9ufGVufDF8MHx8fDE3NTU4NzAzOTV8MA",
+    "date": "2025-08-22T13:46:36.248Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "4l1byzMcKL4",
+    "slug": "hearing-smart-travel",
+    "src": "/images/articles/2025-08/hearing-smart-travel-unsplash-4l1byzMcKL4.jpg",
+    "credit": "Ajay Anand",
+    "credit_url": "https://unsplash.com/@ajaz1",
+    "original_url": "https://api.unsplash.com/photos/4l1byzMcKL4/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyN3x8dHJhdmVsZXIlMjB3aXRoJTIwaGVhcmluZyUyMGFpZHMlMjBpbiUyMGFpcnBvcnQlMjBwYWNraW5nJTIwZWFycGx1Z3MlMjBjaGFyZ2VyfGVufDF8MHx8fDE3NTU4NzAyNzJ8MA",
+    "date": "2025-08-22T13:44:33.919Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "dV5fxEZaS1A",
+    "slug": "hearing-aid-firmware-updates",
+    "src": "/images/articles/2025-08/hearing-aid-firmware-updates-unsplash-dV5fxEZaS1A.jpg",
+    "credit": "Zarak Khan",
+    "credit_url": "https://unsplash.com/@zarakvg",
+    "original_url": "https://api.unsplash.com/photos/dV5fxEZaS1A/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxM3x8aGVhcmluZyUyMGFpZHMlMjBuZXh0JTIwdG8lMjBzbWFydHBob25lJTIwYXBwJTIwc2hvd2luZyUyMGZpcm13YXJlJTIwdXBkYXRlJTIwcHJvZ3Jlc3MlMjBCbHVldG9vdGglMjBMRSUyMEF1ZGlvJTIwQXVyYWNhc3R8ZW58MXwwfHx8MTc1NTg3MDEzOXww",
+    "date": "2025-08-22T13:42:20.114Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "z4MqXYAG7ls",
+    "slug": "remote-mics-hearing-aids",
+    "src": "/images/articles/2025-08/remote-mics-hearing-aids-unsplash-z4MqXYAG7ls.jpg",
+    "credit": "Arisa Chattasa",
+    "credit_url": "https://unsplash.com/@golfarisa",
+    "original_url": "https://api.unsplash.com/photos/z4MqXYAG7ls/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyN3x8YWR1bHQlMjB1c2luZyUyMGhlYXJpbmclMjBhaWQlMjB3aXRoJTIwcmVtb3RlJTIwbWljcm9waG9uZSUyMGF0JTIwcmVzdGF1cmFudCUyMHRhYmxlfGVufDF8MHx8fDE3NTU4NzAwNDR8MA",
+    "date": "2025-08-22T13:40:46.133Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "iJ248tEuJ3Y",
+    "slug": "ototoxic-drugs-hearing",
+    "src": "/images/articles/2025-08/ototoxic-drugs-hearing-unsplash-iJ248tEuJ3Y.jpg",
+    "credit": "Eric Park",
+    "credit_url": "https://unsplash.com/@deuxdoom",
+    "original_url": "https://api.unsplash.com/photos/iJ248tEuJ3Y/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMXx8b3RvdG94aWMlMjBkcnVncyUyMGhlYXJpbmclMjBsb3NzJTIwcGlsbHMlMjB3aXRoJTIwZWFyJTIwYW5kJTIwYXVkaW9ncmFtJTIwY29uY2VwdHxlbnwxfDB8fHwxNzU1ODY4NTU3fDA",
+    "date": "2025-08-22T13:15:58.743Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "3mZQVuxi3KA",
+    "slug": "vaccines-protect-hearing-3",
+    "src": "/images/articles/2025-08/vaccines-protect-hearing-3-unsplash-3mZQVuxi3KA.jpg",
+    "credit": "CDC",
+    "credit_url": "https://unsplash.com/@cdc",
+    "original_url": "https://api.unsplash.com/photos/3mZQVuxi3KA/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMHx8YWR1bHQlMjBnZXR0aW5nJTIwdmFjY2luZSUyQyUyMHByb3RlY3RpbmclMjBlYXJzJTJDJTIwaGVhcmluZyUyMGhlYWx0aCUyQyUyMGNsaW5pY3xlbnwxfDB8fHwxNzU1ODY4NDYwfDA",
+    "date": "2025-08-22T13:14:20.585Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "hPdZEoSUm3M",
+    "slug": "hearing-aids-for-music",
+    "src": "/images/articles/2025-08/hearing-aids-for-music-unsplash-hPdZEoSUm3M.jpg",
+    "credit": "Dmitry Ganin",
+    "credit_url": "https://unsplash.com/@ganinph",
+    "original_url": "https://api.unsplash.com/photos/hPdZEoSUm3M/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxMnx8YWR1bHQlMjBwbGF5aW5nJTIwZ3VpdGFyJTIwd2VhcmluZyUyMGhlYXJpbmclMjBhaWRzJTIwaW4lMjBsaXZpbmclMjByb29tJTIwc21pbGluZ3xlbnwxfDB8fHwxNzU1ODY4MzgzfDA",
+    "date": "2025-08-22T13:13:05.362Z"
+  },
+  {
+    "provider": "unsplash",
     "id": "u4st9SaLPdY",
     "slug": "moisture-proof-hearing-life",
     "src": "/images/articles/2025-08/moisture-proof-hearing-life-unsplash-u4st9SaLPdY.jpg",

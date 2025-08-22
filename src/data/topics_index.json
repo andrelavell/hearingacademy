@@ -150,9 +150,9 @@
       "ear health",
       "audiology"
     ],
-    "image": "/images/articles/2025-08/blood-pressure-hearing-loss-unsplash-JEeUS2RNlew.jpg",
+    "image": "/images/articles/2025-08/blood-pressure-hearing-loss-unsplash-F72dm8PmNB4.jpg",
     "publishedTime": "2025-08-19T13:29:35.105Z",
-    "modifiedTime": "2025-08-21T14:30:39.710Z",
+    "modifiedTime": "2025-08-22T13:46:39.705Z",
     "readingTime": "9 min read",
     "words": 1704,
     "hash": "be5fd72f16595ec98c1f5c496e31227215b1118877f3786b555b070e5244ae37"
@@ -520,12 +520,32 @@
       "ear health",
       "hearing health tips"
     ],
-    "image": "/images/articles/2025-08/hearing-aid-battery-care-unsplash-2Bii88SZzM4.jpg",
+    "image": "/images/articles/2025-08/hearing-aid-battery-care-unsplash-MjJnaqR-XxM.jpg",
     "publishedTime": "2025-08-18T13:14:21.933Z",
-    "modifiedTime": "2025-08-19T14:01:56.482Z",
+    "modifiedTime": "2025-08-22T13:46:51.516Z",
     "readingTime": "8 min read",
     "words": 1523,
     "hash": "5a283008699aee6051769388a84b6bc40fd0def75db0114f3a237b90eb348c28"
+  },
+  {
+    "slug": "hearing-aid-firmware-updates",
+    "title": "Hearing Aid Firmware: Small Updates, Big Listening Gains",
+    "description": "Your hearing aids have upgradable brains. Learn what firmware updates can do (better speech, steadier Bluetooth, longer battery life), how to update safely, and when to ask your audiologist for help.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "assistive listening devices",
+      "audiology",
+      "hearing clinics",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/hearing-aid-firmware-updates-unsplash-ScqByYLEKE0.jpg",
+    "publishedTime": "2025-08-22T13:40:47.599Z",
+    "modifiedTime": "2025-08-22T13:46:52.917Z",
+    "readingTime": "8 min read",
+    "words": 1523,
+    "hash": "49a018b2c7f6fe469870fc65ee2f2738e5159712ebaed24cb894bb5413a2dbb3"
   },
   {
     "slug": "hearing-aid-latency",
@@ -590,6 +610,27 @@
     "hash": "bc7dbddd089fcfebfa66e1cd20a9094facf68a5cfe6e824d18c7ddf707a2bf7b"
   },
   {
+    "slug": "hearing-aids-for-music",
+    "title": "Make Music Sound Right Again: Tuning Your Hearing Aids for Goosebumps, Not Grit",
+    "description": "Music can sound tinny, harsh, or oddly flat through hearing aids. Here’s how to get your groove back with smarter programs, practical tweaks, and an audiologist partner who speaks “music.”",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "hearing aid fitting",
+      "audiology",
+      "hearing health tips",
+      "ear protection",
+      "hearing in noisy environments"
+    ],
+    "image": "/images/articles/2025-08/hearing-aids-for-music-unsplash-hPdZEoSUm3M.jpg",
+    "publishedTime": "2025-08-22T13:10:37.618Z",
+    "modifiedTime": "2025-08-22T13:10:37.618Z",
+    "readingTime": "9 min read",
+    "words": 1798,
+    "hash": "ab420590310de7415b51e3c332315776e3f8be20fa06695148858b9338a60bb3"
+  },
+  {
     "slug": "hearing-aids-music-tuning",
     "title": "Hear the Music Again: Tuning Hearing Aids for Rich, Non‑Tinny Sound",
     "description": "If music sounds thin, harsh, or distorted with your hearing aids, it’s not you—it's how aids are tuned for speech. Learn how to set up a dedicated Music program, pick the right gear, protect your ears, and get back to goosebumps.",
@@ -609,6 +650,26 @@
     "readingTime": "9 min read",
     "words": 1786,
     "hash": "1813988087892423df2a278ba9db6df6af95ec9ce4bd548e8c0dd46da9325a31"
+  },
+  {
+    "slug": "hearing-aids-tinnitus-relief",
+    "title": "Can Hearing Aids Quiet Tinnitus? What Works, What’s Hype, and How to Start",
+    "description": "Ringing won’t quit? Learn how hearing aids can reduce tinnitus distress, which features matter, and a step‑by‑step plan to use sound wisely—without chasing silence.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "tinnitus",
+      "audiology",
+      "hearing aid fitting",
+      "hearing rehabilitation",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-22T13:25:39.966Z",
+    "modifiedTime": "2025-08-22T13:25:39.966Z",
+    "readingTime": "8 min read",
+    "words": 1591,
+    "hash": "9383232a1004359d929d6286128747213421ed25ce6380a01936189f857e6ab3"
   },
   {
     "slug": "hearing-ears-brain-cognitive-upside-treating",
@@ -694,6 +755,27 @@
     "hash": "83d5e53c67bbb4efab5ccf22772818e8a1c510fbe28f0fd190d93450ceded598"
   },
   {
+    "slug": "hearing-loss-fall-risk-balance",
+    "title": "When Hearing Loss Trips You Up: Balance, Falls, and How to Steady Yourself",
+    "description": "Hearing loss quietly raises fall risk. Learn the body science, simple self-checks, and the most effective hearing, balance, and home strategies to stay steady—plus when to call an audiologist or vestibular pro.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "age-related hearing loss",
+      "hearing aids",
+      "vertigo",
+      "audiology",
+      "ear health",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/hearing-loss-fall-risk-balance-unsplash-pcp3O6yCYGY.jpg",
+    "publishedTime": "2025-08-22T13:16:00.210Z",
+    "modifiedTime": "2025-08-22T13:47:00.098Z",
+    "readingTime": "8 min read",
+    "words": 1599,
+    "hash": "d662935ffa8595fac82390e227b4f5d82f5988fa3512219b8575524c25202ddd"
+  },
+  {
     "slug": "hearing-loss-fall-risk",
     "title": "Hear Your Step: The Hearing–Balance Link and How to Cut Fall Risk",
     "description": "Hearing loss quietly raises your fall risk. Learn how ears, brain, and balance team up—and the simple steps, from hearing checks to home tweaks, that steady your world.",
@@ -736,6 +818,46 @@
     "hash": "ce9208b9f8675934715d5c13984e4c11843cbb94574cdd95cf8dd2bedac6c030"
   },
   {
+    "slug": "hearing-smart-home",
+    "title": "Quiet Rooms, Clear Words: Your Hearing‑Smart Home Makeover",
+    "description": "Turn your home into a low-noise, high-clarity sanctuary. Practical design, tech, and habit tweaks that make speech easier, reduce listening fatigue, and keep life sounding good.",
+    "category": "Lifestyle",
+    "tags": [
+      "hearing loss",
+      "hearing aids",
+      "audiology",
+      "hearing health tips",
+      "hearing in noisy environments",
+      "assistive listening devices"
+    ],
+    "image": "/images/articles/2025-08/hearing-smart-home-unsplash-qb5KRlQ6unE.jpg",
+    "publishedTime": "2025-08-22T13:44:35.244Z",
+    "modifiedTime": "2025-08-22T13:47:02.265Z",
+    "readingTime": "9 min read",
+    "words": 1609,
+    "hash": "e1af3618a6dfd355d0d4e8630c93504d948524c1406d34c57c3082a9c02026c4"
+  },
+  {
+    "slug": "hearing-smart-travel",
+    "title": "Hearing‑Smart Travel: Fly, Sleep, and Explore Without Missing a Word",
+    "description": "A cheerful, expert guide to traveling with hearing aids and sensitive ears—packing checklists, airport know‑how, safer sound on planes, hotel hacks, conversations on tours and in restaurants, and stress‑free power and maintenance on the road.",
+    "category": "Lifestyle",
+    "tags": [
+      "hearing aids",
+      "hearing protection",
+      "assistive listening devices",
+      "hearing health tips",
+      "living with hearing loss",
+      "audiology"
+    ],
+    "image": "/images/articles/2025-08/hearing-smart-travel-unsplash-SVkDM3wQ7J4.jpg",
+    "publishedTime": "2025-08-22T13:42:21.415Z",
+    "modifiedTime": "2025-08-22T13:47:03.900Z",
+    "readingTime": "8 min read",
+    "words": 1428,
+    "hash": "53941e40f4200bd6c6a5b64d9d9d5a7faab84c94b856e2d5a30b5f91e61d1485"
+  },
+  {
     "slug": "hearing-supplements-truth",
     "title": "Hearing Supplements: Hype vs. Help (What Science Says)",
     "description": "If you’ve ever been tempted by a late-night ad promising to “restore perfect hearing” with a secret herb, you’re not alone. When your ears ring or…",
@@ -770,9 +892,9 @@
       "tinnitus",
       "age-related hearing loss"
     ],
-    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-l3gVppe5jek.jpg",
+    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-qIK_fc-4fmw.jpg",
     "publishedTime": "2025-08-13T20:39:54.303Z",
-    "modifiedTime": "2025-08-21T14:30:48.359Z",
+    "modifiedTime": "2025-08-22T13:47:05.549Z",
     "readingTime": "9 min read",
     "words": 1777,
     "hash": "f62c62582e7a462936027dd0a73cd71f4520bb04cb519aac3a83672d13d25412"
@@ -878,6 +1000,26 @@
     "readingTime": "8 min read",
     "words": 1581,
     "hash": "fb6a71c26aa70c5772c0c4b41eee488feb109ac059b1b6f02e468cd3a266c6d5"
+  },
+  {
+    "slug": "listening-fatigue-energy-habits",
+    "title": "Listening Fatigue Is Real: Reclaim Energy When Sound Wears You Out",
+    "description": "Feeling wiped out after conversations, meetings, or a noisy day? Listening fatigue is real. Learn what’s happening in your brain, how to shape quieter environments, tech and conversational tweaks that lower effort, and a simple one‑week reset to get your energy back.",
+    "category": "Lifestyle",
+    "tags": [
+      "hearing loss",
+      "hearing in noisy environments",
+      "hearing aids",
+      "audiology",
+      "living with hearing loss",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-22T13:27:20.110Z",
+    "modifiedTime": "2025-08-22T13:27:20.110Z",
+    "readingTime": "8 min read",
+    "words": 1585,
+    "hash": "3a07821cbd26560204021d043f36f0134f203701b6852e8425e2ddeae525c1c2"
   },
   {
     "slug": "live-captions-hearing",
@@ -1168,6 +1310,27 @@
     "readingTime": "10 min read",
     "words": 1839,
     "hash": "dc27d959110c970ad75dbe4ba19bc0abc4bfab8d4497418b9d7d99669e81d6ea"
+  },
+  {
+    "slug": "ototoxic-drugs-hearing",
+    "title": "Good Medicine, Bad for Ears? Outsmarting Ototoxic Drugs Without Panic",
+    "description": "Some medications can nudge your hearing or balance in the wrong direction. Here’s how to lower your risk, spot early changes, and work with your care team—without derailing the treatment you need.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "tinnitus",
+      "ototoxic drugs",
+      "hearing tests",
+      "audiology",
+      "hearing loss prevention",
+      "ENT specialist"
+    ],
+    "image": "/images/articles/2025-08/ototoxic-drugs-hearing-unsplash-iJ248tEuJ3Y.jpg",
+    "publishedTime": "2025-08-22T13:14:22.007Z",
+    "modifiedTime": "2025-08-22T13:14:22.007Z",
+    "readingTime": "8 min read",
+    "words": 1593,
+    "hash": "5e3b3f29cf8379405db3d76f3cf9c8e4c62880134c77082579ef830554a9f3d4"
   },
   {
     "slug": "ototoxic-meds-hearing-safety",
@@ -1580,6 +1743,26 @@
     "readingTime": "9 min read",
     "words": 1728,
     "hash": "bb676a25c45b07b22aa5d810753f83a24072b626685aacdc115aab0ec888a1f5"
+  },
+  {
+    "slug": "remote-mics-hearing-aids",
+    "title": "Your Secret Third Ear: Remote Microphones That Make Hearing Aids Win in Noise",
+    "description": "Struggle in restaurants or meetings even with great hearing aids? Remote microphones can slash the distance and noise problem. Learn what they are, how they work, where to use them, and how to pick one that actually fits your life.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "assistive listening devices",
+      "hearing in noisy environments",
+      "audiology",
+      "hearing aid accessories",
+      "hearing rehabilitation"
+    ],
+    "image": "/images/articles/2025-08/remote-mics-hearing-aids-unsplash-z4MqXYAG7ls.jpg",
+    "publishedTime": "2025-08-22T13:38:55.090Z",
+    "modifiedTime": "2025-08-22T13:38:55.090Z",
+    "readingTime": "8 min read",
+    "words": 1528,
+    "hash": "a269a832f50b18c25db6b4a81fdcf171c69d6b31aa7e74f8812d2f3dd2dacf0c"
   },
   {
     "slug": "remote-mics-noise",
@@ -2303,6 +2486,26 @@
     "readingTime": "9 min read",
     "words": 1787,
     "hash": "ef3b1f21654f6166a149a31938b9e1c0f91fe9d44b1f0818a3f96b4397c2faaa"
+  },
+  {
+    "slug": "vaccines-protect-hearing-3",
+    "title": "Shots for Your Ears: Vaccines That Quietly Protect Your Hearing",
+    "description": "Viruses and bacteria can damage hearing. Here’s the surprisingly powerful, evidence-backed prevention plan hiding in plain sight: adult vaccines that reduce ear infections, meningitis, shingles complications, and more. Actionable steps, clear explanations, and when to talk to an audiologist or doctor.",
+    "category": "Prevention",
+    "tags": [
+      "hearing loss prevention",
+      "ear health",
+      "otitis media",
+      "audiology",
+      "ENT specialist",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/vaccines-protect-hearing-3-unsplash-3mZQVuxi3KA.jpg",
+    "publishedTime": "2025-08-22T13:13:06.661Z",
+    "modifiedTime": "2025-08-22T13:13:06.661Z",
+    "readingTime": "9 min read",
+    "words": 1676,
+    "hash": "98bfc02d039c34415010add539aeaea64b7b6088f0b16dcddbf27616bf7ab30f"
   },
   {
     "slug": "vaccines-protect-hearing",
