@@ -22,10 +22,32 @@ export async function GET() {
   add('/terms/', { changefreq: 'yearly', priority: '0.3' });
 
   const list = Array.isArray(topics) ? topics : [];
+  // Track newest dates for categories and tags
+  const toISO = (ms: number) => new Date(ms).toISOString();
+  const parseDateNum = (d?: string) => {
+    const n = Date.parse(String(d || ''));
+    return isNaN(n) ? 0 : n;
+  };
+  const categoryNewest = new Map<string, number>();
+  const tagNewest = new Map<string, number>();
   // Articles
   for (const it of list) {
     if (!it?.slug) continue;
-    add(`/articles/${it.slug}/`, { lastmod: it.modifiedTime || it.publishedTime || now, changefreq: 'monthly', priority: '0.8' });
+    const lm = it.modifiedTime || it.publishedTime || now;
+    add(`/articles/${it.slug}/`, { lastmod: lm, changefreq: 'monthly', priority: '0.8' });
+    // update newest for category
+    if (it.category) {
+      const prev = categoryNewest.get(it.category) || 0;
+      const cur = parseDateNum(it.modifiedTime || it.publishedTime) || 0;
+      if (cur > prev) categoryNewest.set(it.category, cur);
+    }
+    // update newest for tags
+    const tags = Array.isArray(it.tags) ? it.tags : [];
+    const cur = parseDateNum(it.modifiedTime || it.publishedTime) || 0;
+    for (const t of tags) {
+      const prevT = tagNewest.get(String(t)) || 0;
+      if (cur > prevT) tagNewest.set(String(t), cur);
+    }
   }
 
   // Reviews (scan markdown in /reviews)
@@ -33,11 +55,19 @@ export async function GET() {
   for (const [path, mod] of Object.entries(reviewModules)) {
     const fm = (mod as any)?.frontmatter || {};
     const slug = path.replace('./reviews/', '').replace(/\.md$/, '');
+    const lm = fm.modifiedTime || fm.publishedTime || now;
     add(`/reviews/${slug}/`, {
-      lastmod: fm.modifiedTime || fm.publishedTime || now,
+      lastmod: lm,
       changefreq: 'monthly',
       priority: '0.8'
     });
+    // update newest for tags (reviews use tags, not categories)
+    const reviewTags = Array.isArray(fm.tags) ? fm.tags : [];
+    const cur = parseDateNum(fm.modifiedTime || fm.publishedTime) || 0;
+    for (const t of reviewTags) {
+      const prevT = tagNewest.get(String(t)) || 0;
+      if (cur > prevT) tagNewest.set(String(t), cur);
+    }
   }
 
   // Categories (only those present in categories.json)
@@ -46,17 +76,18 @@ export async function GET() {
     const slug = String(c).toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
     // include only if at least one article exists
     const has = list.some((it) => it.category === c);
-    if (has) add(`/category/${slug}/`, { changefreq: 'weekly', priority: '0.6' });
+    if (has) {
+      const newest = categoryNewest.get(String(c)) || 0;
+      add(`/category/${slug}/`, { lastmod: newest ? toISO(newest) : now, changefreq: 'weekly', priority: '0.6' });
+    }
   }
 
   // Tags (discovered from index)
-  const tagSet = new Set<string>();
-  for (const it of list) {
-    for (const t of (Array.isArray(it.tags) ? it.tags : [])) tagSet.add(String(t));
-  }
-  for (const t of Array.from(tagSet)) {
+  // Prefer tag keys from aggregated newest map (includes reviews + articles)
+  for (const t of Array.from(tagNewest.keys())) {
     const slug = String(t).toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
-    add(`/tags/${slug}/`, { changefreq: 'weekly', priority: '0.5' });
+    const newest = tagNewest.get(String(t)) || 0;
+    add(`/tags/${slug}/`, { lastmod: newest ? toISO(newest) : now, changefreq: 'weekly', priority: '0.5' });
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
