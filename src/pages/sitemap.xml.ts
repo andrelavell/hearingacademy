@@ -14,6 +14,8 @@ export async function GET() {
   // Core pages
   add('/',{ priority: '1.0' });
   add('/articles/', { priority: '0.9' });
+  // Reviews section (index)
+  add('/reviews/', { priority: '0.9' });
   add('/about/', { changefreq: 'monthly', priority: '0.6' });
   add('/contact/', { changefreq: 'monthly', priority: '0.5' });
   add('/privacy/', { changefreq: 'yearly', priority: '0.3' });
@@ -24,6 +26,18 @@ export async function GET() {
   for (const it of list) {
     if (!it?.slug) continue;
     add(`/articles/${it.slug}/`, { lastmod: it.modifiedTime || it.publishedTime || now, changefreq: 'monthly', priority: '0.8' });
+  }
+
+  // Reviews (scan markdown in /reviews)
+  const reviewModules = import.meta.glob('./reviews/*.md', { eager: true }) as Record<string, any>;
+  for (const [path, mod] of Object.entries(reviewModules)) {
+    const fm = (mod as any)?.frontmatter || {};
+    const slug = path.replace('./reviews/', '').replace(/\.md$/, '');
+    add(`/reviews/${slug}/`, {
+      lastmod: fm.modifiedTime || fm.publishedTime || now,
+      changefreq: 'monthly',
+      priority: '0.8'
+    });
   }
 
   // Categories (only those present in categories.json)
