@@ -1,6 +1,56 @@
 [
   {
     "provider": "unsplash",
+    "id": "pJ5X1Xb9i-o",
+    "slug": "heart-hearing-connection",
+    "src": "/images/articles/2025-08/heart-hearing-connection-unsplash-pJ5X1Xb9i-o.jpg",
+    "credit": "Glen Carrie",
+    "credit_url": "https://unsplash.com/@glencarrie",
+    "original_url": "https://api.unsplash.com/photos/pJ5X1Xb9i-o/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxMnx8WW91ciUyMEhlYXJ0JTJDJTIwWW91ciUyMEhlYXJpbmclM0ElMjBUaGUlMjBDYXJkaW9tZXRhYm9saWMlMjBMaW5rJTIwWW91JTIwQ2FuJUUyJTgwJTk5dCUyMEFmZm9yZCUyMHRvJTIwSWdub3JlfGVufDF8MHx8fDE3NTU5NTcxNDJ8MA",
+    "date": "2025-08-24T13:59:24.382Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "MfJ9g64-WxQ",
+    "slug": "hearing-smart-home",
+    "src": "/images/articles/2025-08/hearing-smart-home-unsplash-MfJ9g64-WxQ.jpg",
+    "credit": "Kari Shea",
+    "credit_url": "https://unsplash.com/@karishea",
+    "original_url": "https://api.unsplash.com/photos/MfJ9g64-WxQ/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwzfHxRdWlldCUyMFJvb21zJTJDJTIwQ2xlYXIlMjBXb3JkcyUzQSUyMFlvdXIlMjBIZWFyaW5nJUUyJTgwJTkxU21hcnQlMjBIb21lJTIwTWFrZW92ZXJ8ZW58MXwwfHx8MTc1NjA0Mzk2MHww",
+    "date": "2025-08-24T13:59:22.032Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "SyTNi2i2Ek0",
+    "slug": "hearable-home-acoustics",
+    "src": "/images/articles/2025-08/hearable-home-acoustics-unsplash-SyTNi2i2Ek0.jpg",
+    "credit": "Haley Powers",
+    "credit_url": "https://unsplash.com/@haleypowers",
+    "original_url": "https://api.unsplash.com/photos/SyTNi2i2Ek0/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMXx8TWFrZSUyMFlvdXIlMjBIb21lJTIwSGVhcmFibGUlM0ElMjBFYXN5JTIwQWNvdXN0aWMlMjBUd2Vha3MlMjBUaGF0JTIwVHJhbnNmb3JtJTIwQ29udmVyc2F0aW9ufGVufDF8MHx8fDE3NTU5NTcxMzZ8MA",
+    "date": "2025-08-24T13:59:12.516Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "G2rwqKGp1dE",
+    "slug": "sleep-apnea-hearing",
+    "src": "/images/articles/2025-08/sleep-apnea-hearing-unsplash-G2rwqKGp1dE.jpg",
+    "credit": "Nick Wright",
+    "credit_url": "https://unsplash.com/@_nickwright_",
+    "original_url": "https://api.unsplash.com/photos/G2rwqKGp1dE/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxMHx8Y291cGxlJTIwYmVkcm9vbSUyMENQQVAlMjBzbm9yaW5nJTIwc2xlZXAlMjBhcG5lYSUyMGhlYXJpbmclMjBsb3NzJTIwY29uY2VwdCUyMGRlY2liZWwlMjBtZXRlciUyMG5pZ2h0fGVufDF8MHx8fDE3NTYwNDM5Mzl8MA",
+    "date": "2025-08-24T13:58:59.388Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "BI3kctLipUA",
+    "slug": "gene-therapy-hearing-restoration",
+    "src": "/images/articles/2025-08/gene-therapy-hearing-restoration-unsplash-BI3kctLipUA.jpg",
+    "credit": "Creatvise",
+    "credit_url": "https://unsplash.com/@creatvise",
+    "original_url": "https://api.unsplash.com/photos/BI3kctLipUA/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxM3x8aW5uZXIlMjBlYXIlMjBnZW5lJTIwdGhlcmFweSUyMGNvY2hsZWElMjBpbGx1c3RyYXRpb24lMjBjaGlsZCUyMGF1ZGlvbG9neSUyMGNsaW5pY3xlbnwxfDB8fHwxNzU2MDQxMDY1fDA",
+    "date": "2025-08-24T13:11:06.029Z"
+  },
+  {
+    "provider": "unsplash",
     "id": "fVz1FH7sHx4",
     "slug": "otc-self-fit-hearing-aids",
     "src": "/images/articles/2025-08/otc-self-fit-hearing-aids-unsplash-fVz1FH7sHx4.jpg",
