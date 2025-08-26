@@ -81,6 +81,26 @@
     "hash": "c9bdf3e5ae8e6348fafd342eea451319dcebe0f12850cbfcd5d21072977acbe1"
   },
   {
+    "slug": "audiogram-shapes-decoded",
+    "title": "Your Audiogram, Decoded: What the Shape Says About Your Real‑World Hearing",
+    "description": "Learn to read your audiogram like a map: what sloping, notches, cookie‑bites, and flat losses usually mean, how speech scores and “speech banana” fit in, and the smart next steps to protect and improve your hearing.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "audiogram",
+      "hearing tests",
+      "sensorineural hearing loss",
+      "conductive hearing loss",
+      "hearing aids"
+    ],
+    "image": "/images/articles/2025-08/audiogram-shapes-decoded-unsplash-GEt4NtVvrec.jpg",
+    "publishedTime": "2025-08-26T13:16:01.838Z",
+    "modifiedTime": "2025-08-26T13:16:01.838Z",
+    "readingTime": "10 min read",
+    "words": 1975,
+    "hash": "bb11ebfdfb30ec04b45ae164fb96a63ac9268a5e3b5b2a23bf2ab7d2370a0890"
+  },
+  {
     "slug": "auditory-training-adults-conversation",
     "title": "Make Words Click Again: Auditory Training for Adults That Improves Conversation",
     "description": "Devices help, but your brain does the listening. Here’s how evidence-based auditory training can sharpen speech-in-noise understanding, reduce listening effort, and make everyday conversations feel easier.",
@@ -136,6 +156,26 @@
     "readingTime": "13 min read",
     "words": 2449,
     "hash": "fe9a58e24c9b048087cdcb3ee97514dd667d3eec6cf549d24f1db33bebef418f"
+  },
+  {
+    "slug": "better-music-with-hearing-aids",
+    "title": "Make Music Sing Again: Tuning Hearing Aids for Musicians and Music Lovers",
+    "description": "If violins sound like kazoos or bass disappears when you put on hearing aids, you’re not imagining it. Here’s how to unlock gorgeous, lifelike music—from live concerts to vinyl and streaming—with smart settings, simple habits, and the right pro help.",
+    "category": "Hearing Aids",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "hearing aid fitting",
+      "assistive listening devices",
+      "hearing rehabilitation",
+      "living with hearing loss"
+    ],
+    "image": "/images/articles/2025-08/better-music-with-hearing-aids-unsplash-bEwbvuiJgxU.jpg",
+    "publishedTime": "2025-08-26T13:51:00.663Z",
+    "modifiedTime": "2025-08-26T13:51:00.663Z",
+    "readingTime": "9 min read",
+    "words": 1617,
+    "hash": "47aeb319828f4980bb0a0f979ee27ced403cd7cdb8ad9d588ca97f73eb4bfd45"
   },
   {
     "slug": "blood-pressure-hearing-loss",
@@ -448,6 +488,26 @@
     "hash": "24487b8d90a6085711e87671474ca59c62076daa49bde5fac45afc46f63578e0"
   },
   {
+    "slug": "genetic-ototoxicity-hearing",
+    "title": "Your DNA, Your Ears, Your Meds: The New Science of Genetic Risk for Drug‑Induced Hearing Loss",
+    "description": "Emerging research shows certain genes can turbo‑charge the risk of hearing loss from specific medications. Learn what’s proven (MT‑RNR1 and aminoglycosides), what’s promising, and how to protect your hearing when drugs are non‑negotiable.",
+    "category": "Research",
+    "tags": [
+      "ototoxic drugs",
+      "hearing loss prevention",
+      "audiology",
+      "hearing tests",
+      "ear health",
+      "hearing loss causes"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-26T13:19:37.933Z",
+    "modifiedTime": "2025-08-26T13:19:37.933Z",
+    "readingTime": "9 min read",
+    "words": 1714,
+    "hash": "8139624c7256398af3887bd781120ca54ecf4b00563dca0791db6012b1e50e82"
+  },
+  {
     "slug": "great-sound-safe-volume",
     "title": "Listen Lower, Love It More: Make Headphones Sound Great at Safe Volumes",
     "description": "A practical, science-backed playbook for turning down your headphones without losing the magic. Learn how to use ANC, isolation, EQ, and smart settings so music and podcasts sound rich, clear, and safe.",
@@ -467,6 +527,27 @@
     "readingTime": "9 min read",
     "words": 1729,
     "hash": "2d2d774de47ea37e13bd8b7820b38ca8053f9306c2a4186ac2875c0952bb261c"
+  },
+  {
+    "slug": "gut-ear-microbiome-hearing-2",
+    "title": "Your Microbiome, Your Ears: The Emerging Gut–Ear Axis",
+    "description": "Can your gut bacteria influence your ears? A science-backed look at how the microbiome may shape infection risk, tinnitus, and hearing resilience—plus practical, safe steps to support both gut and ear health.",
+    "category": "Research",
+    "tags": [
+      "ear health",
+      "hearing loss",
+      "tinnitus",
+      "ear infections",
+      "otitis media",
+      "hearing research",
+      "hearing loss prevention"
+    ],
+    "image": "/images/articles/2025-08/gut-ear-microbiome-hearing-2-unsplash-WICFeefIlXg.jpg",
+    "publishedTime": "2025-08-26T13:36:03.319Z",
+    "modifiedTime": "2025-08-26T13:52:50.622Z",
+    "readingTime": "9 min read",
+    "words": 1649,
+    "hash": "74c4f0c2ed3553edfdfb6297dd742d14781125ef49dd874aba93427d19f0158e"
   },
   {
     "slug": "gut-ear-microbiome-hearing",
@@ -692,6 +773,27 @@
     "hash": "afd78839dd530a20ac977e7f97c4565c80c3978cde7ae88ccb48a46c5df4d9dc"
   },
   {
+    "slug": "hearing-aid-privacy-security",
+    "title": "Ears Online: The Privacy and Security Playbook for Hearing Aids and Apps",
+    "description": "Your hearing aids and their apps know more than you think. Learn what’s collected, how it moves, the real risks, and the practical settings you can control today—without sacrificing the features you love.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "assistive listening devices",
+      "audiology",
+      "hearing health tips",
+      "hearing loss awareness",
+      "hearing clinics"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-26T13:49:20.672Z",
+    "modifiedTime": "2025-08-26T13:49:20.672Z",
+    "readingTime": "9 min read",
+    "words": 1662,
+    "hash": "fceca2b3e723a82eaa7cd31ee886b312fba1cbf640979e38b1d13e79b0c646ee"
+  },
+  {
     "slug": "hearing-aid-privacy",
     "title": "Tiny Ears, Big Data: Make Your Hearing Aids Privacy‑Smart",
     "description": "Your hearing aids and apps quietly collect data that can help you hear better—but also reveal sensitive details about your health and habits. Learn what’s shared, why it’s collected, and practical steps to lock it down without losing the features you love.",
@@ -896,6 +998,27 @@
     "readingTime": "8 min read",
     "words": 1507,
     "hash": "83d5e53c67bbb4efab5ccf22772818e8a1c510fbe28f0fd190d93450ceded598"
+  },
+  {
+    "slug": "hearing-loss-brain-strain",
+    "title": "Turn Down the Brain Strain: Hearing Loss, Cognitive Load, and Dementia Risk",
+    "description": "Feeling wiped after conversations? That mental fatigue isn’t “just getting older.” Here’s how untreated hearing loss ramps up cognitive load, why that matters for long‑term brain health, and the practical steps—tech, habits, and pro help—that make listening easier and thinking clearer.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "age-related hearing loss",
+      "audiology",
+      "hearing aids",
+      "hearing tests",
+      "hearing rehabilitation",
+      "hearing loss prevention"
+    ],
+    "image": "/images/articles/2025-08/hearing-loss-brain-strain-unsplash-Y-HdGqC86Go.jpg",
+    "publishedTime": "2025-08-26T13:34:22.180Z",
+    "modifiedTime": "2025-08-26T13:34:22.180Z",
+    "readingTime": "8 min read",
+    "words": 1416,
+    "hash": "a8267c70f52fca6f2495f44b77ad69742eb450d1d2e1a880734133e1db237123"
   },
   {
     "slug": "hearing-loss-fall-risk-balance",
@@ -1105,6 +1228,26 @@
     "hash": "157dc8c832c5917a07a6343c2a0330dfb01eda169eca2f3d07a401f5c021f652"
   },
   {
+    "slug": "home-soundscaping-hearing",
+    "title": "Soundscape Your Home: Small Changes That Make Hearing Easier",
+    "description": "Your home can either drain your listening energy or give it back. Learn how simple, budget-friendly acoustic tweaks reduce echo, make speech clearer, ease tinnitus, and help hearing aids shine.",
+    "category": "Lifestyle",
+    "tags": [
+      "ear health",
+      "hearing health tips",
+      "hearing loss prevention",
+      "tinnitus",
+      "hearing in noisy environments",
+      "audiology"
+    ],
+    "image": "/images/articles/2025-08/home-soundscaping-hearing-unsplash-Wv65tpVIdDg.jpg",
+    "publishedTime": "2025-08-26T13:33:01.641Z",
+    "modifiedTime": "2025-08-26T13:33:01.641Z",
+    "readingTime": "9 min read",
+    "words": 1694,
+    "hash": "92a2da16ce53bcdbe4ba9a18825238317eeca8bc73dd7acfeb355d6a52dc469d"
+  },
+  {
     "slug": "hormones-hearing-menopause-thyroid-stress",
     "title": "Hormones Have Ears: How Menopause, Thyroid, and Stress Shape Hearing and Tinnitus",
     "description": "Your hormones don’t just change mood and metabolism—they also nudge your inner ear. Explore what research says about menopause, thyroid health, pregnancy, and stress on hearing and tinnitus, plus practical ways to protect your ears.",
@@ -1279,9 +1422,9 @@
       "hearing health tips",
       "hearing loss prevention"
     ],
-    "image": "/images/articles/2025-08/loud-restaurant-conversation-unsplash-JqhXomNHOMg.jpg",
+    "image": "/images/articles/2025-08/loud-restaurant-conversation-unsplash-E1GGmoCgAVU.jpg",
     "publishedTime": "2025-08-25T13:21:31.798Z",
-    "modifiedTime": "2025-08-25T13:26:39.212Z",
+    "modifiedTime": "2025-08-26T13:53:07.286Z",
     "readingTime": "9 min read",
     "words": 1615,
     "hash": "77b3c7e7b84d01810fb05bb44dd4c364e0177c74a6d3e42ceb84c59d111451bc"
@@ -1321,9 +1464,9 @@
       "ear health",
       "hearing health tips"
     ],
-    "image": "/images/articles/2025-08/menopause-hearing-changes-2-unsplash-nXq4ZbhP7MI.jpg",
+    "image": "/images/articles/2025-08/menopause-hearing-changes-2-unsplash-JnMwwc8PX2Q.jpg",
     "publishedTime": "2025-08-20T13:29:06.111Z",
-    "modifiedTime": "2025-08-25T13:26:41.071Z",
+    "modifiedTime": "2025-08-26T13:53:08.804Z",
     "readingTime": "10 min read",
     "words": 1859,
     "hash": "bf6d81afa89c4ef78a6930cdfcaad61b418514e7fcffc3a23b86a42ea5afc3c7"
@@ -2071,6 +2214,27 @@
     "readingTime": "9 min read",
     "words": 1642,
     "hash": "50271fd62f077f076976ff04213d019ec58ee5c650598f74650b2dfe1298a332"
+  },
+  {
+    "slug": "real-ear-vs-in-situ",
+    "title": "Hear What Was Prescribed: Real-Ear vs. In-Situ—The Verification Tech That Makes Hearing Aids Sound Right",
+    "description": "Most hearing aids are fit to averages, not your actual ear acoustics. Here is how real-ear measurement (REM) and in-situ audiometry work, why verification matters, and how to get clearer, safer, more comfortable sound—whether you use clinic-fit or OTC self-fitting hearing aids.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "hearing tests",
+      "audiology",
+      "hearing aid fitting",
+      "hearing clinics",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-26T13:17:53.201Z",
+    "modifiedTime": "2025-08-26T13:17:53.201Z",
+    "readingTime": "8 min read",
+    "words": 1487,
+    "hash": "7fbcc27850000f16a2f12e02176fac1e78fd35b673959b2f8bb3c9a9e48a2820"
   },
   {
     "slug": "regrow-hearing-hair-cells-2",
@@ -2859,6 +3023,27 @@
     "hash": "a4db4d8ad647da0a3e658cea6c406090ccf70110c0d03cceee84a0f075dee617"
   },
   {
+    "slug": "sudden-hearing-loss-steroids",
+    "title": "When Hearing Drops Overnight: Steroids, Shots, and Your Critical Recovery Window",
+    "description": "One ear suddenly feels plugged, distorted, or quiet? Treat it like a hearing emergency. Here’s how oral steroids, ear injections, and hyperbaric oxygen are used, why hours matter, and what recovery really looks like.",
+    "category": "Treatment",
+    "tags": [
+      "hearing loss",
+      "sensorineural hearing loss",
+      "tinnitus",
+      "audiology",
+      "ENT specialist",
+      "hearing loss treatment",
+      "otology"
+    ],
+    "image": "/images/articles/2025-08/sudden-hearing-loss-steroids-unsplash-JnJylmuVofU.jpg",
+    "publishedTime": "2025-08-26T13:14:22.036Z",
+    "modifiedTime": "2025-08-26T13:14:22.036Z",
+    "readingTime": "8 min read",
+    "words": 1589,
+    "hash": "ea4f4ceb0fa2c583d4393443f6a6be741f92227801a8eb62379bc87e36847c7f"
+  },
+  {
     "slug": "sudden-hearing-loss-the-72-hour-treatment-playbook-what-to-do-now",
     "title": "Sudden Hearing Loss: The 72-Hour Treatment Playbook (What to Do Now)",
     "description": "Woke up with one ear suddenly muffled, ringing, or just not working right? Your brain says, “It’s probably wax,” but your inner voice whispers, “This feels…",
@@ -3102,6 +3287,27 @@
     "readingTime": "9 min read",
     "words": 1676,
     "hash": "98bfc02d039c34415010add539aeaea64b7b6088f0b16dcddbf27616bf7ab30f"
+  },
+  {
+    "slug": "vaccines-protect-hearing-4",
+    "title": "Shots That Shield Your Hearing: The Vaccines Quietly Protecting Your Ears",
+    "description": "Some infections don’t just make you miserable—they can permanently damage hearing. Here’s the surprisingly powerful role routine vaccines play in preventing ear infections, shingles-related ear damage, and meningitis, plus how to build a hearing-safe vaccination plan.",
+    "category": "Prevention",
+    "tags": [
+      "hearing loss prevention",
+      "ear health",
+      "ear infections",
+      "audiology",
+      "ENT specialist",
+      "hearing tests",
+      "tinnitus"
+    ],
+    "image": "/images/articles/2025-08/vaccines-protect-hearing-4-unsplash-CV9QfjqXVy0.jpg",
+    "publishedTime": "2025-08-26T13:12:30.116Z",
+    "modifiedTime": "2025-08-26T13:12:30.116Z",
+    "readingTime": "8 min read",
+    "words": 1540,
+    "hash": "52c0e62c6aecafd477111742faf09c30039a4e7f8b5ba04e458eb088dacc8b2b"
   },
   {
     "slug": "vaccines-protect-hearing",
