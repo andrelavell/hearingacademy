@@ -1,6 +1,116 @@
 [
   {
     "provider": "unsplash",
+    "id": "PCE0T5i4pDI",
+    "slug": "loud-restaurant-conversation",
+    "src": "/images/articles/2025-08/loud-restaurant-conversation-unsplash-PCE0T5i4pDI.jpg",
+    "credit": "Ronan Kruithof",
+    "credit_url": "https://unsplash.com/@ronank",
+    "original_url": "https://api.unsplash.com/photos/PCE0T5i4pDI/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMHx8V2luJTIwQmFjayUyMERpbm5lciUyMENvbnZlcnNhdGlvbiUzQSUyME91dHNtYXJ0JTIwTG91ZCUyMFJlc3RhdXJhbnRzJTIwd2l0aCUyMFNlYXRpbmclMkMlMjBTaWduYWxzJTJDJTIwYW5kJTIwU3VidGxlJTIwVGVjaHxlbnwxfDB8fHwxNzU2MzAzMzM2fDA",
+    "date": "2025-08-27T14:02:16.778Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "qveJ-yfJ2DM",
+    "slug": "live-captions-hearing",
+    "src": "/images/articles/2025-08/live-captions-hearing-unsplash-qveJ-yfJ2DM.jpg",
+    "credit": "Paradigm Visuals",
+    "credit_url": "https://unsplash.com/@paradigmvisuals",
+    "original_url": "https://api.unsplash.com/photos/qveJ-yfJ2DM/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyNnx8U2VlJTIwdGhlJTIwV29yZHMlM0ElMjBSZWFsJUUyJTgwJTkxVGltZSUyMENhcHRpb25zJTIwQXJlJTIwYSUyMEhlYXJpbmclMjBTdXBlcnBvd2VyfGVufDF8MHx8fDE3NTYzMDMzMzR8MA",
+    "date": "2025-08-27T14:02:15.802Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "sVmmVfszZAY",
+    "slug": "live-captions-ar-hearing",
+    "src": "/images/articles/2025-08/live-captions-ar-hearing-unsplash-sVmmVfszZAY.jpg",
+    "credit": "Jessica Morgan",
+    "credit_url": "https://unsplash.com/@jedimorgan",
+    "original_url": "https://api.unsplash.com/photos/sVmmVfszZAY/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNHx8UHV0JTIwV29yZHMlMjBpbiUyMFZpZXclM0ElMjBMaXZlJTIwQ2FwdGlvbnMlMkMlMjBTbWFydCUyME1pY3MlMkMlMjBhbmQlMjBBUiUyMEdsYXNzZXMlMjBmb3IlMjBFYXNpZXIlMjBDb252ZXJzYXRpb258ZW58MXwwfHx8MTc1NjMwMzMzMnww",
+    "date": "2025-08-27T14:02:13.652Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "fasOOExJpLA",
+    "slug": "hormones-hearing-menopause",
+    "src": "/images/articles/2025-08/hormones-hearing-menopause-unsplash-fasOOExJpLA.jpg",
+    "credit": "Kier in Sight Archives",
+    "credit_url": "https://unsplash.com/@kierinsightarchives",
+    "original_url": "https://api.unsplash.com/photos/fasOOExJpLA/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyOHx8SG9ybW9uZXMlMkMlMjBNZW5vcGF1c2UlMkMlMjBhbmQlMjBZb3VyJTIwRWFycyUzQSUyMFdoYXQlMjBDaGFuZ2VzJTIwYW5kJTIwV2hhdCUyMEhlbHBzfGVufDF8MHx8fDE3NTYzMDMzMjl8MA",
+    "date": "2025-08-27T14:02:09.153Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "aq7KSRTY9N0",
+    "slug": "heart-hearing-connection",
+    "src": "/images/articles/2025-08/heart-hearing-connection-unsplash-aq7KSRTY9N0.jpg",
+    "credit": "Ecliptic Graphic",
+    "credit_url": "https://unsplash.com/@eclipticgraphic",
+    "original_url": "https://api.unsplash.com/photos/aq7KSRTY9N0/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyOHx8WW91ciUyMEhlYXJ0JTJDJTIwWW91ciUyMEhlYXJpbmclM0ElMjBUaGUlMjBDYXJkaW9tZXRhYm9saWMlMjBMaW5rJTIwWW91JTIwQ2FuJUUyJTgwJTk5dCUyMEFmZm9yZCUyMHRvJTIwSWdub3JlfGVufDF8MHx8fDE3NTYzMDMzMjV8MA",
+    "date": "2025-08-27T14:02:05.632Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "OKZtTbPYQSY",
+    "slug": "gut-ear-microbiome-hearing",
+    "src": "/images/articles/2025-08/gut-ear-microbiome-hearing-unsplash-OKZtTbPYQSY.jpg",
+    "credit": "Lukas Kienzler",
+    "credit_url": "https://unsplash.com/@beamehr",
+    "original_url": "https://api.unsplash.com/photos/OKZtTbPYQSY/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwyMnx8VGhlJTIwR3V0JUUyJTgwJTkzRWFyJTIwQ29ubmVjdGlvbiUzQSUyMEhvdyUyMFlvdXIlMjBNaWNyb2Jpb21lJTIwTWlnaHQlMjBTaGFwZSUyMEhlYXJpbmclMjBhbmQlMjBUaW5uaXR1c3xlbnwxfDB8fHwxNzU2MzAzMzEzfDA",
+    "date": "2025-08-27T14:01:54.187Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "_J7x_HvLFIs",
+    "slug": "hearing-aid-privacy-security-2",
+    "src": "/images/articles/2025-08/hearing-aid-privacy-security-2-unsplash-_J7x_HvLFIs.jpg",
+    "credit": "Thi Nguyen Duc",
+    "credit_url": "https://unsplash.com/@ndthi21",
+    "original_url": "https://api.unsplash.com/photos/_J7x_HvLFIs/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjBhZGp1c3RpbmclMjBoZWFyaW5nJTIwYWlkJTIwd2l0aCUyMHNtYXJ0cGhvbmUlMjBhcHAlMjBhbmQlMjBwcml2YWN5JTIwbG9jayUyMGljb258ZW58MXwwfHx8MTc1NjMwMzExOXww",
+    "date": "2025-08-27T13:58:41.297Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "YQIefXyq84I",
+    "slug": "live-captions-ar-hearing",
+    "src": "/images/articles/2025-08/live-captions-ar-hearing-unsplash-YQIefXyq84I.jpg",
+    "credit": "Đào Việt Hoàng",
+    "credit_url": "https://unsplash.com/@dvhoang2106",
+    "original_url": "https://api.unsplash.com/photos/YQIefXyq84I/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNXx8YWR1bHQlMjB3ZWFyaW5nJTIwQVIlMjBnbGFzc2VzJTIwc2hvd2luZyUyMGNhcHRpb25zJTIwaW4lMjBhJTIwYnVzeSUyMGNhZmUlMkMlMjBzbWFydHBob25lJTIwbWljcm9waG9uZSUyMG9uJTIwdGFibGV8ZW58MXwwfHx8MTc1NjMwMzAzOHww",
+    "date": "2025-08-27T13:57:18.651Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "7Itu8IgJdTE",
+    "slug": "protect-ears-water-wind",
+    "src": "/images/articles/2025-08/protect-ears-water-wind-unsplash-7Itu8IgJdTE.jpg",
+    "credit": "Luminous Sparkle",
+    "credit_url": "https://unsplash.com/@luminoussparkle",
+    "original_url": "https://api.unsplash.com/photos/7Itu8IgJdTE/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNHx8c3VyZmVyJTIwd2VhcmluZyUyMGVhcnBsdWdzJTIwYW5kJTIwbmVvcHJlbmUlMjBob29kJTJDJTIwc3dpbW1lciUyMGRyeWluZyUyMGVhcnMlMjBwb29sc2lkZSUyQyUyMHNjdWJhJTIwZGl2ZXIlMjBlcXVhbGl6aW5nJTIwZWFycyUyMHVuZGVyd2F0ZXJ8ZW58MXwwfHx8MTc1NjMwMjM4OHww",
+    "date": "2025-08-27T13:46:28.412Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "y5C4QTKbu_k",
+    "slug": "vaccines-protect-hearing-5",
+    "src": "/images/articles/2025-08/vaccines-protect-hearing-5-unsplash-y5C4QTKbu_k.jpg",
+    "credit": "CDC",
+    "credit_url": "https://unsplash.com/@cdc",
+    "original_url": "https://api.unsplash.com/photos/y5C4QTKbu_k/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxNXx8YWR1bHQlMjByZWNlaXZpbmclMjB2YWNjaW5hdGlvbiUyMGluJTIwY2xpbmljJTIwY2xvc2UlMjB1cCUyMGFybSUyMHNob3QlMjBwcmV2ZW50aW9uJTIwbWVhc2xlcyUyMG11bXBzJTIwcnViZWxsYSUyMHNoaW5nbGVzfGVufDF8MHx8fDE3NTYzMDE1NzJ8MA",
+    "date": "2025-08-27T13:32:53.463Z"
+  },
+  {
+    "provider": "unsplash",
+    "id": "tJsma0u4GYM",
+    "slug": "hearing-aids-cognition-trials",
+    "src": "/images/articles/2025-08/hearing-aids-cognition-trials-unsplash-tJsma0u4GYM.jpg",
+    "credit": "TopSphere Media",
+    "credit_url": "https://unsplash.com/@zvessels55",
+    "original_url": "https://api.unsplash.com/photos/tJsma0u4GYM/download?ixid=M3w3OTE1ODJ8MHwxfHNlYXJjaHwxN3x8b2xkZXIlMjBhZHVsdCUyMHVzaW5nJTIwaGVhcmluZyUyMGFpZHMlMjBzbWlsaW5nJTIwd2l0aCUyMGZyaWVuZCUyMGJyYWluJTIwaGVhbHRoJTIwY29uY2VwdHxlbnwxfDB8fHwxNzU2MzAwMzk0fDA",
+    "date": "2025-08-27T13:13:15.311Z"
+  },
+  {
+    "provider": "unsplash",
     "id": "JnMwwc8PX2Q",
     "slug": "menopause-hearing-changes-2",
     "src": "/images/articles/2025-08/menopause-hearing-changes-2-unsplash-JnMwwc8PX2Q.jpg",

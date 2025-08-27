@@ -20,6 +20,27 @@
     "hash": "1081994914a88913b96edac39d6f1a735a5b0bd823ae8c99d5e7a5fb351c7ea7"
   },
   {
+    "slug": "adult-auditory-processing",
+    "title": "When Hearing Is Fine but Understanding Isn’t: Adult Auditory Processing Disorder",
+    "description": "Struggling to follow conversations even though your hearing test looks “normal”? Explore adult auditory processing disorder (APD): what it is, how it differs from hidden hearing loss, practical fixes that help right away, and how an audiologist can tailor support.",
+    "category": "Hearing Loss",
+    "tags": [
+      "auditory processing disorder",
+      "hearing in noisy environments",
+      "audiology",
+      "hearing tests",
+      "hearing rehabilitation",
+      "assistive listening devices",
+      "living with hearing loss"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-27T13:58:42.605Z",
+    "modifiedTime": "2025-08-27T13:58:42.605Z",
+    "readingTime": "8 min read",
+    "words": 1514,
+    "hash": "734d18bf30aae979e21971ccb922e01e4c5fe6a5d01533c0555137909a90afc8"
+  },
+  {
     "slug": "ai-hearing-aids-noise",
     "title": "AI in Hearing Aids: Myth, Reality, and How to Get Better Speech-in-Noise",
     "description": "Lede: Hearing aid ads promise “AI that understands speech like your brain” and “effortless conversation in noise.” The truth is encouraging—but not magical.…",
@@ -562,9 +583,9 @@
       "hearing loss prevention",
       "otitis media"
     ],
-    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "image": "/images/articles/2025-08/gut-ear-microbiome-hearing-unsplash-OKZtTbPYQSY.jpg",
     "publishedTime": "2025-08-21T14:16:08.666Z",
-    "modifiedTime": "2025-08-21T14:16:08.666Z",
+    "modifiedTime": "2025-08-27T14:01:54.189Z",
     "readingTime": "9 min read",
     "words": 1604,
     "hash": "9b3d76e831d8bdec35656cd438f575e151f788fba189c17ae5163c48970d2375"
@@ -773,6 +794,26 @@
     "hash": "afd78839dd530a20ac977e7f97c4565c80c3978cde7ae88ccb48a46c5df4d9dc"
   },
   {
+    "slug": "hearing-aid-privacy-security-2",
+    "title": "Mic in Your Ear, Data in the Cloud: Keeping Hearing Aids and Hearables Private and Secure",
+    "description": "Your hearing devices now double as tiny computers with microphones, Bluetooth, and cloud apps. Here’s how they collect data, how connections work, and practical ways to protect your privacy and security—without losing the features you love.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid technology",
+      "assistive listening devices",
+      "audiology",
+      "hearing health tips",
+      "hearing aid accessories"
+    ],
+    "image": "/images/articles/2025-08/hearing-aid-privacy-security-2-unsplash-_J7x_HvLFIs.jpg",
+    "publishedTime": "2025-08-27T13:57:19.975Z",
+    "modifiedTime": "2025-08-27T13:57:19.975Z",
+    "readingTime": "9 min read",
+    "words": 1608,
+    "hash": "1fb24ed3c9820f3b44f387296c465619557d86df40540f1b896c23422e0fde1f"
+  },
+  {
     "slug": "hearing-aid-privacy-security",
     "title": "Ears Online: The Privacy and Security Playbook for Hearing Aids and Apps",
     "description": "Your hearing aids and their apps know more than you think. Learn what’s collected, how it moves, the real risks, and the practical settings you can control today—without sacrificing the features you love.",
@@ -812,6 +853,27 @@
     "readingTime": "9 min read",
     "words": 1719,
     "hash": "14a3e2a0fb18155c79738a2df3b1e11f741a1b988fdcd132b90f3974f53650c3"
+  },
+  {
+    "slug": "hearing-aids-cognition-trials",
+    "title": "Hearing Aids and Your Brain: What the New Trials Really Show",
+    "description": "Do hearing aids slow cognitive decline? A clear, evidence-based look at the ACHIEVE trial and what it means for your brain, your hearing, and daily habits that actually help.",
+    "category": "Research",
+    "tags": [
+      "hearing aids",
+      "hearing loss",
+      "audiology",
+      "hearing research",
+      "hearing rehabilitation",
+      "living with hearing loss",
+      "hearing loss awareness"
+    ],
+    "image": "/images/articles/2025-08/hearing-aids-cognition-trials-unsplash-tJsma0u4GYM.jpg",
+    "publishedTime": "2025-08-27T13:11:58.829Z",
+    "modifiedTime": "2025-08-27T13:11:58.829Z",
+    "readingTime": "7 min read",
+    "words": 1369,
+    "hash": "f55d02abe0d5ed90ef6cbf83989c0fde12ce584b2dddc315014391786d22acac"
   },
   {
     "slug": "hearing-aids-cognitive-decline",
@@ -1158,9 +1220,9 @@
       "tinnitus",
       "age-related hearing loss"
     ],
-    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-TItT7n4Kbkk.jpg",
+    "image": "/images/articles/2025-08/heart-hearing-connection-unsplash-aq7KSRTY9N0.jpg",
     "publishedTime": "2025-08-13T20:39:54.303Z",
-    "modifiedTime": "2025-08-25T13:26:32.300Z",
+    "modifiedTime": "2025-08-27T14:02:05.634Z",
     "readingTime": "9 min read",
     "words": 1777,
     "hash": "f62c62582e7a462936027dd0a73cd71f4520bb04cb519aac3a83672d13d25412"
@@ -1268,6 +1330,27 @@
     "hash": "cf774003323b92336edb2d80c759c2e890661fb03e0e9210f12a5a939d50f505"
   },
   {
+    "slug": "hormones-hearing-menopause",
+    "title": "Hormones, Menopause, and Your Ears: What Changes and What Helps",
+    "description": "Your ears respond to hormones more than you think. From perimenopause and pregnancy to thyroid shifts, here’s how hormones can affect hearing and tinnitus—and the practical steps to stay in control.",
+    "category": "Lifestyle",
+    "tags": [
+      "ear health",
+      "hearing loss",
+      "tinnitus",
+      "audiology",
+      "hearing tests",
+      "hearing loss causes",
+      "ENT specialist"
+    ],
+    "image": "/images/articles/2025-08/hormones-hearing-menopause-unsplash-fasOOExJpLA.jpg",
+    "publishedTime": "2025-08-27T13:54:34.667Z",
+    "modifiedTime": "2025-08-27T14:02:09.154Z",
+    "readingTime": "9 min read",
+    "words": 1692,
+    "hash": "6ed5c01a71661b2e4caf32a5a7d93a802ae42b28c38e4039b0abc200a83c11a0"
+  },
+  {
     "slug": "hyperacusis-sound-therapy",
     "title": "When Everyday Sounds Hurt: Treating Hyperacusis with Gentle Sound and Calm Brain",
     "description": "If normal sounds feel painfully loud, you’re not imagining it. Here’s a compassionate, evidence‑informed guide to treating hyperacusis—using graded sound, smart protection, and brain‑calming habits—so you can rejoin a noisy world more comfortably.",
@@ -1369,6 +1452,26 @@
     "hash": "3a07821cbd26560204021d043f36f0134f203701b6852e8425e2ddeae525c1c2"
   },
   {
+    "slug": "live-captions-ar-hearing",
+    "title": "Put Words in View: Live Captions, Smart Mics, and AR Glasses for Easier Conversation",
+    "description": "Strain less and connect more with real-time captions, remote microphones, and AR glasses. How the latest speech-to-text tools and hearing tech work together in cafés, meetings, and calls—plus privacy, accuracy, and setup tips.",
+    "category": "Technology",
+    "tags": [
+      "assistive listening devices",
+      "hearing in noisy environments",
+      "hearing aids",
+      "audiology",
+      "listening devices",
+      "speech recognition"
+    ],
+    "image": "/images/articles/2025-08/live-captions-ar-hearing-unsplash-sVmmVfszZAY.jpg",
+    "publishedTime": "2025-08-27T13:55:27.127Z",
+    "modifiedTime": "2025-08-27T14:02:13.654Z",
+    "readingTime": "9 min read",
+    "words": 1601,
+    "hash": "702f7793c899b51d7f070fd4ed96f72188efe45219c3e3e46dd713e1bbcca68c"
+  },
+  {
     "slug": "live-captions-hearing",
     "title": "See the Words: Real‑Time Captions Are a Hearing Superpower",
     "description": "Phones, laptops, and even smart glasses can turn speech into on‑screen text in seconds. Here’s how to use real‑time captions to follow conversations, reduce listening effort, and team them up with your hearing aids—safely and smartly.",
@@ -1381,9 +1484,9 @@
       "hearing loss",
       "hearing aid technology"
     ],
-    "image": "/images/articles/2025-08/live-captions-hearing-unsplash-2Ag9qukYMmI.jpg",
+    "image": "/images/articles/2025-08/live-captions-hearing-unsplash-qveJ-yfJ2DM.jpg",
     "publishedTime": "2025-08-14T05:54:19.609Z",
-    "modifiedTime": "2025-08-15T13:47:41.559Z",
+    "modifiedTime": "2025-08-27T14:02:15.804Z",
     "readingTime": "8 min read",
     "words": 1584,
     "hash": "e6c32d1282e563cfb3f26459cbc9b1b9e55af15ad3801d09ba6d2cd575b303b3"
@@ -1422,9 +1525,9 @@
       "hearing health tips",
       "hearing loss prevention"
     ],
-    "image": "/images/articles/2025-08/loud-restaurant-conversation-unsplash-E1GGmoCgAVU.jpg",
+    "image": "/images/articles/2025-08/loud-restaurant-conversation-unsplash-PCE0T5i4pDI.jpg",
     "publishedTime": "2025-08-25T13:21:31.798Z",
-    "modifiedTime": "2025-08-26T13:53:07.286Z",
+    "modifiedTime": "2025-08-27T14:02:16.780Z",
     "readingTime": "9 min read",
     "words": 1615,
     "hash": "77b3c7e7b84d01810fb05bb44dd4c364e0177c74a6d3e42ceb84c59d111451bc"
@@ -2031,6 +2134,27 @@
     "hash": "ee5f0e2ab240ef9bf48acf2babd36b85fb7ecff377441d5573a0dabd642be505"
   },
   {
+    "slug": "protect-ears-water-wind",
+    "title": "Water, Wind, and Ears: Prevent Swimmer’s Ear, Surfer’s Ear, and Barotrauma",
+    "description": "Love the pool, surf, or scuba? Keep the fun and skip the ear problems. A practical, evidence-based plan to prevent swimmer’s ear, surfer’s ear (exostosis), and pressure-related barotrauma—plus smart gear picks and when to see a pro.",
+    "category": "Prevention",
+    "tags": [
+      "ear health",
+      "ear infections",
+      "hearing loss prevention",
+      "ear protection",
+      "conductive hearing loss",
+      "audiology",
+      "ENT specialist"
+    ],
+    "image": "/images/articles/2025-08/protect-ears-water-wind-unsplash-7Itu8IgJdTE.jpg",
+    "publishedTime": "2025-08-27T13:44:43.751Z",
+    "modifiedTime": "2025-08-27T13:44:43.751Z",
+    "readingTime": "9 min read",
+    "words": 1631,
+    "hash": "1d6f13cb4e2796082d1b10539432c1c3a0346a127f9d378ef355f1e32c16af27"
+  },
+  {
     "slug": "protect-hearing-fitness",
     "title": "Stronger, Not Louder: Protect Your Hearing at the Gym, on the Run, and Everywhere You Train",
     "description": "Your workouts shouldn’t cost you your hearing. Learn how loud gyms and outdoor workouts really get, the simple gear that keeps your ears safe without killing the vibe, and smart listening habits that protect you for the long run.",
@@ -2193,6 +2317,26 @@
     "readingTime": "8 min read",
     "words": 1465,
     "hash": "507d8fbd547e93cac7215fca0cc20cd91d4cbf1804db7dfa606218c5dfc73201"
+  },
+  {
+    "slug": "real-ear-measurement",
+    "title": "Fit to Your Ear, Not the Box: Real‑Ear Measurements That Make Hearing Aids Work",
+    "description": "If hearing aids still sound “off,” the missing step might be real‑ear measurements (REM). Learn what REM is, why it changes everything, what to expect in a session, how it helps with speech clarity and comfort, and how to make sure your provider uses it.",
+    "category": "Technology",
+    "tags": [
+      "hearing aids",
+      "hearing aid fitting",
+      "audiology",
+      "hearing aid technology",
+      "hearing tests",
+      "hearing rehabilitation"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-27T14:00:35.561Z",
+    "modifiedTime": "2025-08-27T14:00:35.561Z",
+    "readingTime": "8 min read",
+    "words": 1493,
+    "hash": "300b868b0949577843aab36f4c4b216bc37c76b228bb1dfe6ff484940b6b6079"
   },
   {
     "slug": "real-ear-measurements-hearing-aids",
@@ -2649,6 +2793,27 @@
     "hash": "2c7fc1b1a659c3c4820064823c158f06a6208e1d2371a80906868915fdd5fc3b"
   },
   {
+    "slug": "sleep-apnea-hearing-loss",
+    "title": "Snore Now, Hear Less Later? How Sleep Apnea Can Sap Your Hearing (and What to Do About It)",
+    "description": "A clear, practical guide to the surprising link between sleep apnea and hearing loss. Learn how oxygen dips, blood pressure spikes, and inflammation stress your inner ear—and the simple steps that protect your hearing while you sleep.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "tinnitus",
+      "audiology",
+      "ear health",
+      "hearing loss causes",
+      "hearing tests",
+      "hearing health tips"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-27T13:21:35.443Z",
+    "modifiedTime": "2025-08-27T13:21:35.443Z",
+    "readingTime": "9 min read",
+    "words": 1674,
+    "hash": "b009f93736706df3e16f4cf01cc778864607cd9beb7a97b58206e0ceca0ad640"
+  },
+  {
     "slug": "sleep-apnea-hearing-tinnitus-2",
     "title": "When Snoring Reaches Your Ears: Sleep Apnea’s Hidden Link to Hearing and Tinnitus",
     "description": "A practical, science-backed look at how sleep apnea and poor sleep affect hearing and tinnitus—plus gentle, real-life strategies to protect your ears at night and during the day.",
@@ -2981,6 +3146,27 @@
     "hash": "71c4a4cecc453b8e35688e08c06b2a7599d63992e092a180e44a1d3ccce2ced2"
   },
   {
+    "slug": "sudden-hearing-loss-emergency-4",
+    "title": "When Sound Vanishes Overnight: Treat Sudden Hearing Loss Like an Emergency",
+    "description": "Woke up with one ear suddenly muffled or gone? That can be sudden sensorineural hearing loss—and time matters. Here’s how to spot it, what to do today, and what to expect.",
+    "category": "Hearing Loss",
+    "tags": [
+      "hearing loss",
+      "sensorineural hearing loss",
+      "tinnitus",
+      "vertigo",
+      "audiology",
+      "hearing tests",
+      "ENT specialist"
+    ],
+    "image": "/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg",
+    "publishedTime": "2025-08-27T13:10:17.196Z",
+    "modifiedTime": "2025-08-27T13:10:17.196Z",
+    "readingTime": "9 min read",
+    "words": 1620,
+    "hash": "55250fbac0614a80c600b4b652099ac6efbe439ba06bbe7191bd693097618ddc"
+  },
+  {
     "slug": "sudden-hearing-loss-emergency",
     "title": "When Sound Fades Overnight: The Hearing Emergency You Should Never Ignore",
     "description": "Sudden hearing loss can strike without warning—often overnight. Learn the telltale signs, why hours matter, what to do in the first 72 hours, and how recovery works. Actionable, compassionate guidance for adults, plus when to see an audiologist or ENT fast.",
@@ -3308,6 +3494,26 @@
     "readingTime": "8 min read",
     "words": 1540,
     "hash": "52c0e62c6aecafd477111742faf09c30039a4e7f8b5ba04e458eb088dacc8b2b"
+  },
+  {
+    "slug": "vaccines-protect-hearing-5",
+    "title": "Shots That Save Your Hearing: Vaccines Adults Shouldn’t Skip",
+    "description": "A clear, evidence-based guide to the adult vaccines that lower your risk of infections linked to hearing loss and tinnitus—plus how to build a simple, personalized immunization plan.",
+    "category": "Prevention",
+    "tags": [
+      "hearing loss prevention",
+      "ear health",
+      "audiology",
+      "ear infections",
+      "tinnitus",
+      "sensorineural hearing loss"
+    ],
+    "image": "/images/articles/2025-08/vaccines-protect-hearing-5-unsplash-y5C4QTKbu_k.jpg",
+    "publishedTime": "2025-08-27T13:31:06.788Z",
+    "modifiedTime": "2025-08-27T13:31:06.788Z",
+    "readingTime": "8 min read",
+    "words": 1594,
+    "hash": "1bc18e08ed6198735fcdf40e827325f44eba3c9302c312dce71860342f997bcb"
   },
   {
     "slug": "vaccines-protect-hearing",
