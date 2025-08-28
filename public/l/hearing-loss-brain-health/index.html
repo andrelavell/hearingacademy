@@ -86,7 +86,7 @@
     top: 0;
     z-index: 1000;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-    border-bottom: 4px solid red;
+    border-bottom: none;
 }
         
         .nav-container {
@@ -899,6 +899,128 @@
             color: white;
         }
 
+        /* ---------- Footer Styles ---------- */
+        .site-footer {
+            background: #0f172a; /* slate-900 */
+            color: #cbd5e1; /* slate-300 */
+            margin-top: 60px;
+            border-top: 1px solid rgba(148,163,184,0.2);
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 20px 28px;
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+        .footer-brand h4 {
+            font-size: 20px;
+            color: #fff;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.2px;
+        }
+        .footer-brand p {
+            color: #94a3b8; /* slate-400 */
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0 0 16px 0;
+        }
+        .trust-badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .badge {
+            background: rgba(148,163,184,0.15);
+            color: #e2e8f0;
+            border: 1px solid rgba(148,163,184,0.25);
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 6px;
+        }
+        .footer-col h5 {
+            color: #e2e8f0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 12px 0;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-links a:hover { text-decoration: underline; }
+        .newsletter {
+            background: rgba(148,163,184,0.08);
+            border: 1px solid rgba(148,163,184,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+        .newsletter input[type="email"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid rgba(148,163,184,0.35);
+            background: #0b1220;
+            color: #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .newsletter button {
+            background: #1e40af;
+            color: #fff;
+            border: none;
+            padding: 10px 14px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .newsletter button:hover { background: #1b399b; }
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(148,163,184,0.2);
+            margin-top: 28px;
+            padding-top: 18px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .legal-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-right: 12px;
+        }
+        .legal-links a:hover { text-decoration: underline; }
+        .socials { display: flex; gap: 10px; }
+        .socials a {
+            background: rgba(148,163,184,0.15);
+            border: 1px solid rgba(148,163,184,0.25);
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
+        }
     </style>
 </head>
 <body>
@@ -1264,13 +1386,60 @@
         });
     </script>
     
-    <!-- Minimal Footer -->
-    <footer style="background: #f8f9fa; border-top: 1px solid #e9ecef; padding: 40px 0; margin-top: 60px; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div style="color: #6b7280; font-size: 14px; line-height: 1.6;">
-                <p style="margin: 0 0 10px 0; font-weight: 600; color: #262626;">UNITED HEARING</p>
-                <p style="margin: 0 0 15px 0;">Connecting you with the latest hearing health research and solutions.</p>
-                <p style="margin: 0; font-size: 13px;">© 2024 United Hearing. All rights reserved.</p>
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>HearingAcademy</h4>
+                    <p>Evidence-based hearing guidance, expert reviews, and research-backed insights to help you protect your hearing and brain health.</p>
+                    <div class="trust-badges">
+                        <span class="badge">Editorial Integrity</span>
+                        <span class="badge">Medical Review</span>
+                        <span class="badge">Cited Research</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Hearing Health Basics</a></li>
+                        <li><a href="#">Brain & Cognition</a></li>
+                        <li><a href="#">Technology Guides</a></li>
+                        <li><a href="#">Latest Research</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">About HearingAcademy</a></li>
+                        <li><a href="#">Editorial Policy</a></li>
+                        <li><a href="#">Ad Disclosure</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Stay Updated</h5>
+                    <div class="newsletter">
+                        <form onsubmit="event.preventDefault(); alert('Subscribed!');">
+                            <input type="email" placeholder="Your email address" aria-label="Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <div style="font-size:12px;color:#94a3b8;margin-top:6px;">No spam. Unsubscribe anytime.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2025 HearingAcademy. All rights reserved.</div>
+                <div class="legal-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Accessibility</a>
+                </div>
+                <div class="socials">
+                    <a href="#" aria-label="Follow on X">X</a>
+                    <a href="#" aria-label="Follow on Facebook">Facebook</a>
+                    <a href="#" aria-label="Follow on LinkedIn">LinkedIn</a>
+                </div>
             </div>
         </div>
     </footer>
