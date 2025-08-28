@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Silent Brain Thief: How Hearing Loss Rewires Your Mind</title>
     
+    <!-- Noto Serif font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
     <!-- UTM Parameter Capture - Must be first script to run before anything can strip parameters -->
     <script>
     (function () {
@@ -67,7 +72,7 @@
         }
         
         body {
-            font-family: CNN, 'Helvetica Neue', Helvetica, Arial, Utkal, sans-serif;
+            font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -280,7 +285,7 @@
             line-height: 1.1em;
             margin-bottom: 20px;
             color: #262626;
-            font-family: CNN, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
             text-align: left;
         }
         
@@ -1296,7 +1301,7 @@
             });
             
             // ALWAYS force utm_term=hearingacademy-brain_health (this must come last to override any stored utm_term)
-            nova.searchParams.set('utm_term', 'unitedhearing-brain_health');
+            nova.searchParams.set('utm_term', 'hearingacademy-brain_health');
             console.log('🎯 FORCED utm_term=hearingacademy-brain_health (overriding any stored value)');
             
             const finalUrl = nova.toString();
