@@ -4,7 +4,6 @@ import path from 'node:path';
 import { listArticleFiles, readFile, writeFile } from './utils/fs.js';
 import { parseArticleAstro, buildArticleAstro } from './utils/astroArticle.js';
 import { findHeroImage as findUnsplash } from './utils/unsplash.js';
-import { findHeroImage as findPexels } from './utils/pexels.js';
 import { loadUsedImages, registerUsedImage, downloadToPublic } from './utils/images.js';
 
 async function updateOne(filePath, opts) {
@@ -23,12 +22,17 @@ async function updateOne(filePath, opts) {
 
   const used = await loadUsedImages();
   const usedUnsplash = used.filter(r => String(r.provider).toLowerCase()==='unsplash').map(r=>String(r.id));
-  const usedPexels = used.filter(r => String(r.provider).toLowerCase()==='pexels').map(r=>String(r.id));
 
   let hero = null;
   try { hero = await findUnsplash({ query: title, category, tags, keywords, excludeIds: usedUnsplash }); } catch {}
+  // If strict relevance yields nothing, retry Unsplash with relaxed relevance
   if (!hero) {
-    try { hero = await findPexels({ query: title, category, tags, keywords, excludeIds: usedPexels }); } catch {}
+    const prevStrict = process.env.IMAGE_STRICT_RELEVANCE;
+    process.env.IMAGE_STRICT_RELEVANCE = 'false';
+    try {
+      hero = await findUnsplash({ query: title, category, tags, keywords, excludeIds: usedUnsplash });
+    } catch {}
+    process.env.IMAGE_STRICT_RELEVANCE = prevStrict;
   }
   if (!hero) {
     console.warn(`[refresh] No relevant image found for: ${rel}`);

@@ -6,7 +6,6 @@ import { parseArticleAstro, buildArticleAstro, makeSlug, makeCompactSlug } from 
 import { topicHash, jaccard, normalizeTopic } from './utils/dedupe.js';
 import { pickRelated, appendFurtherReadingToBody, injectInlineLinks } from './utils/linking.js';
 import { findHeroImage as findUnsplashHero } from './utils/unsplash.js';
-import { findHeroImage as findPexelsHero } from './utils/pexels.js';
 import { verifyReferences } from './utils/verify.js';
 import { braveSearchWeb, extractTopResults } from './utils/brave.js';
 import { openai, OPENAI_MODEL, generateJSON } from './utils/openai.js';
@@ -243,9 +242,6 @@ async function main() {
   const usedUnsplashIds = used
     .filter((r) => String(r.provider).toLowerCase() === 'unsplash')
     .map((r) => String(r.id));
-  const usedPexelsIds = used
-    .filter((r) => String(r.provider).toLowerCase() === 'pexels')
-    .map((r) => String(r.id));
 
   // Prefer Unsplash (larger gallery), then Pexels
   let hero = await findUnsplashHero({
@@ -255,14 +251,23 @@ async function main() {
     keywords: data.keywords,
     excludeIds: usedUnsplashIds,
   });
+  // If strict relevance yields nothing, retry with relaxed relevance
   if (!hero) {
-    hero = await findPexelsHero({
-      query: data.image_query,
-      category: data.category,
-      tags: data.tags,
-      keywords: data.keywords,
-      excludeIds: usedPexelsIds,
-    });
+    const prevStrict = process.env.IMAGE_STRICT_RELEVANCE;
+    process.env.IMAGE_STRICT_RELEVANCE = 'false';
+    try {
+      hero = await findUnsplashHero({
+        query: data.image_query,
+        category: data.category,
+        tags: data.tags,
+        keywords: data.keywords,
+        excludeIds: usedUnsplashIds,
+      });
+    } catch (_) {
+      // ignore
+    } finally {
+      process.env.IMAGE_STRICT_RELEVANCE = prevStrict;
+    }
   }
   const storage = String(process.env.IMAGE_STORAGE || 'local').toLowerCase();
   let imageSrc = hero?.src || '/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg';

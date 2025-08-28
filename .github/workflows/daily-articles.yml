@@ -15,7 +15,6 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
       OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5' }}
       ARTICLES_PER_DAY: ${{ vars.ARTICLES_PER_DAY || '3' }}
