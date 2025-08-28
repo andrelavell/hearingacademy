@@ -958,7 +958,7 @@ input.search-box {
                     <a href="https://heardirectclub.com/products/nova" target="_blank" rel="noopener">
                         <img src="/images/articles/nova-hearing-aid.jpg" alt="Nova Hearing Aid" width="600" data-no-frame>
                     </a>
-                    <div style="font-size:14px;color:#666;margin-top:8px;">Nova Hearing Aid</div>
+                    <div style="font-size:14px;color:#666;margin-top:8px;" data-no-autolink>Nova Hearing Aid</div>
                 </div>
                 
                 <p>The Nova has become the preferred choice among people prioritizing brain health because it combines all the critical features neuroscientists recommend: invisible comfort that prevents self-consciousness (crucial for maintaining social engagement), intelligent noise separation that reduces cognitive load, and 24+ hour battery life ensuring consistent neural stimulation throughout your day.</p>
@@ -1077,29 +1077,87 @@ input.search-box {
             console.log(`📝 Found ${textContainers.length} text containers`);
             
             textContainers.forEach((container, index) => {
-                // Skip if this container is inside an ad or CTA or already has links
-                if (container.closest('.google-ad-compact, .google-ad-large, .google-ad-square, .cta-section') || container.querySelector('a')) {
+                // Skip if this container is inside an ad/CTA or marked no-autolink
+                if (
+                    container.closest('.google-ad-compact, .google-ad-large, .google-ad-square, .cta-section') ||
+                    container.closest('[data-no-autolink]')
+                ) {
                     return;
                 }
-                
-                const originalHTML = container.innerHTML;
-                
-                // Check if this container contains "Nova" (case-sensitive, whole word)
-                if (/\bNova\b/.test(originalHTML)) {
-                    console.log(`🔍 Found Nova in container ${index}:`, originalHTML.substring(0, 100) + '...');
-                    
-                    // Replace "Nova" with linked version
-                    const newHTML = originalHTML.replace(
-                        /\bNova\b/g,
-                        `<a href="${getNovaUrlWithUTM()}" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline;">Nova</a>`
-                    );
-                    
-                    // Only replace if we actually made changes
-                    if (newHTML !== originalHTML) {
-                        container.innerHTML = newHTML;
-                        console.log('🔗 Auto-linked Nova in container:', originalHTML.substring(0, 50) + '...');
+
+                // Use a TreeWalker to safely replace only in text nodes not inside <a>
+                const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+                    acceptNode(node) {
+                        if (!node.nodeValue || !/Nova/i.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+                        if (node.parentElement && (node.parentElement.closest('a') || node.parentElement.closest('[data-no-autolink]'))) {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                        return NodeFilter.FILTER_ACCEPT;
                     }
+                });
+
+                const toProcess = [];
+                let current;
+                while ((current = walker.nextNode())) {
+                    toProcess.push(current);
                 }
+
+                if (!toProcess.length) return;
+
+                const novaUrl = getNovaUrlWithUTM();
+                const phraseRe = /\b(Nova\s+Hearing\s+Aid)\b/gi;
+                const singleRe = /\bNova\b/g;
+
+                toProcess.forEach((textNode) => {
+                    const text = textNode.nodeValue;
+                    if (!/Nova/i.test(text)) return;
+
+                    const frag = document.createDocumentFragment();
+
+                    // Helper to append linked anchor
+                    const appendLink = (label) => {
+                        const a = document.createElement('a');
+                        a.href = novaUrl;
+                        a.target = '_blank';
+                        a.rel = 'noopener';
+                        a.style.color = '#0066cc';
+                        a.style.textDecoration = 'underline';
+                        a.appendChild(document.createTextNode(label));
+                        frag.appendChild(a);
+                    };
+
+                    // First, split by the full phrase to prioritize it
+                    let lastIndex = 0;
+                    let match;
+                    while ((match = phraseRe.exec(text)) !== null) {
+                        if (match.index > lastIndex) {
+                            frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+                        }
+                        appendLink(match[0]);
+                        lastIndex = match.index + match[0].length;
+                    }
+                    const remainderAfterPhrase = text.slice(lastIndex);
+
+                    // Now process remainder for standalone Nova
+                    let remIndex = 0;
+                    let m2;
+                    while ((m2 = singleRe.exec(remainderAfterPhrase)) !== null) {
+                        // Ensure this occurrence is not part of a joined phrase across nodes (best effort)
+                        if (m2.index > remIndex) {
+                            frag.appendChild(document.createTextNode(remainderAfterPhrase.slice(remIndex, m2.index)));
+                        }
+                        appendLink(m2[0]);
+                        remIndex = m2.index + m2[0].length;
+                    }
+                    if (remIndex < remainderAfterPhrase.length) {
+                        frag.appendChild(document.createTextNode(remainderAfterPhrase.slice(remIndex)));
+                    }
+
+                    // Replace node
+                    textNode.parentNode.replaceChild(frag, textNode);
+                });
+
+                console.log(`🔗 Auto-linked Nova in container ${index}`);
             });
             
             console.log('✅ Nova auto-linking complete');
