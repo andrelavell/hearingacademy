@@ -952,6 +952,14 @@ input.search-box {
                 <p>The question isn't whether hearing technology works—it's whether you'll choose the right type of cognitive restoration before it's too late.</p>
                 
                 <p>Here's what neuroscientists have discovered: your brain needs specific types of auditory input to heal. Random amplification actually hinders recovery. But clean, pre-processed speech signals—the kind delivered by devices like the Nova hearing aid—can trigger remarkable neural regeneration.</p>
+
+                <!-- Nova linked image (600px wide) placed after neuroscientists paragraph; excluded from pattern frame -->
+                <div style="text-align:center; margin: 16px 0;">
+                    <a href="https://heardirectclub.com/products/nova" target="_blank" rel="noopener">
+                        <img src="/images/articles/nova-hearing-aid.jpg" alt="Nova Hearing Aid" width="600" data-no-frame>
+                    </a>
+                    <div style="font-size:14px;color:#666;margin-top:8px;">Nova Hearing Aid</div>
+                </div>
                 
                 <p>The Nova has become the preferred choice among people prioritizing brain health because it combines all the critical features neuroscientists recommend: invisible comfort that prevents self-consciousness (crucial for maintaining social engagement), intelligent noise separation that reduces cognitive load, and 24+ hour battery life ensuring consistent neural stimulation throughout your day.</p>
                 
@@ -968,6 +976,8 @@ input.search-box {
                 <div class="quote-box">
                     <em>Your brain is remarkably resilient. It's ready to heal, ready to reconnect, ready to thrive again—but only if you give it the precise type of stimulation it needs.</em>
                 </div>
+
+                
 
                 <!-- Call to Action -->
                 <div class="cta-section">
@@ -1101,17 +1111,23 @@ input.search-box {
             if (!container) return;
 
             const wrapEl = (el, withCaptionFromAlt = false) => {
-                if (el.closest('.pattern-card')) return; // already wrapped
+                // If the element is an image inside a link, wrap the link to preserve click behavior
+                let target = el;
+                if (el.tagName === 'IMG' && el.parentElement && el.parentElement.tagName === 'A') {
+                    target = el.parentElement;
+                }
+                if (target.closest('.pattern-card')) return; // already wrapped
                 const outer = document.createElement('div');
                 outer.className = 'pattern-card';
                 const inner = document.createElement('div');
                 inner.className = 'pattern-card-inner';
-                const parent = el.parentNode;
-                parent.insertBefore(outer, el);
+                const parent = target.parentNode;
+                parent.insertBefore(outer, target);
                 outer.appendChild(inner);
-                inner.appendChild(el);
+                inner.appendChild(target);
                 if (withCaptionFromAlt) {
-                    const alt = (el.getAttribute('alt') || '').trim();
+                    const img = target.tagName === 'IMG' ? target : target.querySelector('img');
+                    const alt = (img && img.getAttribute('alt') || '').trim();
                     if (alt) {
                         const cap = document.createElement('div');
                         cap.className = 'pattern-caption';
