@@ -343,9 +343,7 @@
         <a href="https://heardirectclub.com/products/nova" target="_blank" rel="noopener">
             <img src="/images/articles/nova-hearing-aid.jpg" alt="Nova Hearing Aid" width="600">
         </a>
-        <div style="font-size:14px;color:#666;margin-top:8px;">
-            <a href="https://heardirectclub.com/products/nova" target="_blank" rel="noopener" style="color:#666; text-decoration: underline;">Nova Hearing Aid</a>
-        </div>
+        <div style="font-size:14px;color:#666;margin-top:8px;" data-no-autolink>Nova Hearing Aid</div>
     </div>
     
     <p><em>Her brain, finally receiving clean, organized sound signals from the Nova's intelligent processing, had energy to spare for memory, attention, and joy.</em></p>
@@ -475,8 +473,9 @@
                 
                 // Check if this text node contains "Nova" (case-sensitive, whole word)
                 if (/\bNova\b/.test(text)) {
-                    // Skip if already inside a link
-                    if (textNode.parentElement.tagName === 'A') {
+                    // Skip if already inside a link or a no-autolink container (e.g., captions)
+                    const pe = textNode.parentElement;
+                    if (pe && (pe.closest('a') || pe.closest('[data-no-autolink]'))) {
                         return;
                     }
                     
