@@ -337,6 +337,16 @@
     <p>Consider Sarah, a 67-year-old grandmother who noticed herself struggling to follow her grandchildren's stories. She'd tried three different hearing aids over two years—each one made sounds louder but somehow more confusing. The background noise was amplified right along with the voices, leaving her brain more exhausted than before.</p>
     
     <p>Then she discovered the Nova hearing aid—a device that actually separated voices from noise before sending signals to her brain. Within days, something clicked. Her grandson's laughter wasn't competing with the dishwasher anymore. Phone conversations became effortless again. Most surprisingly, that mental fog she'd attributed to "getting older" began lifting.</p>
+
+    <!-- Nova linked image (600px wide) placed after the transformation discovery paragraph -->
+    <div style="text-align:center; margin: 16px 0;">
+        <a href="https://heardirectclub.com/products/nova" target="_blank" rel="noopener">
+            <img src="/images/articles/nova-hearing-aid.jpg" alt="Nova Hearing Aid" width="600">
+        </a>
+        <div style="font-size:14px;color:#666;margin-top:8px;">
+            <a href="https://heardirectclub.com/products/nova" target="_blank" rel="noopener" style="color:#666; text-decoration: underline;">Nova Hearing Aid</a>
+        </div>
+    </div>
     
     <p><em>Her brain, finally receiving clean, organized sound signals from the Nova's intelligent processing, had energy to spare for memory, attention, and joy.</em></p>
     
@@ -432,6 +442,14 @@
             
             return finalUrl;
         }
+
+        // Function to update all Nova links with UTM parameters
+        function updateNovaLinks() {
+            const novaLinks = document.querySelectorAll('a[href*="heardirectclub.com/products/nova"]');
+            novaLinks.forEach(link => {
+                link.href = getNovaUrlWithUTM();
+            });
+        }
         
         // Function to auto-link all instances of "Nova" in the document
         function autoLinkNova() {
@@ -492,6 +510,9 @@
             // Initialize UTM tracking
             initializeUTMTracking();
             
+            // Ensure any static Nova links include correct UTM params
+            updateNovaLinks();
+
             // Auto-link all Nova instances
             autoLinkNova();
             
