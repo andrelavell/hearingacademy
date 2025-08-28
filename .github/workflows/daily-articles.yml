@@ -1,9 +1,6 @@
 name: Generate Daily Hearing Articles
 
 on:
-  schedule:
-    # Default: run daily at 13:00 UTC (adjust as desired)
-    - cron: '0 13 * * *'
   workflow_dispatch: {}
 
 permissions:
