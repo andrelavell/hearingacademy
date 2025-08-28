@@ -83,7 +83,7 @@
         
         /* News Site Navigation */
         .top-nav {
-    background: #1e40af;
+    background: #fff;
     backdrop-filter: blur(20px);
     color: #fff;
     padding: 0;
@@ -92,6 +92,9 @@
     z-index: 1000;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     border-bottom: none;
+}
+input.search-box {
+    display: none !important;
 }
         
         .nav-container {
@@ -110,6 +113,11 @@
             text-decoration: none;
             padding: 20px 0;
             letter-spacing: -0.5px;
+        }
+        .site-logo img {
+            height: 100px;
+            width: auto;
+            display: block;
         }
         
         .site-logo .publication-name {
@@ -219,7 +227,7 @@
         }
         
         .breaking-badge {
-            background: red;
+            background:#C14E01;
             color: white;
             padding: 4px 8px;
             font-size: 12px;
@@ -342,7 +350,7 @@
         }
         
         .article-content h2 {
-            font-size: 28px;
+            font-size: 23px;
             font-weight: 700;
             margin: 40px 0 20px 0;
             color: #262626;
@@ -522,6 +530,9 @@
             .site-logo {
                 font-size: 18px;
             }
+            .site-logo img {
+                height: 85px;
+            }
             
             /* Hide sidebar on mobile */
             .sidebar {
@@ -625,287 +636,6 @@
             }
         }
         
-        /* Google Ad Styles */
-        .google-ad-large {
-            border: 1px solid #e8eaed;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 24px 0;
-            background: #fff;
-            font-family: arial, sans-serif;
-            max-width: 100%;
-            box-shadow: 0 1px 2px rgba(0,0,0,.1);
-        }
-        
-        .google-ad-label {
-            font-size: 12px;
-            color: #5f6368;
-            font-weight: 400;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        
-        .google-ad-title {
-            color: #1a0dab;
-            font-size: 20px;
-            line-height: 1.3;
-            margin-bottom: 4px;
-            text-decoration: none;
-            font-weight: 400;
-            display: block;
-        }
-        
-        .google-ad-title:hover {
-            text-decoration: underline;
-        }
-        
-        .google-ad-url {
-            color: #006621;
-            font-size: 14px;
-            margin-bottom: 8px;
-            font-weight: 400;
-        }
-        
-        .google-ad-description {
-            color: #4d5156;
-            font-size: 13px;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-        
-        .google-ad-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-        
-        .google-ad-feature {
-            background: #f8f9fa;
-            border: 1px solid #dadce0;
-            border-radius: 12px;
-            padding: 4px 8px;
-            font-size: 12px;
-            color: #3c4043;
-        }
-        
-        .google-ad-cta {
-            background: #1a73e8;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .google-ad-cta:hover {
-            background: #1557b0;
-            text-decoration: none;
-            color: white;
-        }
-        
-        /* Google Ad Styles - Compact Version */
-        .google-ad-compact {
-            border: 1px solid #e8eaed;
-            border-radius: 4px;
-            padding: 12px;
-            margin: 16px 0;
-            background: #fff;
-            font-family: arial, sans-serif;
-            max-width: 100%;
-            box-shadow: 0 1px 2px rgba(0,0,0,.08);
-        }
-        
-        .google-ad-compact .google-ad-label {
-            font-size: 11px;
-            color: #5f6368;
-            font-weight: 400;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        
-        .google-ad-compact .google-ad-title {
-            color: #1a0dab;
-            font-size: 18px;
-            line-height: 1.2;
-            margin-bottom: 2px;
-            text-decoration: none;
-            font-weight: 400;
-            display: block;
-        }
-        
-        .google-ad-compact .google-ad-title:hover {
-            text-decoration: underline;
-        }
-        
-        .google-ad-compact .google-ad-url {
-            color: #006621;
-            font-size: 13px;
-            margin-bottom: 4px;
-            font-weight: 400;
-        }
-        
-        .google-ad-compact .google-ad-description {
-            color: #4d5156;
-            font-size: 13px;
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-        
-        .google-ad-compact .google-ad-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 6px;
-        }
-        
-        .google-ad-compact .google-ad-feature {
-            background: #f8f9fa;
-            border: 1px solid #dadce0;
-            border-radius: 10px;
-            padding: 2px 6px;
-            font-size: 11px;
-            color: #3c4043;
-        }
-        
-        .google-ad-compact .google-ad-cta {
-            background: #1a73e8;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            padding: 6px 12px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .google-ad-compact .google-ad-cta:hover {
-            background: #1557b0;
-            text-decoration: none;
-            color: white;
-        }
-        
-        /* Google Ad with Image */
-        .google-ad-with-image {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-        
-        .google-ad-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 4px;
-            flex-shrink: 0;
-        }
-        
-        .google-ad-content {
-            flex: 1;
-            min-width: 0;
-        }
-        
-        /* Google Ad Styles - Square Version for Sidebar */
-        .google-ad-square {
-            border: 1px solid #e8eaed;
-            border-radius: 8px;
-            padding: 12px;
-            background: #fff;
-            font-family: arial, sans-serif;
-            width: 300px;
-            height: 300px;
-            box-shadow: 0 1px 2px rgba(0,0,0,.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            overflow: hidden;
-        }
-        
-        .google-ad-square .google-ad-label {
-            font-size: 11px;
-            color: #5f6368;
-            font-weight: 400;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        
-        .google-ad-square .google-ad-title {
-            color: #1a0dab;
-            font-size: 16px;
-            line-height: 1.2;
-            margin-bottom: 6px;
-            text-decoration: none;
-            font-weight: 400;
-            display: block;
-        }
-        
-        .google-ad-square .google-ad-title:hover {
-            text-decoration: underline;
-        }
-        
-        .google-ad-square .google-ad-url {
-            color: #006621;
-            font-size: 12px;
-            margin-bottom: 6px;
-            font-weight: 400;
-        }
-        
-        .google-ad-square .google-ad-description {
-            color: #4d5156;
-            font-size: 13px;
-            line-height: 1.3;
-            margin-bottom: 8px;
-            flex: 1;
-            overflow: hidden;
-        }
-        
-        .google-ad-square .google-ad-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin-bottom: 8px;
-        }
-        
-        .google-ad-square .google-ad-feature {
-            background: #f8f9fa;
-            border: 1px solid #dadce0;
-            border-radius: 10px;
-            padding: 3px 6px;
-            font-size: 10px;
-            color: #3c4043;
-        }
-        
-        .google-ad-square .google-ad-cta {
-            background: #1a73e8;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 12px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            margin-top: auto;
-            flex-shrink: 0;
-        }
-        
-        .google-ad-square .google-ad-cta:hover {
-            background: #1557b0;
-            text-decoration: none;
-            color: white;
-        }
-
         /* ---------- Footer Styles ---------- */
         .site-footer {
             background: #0f172a; /* slate-900 */
@@ -992,6 +722,11 @@
             font-size: 14px;
             border-radius: 6px;
             cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: auto;
+            flex-shrink: 0;
         }
         .newsletter button:hover { background: #1b399b; }
         .footer-bottom {
@@ -1028,14 +763,44 @@
             .footer-top { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
         }
+
+        /* Hopkins-style image card using diagonal line background */
+        .pattern-card {
+            background-image: url('https://www.hopkinsmedicine.org/assets/images/lt_blue_lines.png');
+            background-repeat: repeat;
+            padding: 16px; /* thickness of the patterned frame */
+            margin: 24px 0;
+        }
+        .pattern-card-inner {
+            background: #0b5cab; /* Johns Hopkins blue-like */
+            color: #ffffff;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        .pattern-card-inner img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+        .pattern-card-inner .pattern-caption {
+            margin-top: 12px;
+            color: #e6f0ff;
+            font-size: 14px;
+        }
+
+        /* Override: Set all heading tags to brand color */
+        h1, h2, h3, h4, h5, h6 {
+            color: #122848;
+        }
     </style>
 </head>
 <body>
     <!-- Top Navigation -->
     <nav class="top-nav">
         <div class="nav-container">
-            <a href="/" class="site-logo">
-                HearingAcademy
+            <a href="/" class="site-logo" aria-label="HearingAcademy home">
+                <img src="/images/hearingacademy.jpg" alt="HearingAcademy" />
             </a>
             <ul class="main-nav">
                 <li><a href="/">Home</a></li>
@@ -1163,23 +928,6 @@
                     <em>This isn't just about hearing better—it's about giving your brain the exact type of stimulation it needs to rebuild those damaged neural pathways.</em>
                 </div>
 
-                <!-- Google-style Text Ad - Large Version -->
-                <div class="google-ad-large">
-                    <div class="google-ad-label">Ad</div>
-                    <a href="https://heardirectclub.com/products/nova" class="google-ad-title">Advanced PureLife™ Technology - Hear Like You're 20 Again</a>
-                    <div class="google-ad-url">heardirectclub.com/products/nova</div>
-                    <div class="google-ad-description">
-                        Breakthrough 4-microphone array with real-time sound processing. Separates voices from background noise automatically. Nearly invisible, all-day comfort with 24-hour rechargeable battery.
-                    </div>
-                    <div class="google-ad-features">
-                        <span class="google-ad-feature">PureLife™ Chip</span>
-                        <span class="google-ad-feature">4-Mic Array</span>
-                        <span class="google-ad-feature">24hr Battery</span>
-                        <span class="google-ad-feature">Invisible Design</span>
-                    </div>
-                    <a href="https://heardirectclub.com/products/nova" class="google-ad-cta">Experience the Technology</a>
-                </div>
-
                 <h2>The Transformation</h2>
                 <div class="testimonial">
                     <div class="testimonial-text">
@@ -1236,23 +984,6 @@
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Google Ad Square -->
-            <div class="google-ad-square">
-                <div class="google-ad-label">Ad</div>
-                <a href="https://heardirectclub.com/products/nova" class="google-ad-title">Revolutionary Nova Hearing Aid - Save $4,000+</a>
-                <div class="google-ad-url">heardirectclub.com/products/nova</div>
-                <div class="google-ad-description">
-                    Experience crystal-clear hearing with advanced PureLife™ technology. Same results as $5,000+ hearing aids for under $300. FDA-approved with 100-day risk-free trial.
-                </div>
-                <div class="google-ad-features">
-                    <span class="google-ad-feature">Under $300</span>
-                    <span class="google-ad-feature">FDA Approved</span>
-                    <span class="google-ad-feature">100-Day Trial</span>
-                    <span class="google-ad-feature">No Appointments</span>
-                </div>
-                <a href="https://heardirectclub.com/products/nova" class="google-ad-cta">Try Nova Risk-Free</a>
-            </div>
-            
             <div class="sidebar-section">
                 <h3>Related Articles</h3>
                 <ul class="related-links">
