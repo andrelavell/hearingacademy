@@ -154,7 +154,12 @@ const description = 'Upload and manage audio episodes with automatic transcripti
           const res = await fetch(API, { method: 'POST', body: fd });
           const raw = await res.text();
           let j = null; try { j = JSON.parse(raw); } catch {}
-          if (!res.ok || !j || !j.ok) throw new Error((j && j.error) || `Upload failed (HTTP ${res.status})`);
+          if (!res.ok || !j || !j.ok) {
+            const msg = j
+              ? (j.error + (j.hint ? ` — ${j.hint}` : ''))
+              : `Upload failed (HTTP ${res.status})${raw ? ` — ${raw.slice(0,120)}` : ''}`;
+            throw new Error(msg);
+          }
           statusEl.textContent = j.transcribeQueued
             ? 'Uploaded ✓ — transcription is running in the background. Captions will appear soon.'
             : 'Uploaded ✔';

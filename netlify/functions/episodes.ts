@@ -308,7 +308,13 @@ export const handler = async (event: any) => {
 
       const audioFile = files['audio'] || files['mp3'] || null;
       const hasAudio = !!(audioFile && audioFile.data && audioFile.data.length);
-      if (!hasAudio && !fields.audioUrl) return { statusCode: 400, body: JSON.stringify({ error: 'Missing audio file or audioUrl' }) };
+      if (!hasAudio && !fields.audioUrl) {
+        const clen = Number(event.headers?.['content-length'] || event.headers?.['Content-Length'] || 0);
+        const hint = isMultipart
+          ? 'Tip: Large file uploads may be dropped by the platform. Use the "Audio URL" field instead to host the MP3 and we will transcribe from the URL.'
+          : '';
+        return { statusCode: 400, body: JSON.stringify({ error: 'Missing audio file or audioUrl', details: { isMultipart, contentLength: clen }, hint }) };
+      }
 
       const episodes = await readEpisodes(EPISODES_JSON, READ_ONLY);
       if (episodes.some((e: any) => e.slug === slug)) return { statusCode: 409, body: JSON.stringify({ error: 'Slug already exists' }) };
