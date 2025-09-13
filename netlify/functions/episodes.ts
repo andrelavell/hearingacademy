@@ -318,6 +318,10 @@ export const handler = async (event: any) => {
       const audioDirRel = `public/episodes/audio/${ym}`;
       const vttDirRel = `public/episodes/captions/${ym}`;
 
+      // Transcription toggle: default ON; we will queue background work on Netlify/read-only
+      const TRANSCRIBE_ON_UPLOAD = String(process.env.EPISODES_TRANSCRIBE_ON_UPLOAD || 'true')
+        .toLowerCase() !== 'false';
+
       let audioRelPath: string = '';
       let captionRelPath: string = '';
       const extraFiles: Array<{ path: string; content: Buffer | string }> = [];
@@ -333,16 +337,38 @@ export const handler = async (event: any) => {
         audioRelPath = String(fields.audioUrl);
       }
 
-      // Transcribe (only if we have local buffer)
-      if (hasAudio) {
-        try {
-          const { vtt } = await transcribeToVtt(audioFile!.data, audioFile!.filename || `${slug}.mp3`);
-          const vttFilename = `${slug}.vtt`;
-          captionRelPath = `${vttDirRel}/${vttFilename}`;
-          extraFiles.push({ path: captionRelPath, content: vtt });
-        } catch (e: any) {
-          console.warn('[episodes-fn] transcription failed:', e?.message || e);
+      // Transcribe
+      let transcribeQueued = false;
+      if (hasAudio && TRANSCRIBE_ON_UPLOAD) {
+        if (!READ_ONLY) {
+          // Local/dev: do it synchronously
+          try {
+            const { vtt } = await transcribeToVtt(audioFile!.data, audioFile!.filename || `${slug}.mp3`);
+            const vttFilename = `${slug}.vtt`;
+            captionRelPath = `${vttDirRel}/${vttFilename}`;
+            extraFiles.push({ path: captionRelPath, content: vtt });
+          } catch (e: any) {
+            console.warn('[episodes-fn] transcription failed:', e?.message || e);
+            captionRelPath = '';
+          }
+        } else {
+          // Netlify/read-only: queue a background transcription job to avoid timeouts
           captionRelPath = '';
+          try {
+            const proto = String(event.headers?.['x-forwarded-proto'] || 'https');
+            const host = String(event.headers?.['x-forwarded-host'] || event.headers?.host || '');
+            const base = String(process.env.DEPLOY_PRIME_URL || process.env.URL || (host ? `${proto}://${host}` : ''));
+            if (base) {
+              await fetch(`${base}/.netlify/functions/episodes-transcribe-background`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ slug }),
+              });
+              transcribeQueued = true;
+            }
+          } catch (e) {
+            console.warn('[episodes-fn] failed to queue background transcription:', (e as any)?.message || e);
+          }
         }
       } else {
         captionRelPath = '';
@@ -364,7 +390,7 @@ export const handler = async (event: any) => {
       // Write JSON and assets
       await writeEpisodes(EPISODES_JSON, next, READ_ONLY, extraFiles);
 
-      return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ok: true, data: rec }) };
+      return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ok: true, data: rec, transcribeQueued }) };
     }
 
     return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };

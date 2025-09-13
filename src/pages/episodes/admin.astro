@@ -47,8 +47,13 @@ const description = 'Upload and manage audio episodes with automatic transcripti
           </div>
           <div class="field">
             <label>Audio File</label>
-            <input type="file" name="audio" accept="audio/mpeg,audio/mp3,audio/wav" required />
-            <p class="hint">Accepted: MP3 or WAV. We transcribe on upload and attach a .vtt caption file.</p>
+            <input type="file" name="audio" accept="audio/mpeg,audio/mp3,audio/wav" />
+            <p class="hint">Accepted: MP3 or WAV. We transcribe on upload and attach a .vtt caption file when enabled.</p>
+          </div>
+          <div class="field">
+            <label>OR Audio URL (https)</label>
+            <input type="url" name="audioUrl" placeholder="https://.../episode.mp3" />
+            <p class="hint">Tip: Use a direct audio URL to avoid function upload size limits.</p>
           </div>
           <div class="actions">
             <button class="btn" type="submit">Upload Episode</button>
@@ -132,7 +137,9 @@ const description = 'Upload and manage audio episodes with automatic transcripti
       async function load(){
         try {
           const res = await fetch(API);
-          const j = await res.json();
+          const raw = await res.text();
+          let j = null; try { j = JSON.parse(raw); } catch {}
+          if (!res.ok || !j) throw new Error(`Load failed (HTTP ${res.status})`);
           renderList(j.data || []);
         } catch (e) {
           listEl.innerHTML = '<p class="error">Failed to load episodes.</p>';
@@ -145,9 +152,12 @@ const description = 'Upload and manage audio episodes with automatic transcripti
         const fd = new FormData(uploadForm);
         try {
           const res = await fetch(API, { method: 'POST', body: fd });
-          const j = await res.json();
-          if (!res.ok || !j.ok) throw new Error(j.error || 'Upload failed');
-          statusEl.textContent = 'Uploaded ✔';
+          const raw = await res.text();
+          let j = null; try { j = JSON.parse(raw); } catch {}
+          if (!res.ok || !j || !j.ok) throw new Error((j && j.error) || `Upload failed (HTTP ${res.status})`);
+          statusEl.textContent = j.transcribeQueued
+            ? 'Uploaded ✓ — transcription is running in the background. Captions will appear soon.'
+            : 'Uploaded ✔';
           uploadForm.reset();
           await load();
         } catch (e) {
@@ -164,8 +174,9 @@ const description = 'Upload and manage audio episodes with automatic transcripti
           if (!confirm('Delete this episode?')) return;
           try {
             const res = await fetch(API + '?slug=' + encodeURIComponent(slug), { method: 'DELETE' });
-            const j = await res.json();
-            if (!res.ok || !j.ok) throw new Error(j.error || 'Delete failed');
+            const raw = await res.text();
+            let j = null; try { j = JSON.parse(raw); } catch {}
+            if (!res.ok || !j || !j.ok) throw new Error((j && j.error) || `Delete failed (HTTP ${res.status})`);
             await load();
           } catch (e) {
             alert('Delete error: ' + (e?.message || e));
@@ -188,8 +199,9 @@ const description = 'Upload and manage audio episodes with automatic transcripti
         body['slug'] = slug;
         try {
           const res = await fetch(API, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-          const j = await res.json();
-          if (!res.ok || !j.ok) throw new Error(j.error || 'Update failed');
+          const raw = await res.text();
+          let j = null; try { j = JSON.parse(raw); } catch {}
+          if (!res.ok || !j || !j.ok) throw new Error((j && j.error) || `Update failed (HTTP ${res.status})`);
           await load();
         } catch (e) {
           alert('Update error: ' + (e?.message || e));

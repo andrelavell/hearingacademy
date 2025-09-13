@@ -33,3 +33,8 @@
   from = "/api/episodes"
   to = "/.netlify/functions/episodes"
   status = 200
+
+[[redirects]]
+  from = "/api/episodes-transcribe-background"
+  to = "/.netlify/functions/episodes-transcribe-background"
+  status = 200
