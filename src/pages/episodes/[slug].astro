@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Player from '../../components/EpisodePlayer.astro';
+import episodes from '../../data/episodes.json';
+
+interface Rec { slug: string; title: string; body?: string; rating?: number; views?: number; audio: string; captions?: string }
+
+export async function getStaticPaths() {
+  const list = Array.isArray(episodes) ? episodes : [];
+  return list.map((e: any) => ({ params: { slug: String(e.slug) } }));
+}
+
+const slug = Astro.params.slug;
+const rec = (Array.isArray(episodes) ? episodes : []).find((e: any) => e.slug === slug) as Rec | undefined;
+if (!rec) {
+  throw new Error('Episode not found');
+}
+
+const title = rec.title;
+const description = (rec.body || '').slice(0, 160) || 'Listen to this episode.';
+---
+
+<BaseLayout title={title} description={description} image="/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg">
+  <Header />
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>{rec.title}</h1>
+        <div class="meta">
+          <span class="rating">{'★'.repeat(Math.round(rec.rating||0))}{'☆'.repeat(5 - Math.round(rec.rating||0))} <b>{Number(rec.rating||0).toFixed(1)}</b></span>
+          <span class="views">{(rec.views||0).toLocaleString()} listens</span>
+        </div>
+        <p class="desc">{description}</p>
+      </div>
+    </section>
+
+    <section>
+      <Player title={rec.title} audio={rec.audio} captions={rec.captions} rating={rec.rating} views={rec.views} slug={rec.slug} />
+    </section>
+
+    {rec.body && (
+      <section class="content">
+        <div class="content-container">
+          <h2>About this episode</h2>
+          <p set:html={rec.body.replace(/\n/g, '<br/>')}></p>
+        </div>
+      </section>
+    )}
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero { padding: var(--space-7) 0 var(--space-5); background: var(--color-background-light); }
+  .hero .meta { display:flex; gap: var(--space-4); color: var(--color-text-muted); align-items:center; }
+  .desc { color: var(--color-text-muted); }
+  .content { padding: var(--space-7) 0; }
+</style>

@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Episodes Admin';
+const description = 'Upload and manage audio episodes with automatic transcription.';
+---
+
+<BaseLayout title={title} description={description} image="/images/articles/2025-08/ai-hearing-aids-noise-pexels-14682242.jpg">
+  <Header />
+
+  <main class="page">
+    <section class="hero">
+      <div class="container">
+        <h1>Episodes Admin</h1>
+        <p class="lead">Upload an MP3/WAV and we’ll generate captions using Whisper. Manage titles, slugs, body, rating, and views.</p>
+      </div>
+    </section>
+
+    <section class="form">
+      <div class="content-container">
+        <form id="uploadForm">
+          <div class="grid">
+            <div class="field">
+              <label>Title</label>
+              <input name="title" placeholder="Episode title" required />
+            </div>
+            <div class="field">
+              <label>Slug (optional)</label>
+              <input name="slug" placeholder="auto-from-title" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Body</label>
+            <textarea name="body" rows="4" placeholder="Short description..."></textarea>
+          </div>
+          <div class="grid">
+            <div class="field">
+              <label>Rating</label>
+              <input type="number" name="rating" min="0" max="5" step="0.1" value="4.8" />
+            </div>
+            <div class="field">
+              <label>Views</label>
+              <input type="number" name="views" min="0" step="1" value="0" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Audio File</label>
+            <input type="file" name="audio" accept="audio/mpeg,audio/mp3,audio/wav" required />
+            <p class="hint">Accepted: MP3 or WAV. We transcribe on upload and attach a .vtt caption file.</p>
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit">Upload Episode</button>
+            <span id="status" class="status" role="status"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="list">
+      <div class="container">
+        <h2>All Episodes</h2>
+        <div id="episodes"></div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script is:inline>
+    (function(){
+      const API = '/.netlify/functions/episodes';
+      const uploadForm = document.getElementById('uploadForm');
+      const statusEl = document.getElementById('status');
+      const listEl = document.getElementById('episodes');
+
+      function html(strings, ...vals){
+        return strings.reduce((acc, s, i) => acc + s + (vals[i] ?? ''), '');
+      }
+
+      function renderList(items){
+        if (!Array.isArray(items) || !items.length) {
+          listEl.innerHTML = '<p class="muted">No episodes yet.</p>';
+          return;
+        }
+        listEl.innerHTML = items.map(e => html`
+          <div class="row">
+            <div class="info">
+              <h3><a href="/episodes/${e.slug}" target="_blank" rel="noopener">${e.title}</a></h3>
+              <div class="meta">
+                <span>${(e.views||0).toLocaleString()} listens</span>
+                <span>Rating: ${Number(e.rating||0).toFixed(1)}</span>
+                ${e.audio ? html`<span><a href="${e.audio}" target="_blank">audio</a></span>` : ''}
+                ${e.captions ? html`<span><a href="${e.captions}" target="_blank">captions</a></span>` : ''}
+              </div>
+            </div>
+            <div class="actions">
+              <button data-act="edit" data-slug="${e.slug}">Edit</button>
+              <button data-act="delete" data-slug="${e.slug}" class="danger">Delete</button>
+            </div>
+          </div>
+          <div class="edit" id="edit-${e.slug}" hidden>
+            <form data-edit="${e.slug}">
+              <div class="grid">
+                <div class="field">
+                  <label>Title</label>
+                  <input name="title" value="${e.title.replace(/"/g,'&quot;')}" />
+                </div>
+                <div class="field">
+                  <label>Rating</label>
+                  <input type="number" name="rating" min="0" max="5" step="0.1" value="${Number(e.rating||0).toFixed(1)}" />
+                </div>
+                <div class="field">
+                  <label>Views</label>
+                  <input type="number" name="views" min="0" step="1" value="${Number(e.views||0)}" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Body</label>
+                <textarea name="body" rows="3">${(e.body||'').replace(/</g,'&lt;')}</textarea>
+              </div>
+              <div class="actions">
+                <button type="submit">Save</button>
+                <button type="button" data-cancel="${e.slug}">Cancel</button>
+              </div>
+            </form>
+          </div>
+        `).join('');
+      }
+
+      async function load(){
+        try {
+          const res = await fetch(API);
+          const j = await res.json();
+          renderList(j.data || []);
+        } catch (e) {
+          listEl.innerHTML = '<p class="error">Failed to load episodes.</p>';
+        }
+      }
+
+      uploadForm.addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+        statusEl.textContent = 'Uploading... (Transcribing may take ~30-90s)';
+        const fd = new FormData(uploadForm);
+        try {
+          const res = await fetch(API, { method: 'POST', body: fd });
+          const j = await res.json();
+          if (!res.ok || !j.ok) throw new Error(j.error || 'Upload failed');
+          statusEl.textContent = 'Uploaded ✔';
+          uploadForm.reset();
+          await load();
+        } catch (e) {
+          statusEl.textContent = 'Error: ' + (e?.message || e);
+        }
+      });
+
+      listEl.addEventListener('click', async (ev) => {
+        const b = ev.target.closest('button');
+        if (!b) return;
+        const act = b.getAttribute('data-act');
+        const slug = b.getAttribute('data-slug');
+        if (act === 'delete' && slug) {
+          if (!confirm('Delete this episode?')) return;
+          try {
+            const res = await fetch(API + '?slug=' + encodeURIComponent(slug), { method: 'DELETE' });
+            const j = await res.json();
+            if (!res.ok || !j.ok) throw new Error(j.error || 'Delete failed');
+            await load();
+          } catch (e) {
+            alert('Delete error: ' + (e?.message || e));
+          }
+        }
+        if (act === 'edit' && slug) {
+          const el = document.getElementById('edit-' + slug);
+          if (el) el.hidden = !el.hidden;
+        }
+      });
+
+      listEl.addEventListener('submit', async (ev) => {
+        const form = ev.target.closest('form[data-edit]');
+        if (!form) return;
+        ev.preventDefault();
+        const slug = form.getAttribute('data-edit');
+        const fd = new FormData(form);
+        const body = {};
+        for (const [k,v] of fd.entries()) body[k] = v;
+        body['slug'] = slug;
+        try {
+          const res = await fetch(API, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+          const j = await res.json();
+          if (!res.ok || !j.ok) throw new Error(j.error || 'Update failed');
+          await load();
+        } catch (e) {
+          alert('Update error: ' + (e?.message || e));
+        }
+      });
+
+      listEl.addEventListener('click', (ev) => {
+        const b = ev.target.closest('button[data-cancel]');
+        if (!b) return;
+        const slug = b.getAttribute('data-cancel');
+        const el = document.getElementById('edit-' + slug);
+        if (el) el.hidden = true;
+      });
+
+      load();
+    })();
+  </script>
+</BaseLayout>
+
+<style>
+  .hero { padding: var(--space-7) 0 var(--space-5); background: var(--color-background-light); }
+  .lead { color: var(--color-text-muted); }
+  .form { padding: var(--space-6) 0; }
+  .grid { display:grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+  .field { display:flex; flex-direction:column; gap: 6px; margin-bottom: var(--space-4); }
+  input, textarea { padding: 10px 12px; border: 1px solid var(--color-border); border-radius: 8px; font: inherit; }
+  label { font-weight: var(--fw-medium); }
+  .hint { color: var(--color-text-muted); font-size: var(--fs-200); }
+  .actions { display:flex; align-items:center; gap: var(--space-3); }
+  .btn { background: var(--color-primary); color:white; border:none; border-radius: 8px; padding: 10px 14px; cursor:pointer; }
+  .btn:hover { background: var(--color-primary-light); }
+  .status { color: var(--color-text-muted); }
+  .muted { color: var(--color-text-muted); }
+  .list { padding: var(--space-6) 0 var(--space-8); }
+  .row { display:flex; justify-content:space-between; align-items: start; padding: var(--space-4); border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: var(--space-3); }
+  .row .meta { display:flex; gap: var(--space-3); color: var(--color-text-muted); }
+  .row .actions { display:flex; gap: var(--space-2); }
+  .row .actions .danger { background: #ef4444; color: white; border:none; border-radius: 8px; padding: 8px 10px; }
+  .edit { border-left: 3px solid var(--color-primary); margin: 0 0 var(--space-4) var(--space-4); padding-left: var(--space-4); }
+</style>
