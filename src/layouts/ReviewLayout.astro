@@ -74,9 +74,25 @@ const FALLBACK_IMG = '/images/articles/2025-08/ai-hearing-aids-noise-pexels-1468
 const safeImage = image && image !== '/article-default.jpg' ? image : FALLBACK_IMG;
 const heroImage = productImage && productImage !== '/article-default.jpg' ? productImage : safeImage;
 
-// Safe date parsing
-const pubDate = publishedTime ? new Date(publishedTime as any) : null;
-const publishedDisplay = pubDate && !Number.isNaN(pubDate.getTime())
+// Safe date parsing with relative support (e.g., 'yesterday')
+const resolvePublished = (val: any) => {
+  if (!val) return null;
+  if (typeof val === 'string') {
+    const lowered = val.toLowerCase().trim();
+    if (lowered === 'yesterday') {
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      d.setHours(0, 0, 0, 0);
+      return d;
+    }
+  }
+  const d = new Date(val as any);
+  return Number.isNaN(d.getTime()) ? null : d;
+};
+
+const pubDate = resolvePublished(publishedTime);
+const publishedIso = pubDate ? pubDate.toISOString() : '';
+const publishedDisplay = pubDate
   ? pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   : '';
 
@@ -95,7 +111,7 @@ const productLd = {
     '@type': 'Review',
     reviewBody: description,
     author: { '@type': 'Person', name: author },
-    datePublished: publishedTime,
+    datePublished: publishedIso || (publishedTime || ''),
     reviewRating: {
       '@type': 'Rating',
       ratingValue: String(ratingValue ?? ''),
@@ -135,7 +151,7 @@ const breadcrumbLd = {
   description={description}
   image={safeImage}
   article={true}
-  publishedTime={publishedTime}
+  publishedTime={publishedIso}
   modifiedTime={modifiedTime}
   author={author}
   tags={tags}
@@ -162,7 +178,7 @@ const breadcrumbLd = {
           <div class="review-meta">
             <span class="category">Reviews</span>
             {publishedDisplay && (
-              <time datetime={publishedTime}>{publishedDisplay}</time>
+              <time datetime={publishedIso || (publishedTime as any)}>{publishedDisplay}</time>
             )}
           </div>
 
