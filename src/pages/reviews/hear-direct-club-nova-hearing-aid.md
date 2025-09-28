@@ -28,12 +28,12 @@ With over 100,000 five-star reviews reported by the manufacturer, the Nova has c
 <figure class="fullbleed-figure" style="margin-inline-start:0;margin-inline-end:0;">
   <a href="https://heardirectclub.com/products/nova?utm_source=hearingacademy&utm_medium=referral&utm_campaign=review&utm_term=hearingacademy" target="_blank" rel="noopener noreferrer">
     <img
-      src="https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-hearing-aid.png?v=1755134911&width=1200"
+      src="https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=1200"
       srcset="
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-hearing-aid.png?v=1755134911&width=800 800w,
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-hearing-aid.png?v=1755134911&width=1200 1200w,
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-hearing-aid.png?v=1755134911&width=1600 1600w,
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-hearing-aid.png?v=1755134911&width=2000 2000w
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=800 800w,
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=1200 1200w,
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=1600 1600w,
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=2000 2000w
       "
       sizes="100vw"
       alt="Hear Direct Club's Nova — product image"
