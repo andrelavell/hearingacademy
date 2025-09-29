@@ -9,7 +9,7 @@ tags:
   - Hearing Aids
 productName: Nova Hearing Aid
 brandName: Hear Direct Club
-price: 249
+price: 259
 priceNote: Free delivery · 100-day returns
 ratingValue: 4.0
 image: /images/brands/hear-direct-club/heardirectclub-main-600.png
@@ -28,12 +28,12 @@ With over 100,000 five-star reviews reported by the manufacturer, the Nova has c
 <figure class="fullbleed-figure" style="margin-inline-start:0;margin-inline-end:0;">
   <a href="https://heardirectclub.com/products/nova?utm_source=hearingacademy&utm_medium=referral&utm_campaign=review&utm_term=hearingacademy" target="_blank" rel="noopener noreferrer">
     <img
-      src="https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=1200"
+      src="https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-review.png?v=1759096577&width=1200"
       srcset="
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=800 800w,
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=1200 1200w,
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=1600 1600w,
-        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/hear-direct-club.png?v=1759096065&width=2000 2000w
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-review.png?v=1759096577&width=800 800w,
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-review.png?v=1759096577&width=1200 1200w,
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-review.png?v=1759096577&width=1600 1600w,
+        https://cdn.shopify.com/s/files/1/0939/7482/3208/files/heardirectclub-nova-review.png?v=1759096577&width=2000 2000w
       "
       sizes="100vw"
       alt="Hear Direct Club's Nova — product image"
@@ -133,12 +133,12 @@ The learning curve is minimal, making the Nova ideal for:
 
 ## Price & Value
 
-At $397 (frequently discounted to $149), the Nova offers exceptional value. To put this in perspective:
+At $259 USD, the Nova offers exceptional value. To put this in perspective:
 
 - **Traditional Prescription Hearing Aids**: $2,000-$7,000 per pair
 - **Premium OTC Models (Jabra, Eargo)**: $800-$2,500
 - **Budget OTC Options**: $100-$300
-- **Nova**: $397 (often $149 on sale)
+- **Nova**: $259 USD
 
 The Nova occupies a sweet spot in the market – significantly more sophisticated than budget amplifiers, yet thousands less than prescription devices. The 100-day money-back guarantee further reduces the financial risk, allowing users to thoroughly test the devices in real-world conditions.
 

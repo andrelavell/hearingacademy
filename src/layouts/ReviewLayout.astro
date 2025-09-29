@@ -374,8 +374,9 @@ const breadcrumbLd = {
       right: 50%;
       width: 100vw;
       max-width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
+      /* Compensate for .container horizontal padding so image hits viewport edges */
+      margin-left: calc(50% - 50vw - var(--gutter));
+      margin-right: calc(50% - 50vw - var(--gutter));
     }
     .fullbleed-figure img { display: block; width: 100%; height: auto; border-radius: 0; box-shadow: none; }
     .fullbleed-figure figcaption {
@@ -396,6 +397,23 @@ const breadcrumbLd = {
       .content-grid { grid-template-columns: 1fr; }
       .toc { position: relative; top: auto; }
       .toc-inner { margin-bottom: var(--space-5); }
+    }
+
+    /* Mobile-only adjustments */
+    @media (max-width: 640px) {
+      /* Center the figure and stop full-bleed on small screens */
+      .fullbleed-figure {
+        left: auto;
+        right: auto;
+        width: auto;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .fullbleed-figure figcaption {
+        text-align: center;
+        background: transparent;
+      }
     }
   </style>
 </BaseLayout>
