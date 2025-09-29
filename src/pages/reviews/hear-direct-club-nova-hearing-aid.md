@@ -232,6 +232,6 @@ If you're looking for the best hearing aid under $750 and don't need smartphone 
 
 ---
 
-*Last updated: August 2025*
+*Last updated: <span class="js-current-month"></span>*
 
 *Disclaimer: This review is based on extensive research and user feedback. Individual results may vary based on specific hearing loss patterns and personal preferences. Always consult with a healthcare provider about your hearing health needs.*

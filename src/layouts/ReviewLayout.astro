@@ -311,6 +311,21 @@ const breadcrumbLd = {
       }
     })();
   </script>
+  <script is:inline>
+    // Fill any .js-current-month with the live Month YYYY on the client
+    (function fillCurrentMonth(){
+      const run = () => {
+        const now = new Date();
+        const label = now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        document.querySelectorAll('.js-current-month').forEach(el => { el.textContent = label; });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run, { once: true });
+      } else {
+        run();
+      }
+    })();
+  </script>
 
   <style>
     .breadcrumb {
