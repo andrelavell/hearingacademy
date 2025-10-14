@@ -91,6 +91,19 @@ const fullTitle = title === 'Home' ? 'HearingAcademy - Expert Hearing Health Inf
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
   <meta name="theme-color" content="#1e40af" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F941TBC2CZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}    
+    gtag('js', new Date());
+    gtag('config', 'G-F941TBC2CZ', {
+      linker: {
+        domains: ['heardirectclub.com', 'unitedhearing.org', 'hearingacademy.org', 'checkmyhearing.org']
+      },
+      send_page_view: true
+    });
+    gtag('config', 'AW-17391759758');
+  </script>
 </head>
 <body>
   <slot />
