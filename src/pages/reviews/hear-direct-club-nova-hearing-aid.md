@@ -3,6 +3,7 @@ layout: ../../layouts/ReviewLayout.astro
 title: Hear Direct Club's Nova Hearing Aid Review — Worth the Hype?
 description: The Hear Direct Club's Nova stands out as an exceptional value in the under-$750 hearing aid market, delivering impressive sound quality and build that rivals devices costing several times more. While it lacks the advanced customization and smartphone connectivity of prescription models, the Nova excels as a straightforward “pop‑in‑and‑go” solution.
 publishedTime: yesterday
+publishedLabel: 3 days ago
 author: HearingAcademy Editorial Team
 tags:
   - Reviews

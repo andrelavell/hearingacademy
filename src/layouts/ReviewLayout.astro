@@ -7,6 +7,7 @@ export interface Props {
   title: string;
   description: string;
   publishedTime: string;
+  publishedLabel?: string;
   modifiedTime?: string;
   author: string;
   authorTitle?: string;
@@ -36,6 +37,7 @@ const {
   title = '',
   description = '',
   publishedTime = '',
+  publishedLabel,
   modifiedTime,
   author = 'HearingAcademy Editorial Team',
   authorTitle = 'Hearing Specialist',
@@ -100,6 +102,8 @@ const publishedIso = pubDate ? pubDate.toISOString() : '';
 const publishedDisplay = pubDate
   ? pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   : '';
+
+const publishedText = publishedLabel || publishedDisplay;
 
 const productLd = {
   '@context': 'https://schema.org',
@@ -182,8 +186,8 @@ const breadcrumbLd = {
 
           <div class="review-meta">
             <span class="category">Reviews</span>
-            {publishedDisplay && (
-              <time datetime={publishedIso || (publishedTime as any)}>{publishedDisplay}</time>
+            {publishedText && (
+              <time datetime={publishedIso || (publishedTime as any)}>{publishedText}</time>
             )}
           </div>
 
