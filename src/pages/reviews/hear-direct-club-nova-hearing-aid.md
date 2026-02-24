@@ -15,6 +15,8 @@ ratingValue: 4.0
 image: /images/brands/hear-direct-club/heardirectclub-main-600.png
 productImage: /images/brands/hear-direct-club/heardirectclub-main-600.png
 imageAlt: Hear Direct Club's Nova Hearing Aid
+ctaHref: https://heardirectclub.com/products/nova?utm_source=hearingacademy&utm_medium=referral&utm_campaign=review&utm_term=hearingacademy
+ctaLabel: Check price & availability
 ---
 
 # Hear Direct Club's Nova Hearing Aid Review — Worth the Hype?

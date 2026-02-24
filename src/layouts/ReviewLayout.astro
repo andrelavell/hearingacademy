@@ -14,6 +14,9 @@ export interface Props {
   image?: string;
   imageAlt?: string;
 
+  ctaHref?: string;
+  ctaLabel?: string;
+
   // Product / Review specifics
   productName: string;
   brandName: string;
@@ -46,7 +49,9 @@ const {
   currency = 'USD',
   ratingValue = 4.5,
   ratingCount = 1,
-  priceNote = 'Free delivery · 100-day returns'
+  priceNote = 'Free delivery · 100-day returns',
+  ctaHref,
+  ctaLabel
 } = fm as Partial<Props>;
 
 // Debug: log incoming props during dev to verify frontmatter values
@@ -227,6 +232,18 @@ const breadcrumbLd = {
 
           <div class="review-body">
             <slot />
+            {ctaHref && ctaLabel && (
+              <div class="review-cta">
+                <a
+                  class="review-cta-btn"
+                  href={ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  {ctaLabel}
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -380,6 +397,34 @@ const breadcrumbLd = {
     .review-body ul, .review-body ol { margin-bottom: var(--space-4); padding-left: 1.25rem; }
     .review-body blockquote { border-left: 4px solid var(--color-primary); padding: var(--space-4) var(--space-6); margin: var(--space-6) 0; background: var(--color-background-light); font-style: italic; border-radius: 0 8px 8px 0; }
 
+    .review-cta {
+      margin-top: var(--space-7);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: center;
+    }
+
+    .review-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3) var(--space-5);
+      border-radius: 10px;
+      font-weight: var(--fw-semibold);
+      text-decoration: none;
+      border: 2px solid transparent;
+      background: var(--color-primary);
+      color: white;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .review-cta-btn:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.3);
+    }
+
     /* Full-bleed responsive figure inside markdown */
     .fullbleed-figure {
       margin: var(--space-7) 0;
@@ -429,6 +474,8 @@ const breadcrumbLd = {
         text-align: center;
         background: transparent;
       }
+
+      .review-cta-btn { width: 100%; }
     }
   </style>
 </BaseLayout>
